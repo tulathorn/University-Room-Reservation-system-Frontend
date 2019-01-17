@@ -8,7 +8,7 @@ import styled from "styled-components";
 const bgImage = require('../Pictures/bgLogin.png');
 const bgStyle = {
   width: '100%',
-  height: '1024px',
+  height: '912px',
   backgroundImage: `url(${bgImage})`,
   backgroundSize: 'cover'
 };
