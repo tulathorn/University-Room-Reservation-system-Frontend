@@ -13,24 +13,76 @@ const bgStyle = {
   backgroundSize: 'cover'
 };
 
+const bgColor = {
+  backgroundColor: 'white'
+};
+
+const text1Style = {
+  color: 'white',
+  textAlign: 'right'
+};
+
+const text2Style = {
+  color: 'white',
+  textAlign: 'center'
+};
+
 class LoginView extends Component {
   render() {
     return(
-      //bg
+
       <div className="bgComponent" style={bgStyle} >
-        <h1 align="center">.....</h1>
+
         <div class="container">
-          <div class="row">
-            <div class="col-sm">
-              <LogoImg src={require("../Pictures/logo.png")} alt=""/>
-            </div>
-            <div class="col-sm">
-              <div class="row">topic</div>
-              <div class="row">username</div>
-              <div class="row">password</div>
-              <div class="row">button</div>
+          <div class="row justify-content-center">
+            <div class="col-sm" >
+              <p style={text1Style}>Admin</p>
             </div>
           </div>
+          <div class="row justify-content-center">
+            <div class="col-sm-auto" >
+              <LogoImg src={require("../Pictures/logo.png")} alt=""/>
+            </div>
+
+
+              <div style={bgColor} class="col-sm" >
+                <div class="row"><h1 align="center">Please enter KMUTT username and password. Click on the Login button to continue.</h1></div>
+
+                <div class="row">
+                  <div class="form-group">
+                    <label for="exampleFormControlInput1">Username</label>
+                    <input type="username" class="form-control" id="usernameInput" placeholder="username"/>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">Password</label>
+                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password"/>
+                  </div>
+                </div>
+
+                <div class="row">
+
+
+                  <div class="row">
+                    <div class="col-sm"><button type="submit" class="btn btn-primary">Submit</button></div>
+                    <div class="col-sm"><p><u>Help</u></p></div>
+                  </div>
+
+                </div>
+
+
+              </div>
+
+          </div>
+
+          <div class="row justify-content-center">
+            <div class="col-sm" >
+              <br/><center><p style={text2Style}>English Language / ภาษาไทย</p></center>
+            </div>
+          </div>
+
         </div>
 
       </div>
