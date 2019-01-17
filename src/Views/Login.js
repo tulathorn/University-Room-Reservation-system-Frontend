@@ -1,6 +1,6 @@
-import React, { Component } from "react";
-import "../Styles/bootstrap/bootstrap.min.css";
-import styled from "styled-components";
+import React, { Component } from 'react'
+import '../Styles/bootstrap/bootstrap.min.css'
+import styled, { createGlobalStyle } from 'styled-components'
 
  const LogoImg = styled.img`
  width: '88%';
@@ -10,8 +10,8 @@ const bgStyle = {
   width: '1368px',
   height: '912px',
   backgroundImage: `url(${bgImage})`,
-  backgroundSize: 'cover'
-};
+  backgroundSize: 'absolute'
+}
 
 const bgColor = {
   backgroundColor: 'white'
@@ -90,4 +90,4 @@ class LoginView extends Component {
   }
 }
 
-export default LoginView;
+export default LoginView
