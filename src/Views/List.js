@@ -1,8 +1,14 @@
 import React, { Component } from 'react'
+import Navbar from '../Components/Navbar'
 
 class ListView extends Component {
   render() {
-    return <div>List Call</div>
+    return (
+      <div>
+        <Navbar />
+        List Call
+      </div>
+    )
   }
 }
 

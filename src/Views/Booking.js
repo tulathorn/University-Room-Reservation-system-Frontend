@@ -1,8 +1,14 @@
 import React, { Component } from 'react'
+import Navbar from '../Components/Navbar'
 
 class BookingView extends Component {
   render() {
-    return <div>Booking Call</div>
+    return (
+      <div>
+        <Navbar />
+        Booking
+      </div>
+    )
   }
 }
 
