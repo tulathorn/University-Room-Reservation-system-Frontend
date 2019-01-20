@@ -153,7 +153,7 @@ class MainView extends Component {
 
 
               <center><button type="button" class="btn btn-outline-dark">Search</button></center>
-
+              <center><a href="/search">Go to list page(Temporary)</a></center>
         </div>
       </div>
     )
