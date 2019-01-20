@@ -1,9 +1,12 @@
 import React, { Component } from 'react'
+import Navbar from '../Components/Navbar'
 
 class ContactView extends Component {
   render() {
     return (
+      <div><Navbar />
       <div className="container">
+      
         <div className="row">
           <div className="col-8 offset-2">
             <div className="card">
@@ -56,6 +59,7 @@ class ContactView extends Component {
             </div>
           </div>
         </div>
+      </div>
       </div>
     )
   }

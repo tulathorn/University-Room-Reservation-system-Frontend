@@ -74,8 +74,9 @@ class Navbar extends React.Component {
 
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav mr-auto">
-            <NavItem path="/" name="Home" />
-            <NavItem path="/contact" name="Contact" />
+            <NavItem path="/" name="Find Room" />
+            <NavItem path="/history" name="History" />
+            <NavItem path="/contact" name="Help" />
             <NavItem path="/page3" name="Disabled" disabled="true" />
 
             <NavDropdown name="Dropdown">
@@ -91,15 +92,19 @@ class Navbar extends React.Component {
               </a>
             </NavDropdown>
           </ul>
+          
           <form className="form-inline my-2 my-lg-0">
-            <input
+            <ul className="navbar-nav mr-auto">
+              <NavItem name="580705034XX" disabled="true" />
+            </ul>
+            {/* <input
               className="form-control mr-sm-2"
               type="search"
               placeholder="Search"
               aria-label="Search"
-            />
-            <button className="btn btn-outline-success my-2 my-sm-0" type="submit">
-              Search
+            /> */}
+            <button class="btn btn-sm btn-outline-danger" type="submit">
+              Logout
             </button>
           </form>
         </div>
