@@ -1,4 +1,5 @@
 import React from 'react'
+import '../Styles/bootstrap/bootstrap.min.css'
 
 const NavItem = props => {
   const pageURI = window.location.pathname + window.location.search
@@ -58,7 +59,7 @@ class Navbar extends React.Component {
     return (
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
         <a className="navbar-brand" href="/">
-          Navbar
+          <img src={require("../Pictures/logo.png")} width="40" height="40" alt=""/>
         </a>
         <button
           className="navbar-toggler"
