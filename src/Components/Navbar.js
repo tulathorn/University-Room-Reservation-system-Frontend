@@ -78,19 +78,19 @@ class Navbar extends React.Component {
             <NavItem path="/" name="Find Room" />
             <NavItem path="/curhistory" name="History" />
             <NavItem path="/contact" name="Help" />
-            <NavItem path="/page3" name="Disabled" disabled="true" />
+            {/* <NavItem path="/page3" name="Disabled" disabled="true" /> */}
 
-            <NavDropdown name="Dropdown">
+            <NavDropdown name="Languages">
               <a className="dropdown-item" href="/">
-                Action
+                ภาษาไทย
               </a>
               <a className="dropdown-item" href="/">
-                Another action
+                English
               </a>
-              <div className="dropdown-divider" />
+              {/* <div className="dropdown-divider" />
               <a className="dropdown-item" href="/">
                 Something else here
-              </a>
+              </a> */}
             </NavDropdown>
           </ul>
           
