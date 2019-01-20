@@ -35,9 +35,9 @@ class BookingView extends Component {
               </div>
               <div class="row">
                 <p><b>Amenity : </b></p>
-                <p>From 13:30 to 17:30</p>
-              </div>
                 
+              </div>
+              
                 
             </div>
             <div class="col-1">
