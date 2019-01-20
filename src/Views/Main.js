@@ -11,9 +11,8 @@ class MainView extends Component {
       <div>
         <Navbar />
         <div className="container">
-
-              <br/><center><Title>Welcome to University Room Reservation System</Title></center>
-
+          <br/><center><Title>Welcome to University Room Reservation System</Title></center>
+          <div >
 
         </div>
       </div>
