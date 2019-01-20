@@ -5,6 +5,7 @@ import Navbar from '../Components/Navbar'
 const textColor = {
   color: 'white'
 }
+
 const Title = styled.h1`
   color: #1F384B;
 `
@@ -36,14 +37,14 @@ class MainView extends Component {
                <div class="jumbotron" style={jumbotronStyle}>
                   <Title_1>Find a Room</Title_1>
 
-                  <hr class="my-4"/>
+                  <hr class="my-4" color="white"/>
                   <Title_2>Info :</Title_2>
                   <form>
                     <div class="form-row">
                       <div class="form-group col-md-4">
                         <label class="my-1 mr-2" for="inlineFormCustomSelectPref" style={textColor}>Date</label>
                         <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
-                          <option selected>Choose...</option>
+                          <option selected>DD/MM/YY</option>
                           <option value="1">One</option>
                           <option value="2">Two</option>
                           <option value="3">Three</option>
@@ -52,7 +53,7 @@ class MainView extends Component {
                       <div class="form-group col-md-4">
                         <label class="my-1 mr-2" for="inlineFormCustomSelectPref" style={textColor}>Building</label>
                         <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
-                          <option selected>Choose...</option>
+                          <option selected>Building Name</option>
                           <option value="1">One</option>
                           <option value="2">Two</option>
                           <option value="3">Three</option>
@@ -61,7 +62,7 @@ class MainView extends Component {
                       <div class="form-group col-md-4">
                         <label class="my-1 mr-2" for="inlineFormCustomSelectPref" style={textColor}>Size</label>
                         <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
-                          <option selected>Choose...</option>
+                          <option selected>Room Size</option>
                           <option value="1">One</option>
                           <option value="2">Two</option>
                           <option value="3">Three</option>
@@ -70,7 +71,7 @@ class MainView extends Component {
                     </div>
                   </form>
 
-                <hr class="my-4"/>
+                <hr class="my-4" color="white"/>
                 <Title_2>Time :</Title_2>
                   <form class="form-inline">
                     <label class="my-1 mr-2" for="inlineFormCustomSelectPref" style={textColor}>From</label>
@@ -103,7 +104,7 @@ class MainView extends Component {
                     </select>
                   </form>
 
-                <hr class="my-4"/>
+                <hr class="my-4" color="white"/>
                 <Title_2>Filters :</Title_2>
                   <div class="form-row">
 
@@ -111,11 +112,11 @@ class MainView extends Component {
                       <div class="form-check">
                         <input class="form-check-input" type="checkbox" value="" id="defaultCheck1"/>
                         <label class="form-check-label" for="defaultCheck1" style={textColor}>
-                          Default checkbox
+                          Teacher Computer
                         </label><br/>
                         <input class="form-check-input" type="checkbox" value="" id="defaultCheck1"/>
                         <label class="form-check-label" for="defaultCheck1" style={textColor}>
-                          Default checkbox
+                          Student Computer
                         </label>
                       </div>
                     </div>
@@ -124,11 +125,11 @@ class MainView extends Component {
                       <div class="form-check">
                         <input class="form-check-input" type="checkbox" value="" id="defaultCheck1"/>
                         <label class="form-check-label" for="defaultCheck1" style={textColor}>
-                          Default checkbox
+                          Projector
                         </label><br/>
                         <input class="form-check-input" type="checkbox" value="" id="defaultCheck1"/>
                         <label class="form-check-label" for="defaultCheck1" style={textColor}>
-                          Default checkbox
+                          White Board
                         </label>
                       </div>
                     </div>
@@ -137,11 +138,11 @@ class MainView extends Component {
                       <div class="form-check">
                         <input class="form-check-input" type="checkbox" value="" id="defaultCheck1"/>
                         <label class="form-check-label" for="defaultCheck1" style={textColor}>
-                          Default checkbox
+                          Air Conditioner
                         </label><br/>
                         <input class="form-check-input" type="checkbox" value="" id="defaultCheck1"/>
                         <label class="form-check-label" for="defaultCheck1" style={textColor}>
-                          Default checkbox
+                          Visualizer
                         </label>
                       </div>
                     </div>
