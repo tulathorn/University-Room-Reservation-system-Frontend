@@ -6,7 +6,8 @@ import MainView from './Views/Main'
 import LoginView from './Views/Login'
 import ListView from './Views/List'
 import BookingView from './Views/Booking'
-import HistoryView from './Views/History'
+import PreHistoryView from './Views/PreHistory'
+import CurHistoryView from './Views/CurHistory'
 import ContactView from './Views/Contact'
 
 class App extends Component {
@@ -18,7 +19,8 @@ class App extends Component {
           <Route path="/login" component={LoginView} />{' '}
           <Route path="/search" component={ListView} />{' '}
           <Route path="/booking" component={BookingView} />{' '}
-          <Route path="/history" component={HistoryView} />{' '}
+          <Route path="/prehistory" component={PreHistoryView} />{' '}
+          <Route path="/curhistory" component={CurHistoryView} />{' '}
           <Route path="/Contact" component={ContactView} />{' '}
         </Switch>
       </BrowserRouter>
