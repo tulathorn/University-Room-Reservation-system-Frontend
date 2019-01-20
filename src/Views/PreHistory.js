@@ -11,10 +11,10 @@ class HistoryView extends Component {
           <br/>
           <div class="row">
             <div class="col-6">
-              <button type="button" class="btn btn-outline-danger btn-lg btn-block" disabled>Previous Booking</button>
+              <button type="button" class="btn btn-danger btn-lg btn-block" disabled>Previous Booking</button>
             </div>
             <div class="col-6">
-              <a href="/curhistory" class="btn btn-danger btn-lg btn-block" disabled>Current Booking</a>
+              <a href="/curhistory" class="btn btn-outline-danger btn-lg btn-block" disabled>Current Booking</a>
             </div>
           <br/>
           </div>

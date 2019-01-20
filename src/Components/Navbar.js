@@ -76,7 +76,7 @@ class Navbar extends React.Component {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav mr-auto">
             <NavItem path="/" name="Find Room" />
-            <NavItem path="/prehistory" name="History" />
+            <NavItem path="/curhistory" name="History" />
             <NavItem path="/contact" name="Help" />
             <NavItem path="/page3" name="Disabled" disabled="true" />
 
