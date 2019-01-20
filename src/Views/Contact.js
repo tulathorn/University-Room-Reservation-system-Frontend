@@ -1,22 +1,30 @@
 import React, { Component } from 'react'
 import Navbar from '../Components/Navbar'
+import styled, { createGlobalStyle } from 'styled-components'
+
+const languageLink = {
+  color: 'white'
+}
+const bgColor = {
+  backgroundColor: '#1F384B'
+}
 
 class ContactView extends Component {
   render() {
     return (
-      <div><Navbar />
+      <div style={bgColor}><Navbar />
       <div className="container">
-      
+        <br/><br/><br/>
         <div className="row">
           <div className="col-8 offset-2">
             <div className="card">
               <div className="card-body">
-                <button type="submit" className="btn btn-primary">
+                <button type="button" class="btn btn-outline-dark">
                   Back
                 </button>
                 <div className="row">
                   <div className="col-12" style={{ textAlign: 'center' }}>
-                    <p>Logo</p>
+                    <img src={require("../Pictures/logo.png")} width="150" height="150" alt=""/>
                     <h5 className="card-tile">Contact us</h5>
                   </div>
                 </div>
@@ -49,9 +57,9 @@ class ContactView extends Component {
                           rows="5"
                         />
                       </div>
-                      <button type="submit" className="btn btn-primary">
+                      <center><button type="button" class="btn btn-outline-dark">
                         Submit
-                      </button>
+                      </button></center>
                     </form>
                   </div>
                 </div>
@@ -59,6 +67,11 @@ class ContactView extends Component {
             </div>
           </div>
         </div>
+        <center>
+          <button type="button" class="btn btn-link" style={languageLink}>English</button>
+          <button type="button" class="btn btn-link" style={languageLink}>ภาษาไทย</button>
+          <br/><br/><br/>
+        </center>
       </div>
       </div>
     )
