@@ -41,7 +41,7 @@ class LoginView extends Component {
           </div>
           <div class="row justify-content-center">
             <div class="col-sm-auto" >
-              <LogoImg src={require("../Pictures/logo.png")} alt=""/>
+              <LogoImg src={require("../Pictures/logoBig.png")} alt=""/>
             </div>
 
 
