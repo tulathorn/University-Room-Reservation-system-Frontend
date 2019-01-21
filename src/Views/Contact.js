@@ -50,10 +50,11 @@ class ContactView extends Component {
                         />
                       </div>
                       <div className="form-group">
-                        <label for="exampleFormControlTextarea1">Title</label>
+                        <label for="exampleFormControlTextarea1">Details</label>
                         <textarea
                           className="form-control"
                           id="exampleFormControlTextarea1"
+                          placeholder="Insert details, question, problem..."
                           rows="5"
                         />
                       </div>
