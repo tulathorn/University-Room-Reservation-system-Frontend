@@ -1,6 +1,11 @@
 import React from 'react'
 import '../Styles/bootstrap/bootstrap.min.css'
 
+const navColor = {
+  backgroundColor: '#1F384B'
+}
+
+
 const NavItem = props => {
   const pageURI = window.location.pathname + window.location.search
   const liClassName = props.path === pageURI ? 'nav-item active' : 'nav-item'
@@ -93,7 +98,7 @@ class Navbar extends React.Component {
               </a> */}
             </NavDropdown>
           </ul>
-          
+
           <form className="form-inline my-2 my-lg-0">
             <ul className="navbar-nav mr-auto">
               <NavItem name="580705034XX" disabled="true" />
