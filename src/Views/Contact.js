@@ -46,15 +46,16 @@ class ContactView extends Component {
                           type="text"
                           className="form-control"
                           id="exampleFormControlInput2"
-                          placeholder="place yor title here"
+                          placeholder="Place yor title here"
                         />
                       </div>
                       <div className="form-group">
-                        <label for="exampleFormControlTextarea1">Title</label>
+                        <label for="exampleFormControlTextarea1">Detail</label>
                         <textarea
                           className="form-control"
                           id="exampleFormControlTextarea1"
                           rows="5"
+                          placeholder="Please type your comment..."
                         />
                       </div>
                       <center><button type="button" class="btn btn-outline-dark">
