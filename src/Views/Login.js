@@ -17,7 +17,6 @@ const cardColor = {
 const text1Style = {
   color: 'white',
   textAlign: 'right',
-  arign: 'right'
 };
 
 const text2Style = {
@@ -69,7 +68,7 @@ class LoginView extends Component {
               <br/>
               <div style={cardColor} class="jumbotron">
 
-                <h3 align="left">
+                <h3 align="left" style={helpLink}>
                   Please enter KMUTT username and password. <br/>Click on the Login button to continue.
                 </h3>
 
@@ -77,13 +76,13 @@ class LoginView extends Component {
 
                 <form>
                   <div class="form-group">
-                    <label for="exampleInputEmail1">Username</label>
+                    <label for="exampleInputEmail1" style={helpLink}>Username</label>
                     <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter username"/>
                     <small id="emailHelp" class="form-text text-muted">Enter your KMUTT student ID or username.</small>
                   </div>
 
                   <div class="form-group">
-                    <label for="exampleInputPassword1">Password</label>
+                    <label for="exampleInputPassword1" style={helpLink}>Password</label>
                     <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password"/>
                   </div>
                 </form>
