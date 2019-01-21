@@ -9,6 +9,7 @@ import BookingView from './Views/Booking'
 import PreHistoryView from './Views/PreHistory'
 import CurHistoryView from './Views/CurHistory'
 import ContactView from './Views/Contact'
+import AdLoginView from './Views/ad_Login'
 
 class App extends Component {
   render() {
@@ -22,6 +23,7 @@ class App extends Component {
           <Route path="/prehistory" component={PreHistoryView} />{' '}
           <Route path="/curhistory" component={CurHistoryView} />{' '}
           <Route path="/Contact" component={ContactView} />{' '}
+          <Route path="/ad_login" component={AdLoginView} />{' '}
         </Switch>
       </BrowserRouter>
     )

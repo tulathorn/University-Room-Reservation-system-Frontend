@@ -45,6 +45,11 @@ class HistoryView extends Component {
                 </div>
               </div>
               <div class="col-3">
+
+                
+
+
+
                 <button type="button" class="btn btn-outline-light btn-lg btn-block">Request Pin Via Email</button>
                 <button type="button" class="btn btn-outline-light btn-lg btn-block">Request Pin Via Phone</button>
                 <button type="button" class="btn btn-danger btn-lg btn-block">Cancel the booking</button>
