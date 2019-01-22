@@ -9,6 +9,17 @@ import BookingView from './Views/Booking'
 import PreHistoryView from './Views/PreHistory'
 import CurHistoryView from './Views/CurHistory'
 import ContactView from './Views/Contact'
+import AdLoginView from './Views/ad_Login'
+import AdSearchView from './Views/ad_Search'
+import AdAddRoomView from './Views/ad_Search'
+import AdBookingView from './Views/ad_Search'
+import AdBookingTimatableView from './Views/ad_Search'
+import AdCurHistoryView from './Views/ad_Search'
+import AdEditRoomView from './Views/ad_Search'
+import AdPreHistoryView from './Views/ad_Search'
+import AdReplyView from './Views/ad_Search'
+import AdRoomInfoView from './Views/ad_Search'
+import AdSupportView from './Views/ad_Search'
 
 class App extends Component {
   render() {
@@ -22,6 +33,19 @@ class App extends Component {
           <Route path="/prehistory" component={PreHistoryView} />{' '}
           <Route path="/curhistory" component={CurHistoryView} />{' '}
           <Route path="/Contact" component={ContactView} />{' '}
+          <Route path="/ad_login" component={AdLoginView} />{' '}
+          <Route path="/ad_search" component={AdSearchView} />{' '}
+          <Route path="/ad_room_info" component={AdRoomInfoView} />{' '}
+          <Route path="/ad_add_room" component={AdAddRoomView} />{' '}
+          <Route path="/ad_edit_room" component={AdEditRoomView} />{' '}
+          <Route path="/ad_cur_history" component={AdCurHistoryView} />{' '}
+          <Route path="/ad_pre_history" component={AdPreHistoryView} />{' '}
+          <Route path="/ad_reply" component={AdReplyView} />{' '}
+          <Route path="/ad_support" component={AdSupportView} />{' '}
+          <Route path="/ad_booking" component={AdBookingView} />{' '}
+          <Route path="/ad_timetable" component={AdBookingTimatableView} />{' '}
+
+
         </Switch>
       </BrowserRouter>
     )

@@ -48,7 +48,7 @@ class LoginView extends Component {
             <div class="col-12 col-md-11">
             </div>
             <div class="col-6 col-md-1">
-              <button type="button" class="btn btn-link" style={text1Style}>Admin</button>
+              <button type="button" class="btn btn-link" style={text1Style}>User</button>
             </div>
           </div>
 
@@ -69,7 +69,7 @@ class LoginView extends Component {
               <div style={cardColor} class="jumbotron">
 
                 <h3 align="left" style={helpLink}>
-                  Please enter KMUTT username and password. <br/>Click on the Login button to continue.
+                  Administrator Login.
                 </h3>
 
                 <br/>
@@ -78,7 +78,6 @@ class LoginView extends Component {
                   <div class="form-group">
                     <label for="exampleInputEmail1" style={helpLink}>Username</label>
                     <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter username"/>
-                    <small id="emailHelp" class="form-text text-muted">Enter your KMUTT student ID or username.</small>
                   </div>
 
                   <div class="form-group">
@@ -90,7 +89,7 @@ class LoginView extends Component {
 
 
                 <button type="button" class="btn btn-outline-danger">Login</button>
-                <button type="button" class="btn btn-link" style={helpLink}><u>Help</u></button>
+
 
               </div>
             </div>
