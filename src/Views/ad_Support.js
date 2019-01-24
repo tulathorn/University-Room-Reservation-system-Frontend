@@ -9,7 +9,9 @@ const Title = styled.h1`
 const jumbotronStyle = {
   width: 'auto',
   height: 'auto',
-  backgroundColor: '#203C50'
+  backgroundColor: '#E06663',
+  border: '10px',
+  borderColor: '#1F384B'
 }
 
 class AdSupportView extends Component {
@@ -17,7 +19,34 @@ class AdSupportView extends Component {
     return (
       <div>
         <div className="container">
-          <br/><center><Title>Support</Title></center><br/>
+          <br/><Title>Support</Title><br/>
+          <div class="card">
+
+            <h5 class="card-header">
+              <div class="row">
+                <div class="col-6">
+                  Email
+                </div>
+                <div class="col-6" align="right">
+                  Time
+                </div>
+              </div>
+            </h5>
+
+            <div class="card-body">
+             <h5 class="card-title">Title</h5>
+             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+
+             <div class="row">
+               <div class="col-12 col-md-11">
+               </div>
+               <div class="col-6 col-md-1">
+                 <a href="#" class="btn btn-outline-dark">Reply</a>
+               </div>
+              </div>
+            </div>
+
+          </div>
         </div>
       </div>
     )
