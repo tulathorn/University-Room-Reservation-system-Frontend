@@ -36,7 +36,7 @@ const helpLink = {
   color: '#1F384B'
 }
 
-class LoginView extends Component {
+class AdLoginView extends Component {
   render() {
     return(
 
@@ -109,4 +109,4 @@ class LoginView extends Component {
   }
 }
 
-export default LoginView
+export default AdLoginView

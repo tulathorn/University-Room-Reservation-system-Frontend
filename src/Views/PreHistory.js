@@ -7,7 +7,7 @@ const jumbotronStyle = {
   backgroundColor: '#203C50'
 }
 
-class HistoryView extends Component {
+class PreHistoryView extends Component {
   render() {
     return (
       <div>
@@ -57,4 +57,4 @@ class HistoryView extends Component {
   }
 }
 
-export default HistoryView
+export default PreHistoryView
