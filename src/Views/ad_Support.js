@@ -6,14 +6,6 @@ const Title = styled.h1`
   color: #1F384B;
 `
 
-const jumbotronStyle = {
-  width: 'auto',
-  height: 'auto',
-  backgroundColor: '#E06663',
-  border: '10px',
-  borderColor: '#1F384B'
-}
-
 class AdSupportView extends Component {
   render() {
     return (
