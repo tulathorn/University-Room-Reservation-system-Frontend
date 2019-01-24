@@ -44,8 +44,6 @@ class App extends Component {
           <Route path="/ad_support" component={AdSupportView} />{' '}
           <Route path="/ad_booking" component={AdBookingView} />{' '}
           <Route path="/ad_timetable" component={AdBookingTimatableView} />{' '}
-
-
         </Switch>
       </BrowserRouter>
     )
