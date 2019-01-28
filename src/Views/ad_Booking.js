@@ -32,7 +32,7 @@ class AdBookingView extends Component {
                   <p>Room number : CPE1121</p>
                 </div>
               </div>
-              
+
               <div class="row">
 
                 <div class="col-3">
