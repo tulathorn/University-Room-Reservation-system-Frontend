@@ -35,7 +35,41 @@ class BookingView extends Component {
               </div>
               <div class="row">
                 <p><b>Amenity : </b></p>
-                
+              </div>
+              <div class="row">
+                <div class="col-6">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1"/>
+                    <label class="form-check-label" for="defaultCheck1">
+                      Teacher Computer
+                    </label><br/>
+                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1"/>
+                    <label class="form-check-label" for="defaultCheck1">
+                      Student Computer
+                    </label><br/>
+                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1"/>
+                    <label class="form-check-label" for="defaultCheck1">
+                      Air Conditioner
+                    </label>
+                  </div>
+                </div>
+
+                <div class="col-6">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1"/>
+                    <label class="form-check-label" for="defaultCheck1">
+                      Projector
+                    </label><br/>
+                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1"/>
+                    <label class="form-check-label" for="defaultCheck1">
+                      White Board
+                    </label><br/>
+                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1"/>
+                    <label class="form-check-label" for="defaultCheck1">
+                      Visualizer
+                    </label>
+                  </div>
+                </div>  
               </div>
               
                 

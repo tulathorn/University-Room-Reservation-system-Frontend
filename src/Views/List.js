@@ -42,7 +42,7 @@ class ListView extends Component {
                   <img src={require('../Pictures/testclassroom.jpg')} height="150" alt="" />
                 </center>
               </div>
-              <div className="col-12 col-md-5">
+              <div className="col-12 col-md-8">
                 <div className="row">
                   <h4>CPE1121</h4>
                 </div>
@@ -64,17 +64,6 @@ class ListView extends Component {
                   </p>
                   <p>70 Peoples</p>
                 </div>
-              </div>
-              <div className="col-12 col-md-3">
-                <button type="button" className="btn btn-danger btn-lg btn-block" disabled>
-                  Not Completed
-                </button>
-                <button type="button" className="btn btn-info btn-lg btn-block" disabled>
-                  Completed
-                </button>
-                <button type="button" className="btn btn-warning btn-lg btn-block" disabled>
-                  Canceled
-                </button>
               </div>
             </div>
           </div>
