@@ -80,13 +80,14 @@ class AdBookingView extends Component {
                   <div className="form-group">
                     <div class="row">
                       <div class="col-6">
-                      </div>
-                    </div>
-
-
-
-
-                    <label for="info1">Name</label>
+                      <label for="info1">ID</label>
+                    <input
+                      type="text"
+                      className="form-control"
+                      id="info1"
+                      placeholder="Username ID"
+                    />
+                      <label for="info1">Name</label>
                     <input
                       type="text"
                       className="form-control"
@@ -100,7 +101,10 @@ class AdBookingView extends Component {
                       id="info2"
                       placeholder="Lastname"
                     />
-                    <label for="info3">Email Address</label>
+                    
+                      </div>
+                      <div class="col-6">
+                      <label for="info3">Email Address</label>
                     <input
                       type="email"
                       className="form-control"
@@ -114,6 +118,9 @@ class AdBookingView extends Component {
                       id="info4"
                       placeholder="Phone Number"
                       />
+                      </div>
+                    </div>
+
                     <label for="info5">Purpose</label>
                     <textarea
                       className="form-control"
@@ -122,6 +129,54 @@ class AdBookingView extends Component {
                       rows="5"
                     />
                   </div>
+                  <label class="radio-inline"><input type="radio" name="optradio" checked/>Normal</label>
+                  <label class="radio-inline"><input type="radio" name="optradio"/>Recurring</label>
+
+
+                  <div class="form-group col-md-4">
+                        <label class="my-1 mr-2" for="inlineFormCustomSelectPref" >Date</label>
+                        <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
+                          <option selected>DD/MM/YY</option>
+                          <option value="1">One</option>
+                          <option value="2">Two</option>
+                          <option value="3">Three</option>
+                        </select>
+                      </div>
+
+                      <h2>Time :</h2>
+                  <form class="form-inline">
+                    <label class="my-1 mr-2" for="inlineFormCustomSelectPref">From</label>
+                    <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
+                      <option selected>Choose...</option>
+                      <option value="1">One</option>
+                      <option value="2">Two</option>
+                      <option value="3">Three</option>
+                    </select>
+                    <label class="my-1 mr-2" for="inlineFormCustomSelectPref">:</label>
+                    <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
+                      <option selected>Choose...</option>
+                      <option value="1">One</option>
+                      <option value="2">Two</option>
+                      <option value="3">Three</option>
+                    </select>
+                    <label class="my-1 mr-2" for="inlineFormCustomSelectPref">To</label>
+                    <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
+                      <option selected>Choose...</option>
+                      <option value="1">One</option>
+                      <option value="2">Two</option>
+                      <option value="3">Three</option>
+                    </select>
+                    <label class="my-1 mr-2" for="inlineFormCustomSelectPref">:</label>
+                    <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
+                      <option selected>Choose...</option>
+                      <option value="1">One</option>
+                      <option value="2">Two</option>
+                      <option value="3">Three</option>
+                    </select>
+                  </form>
+
+
+                  <br/>
                   <button type="submit" className="btn btn-primary">
                     Submit
                   </button>
