@@ -32,7 +32,7 @@ class App extends Component {
           <Route path="/booking" component={BookingView} />{' '}
           <Route path="/prehistory" component={PreHistoryView} />{' '}
           <Route path="/curhistory" component={CurHistoryView} />{' '}
-          <Route path="/Contact" component={ContactView} />{' '}
+          <Route path="/contact" component={ContactView} />{' '}
           <Route path="/ad_login" component={AdLoginView} />{' '}
           <Route path="/ad_search" component={AdSearchView} />{' '}
           <Route path="/ad_room_info" component={AdRoomInfoView} />{' '}

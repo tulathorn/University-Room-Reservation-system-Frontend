@@ -88,7 +88,7 @@ class AdLoginView extends Component {
                 <br/>
 
 
-                <button type="button" class="btn btn-outline-danger">Login</button>
+                <a href="/ad_search" class="btn btn-outline-danger">Login</a>
 
 
               </div>

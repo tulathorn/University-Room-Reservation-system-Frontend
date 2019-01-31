@@ -88,9 +88,8 @@ class LoginView extends Component {
                 </form>
                 <br/>
 
-
-                <button type="button" class="btn btn-outline-danger">Login</button>
-                <button type="button" class="btn btn-link" style={helpLink}><u>Help</u></button>
+                <a href="/" class="btn btn-outline-danger">Login</a>
+                <a href="/contact" >Help</a>
 
               </div>
             </div>

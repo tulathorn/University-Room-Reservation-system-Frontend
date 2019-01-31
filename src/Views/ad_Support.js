@@ -34,7 +34,8 @@ class AdSupportView extends Component {
                <div class="col-12 col-md-11">
                </div>
                <div class="col-6 col-md-1">
-                 <a href="#" class="btn btn-outline-dark">Reply</a>
+                <a href="/ad_reply" class="btn btn-outline-dark">Reply</a>
+                 
                </div>
               </div>
             </div>
