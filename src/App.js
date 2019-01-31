@@ -38,8 +38,8 @@ class App extends Component {
           <Route path="/ad_room_info" component={AdRoomInfoView} />{' '}
           <Route path="/ad_add_room" component={AdAddRoomView} />{' '}
           <Route path="/ad_edit_room" component={AdEditRoomView} />{' '}
-          <Route path="/ad_cur_history" component={AdCurHistoryView} />{' '}
-          <Route path="/ad_pre_history" component={AdPreHistoryView} />{' '}
+          <Route path="/ad_curhistory" component={AdCurHistoryView} />{' '}
+          <Route path="/ad_prehistory" component={AdPreHistoryView} />{' '}
           <Route path="/ad_reply" component={AdReplyView} />{' '}
           <Route path="/ad_support" component={AdSupportView} />{' '}
           <Route path="/ad_booking" component={AdBookingView} />{' '}

@@ -19,7 +19,7 @@ class AdPreHistoryView extends Component {
               <button type="button" class="btn btn-danger btn-lg btn-block" disabled>Previous Booking</button>
             </div>
             <div class="col-6">
-              <a href="/curhistory" class="btn btn-outline-danger btn-lg btn-block">Current Booking</a>
+              <a href="/ad_curhistory" class="btn btn-outline-danger btn-lg btn-block">Current Booking</a>
             </div>
           </div>
           <br/>

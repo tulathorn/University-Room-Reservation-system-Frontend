@@ -63,7 +63,7 @@ class AdNavbar extends React.Component {
   render() {
     return (
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
-        <a className="navbar-brand" href="/">
+        <a className="navbar-brand" href="/ad_search">
           <img src={require("../Pictures/logo.png")} width="40" height="40" alt=""/>
         </a>
         <button
@@ -80,10 +80,10 @@ class AdNavbar extends React.Component {
 
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav mr-auto">
-            <NavItem path="/" name="Admin" />
-            <NavItem path="/curhistory" name="History" />
-            <NavItem path="/contact" name="Help" />
-            {/* <NavItem path="/page3" name="Disabled" disabled="true" /> */}
+            <NavItem path="/ad_search" name="Room List" />
+            <NavItem path="/ad_curhistory" name="History" />
+            <NavItem path="/ad_add_room" name="Add Room" />
+            <NavItem path="/ad_support" name="Support" />
 
             <NavDropdown name="Languages">
               <a className="dropdown-item" href="/">
