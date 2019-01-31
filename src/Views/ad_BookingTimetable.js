@@ -42,7 +42,7 @@ class AdBookingTimatableView extends Component {
                   <p>Unavailable Time</p>
                 </div>
               </div>
-              
+
               <div class="row">
                 <button type="button" class="btn btn-outline-dark">Back</button>
               </div>
