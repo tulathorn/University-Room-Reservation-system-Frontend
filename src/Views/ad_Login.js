@@ -48,7 +48,7 @@ class AdLoginView extends Component {
             <div class="col-12 col-md-11">
             </div>
             <div class="col-6 col-md-1">
-              <button type="button" class="btn btn-link" style={text1Style}>User</button>
+              <a href="/login" style={text1Style}>User</a>
             </div>
           </div>
 
