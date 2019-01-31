@@ -13,7 +13,7 @@ class BookingView extends Component {
       <div>
         <Navbar />
         <div className="container">
-          
+
           <div class="row"><h2>CPE1121</h2></div>
           <div class="row">
             <div class="col-6">
@@ -75,10 +75,10 @@ class BookingView extends Component {
                       Visualizer
                     </label>
                   </div>
-                </div>  
+                </div>
               </div>
             </div>
-            
+
             <div class="col-6">
               <div className="jumbotron text-white" style={jumbotronStyle}>
                 <form action="">
@@ -133,7 +133,7 @@ class BookingView extends Component {
                 </form>
               </div>
 
-              
+
             </div>
           </div>
         </div>
