@@ -77,7 +77,8 @@ class AdRoomInfoView extends Component {
             <div class="col-6">
               <div className="jumbotron text-white" style={jumbotronStyle}>
                 <h3>Booking Calendar</h3>
-                  <a href="https://eonasdan.github.io/bootstrap-datetimepicker/">How to Calendar</a>
+                  <a href="https://eonasdan.github.io/bootstrap-datetimepicker/">How to Calendar</a><br/>
+                  <a href="/ad_timetable">Go to timetable(Temporary)</a>
               
               </div>
 
@@ -89,8 +90,8 @@ class AdRoomInfoView extends Component {
             <div class="col-12">
               <center>
               <button type="button" class="btn btn-outline-dark">Delete</button>
-              <button type="button" class="btn btn-outline-dark">Edit</button>
-              <button type="button" class="btn btn-outline-dark">Book</button></center>
+              <a href="/ad_edit_room" class="btn btn-outline-dark">Edit</a>
+              <a href="/ad_booking" class="btn btn-outline-dark">Book</a></center>
             </div>
           </div>
 

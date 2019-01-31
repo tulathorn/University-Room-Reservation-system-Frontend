@@ -22,6 +22,9 @@ class AdSearchView extends Component {
             </div>
           </div>
         </div>
+        <center>
+            <a href="/ad_room_info">Go to room info(Temporary)</a>
+          </center>
       </div>
     )
   }
