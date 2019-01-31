@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Navbar from '../Components/Navbar'
+import AdNavbar from '../Components/ad_Navbar'
 
 const jumbotronStyle = {
   width: 'auto',
@@ -11,7 +11,7 @@ class AdBookingView extends Component {
   render() {
     return (
       <div>
-        <Navbar />
+        <AdNavbar />
         <div className="container">
 
           <div class="row"><h2>CPE1121</h2></div>

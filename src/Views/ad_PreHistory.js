@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Navbar from '../Components/Navbar'
+import AdNavbar from '../Components/ad_Navbar'
 
 const jumbotronStyle = {
   width: 'auto',
@@ -11,7 +11,7 @@ class AdPreHistoryView extends Component {
   render() {
     return (
       <div>
-        <Navbar />
+        <AdNavbar />
         <div className="container">
           <br/>
           <div class="row">

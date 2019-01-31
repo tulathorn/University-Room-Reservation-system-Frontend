@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Navbar from '../Components/Navbar'
+import AdNavbar from '../Components/ad_Navbar'
 import styled, { createGlobalStyle } from 'styled-components'
 
 const Title = styled.h1`
@@ -11,6 +11,7 @@ class AdReplyView extends Component {
   render() {
     return (
       <div>
+        <AdNavbar />
         <div className="container">
 
 

@@ -59,7 +59,7 @@ class NavDropdown extends React.Component {
   }
 }
 
-class Navbar extends React.Component {
+class AdNavbar extends React.Component {
   render() {
     return (
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -80,7 +80,7 @@ class Navbar extends React.Component {
 
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav mr-auto">
-            <NavItem path="/" name="Find Room" />
+            <NavItem path="/" name="Admin" />
             <NavItem path="/curhistory" name="History" />
             <NavItem path="/contact" name="Help" />
             {/* <NavItem path="/page3" name="Disabled" disabled="true" /> */}
@@ -119,4 +119,4 @@ class Navbar extends React.Component {
   }
 }
 
-export default Navbar
+export default AdNavbar
