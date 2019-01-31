@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Navbar from '../Components/Navbar'
+import AdNavbar from '../Components/ad_Navbar'
 
 const jumbotronStyle = {
   width: 'auto',
@@ -11,6 +11,7 @@ class AdAddRoomView extends Component {
   render() {
     return (
       <div>
+        <AdNavbar />
         <div className="container">
           <form class="form-inline">
             <input class="form-control" type="search" placeholder="Search" aria-label="Search"/>

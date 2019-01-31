@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Navbar from '../Components/Navbar'
+import AdNavbar from '../Components/ad_Navbar'
 
 const jumbotronStyle = {
   width: 'auto',
@@ -11,7 +11,7 @@ class AdPreHistoryView extends Component {
   render() {
     return (
       <div>
-        <Navbar />
+        <AdNavbar />
         <div className="container">
           <br/>
           <div class="row">
@@ -19,7 +19,7 @@ class AdPreHistoryView extends Component {
               <button type="button" class="btn btn-danger btn-lg btn-block" disabled>Previous Booking</button>
             </div>
             <div class="col-6">
-              <a href="/curhistory" class="btn btn-outline-danger btn-lg btn-block">Current Booking</a>
+              <a href="/ad_curhistory" class="btn btn-outline-danger btn-lg btn-block">Current Booking</a>
             </div>
           </div>
           <br/>
