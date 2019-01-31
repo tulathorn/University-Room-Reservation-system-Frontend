@@ -13,10 +13,14 @@ class AdSearchView extends Component {
       <div>
         <AdNavbar />
         <div className="container">
-          <form class="form-inline">
-            <input class="form-control" type="search" placeholder="Search" aria-label="Search"/>
-            <button class="btn btn-outline-success" type="submit">Search</button>
-          </form>
+          <div class="form-row">
+            <div class="form-group col-md-11">
+              <input class="form-control" type="search" placeholder="Search" aria-label="Search"/>
+            </div>
+            <div class="form-group col-md-1">
+              <button class="btn btn-outline-dark" type="submit">Search</button>
+            </div>
+          </div>
         </div>
       </div>
     )
