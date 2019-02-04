@@ -25,6 +25,7 @@ const jumbotronStyle = {
 
 
 class MainView extends Component {
+
   render() {
     return (
       <div>
