@@ -14,18 +14,18 @@ class AdBookingView extends Component {
         <AdNavbar />
         <div className="container">
           
-          <div class="row"><h2>CPE1121</h2></div>
-          <div class="row">
-            <div class="col-6">
-              <div class="row">
+          <div className="row"><h2>CPE1121</h2></div>
+          <div className="row">
+            <div className="col-6">
+              <div className="row">
                 <center><img src={require("../Pictures/testclassroom.jpg")} width="500" alt=""/></center>
               </div>
               
-              <div class="row">
-                <div class="col-3">
+              <div className="row">
+                <div className="col-3">
                   <p><b>Information : </b></p>
                 </div>
-                <div class="col">
+                <div className="col">
                   <p>People Capacity : 50</p>
                   <p>Building : Witsawa Watthana</p>
                   <p>Floor : 11</p>
@@ -34,39 +34,39 @@ class AdBookingView extends Component {
                   <p>Operating Time : 08:00 - 20:00</p>
                 </div>
               </div>
-              <div class="row">
+              <div className="row">
                 <p><b>Amenity : </b></p>
               </div>
-              <div class="row">
-                <div class="col-6">
-                  <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1"/>
-                    <label class="form-check-label" for="defaultCheck1">
+              <div className="row">
+                <div className="col-6">
+                  <div className="form-check">
+                    <input className="form-check-input" type="checkbox" value="" id="defaultCheck1"/>
+                    <label className="form-check-label" for="defaultCheck1">
                       Teacher Computer
                     </label><br/>
-                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1"/>
-                    <label class="form-check-label" for="defaultCheck1">
+                    <input className="form-check-input" type="checkbox" value="" id="defaultCheck1"/>
+                    <label className="form-check-label" for="defaultCheck1">
                       Student Computer
                     </label><br/>
-                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1"/>
-                    <label class="form-check-label" for="defaultCheck1">
+                    <input className="form-check-input" type="checkbox" value="" id="defaultCheck1"/>
+                    <label className="form-check-label" for="defaultCheck1">
                       Air Conditioner
                     </label>
                   </div>
                 </div>
 
-                <div class="col-6">
-                  <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1"/>
-                    <label class="form-check-label" for="defaultCheck1">
+                <div className="col-6">
+                  <div className="form-check">
+                    <input className="form-check-input" type="checkbox" value="" id="defaultCheck1"/>
+                    <label className="form-check-label" for="defaultCheck1">
                       Projector
                     </label><br/>
-                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1"/>
-                    <label class="form-check-label" for="defaultCheck1">
+                    <input className="form-check-input" type="checkbox" value="" id="defaultCheck1"/>
+                    <label className="form-check-label" for="defaultCheck1">
                       White Board
                     </label><br/>
-                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1"/>
-                    <label class="form-check-label" for="defaultCheck1">
+                    <input className="form-check-input" type="checkbox" value="" id="defaultCheck1"/>
+                    <label className="form-check-label" for="defaultCheck1">
                       Visualizer
                     </label>
                   </div>
@@ -74,12 +74,12 @@ class AdBookingView extends Component {
               </div>
             </div>
             
-            <div class="col-6">
+            <div className="col-6">
               <div className="jumbotron text-white" style={jumbotronStyle}>
                 <form action="">
                   <div className="form-group">
-                    <div class="row">
-                      <div class="col-6">
+                    <div className="row">
+                      <div className="col-6">
                       <label for="info1">ID</label>
                     <input
                       type="text"
@@ -103,7 +103,7 @@ class AdBookingView extends Component {
                     />
                     
                       </div>
-                      <div class="col-6">
+                      <div className="col-6">
                       <label for="info3">Email Address</label>
                     <input
                       type="email"
@@ -129,13 +129,13 @@ class AdBookingView extends Component {
                       rows="5"
                     />
                   </div>
-                  <label class="radio-inline"><input type="radio" name="optradio" checked/>Normal</label>
-                  <label class="radio-inline"><input type="radio" name="optradio"/>Recurring</label>
+                  <label className="radio-inline"><input type="radio" name="optradio" checked/>Normal</label>
+                  <label className="radio-inline"><input type="radio" name="optradio"/>Recurring</label>
 
 
-                  <div class="form-group col-md-4">
-                        <label class="my-1 mr-2" for="inlineFormCustomSelectPref" >Date</label>
-                        <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
+                  <div className="form-group col-md-4">
+                        <label className="my-1 mr-2" for="inlineFormCustomSelectPref" >Date</label>
+                        <select className="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
                           <option selected>DD/MM/YY</option>
                           <option value="1">One</option>
                           <option value="2">Two</option>
@@ -144,30 +144,30 @@ class AdBookingView extends Component {
                       </div>
 
                       <h2>Time :</h2>
-                  <form class="form-inline">
-                    <label class="my-1 mr-2" for="inlineFormCustomSelectPref">From</label>
-                    <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
+                  <form className="form-inline">
+                    <label className="my-1 mr-2" for="inlineFormCustomSelectPref">From</label>
+                    <select className="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
                       <option selected>Choose...</option>
                       <option value="1">One</option>
                       <option value="2">Two</option>
                       <option value="3">Three</option>
                     </select>
-                    <label class="my-1 mr-2" for="inlineFormCustomSelectPref">:</label>
-                    <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
+                    <label className="my-1 mr-2" for="inlineFormCustomSelectPref">:</label>
+                    <select className="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
                       <option selected>Choose...</option>
                       <option value="1">One</option>
                       <option value="2">Two</option>
                       <option value="3">Three</option>
                     </select>
-                    <label class="my-1 mr-2" for="inlineFormCustomSelectPref">To</label>
-                    <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
+                    <label className="my-1 mr-2" for="inlineFormCustomSelectPref">To</label>
+                    <select className="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
                       <option selected>Choose...</option>
                       <option value="1">One</option>
                       <option value="2">Two</option>
                       <option value="3">Three</option>
                     </select>
-                    <label class="my-1 mr-2" for="inlineFormCustomSelectPref">:</label>
-                    <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
+                    <label className="my-1 mr-2" for="inlineFormCustomSelectPref">:</label>
+                    <select className="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
                       <option selected>Choose...</option>
                       <option value="1">One</option>
                       <option value="2">Two</option>
@@ -187,11 +187,11 @@ class AdBookingView extends Component {
             </div>
           </div>
 
-          <div class="row">
-            <div class="col-12">
+          <div className="row">
+            <div className="col-12">
               <center>
-              <button type="button" class="btn btn-outline-dark">Back</button>
-              <button type="button" class="btn btn-outline-dark">Book</button></center>
+              <button type="button" className="btn btn-outline-dark">Back</button>
+              <button type="button" className="btn btn-outline-dark">Book</button></center>
             </div>
           </div>
 

@@ -42,20 +42,20 @@ class AdLoginView extends Component {
 
       <div style={bgColor} >
 
-        <div class="container">
+        <div className="container">
 
-          <div class="row">
-            <div class="col-12 col-md-11">
+          <div className="row">
+            <div className="col-12 col-md-11">
             </div>
-            <div class="col-6 col-md-1">
+            <div className="col-6 col-md-1">
               <a href="/login" style={text1Style}>User</a>
             </div>
           </div>
 
 
-          <div class="row justify-content-center">
+          <div className="row justify-content-center">
 
-            <div class="col-sm-4" style={logoStyle}>
+            <div className="col-sm-4" style={logoStyle}>
               <br/><br/><br/>
               <center>
                 <img src={require("../Pictures/logoText.png")} alt=""/>
@@ -64,9 +64,9 @@ class AdLoginView extends Component {
             </div>
 
 
-            <div style={cardColor} class="col-sm-8" >
+            <div style={cardColor} className="col-sm-8" >
               <br/>
-              <div style={cardColor} class="jumbotron">
+              <div style={cardColor} className="jumbotron">
 
                 <h3 align="left" style={helpLink}>
                   Administrator Login.
@@ -75,20 +75,20 @@ class AdLoginView extends Component {
                 <br/>
 
                 <form>
-                  <div class="form-group">
+                  <div className="form-group">
                     <label for="exampleInputEmail1" style={helpLink}>Username</label>
-                    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter username"/>
+                    <input type="text" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter username"/>
                   </div>
 
-                  <div class="form-group">
+                  <div className="form-group">
                     <label for="exampleInputPassword1" style={helpLink}>Password</label>
-                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password"/>
+                    <input type="password" className="form-control" id="exampleInputPassword1" placeholder="Password"/>
                   </div>
                 </form>
                 <br/>
 
 
-                <a href="/ad_search" class="btn btn-outline-danger">Login</a>
+                <a href="/ad_search" className="btn btn-outline-danger">Login</a>
 
 
               </div>
@@ -97,8 +97,8 @@ class AdLoginView extends Component {
           </div>
 
           <center>
-            <button type="button" class="btn btn-link" style={languageLink}>English</button>
-            <button type="button" class="btn btn-link" style={languageLink}>ภาษาไทย</button>
+            <button type="button" className="btn btn-link" style={languageLink}>English</button>
+            <button type="button" className="btn btn-link" style={languageLink}>ภาษาไทย</button>
             <br/><br/><br/>
           </center>
 

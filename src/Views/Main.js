@@ -35,34 +35,34 @@ class MainView extends Component {
 
 
 
-               <div class="jumbotron" style={jumbotronStyle}>
+               <div className="jumbotron" style={jumbotronStyle}>
                   <Title_1>Find a Room</Title_1>
 
-                  <hr class="my-4" color="white"/>
+                  <hr className="my-4" color="white"/>
                   <Title_2>Info :</Title_2>
                   <form>
-                    <div class="form-row">
-                      <div class="form-group col-md-4">
-                        <label class="my-1 mr-2" for="inlineFormCustomSelectPref" style={textColor}>Date</label>
-                        <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
+                    <div className="form-row">
+                      <div className="form-group col-md-4">
+                        <label className="my-1 mr-2" for="inlineFormCustomSelectPref" style={textColor}>Date</label>
+                        <select className="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
                           <option selected>DD/MM/YY</option>
                           <option value="1">One</option>
                           <option value="2">Two</option>
                           <option value="3">Three</option>
                         </select>
                       </div>
-                      <div class="form-group col-md-4">
-                        <label class="my-1 mr-2" for="inlineFormCustomSelectPref" style={textColor}>Building</label>
-                        <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
+                      <div className="form-group col-md-4">
+                        <label className="my-1 mr-2" for="inlineFormCustomSelectPref" style={textColor}>Building</label>
+                        <select className="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
                           <option selected>Building Name</option>
                           <option value="1">One</option>
                           <option value="2">Two</option>
                           <option value="3">Three</option>
                         </select>
                       </div>
-                      <div class="form-group col-md-4">
-                        <label class="my-1 mr-2" for="inlineFormCustomSelectPref" style={textColor}>Size</label>
-                        <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
+                      <div className="form-group col-md-4">
+                        <label className="my-1 mr-2" for="inlineFormCustomSelectPref" style={textColor}>Size</label>
+                        <select className="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
                           <option selected>Room Size</option>
                           <option value="1">One</option>
                           <option value="2">Two</option>
@@ -72,32 +72,32 @@ class MainView extends Component {
                     </div>
                   </form>
 
-                <hr class="my-4" color="white"/>
+                <hr className="my-4" color="white"/>
                 <Title_2>Time :</Title_2>
-                  <form class="form-inline">
-                    <label class="my-1 mr-2" for="inlineFormCustomSelectPref" style={textColor}>From</label>
-                    <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
+                  <form className="form-inline">
+                    <label className="my-1 mr-2" for="inlineFormCustomSelectPref" style={textColor}>From</label>
+                    <select className="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
                       <option selected>Choose...</option>
                       <option value="1">One</option>
                       <option value="2">Two</option>
                       <option value="3">Three</option>
                     </select>
-                    <label class="my-1 mr-2" for="inlineFormCustomSelectPref" style={textColor}>:</label>
-                    <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
+                    <label className="my-1 mr-2" for="inlineFormCustomSelectPref" style={textColor}>:</label>
+                    <select className="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
                       <option selected>Choose...</option>
                       <option value="1">One</option>
                       <option value="2">Two</option>
                       <option value="3">Three</option>
                     </select>
-                    <label class="my-1 mr-2" for="inlineFormCustomSelectPref" style={textColor}>To</label>
-                    <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
+                    <label className="my-1 mr-2" for="inlineFormCustomSelectPref" style={textColor}>To</label>
+                    <select className="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
                       <option selected>Choose...</option>
                       <option value="1">One</option>
                       <option value="2">Two</option>
                       <option value="3">Three</option>
                     </select>
-                    <label class="my-1 mr-2" for="inlineFormCustomSelectPref" style={textColor}>:</label>
-                    <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
+                    <label className="my-1 mr-2" for="inlineFormCustomSelectPref" style={textColor}>:</label>
+                    <select className="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
                       <option selected>Choose...</option>
                       <option value="1">One</option>
                       <option value="2">Two</option>
@@ -105,44 +105,44 @@ class MainView extends Component {
                     </select>
                   </form>
 
-                <hr class="my-4" color="white"/>
+                <hr className="my-4" color="white"/>
                 <Title_2>Filters :</Title_2>
-                  <div class="form-row">
+                  <div className="form-row">
 
-                    <div class="col-sm-4">
-                      <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="defaultCheck1"/>
-                        <label class="form-check-label" for="defaultCheck1" style={textColor}>
+                    <div className="col-sm-4">
+                      <div className="form-check">
+                        <input className="form-check-input" type="checkbox" value="" id="defaultCheck1"/>
+                        <label className="form-check-label" for="defaultCheck1" style={textColor}>
                           Teacher Computer
                         </label><br/>
-                        <input class="form-check-input" type="checkbox" value="" id="defaultCheck1"/>
-                        <label class="form-check-label" for="defaultCheck1" style={textColor}>
+                        <input className="form-check-input" type="checkbox" value="" id="defaultCheck1"/>
+                        <label className="form-check-label" for="defaultCheck1" style={textColor}>
                           Student Computer
                         </label>
                       </div>
                     </div>
 
-                    <div class="col-sm-4">
-                      <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="defaultCheck1"/>
-                        <label class="form-check-label" for="defaultCheck1" style={textColor}>
+                    <div className="col-sm-4">
+                      <div className="form-check">
+                        <input className="form-check-input" type="checkbox" value="" id="defaultCheck1"/>
+                        <label className="form-check-label" for="defaultCheck1" style={textColor}>
                           Projector
                         </label><br/>
-                        <input class="form-check-input" type="checkbox" value="" id="defaultCheck1"/>
-                        <label class="form-check-label" for="defaultCheck1" style={textColor}>
+                        <input className="form-check-input" type="checkbox" value="" id="defaultCheck1"/>
+                        <label className="form-check-label" for="defaultCheck1" style={textColor}>
                           White Board
                         </label>
                       </div>
                     </div>
 
-                    <div class="col-sm-4">
-                      <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="defaultCheck1"/>
-                        <label class="form-check-label" for="defaultCheck1" style={textColor}>
+                    <div className="col-sm-4">
+                      <div className="form-check">
+                        <input className="form-check-input" type="checkbox" value="" id="defaultCheck1"/>
+                        <label className="form-check-label" for="defaultCheck1" style={textColor}>
                           Air Conditioner
                         </label><br/>
-                        <input class="form-check-input" type="checkbox" value="" id="defaultCheck1"/>
-                        <label class="form-check-label" for="defaultCheck1" style={textColor}>
+                        <input className="form-check-input" type="checkbox" value="" id="defaultCheck1"/>
+                        <label className="form-check-label" for="defaultCheck1" style={textColor}>
                           Visualizer
                         </label>
                       </div>
@@ -153,7 +153,7 @@ class MainView extends Component {
 
 
 
-              <center><button type="button" class="btn btn-outline-dark">Search</button></center>
+              <center><button type="button" className="btn btn-outline-dark">Search</button></center>
               <center><a href="/search">Go to list page(Temporary)</a></center>
         </div>
       </div>

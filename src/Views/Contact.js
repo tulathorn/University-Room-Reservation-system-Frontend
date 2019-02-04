@@ -19,7 +19,7 @@ class ContactView extends Component {
           <div className="col-8 offset-2">
             <div className="card">
               <div className="card-body">
-                <button type="button" class="btn btn-outline-dark">
+                <button type="button" className="btn btn-outline-dark">
                   Back
                 </button>
                 <div className="row">
@@ -59,7 +59,7 @@ class ContactView extends Component {
                           placeholder="Please type your comment..."
                         />
                       </div>
-                      <center><button type="button" class="btn btn-outline-dark">
+                      <center><button type="button" className="btn btn-outline-dark">
                         Submit
                       </button></center>
                     </form>
@@ -70,8 +70,8 @@ class ContactView extends Component {
           </div>
         </div>
         <center>
-          <button type="button" class="btn btn-link" style={languageLink}>English</button>
-          <button type="button" class="btn btn-link" style={languageLink}>ภาษาไทย</button>
+          <button type="button" className="btn btn-link" style={languageLink}>English</button>
+          <button type="button" className="btn btn-link" style={languageLink}>ภาษาไทย</button>
           <br/><br/><br/>
         </center>
       </div>
