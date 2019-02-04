@@ -42,20 +42,20 @@ class LoginView extends Component {
 
       <div style={bgColor} >
 
-        <div class="container">
+        <div className="container">
 
-          <div class="row">
-            <div class="col-12 col-md-11">
+          <div className="row">
+            <div className="col-12 col-md-11">
             </div>
-            <div class="col-6 col-md-1">
+            <div className="col-6 col-md-1">
               <a href="/ad_login" style={text1Style}>Admin</a>
             </div>
           </div>
 
 
-          <div class="row justify-content-center">
+          <div className="row justify-content-center">
 
-            <div class="col-sm-4" style={logoStyle}>
+            <div className="col-sm-4" style={logoStyle}>
               <br/><br/><br/>
               <center>
                 <img src={require("../Pictures/logoText.png")} alt=""/>
@@ -64,9 +64,9 @@ class LoginView extends Component {
             </div>
 
 
-            <div style={cardColor} class="col-sm-8" >
+            <div style={cardColor} className="col-sm-8" >
               <br/>
-              <div style={cardColor} class="jumbotron">
+              <div style={cardColor} className="jumbotron">
 
                 <h3 align="left" style={helpLink}>
                   Please enter KMUTT username and password. <br/>Click on the Login button to continue.
@@ -75,20 +75,20 @@ class LoginView extends Component {
                 <br/>
 
                 <form>
-                  <div class="form-group">
+                  <div className="form-group">
                     <label for="exampleInputEmail1" style={helpLink}>Username</label>
-                    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter username"/>
-                    <small id="emailHelp" class="form-text text-muted">Enter your KMUTT student ID or username.</small>
+                    <input type="text" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter username"/>
+                    <small id="emailHelp" className="form-text text-muted">Enter your KMUTT student ID or username.</small>
                   </div>
 
-                  <div class="form-group">
+                  <div className="form-group">
                     <label for="exampleInputPassword1" style={helpLink}>Password</label>
-                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password"/>
+                    <input type="password" className="form-control" id="exampleInputPassword1" placeholder="Password"/>
                   </div>
                 </form>
                 <br/>
 
-                <a href="/" class="btn btn-outline-danger">Login</a>
+                <a href="/" className="btn btn-outline-danger">Login</a>
                 <a href="/contact" >Help</a>
 
               </div>
@@ -97,8 +97,8 @@ class LoginView extends Component {
           </div>
 
           <center>
-            <button type="button" class="btn btn-link" style={languageLink}>English</button>
-            <button type="button" class="btn btn-link" style={languageLink}>ภาษาไทย</button>
+            <button type="button" className="btn btn-link" style={languageLink}>English</button>
+            <button type="button" className="btn btn-link" style={languageLink}>ภาษาไทย</button>
             <br/><br/><br/>
           </center>
 

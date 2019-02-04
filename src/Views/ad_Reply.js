@@ -18,30 +18,30 @@ class AdReplyView extends Component {
           <br/><Title>Title</Title>
 
 
-          <div class="card">
+          <div className="card">
 
-            <h5 class="card-header">
-              <div class="row">
-                <div class="col-6">
+            <h5 className="card-header">
+              <div className="row">
+                <div className="col-6">
                   Email
                 </div>
-                <div class="col-6" align="right">
+                <div className="col-6" align="right">
                   Time
                 </div>
               </div>
             </h5>
 
-            <div class="card-body">
-             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <div className="card-body">
+             <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
             </div>
 
           </div>
 
           <br/><Title>Reply</Title>
           <form>
-            <div class="form-group">
+            <div className="form-group">
               <label for="exampleFormControlInput1">Email address</label>
-              <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com"/>
+              <input type="email" className="form-control" id="exampleFormControlInput1" placeholder="name@example.com"/>
             </div>
             <div className="form-group">
               <label for="exampleFormControlInput2">Title</label>
@@ -62,7 +62,7 @@ class AdReplyView extends Component {
                 placeholder="Please type your comment..."
               />
             </div>
-            <center><button type="button" class="btn btn-outline-dark">
+            <center><button type="button" className="btn btn-outline-dark">
               Reply
             </button></center>
           </form>

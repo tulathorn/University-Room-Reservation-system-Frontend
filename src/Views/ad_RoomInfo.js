@@ -14,18 +14,18 @@ class AdRoomInfoView extends Component {
         <AdNavbar />
         <div className="container">
           
-          <div class="row"><h2>CPE1121</h2></div>
-          <div class="row">
-            <div class="col-6">
-              <div class="row">
+          <div className="row"><h2>CPE1121</h2></div>
+          <div className="row">
+            <div className="col-6">
+              <div className="row">
                 <center><img src={require("../Pictures/testclassroom.jpg")} width="500" alt=""/></center>
               </div>
               
-              <div class="row">
-                <div class="col-3">
+              <div className="row">
+                <div className="col-3">
                   <p><b>Information : </b></p>
                 </div>
-                <div class="col">
+                <div className="col">
                   <p>People Capacity : 50</p>
                   <p>Building : Witsawa Watthana</p>
                   <p>Floor : 11</p>
@@ -34,39 +34,39 @@ class AdRoomInfoView extends Component {
                   <p>Operating Time : 08:00 - 20:00</p>
                 </div>
               </div>
-              <div class="row">
+              <div className="row">
                 <p><b>Amenity : </b></p>
               </div>
-              <div class="row">
-                <div class="col-6">
-                  <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1"/>
-                    <label class="form-check-label" for="defaultCheck1">
+              <div className="row">
+                <div className="col-6">
+                  <div className="form-check">
+                    <input className="form-check-input" type="checkbox" value="" id="defaultCheck1"/>
+                    <label className="form-check-label" for="defaultCheck1">
                       Teacher Computer
                     </label><br/>
-                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1"/>
-                    <label class="form-check-label" for="defaultCheck1">
+                    <input className="form-check-input" type="checkbox" value="" id="defaultCheck1"/>
+                    <label className="form-check-label" for="defaultCheck1">
                       Student Computer
                     </label><br/>
-                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1"/>
-                    <label class="form-check-label" for="defaultCheck1">
+                    <input className="form-check-input" type="checkbox" value="" id="defaultCheck1"/>
+                    <label className="form-check-label" for="defaultCheck1">
                       Air Conditioner
                     </label>
                   </div>
                 </div>
 
-                <div class="col-6">
-                  <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1"/>
-                    <label class="form-check-label" for="defaultCheck1">
+                <div className="col-6">
+                  <div className="form-check">
+                    <input className="form-check-input" type="checkbox" value="" id="defaultCheck1"/>
+                    <label className="form-check-label" for="defaultCheck1">
                       Projector
                     </label><br/>
-                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1"/>
-                    <label class="form-check-label" for="defaultCheck1">
+                    <input className="form-check-input" type="checkbox" value="" id="defaultCheck1"/>
+                    <label className="form-check-label" for="defaultCheck1">
                       White Board
                     </label><br/>
-                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1"/>
-                    <label class="form-check-label" for="defaultCheck1">
+                    <input className="form-check-input" type="checkbox" value="" id="defaultCheck1"/>
+                    <label className="form-check-label" for="defaultCheck1">
                       Visualizer
                     </label>
                   </div>
@@ -74,7 +74,7 @@ class AdRoomInfoView extends Component {
               </div>
             </div>
             
-            <div class="col-6">
+            <div className="col-6">
               <div className="jumbotron text-white" style={jumbotronStyle}>
                 <h3>Booking Calendar</h3>
                   <a href="https://eonasdan.github.io/bootstrap-datetimepicker/">How to Calendar</a><br/>
@@ -86,12 +86,12 @@ class AdRoomInfoView extends Component {
             </div>
           </div>
 
-          <div class="row">
-            <div class="col-12">
+          <div className="row">
+            <div className="col-12">
               <center>
-              <button type="button" class="btn btn-outline-dark">Delete</button>
-              <a href="/ad_edit_room" class="btn btn-outline-dark">Edit</a>
-              <a href="/ad_booking" class="btn btn-outline-dark">Book</a></center>
+              <button type="button" className="btn btn-outline-dark">Delete</button>
+              <a href="/ad_edit_room" className="btn btn-outline-dark">Edit</a>
+              <a href="/ad_booking" className="btn btn-outline-dark">Book</a></center>
             </div>
           </div>
 

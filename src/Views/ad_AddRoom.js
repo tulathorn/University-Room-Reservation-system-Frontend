@@ -14,11 +14,11 @@ class AdAddRoomView extends Component {
         <AdNavbar />
         <div className="container">
 
-          <div class="row">
+          <div className="row">
 
-            <div class="col-6">
-              <div class="card">
-                <div class="card-body">
+            <div className="col-6">
+              <div className="card">
+                <div className="card-body">
                   <div className="form-group">
                     <label for="info1">Room ID :</label>
                     <input
@@ -29,9 +29,9 @@ class AdAddRoomView extends Component {
                   </div>
 
                   <form>
-                    <div class="form-group">
+                    <div className="form-group">
                       <label for="exampleFormControlFile1">Update Room Photo</label>
-                      <input type="file" class="form-control-file" id="exampleFormControlFile1"/>
+                      <input type="file" className="form-control-file" id="exampleFormControlFile1"/>
                     </div>
                   </form>
 
@@ -75,46 +75,46 @@ class AdAddRoomView extends Component {
               </div>
             </div>
 
-            <div class="col-6">
-              <div class="card">
-                <div class="card-body">
+            <div className="col-6">
+              <div className="card">
+                <div className="card-body">
 
                     <div className="form-group">
                       <label for="info4">Operating Day :</label>
-                      <div class="row">
-                        <div class="col-6">
-                          <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1"/>
-                            <label class="form-check-label" for="defaultCheck1">
+                      <div className="row">
+                        <div className="col-6">
+                          <div className="form-check">
+                            <input className="form-check-input" type="checkbox" value="" id="defaultCheck1"/>
+                            <label className="form-check-label" for="defaultCheck1">
                               Sunday
                             </label><br/>
-                            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1"/>
-                            <label class="form-check-label" for="defaultCheck1">
+                            <input className="form-check-input" type="checkbox" value="" id="defaultCheck1"/>
+                            <label className="form-check-label" for="defaultCheck1">
                               Monday
                             </label><br/>
-                            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1"/>
-                            <label class="form-check-label" for="defaultCheck1">
+                            <input className="form-check-input" type="checkbox" value="" id="defaultCheck1"/>
+                            <label className="form-check-label" for="defaultCheck1">
                               Tuesday
                             </label><br/>
-                            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1"/>
-                            <label class="form-check-label" for="defaultCheck1">
+                            <input className="form-check-input" type="checkbox" value="" id="defaultCheck1"/>
+                            <label className="form-check-label" for="defaultCheck1">
                               Wednesday
                             </label>
                           </div>
                         </div>
 
-                        <div class="col-6">
-                          <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1"/>
-                            <label class="form-check-label" for="defaultCheck1">
+                        <div className="col-6">
+                          <div className="form-check">
+                            <input className="form-check-input" type="checkbox" value="" id="defaultCheck1"/>
+                            <label className="form-check-label" for="defaultCheck1">
                               Thursday
                             </label><br/>
-                            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1"/>
-                            <label class="form-check-label" for="defaultCheck1">
+                            <input className="form-check-input" type="checkbox" value="" id="defaultCheck1"/>
+                            <label className="form-check-label" for="defaultCheck1">
                               Friday
                             </label><br/>
-                            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1"/>
-                            <label class="form-check-label" for="defaultCheck1">
+                            <input className="form-check-input" type="checkbox" value="" id="defaultCheck1"/>
+                            <label className="form-check-label" for="defaultCheck1">
                               Saturday
                             </label>
                           </div>
@@ -124,32 +124,32 @@ class AdAddRoomView extends Component {
 
                     <div className="form-group">
                       <label for="info4">Operating Time :</label>
-                      <form class="form-inline">
-                        <label class="my-1 mr-2" for="inlineFormCustomSelectPref">From</label>
-                          <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
+                      <form className="form-inline">
+                        <label className="my-1 mr-2" for="inlineFormCustomSelectPref">From</label>
+                          <select className="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
                             <option selected>Choose...</option>
                             <option value="1">One</option>
                             <option value="2">Two</option>
                             <option value="3">Three</option>
                           </select>
-                          <label class="my-1 mr-2" for="inlineFormCustomSelectPref">:</label>
-                          <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
+                          <label className="my-1 mr-2" for="inlineFormCustomSelectPref">:</label>
+                          <select className="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
                             <option selected>Choose...</option>
                             <option value="1">One</option>
                             <option value="2">Two</option>
                             <option value="3">Three</option>
                           </select>
                           </form>
-                          <form class="form-inline">
-                          <label class="my-1 mr-2" for="inlineFormCustomSelectPref">To</label>
-                          <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
+                          <form className="form-inline">
+                          <label className="my-1 mr-2" for="inlineFormCustomSelectPref">To</label>
+                          <select className="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
                             <option selected>Choose...</option>
                             <option value="1">One</option>
                             <option value="2">Two</option>
                             <option value="3">Three</option>
                           </select>
-                          <label class="my-1 mr-2" for="inlineFormCustomSelectPref">:</label>
-                          <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
+                          <label className="my-1 mr-2" for="inlineFormCustomSelectPref">:</label>
+                          <select className="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
                             <option selected>Choose...</option>
                             <option value="1">One</option>
                             <option value="2">Two</option>
@@ -160,36 +160,36 @@ class AdAddRoomView extends Component {
 
                       <div className="form-group">
                         <label for="info4">Amenity : </label>
-                        <div class="row">
-                          <div class="col-6">
-                            <div class="form-check">
-                              <input class="form-check-input" type="checkbox" value="" id="defaultCheck1"/>
-                              <label class="form-check-label" for="defaultCheck1">
+                        <div className="row">
+                          <div className="col-6">
+                            <div className="form-check">
+                              <input className="form-check-input" type="checkbox" value="" id="defaultCheck1"/>
+                              <label className="form-check-label" for="defaultCheck1">
                                 Teacher Computer
                               </label><br/>
-                              <input class="form-check-input" type="checkbox" value="" id="defaultCheck1"/>
-                              <label class="form-check-label" for="defaultCheck1">
+                              <input className="form-check-input" type="checkbox" value="" id="defaultCheck1"/>
+                              <label className="form-check-label" for="defaultCheck1">
                                 Student Computer
                               </label><br/>
-                              <input class="form-check-input" type="checkbox" value="" id="defaultCheck1"/>
-                              <label class="form-check-label" for="defaultCheck1">
+                              <input className="form-check-input" type="checkbox" value="" id="defaultCheck1"/>
+                              <label className="form-check-label" for="defaultCheck1">
                                 Air Conditioner
                               </label>
                             </div>
                           </div>
 
-                          <div class="col-6">
-                            <div class="form-check">
-                              <input class="form-check-input" type="checkbox" value="" id="defaultCheck1"/>
-                              <label class="form-check-label" for="defaultCheck1">
+                          <div className="col-6">
+                            <div className="form-check">
+                              <input className="form-check-input" type="checkbox" value="" id="defaultCheck1"/>
+                              <label className="form-check-label" for="defaultCheck1">
                                 Projector
                               </label><br/>
-                              <input class="form-check-input" type="checkbox" value="" id="defaultCheck1"/>
-                              <label class="form-check-label" for="defaultCheck1">
+                              <input className="form-check-input" type="checkbox" value="" id="defaultCheck1"/>
+                              <label className="form-check-label" for="defaultCheck1">
                                 White Board
                               </label><br/>
-                              <input class="form-check-input" type="checkbox" value="" id="defaultCheck1"/>
-                              <label class="form-check-label" for="defaultCheck1">
+                              <input className="form-check-input" type="checkbox" value="" id="defaultCheck1"/>
+                              <label className="form-check-label" for="defaultCheck1">
                                 Visualizer
                               </label>
                             </div>
@@ -197,10 +197,10 @@ class AdAddRoomView extends Component {
                         </div>
                       </div>
                       <center><br/>
-                        <button type="button" class="btn btn-outline-dark">
+                        <button type="button" className="btn btn-outline-dark">
                           Cancel
                         </button>
-                        <button type="button" class="btn btn-outline-dark">
+                        <button type="button" className="btn btn-outline-dark">
                           Submit
                         </button><br/><br/>
                       </center>

@@ -13,74 +13,74 @@ class AdBookingTimatableView extends Component {
       <div>
         <AdNavbar />
         <div className="container">
-          <div class="row"><h2>Booking Timetable</h2></div><br/>
-          <div class="row">
-            <div class="col-5">
-              <div class="row">
-                <div class="col-2">
-                  <button class="btn btn-info btn-lg btn-block" disabled></button>
+          <div className="row"><h2>Booking Timetable</h2></div><br/>
+          <div className="row">
+            <div className="col-5">
+              <div className="row">
+                <div className="col-2">
+                  <button className="btn btn-info btn-lg btn-block" disabled></button>
                 </div>
-                <div class="col-10">
+                <div className="col-10">
                   <p>Available Time</p>
                 </div>
               </div>
 
-              <div class="row">
-                <div class="col-2">
-                  <button class="btn btn-danger btn-lg btn-block" disabled></button>
+              <div className="row">
+                <div className="col-2">
+                  <button className="btn btn-danger btn-lg btn-block" disabled></button>
                 </div>
-                <div class="col-10">
+                <div className="col-10">
                   <p>Reserved Time</p>
                 </div>
               </div>
 
-              <div class="row">
-                <div class="col-2">
-                  <button class="btn btn-dark btn-lg btn-block" disabled></button>
+              <div className="row">
+                <div className="col-2">
+                  <button className="btn btn-dark btn-lg btn-block" disabled></button>
                 </div>
-                <div class="col-10">
+                <div className="col-10">
                   <p>Unavailable Time</p>
                 </div>
               </div>
 
-              <div class="row">
-                <button type="button" class="btn btn-outline-dark">Back</button>
+              <div className="row">
+                <button type="button" className="btn btn-outline-dark">Back</button>
               </div>
             </div>
-            <div class="col-7">
-              <div class="row">
-                <div class="col-1">
+            <div className="col-7">
+              <div className="row">
+                <div className="col-1">
                   <p>0</p>
                 </div>
-                <div class="col-11">
-                  <button class="btn btn-dark btn-lg btn-block" disabled>-</button>
+                <div className="col-11">
+                  <button className="btn btn-dark btn-lg btn-block" disabled>-</button>
                 </div>
               </div>
 
-              <div class="row">
-                <div class="col-1">
+              <div className="row">
+                <div className="col-1">
                   <p>1</p>
                 </div>
-                <div class="col-11">
-                  <button class="btn btn-danger btn-lg btn-block" disabled>58070503412 : YWC Meeting</button>
+                <div className="col-11">
+                  <button className="btn btn-danger btn-lg btn-block" disabled>58070503412 : YWC Meeting</button>
                 </div>
               </div>
 
-              <div class="row">
-                <div class="col-1">
+              <div className="row">
+                <div className="col-1">
                   <p>2</p>
                 </div>
-                <div class="col-11">
-                  <button class="btn btn-danger btn-lg btn-block" disabled>-</button>
+                <div className="col-11">
+                  <button className="btn btn-danger btn-lg btn-block" disabled>-</button>
                 </div>
               </div>
 
-              <div class="row">
-                <div class="col-1">
+              <div className="row">
+                <div className="col-1">
                   <p>3</p>
                 </div>
-                <div class="col-11">
-                  <button class="btn btn-info btn-lg btn-block" disabled>-</button>
+                <div className="col-11">
+                  <button className="btn btn-info btn-lg btn-block" disabled>-</button>
                 </div>
               </div>
             </div>
