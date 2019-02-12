@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 
+import history from './Utils/history'
+
 import RoomProvider from './Components/RoomDataProvider'
 
 import './Styles/bootstrap/bootstrap.min.css'
@@ -24,11 +26,13 @@ import AdReplyView from './Views/ad_Reply'
 import AdRoomInfoView from './Views/ad_RoomInfo'
 import AdSupportView from './Views/ad_Support'
 
+window.appHistory = history
+
 class App extends Component {
   render() {
     return (
       <RoomProvider>
-        <BrowserRouter>
+        <BrowserRouter history={history}>
           <Switch>
             <Route exact path="/" component={MainView} />{' '}
             <Route path="/login" component={LoginView} />{' '}
