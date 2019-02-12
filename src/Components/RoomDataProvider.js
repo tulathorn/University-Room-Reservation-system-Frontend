@@ -1,6 +1,11 @@
 import React from 'react'
+import axios from 'axios'
 
-export const { Provider, Consumer } = React.createContext()
+const api = axios.create({
+  baseURL: 'http://localhost:4000'
+})
+
+export const { Provider, Consumer } = React.createContext({})
 
 export default class RoomDataProvider extends React.Component {
   state = {

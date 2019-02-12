@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-import RoomProvider from '../Components/RoomProvider'
+import { Consumer as RoomConsumer } from '../Components/RoomDataProvider'
 import Navbar from '../Components/Navbar'
 
 const jumbotronStyle = {
@@ -38,9 +38,9 @@ class ListView extends Component {
             </div>
           </div>
 
-          <RoomProvider>
-            {rooms =>
-              rooms.map(room => (
+          <RoomConsumer>
+            {state =>
+              state.rooms.map(room => (
                 <div className="jumbotron text-white" style={jumbotronStyle} key={room.RoomName}>
                   <div className="row">
                     <div className="col-12 col-md-4">
@@ -86,7 +86,7 @@ class ListView extends Component {
                 </div>
               ))
             }
-          </RoomProvider>
+          </RoomConsumer>
 
           <center>
             <a href="/booking">Go to booking page(Temporary)</a>
