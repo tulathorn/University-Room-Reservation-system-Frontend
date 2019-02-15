@@ -1,15 +1,15 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
+import { observer } from 'mobx-react'
 
 import Navbar from '../Components/Navbar'
 
 import ReservationForm from '../Components/ReservationForm'
-import { Consumer as RoomConsumer } from '../Components/RoomDataProvider'
 
 const Title = styled.h1`
   color: #1f384b;
 `
-
+@observer
 class MainView extends Component {
   render() {
     return (
@@ -22,7 +22,7 @@ class MainView extends Component {
           </center>
           <br />
 
-          <RoomConsumer>{state => <ReservationForm {...state} />}</RoomConsumer>
+          <ReservationForm />
 
           <center>
             <a href="/search">Go to list page(Temporary)</a>

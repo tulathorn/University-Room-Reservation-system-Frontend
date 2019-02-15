@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
+import ListStore from '../stores/ListStore'
 
-import { Consumer as RoomConsumer } from '../Components/RoomDataProvider'
 import Navbar from '../Components/Navbar'
+import { observer } from 'mobx-react'
 
 const jumbotronStyle = {
   width: 'auto',
@@ -9,7 +10,12 @@ const jumbotronStyle = {
   backgroundColor: '#203C50'
 }
 
+@observer
 class ListView extends Component {
+  componentDidMount() {
+    ListStore.fetchData()
+  }
+
   render() {
     return (
       <div>
@@ -38,55 +44,51 @@ class ListView extends Component {
             </div>
           </div>
 
-          <RoomConsumer>
-            {state =>
-              state.rooms.map(room => (
-                <div className="jumbotron text-white" style={jumbotronStyle} key={room.RoomName}>
+          {ListStore.roomDatas.map(room => (
+            <div className="jumbotron text-white" style={jumbotronStyle} key={ListStore.RoomName}>
+              <div className="row">
+                <div className="col-12 col-md-4">
+                  <center>
+                    <img src={require('../Pictures/testclassroom.jpg')} height="150" alt="" />
+                  </center>
+                </div>
+                <div className="col-12 col-md-5">
                   <div className="row">
-                    <div className="col-12 col-md-4">
-                      <center>
-                        <img src={require('../Pictures/testclassroom.jpg')} height="150" alt="" />
-                      </center>
-                    </div>
-                    <div className="col-12 col-md-5">
-                      <div className="row">
-                        <h4>{room.RoomName}</h4>
-                      </div>
-                      <div className="row">
-                        <p>
-                          <b>Building: </b>
-                        </p>
-                        <p>{room.Building}</p>
-                      </div>
-                      <div className="row">
-                        <p>
-                          <b>Floor: </b>
-                        </p>
-                        <p>{room.Floor}</p>
-                      </div>
-                      <div className="row">
-                        <p>
-                          <b>Size: </b>
-                        </p>
-                        <p>{room.PeopleCapacity} Peoples</p>
-                      </div>
-                    </div>
-                    <div className="col-12 col-md-3">
-                      <button type="button" className="btn btn-danger btn-lg btn-block" disabled>
-                        Not Completed
-                      </button>
-                      <button type="button" className="btn btn-info btn-lg btn-block" disabled>
-                        Completed
-                      </button>
-                      <button type="button" className="btn btn-warning btn-lg btn-block" disabled>
-                        Canceled
-                      </button>
-                    </div>
+                    <h4>{room.RoomName}</h4>
+                  </div>
+                  <div className="row">
+                    <p>
+                      <b>Building: </b>
+                    </p>
+                    <p>{room.Building}</p>
+                  </div>
+                  <div className="row">
+                    <p>
+                      <b>Floor: </b>
+                    </p>
+                    <p>{room.Floor}</p>
+                  </div>
+                  <div className="row">
+                    <p>
+                      <b>Size: </b>
+                    </p>
+                    <p>{room.PeopleCapacity} Peoples</p>
                   </div>
                 </div>
-              ))
-            }
-          </RoomConsumer>
+                <div className="col-12 col-md-3">
+                  <button type="button" className="btn btn-danger btn-lg btn-block" disabled>
+                    Not Completed
+                  </button>
+                  <button type="button" className="btn btn-info btn-lg btn-block" disabled>
+                    Completed
+                  </button>
+                  <button type="button" className="btn btn-warning btn-lg btn-block" disabled>
+                    Canceled
+                  </button>
+                </div>
+              </div>
+            </div>
+          ))}
 
           <center>
             <a href="/booking">Go to booking page(Temporary)</a>
