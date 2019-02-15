@@ -14,11 +14,14 @@ class BookingView extends Component {
         <Navbar />
         <div className="container">
 
-          <div className="row"><h2>CPE1121</h2></div>
+          <br/>
           <div className="row">
+
             <div className="col-6">
+              <div className="row"><h2>CPE1121</h2></div>
               <div className="row">
-                <center><img src={require("../Pictures/testclassroom.jpg")} width="500" alt=""/></center>
+
+                <center><img src={require("../Pictures/testclassroom.jpg")} width="auto" alt=""/></center>
               </div>
               <div className="row">
                 <p><b>Booked Date : </b></p>
@@ -79,7 +82,7 @@ class BookingView extends Component {
               </div>
             </div>
 
-            <div className="col-6">
+            <div className="col-6 col-sm-4">
               <div className="jumbotron text-white" style={jumbotronStyle}>
                 <form action="">
                   <div className="form-group">
@@ -127,14 +130,33 @@ class BookingView extends Component {
                       rows="5"
                     />
                   </div>
-                  <button type="submit" className="btn btn-primary">
-                    Submit
-                  </button>
+
+
+
+
+                  <div className="row">
+                    <div className="col-2 col-md-2" >
+                      <button type="submit" className="btn btn-info">
+                        Submit
+                      </button>
+                    </div>
+                    <div className="col-7 col-md-7">
+                    </div>
+                    <div className="col-3 col-md-3">
+                      <button type="submit" className="btn btn-outline-info">
+                        Update
+                      </button>
+                    </div>
+                  </div>
+
+
                 </form>
               </div>
 
 
             </div>
+
+
           </div>
         </div>
       </div>

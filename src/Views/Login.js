@@ -103,7 +103,7 @@ class LoginView extends Component {
                 <br/>
 
                 <div className="row">
-                  <div style={cardColor} className="col-2 col-md-2" >
+                  <div className="col-2 col-md-2" >
                     <a href="/" className="btn btn-outline-info">Login</a>
                   </div>
                   <div className="col-8 col-md-9">
