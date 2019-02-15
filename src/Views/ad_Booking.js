@@ -13,14 +13,14 @@ class AdBookingView extends Component {
       <div>
         <AdNavbar />
         <div className="container">
-          
+
           <div className="row"><h2>CPE1121</h2></div>
           <div className="row">
             <div className="col-6">
               <div className="row">
                 <center><img src={require("../Pictures/testclassroom.jpg")} width="500" alt=""/></center>
               </div>
-              
+
               <div className="row">
                 <div className="col-3">
                   <p><b>Information : </b></p>
@@ -70,10 +70,10 @@ class AdBookingView extends Component {
                       Visualizer
                     </label>
                   </div>
-                </div>  
+                </div>
               </div>
             </div>
-            
+
             <div className="col-6">
               <div className="jumbotron text-white" style={jumbotronStyle}>
                 <form action="">
@@ -101,7 +101,7 @@ class AdBookingView extends Component {
                       id="info2"
                       placeholder="Lastname"
                     />
-                    
+
                       </div>
                       <div className="col-6">
                       <label for="info3">Email Address</label>
@@ -183,7 +183,7 @@ class AdBookingView extends Component {
                 </form>
               </div>
 
-              
+
             </div>
           </div>
 

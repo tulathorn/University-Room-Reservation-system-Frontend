@@ -10,7 +10,8 @@ import PreHistoryView from './Views/PreHistory'
 import CurHistoryView from './Views/CurHistory'
 import ContactView from './Views/Contact'
 import AdLoginView from './Views/ad_Login'
-import AdSearchView from './Views/ad_Search'
+import AdSearchNorView from './Views/ad_Search_Normal'
+import AdSearchRecView from './Views/ad_Search_Recurring'
 import AdAddRoomView from './Views/ad_AddRoom'
 import AdBookingView from './Views/ad_Booking'
 import AdBookingTimatableView from './Views/ad_BookingTimetable'
@@ -34,7 +35,8 @@ class App extends Component {
           <Route path="/curhistory" component={CurHistoryView} />{' '}
           <Route path="/contact" component={ContactView} />{' '}
           <Route path="/ad_login" component={AdLoginView} />{' '}
-          <Route path="/ad_search" component={AdSearchView} />{' '}
+          <Route path="/ad_search_nor" component={AdSearchNorView} />{' '}
+          <Route path="/ad_search_rec" component={AdSearchRecView} />{' '}
           <Route path="/ad_room_info" component={AdRoomInfoView} />{' '}
           <Route path="/ad_add_room" component={AdAddRoomView} />{' '}
           <Route path="/ad_edit_room" component={AdEditRoomView} />{' '}

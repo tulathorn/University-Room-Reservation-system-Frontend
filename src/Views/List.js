@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import axios from 'axios'
 import Navbar from '../Components/Navbar'
 
 const jumbotronStyle = {
@@ -8,6 +9,24 @@ const jumbotronStyle = {
 }
 
 class ListView extends Component {
+  constructor(props){
+    super(props)
+    this.state = {
+      SearchData: {}
+    }
+  }
+
+  componentDidMount() {
+    let fechData = axios.get('/rooms', {
+      params: {
+        RoomName: 'CB1402'
+      }
+    })
+    this.setState({
+      SearchData: fechData
+    })
+  }
+
   render() {
     return (
       <div>
@@ -35,6 +54,7 @@ class ListView extends Component {
               </p>
             </div>
           </div>
+          {console.log(this.state.SearchData)}
           <div className="jumbotron text-white" style={jumbotronStyle}>
             <div className="row">
               <div className="col-12 col-md-4">
