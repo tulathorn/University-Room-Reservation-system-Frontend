@@ -1,5 +1,10 @@
 import React, { Component } from 'react'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
+
+import history from './Utils/history'
+
+import RoomProvider from './Components/RoomDataProvider'
+
 import './Styles/bootstrap/bootstrap.min.css'
 
 import MainView from './Views/Main'
@@ -21,6 +26,8 @@ import AdEditRoomView from './Views/ad_EditRoom'
 import AdReplyView from './Views/ad_Reply'
 import AdRoomInfoView from './Views/ad_RoomInfo'
 import AdSupportView from './Views/ad_Support'
+
+window.appHistory = history
 
 class App extends Component {
   render() {

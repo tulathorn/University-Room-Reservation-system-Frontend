@@ -10,6 +10,15 @@ import styled, { createGlobalStyle } from 'styled-components'
    backgroundSize: 'absolute'
  }
 
+ const bgImage = require('../Pictures/bg.png');
+ const bgStyle = {
+   width: 'auto',
+   height: '100%',
+   backgroundImage: `url(${bgImage})`,
+   backgroundSize: 'absolute'
+ }
+
+
 const cardColor = {
   backgroundColor: 'white'
 }
@@ -29,7 +38,7 @@ const bgColor = {
 }
 
 const languageLink = {
-  color: 'white'
+  color: '#6c757d'
 }
 
 const helpLink = {
@@ -40,33 +49,38 @@ class LoginView extends Component {
   render() {
     return(
 
-      <div style={bgColor} >
+      <div style={bgStyle}>
 
         <div className="container">
 
-          <div className="row">
-            <div className="col-12 col-md-11">
-            </div>
-            <div className="col-6 col-md-1">
-              <a href="/ad_login" style={text1Style}>Admin</a>
-            </div>
-          </div>
-
-
           <div className="row justify-content-center">
 
-            <div className="col-sm-4" style={logoStyle}>
-              <br/><br/><br/>
-              <center>
-                <img src={require("../Pictures/logoText.png")} alt=""/>
-              </center>
-              <br/><br/>
+            <div className="col-2 col-sm-2">
             </div>
 
-
             <div style={cardColor} className="col-sm-8" >
-              <br/>
+
               <div style={cardColor} className="jumbotron">
+
+                <div className="row">
+                  <div style={cardColor} className="col-sm-6" >
+                  </div>
+                  <div style={cardColor} className="col-sm-6" >
+                    <div className="row">
+                      <div style={cardColor} className="col-sm-9" >
+                      </div>
+                      <div style={cardColor} className="col-sm-3" >
+                        <a href="/ad_login" class="text-secondary">Admin</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <center>
+                  <img src={require("../Pictures/logo.png")} alt=""/>
+                </center>
+
+
 
                 <h3 align="left" style={helpLink}>
                   Please enter KMUTT username and password. <br/>Click on the Login button to continue.
@@ -86,12 +100,29 @@ class LoginView extends Component {
                     <input type="password" className="form-control" id="exampleInputPassword1" placeholder="Password"/>
                   </div>
                 </form>
+
                 <br/>
 
-                <a href="/" className="btn btn-outline-danger">Login</a>
-                <a href="/contact" >Help</a>
+                <div className="row">
+                  <div style={cardColor} className="col-sm-6" >
+                    <a href="/" className="btn btn-outline-info">Login</a>
+                  </div>
+                  <div style={cardColor} className="col-sm-6" >
+                    <div className="row">
+                      <div style={cardColor} className="col-sm-9" >
+                      </div>
+                      <div style={cardColor} className="col-sm-3" >
+                        <a href="/contact" class="text-info">Help</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
 
               </div>
+
+            </div>
+
+            <div className="col-2 col-sm-2">
             </div>
 
           </div>

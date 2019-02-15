@@ -109,8 +109,8 @@ class AdNavbar extends React.Component {
               placeholder="Search"
               aria-label="Search"
             /> */}
-            <a href="/ad_login" class="btn btn-sm btn-outline-danger">Logout</a>
-            
+            <a href="/ad_login" class="btn btn-sm btn-outline-info">Logout</a>
+
           </form>
         </div>
       </nav>

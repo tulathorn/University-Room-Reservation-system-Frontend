@@ -109,7 +109,7 @@ class Navbar extends React.Component {
               placeholder="Search"
               aria-label="Search"
             /> */}
-            <a href="/login" class="btn btn-sm btn-outline-danger">Logout</a>
+            <a href="/login" class="btn btn-sm btn-outline-info">Logout</a>
           </form>
         </div>
       </nav>
