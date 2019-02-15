@@ -10,6 +10,14 @@ import styled, { createGlobalStyle } from 'styled-components'
    backgroundSize: 'absolute'
  }
 
+ const bgImage = require('../Pictures/bg.png');
+ const bgStyle = {
+   width: 'auto',
+   height: '100%',
+   backgroundImage: `url(${bgImage})`,
+   backgroundSize: 'absolute'
+ }
+
 const cardColor = {
   backgroundColor: 'white'
 }
@@ -29,7 +37,7 @@ const bgColor = {
 }
 
 const languageLink = {
-  color: 'white'
+  color: '#6c757d'
 }
 
 const helpLink = {
@@ -40,25 +48,19 @@ class AdLoginView extends Component {
   render() {
     return(
 
-      <div style={bgColor} >
+      <div style={bgStyle} >
 
         <div className="container">
 
-          <div className="row">
-            <div className="col-12 col-md-11">
-            </div>
-            <div className="col-6 col-md-1">
-              <a href="/login" style={text1Style}>User</a>
-            </div>
-          </div>
+
 
 
           <div className="row justify-content-center">
 
-            <div className="col-sm-4" style={logoStyle}>
+            <div className="col-sm-4" >
               <br/><br/><br/>
               <center>
-                <img src={require("../Pictures/logoText.png")} alt=""/>
+                <img src={require("../Pictures/logoText3.png")} alt=""/>
               </center>
               <br/><br/>
             </div>
@@ -67,6 +69,14 @@ class AdLoginView extends Component {
             <div style={cardColor} className="col-sm-8" >
               <br/>
               <div style={cardColor} className="jumbotron">
+
+                <div className="row">
+                  <div className="col-10 col-md-11">
+                  </div>
+                  <div className="col-2 col-md-1">
+                    <a href="/login" class="text-secondary">User</a>
+                  </div>
+                </div>
 
                 <h3 align="left" style={helpLink}>
                   Administrator Login.
@@ -99,7 +109,7 @@ class AdLoginView extends Component {
           <center>
             <button type="button" className="btn btn-link" style={languageLink}>English</button>
             <button type="button" className="btn btn-link" style={languageLink}>ภาษาไทย</button>
-            <br/><br/><br/>
+            <br/>
           </center>
 
         </div>

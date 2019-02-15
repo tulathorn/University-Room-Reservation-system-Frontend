@@ -55,35 +55,34 @@ class LoginView extends Component {
 
           <div className="row justify-content-center">
 
-            <div className="col-2 col-sm-2">
+            <div className="col-sm-4" >
+              <br/><br/><br/>
+                <center>
+                  <img src={require("../Pictures/logoText3.png")} alt=""/>
+                </center>
+              <br/><br/>
             </div>
 
             <div style={cardColor} className="col-sm-8" >
 
               <div style={cardColor} className="jumbotron">
 
-                <div className="row">
-                  <div style={cardColor} className="col-sm-6" >
-                  </div>
-                  <div style={cardColor} className="col-sm-6" >
-                    <div className="row">
-                      <div style={cardColor} className="col-sm-9" >
-                      </div>
-                      <div style={cardColor} className="col-sm-3" >
-                        <a href="/ad_login" class="text-secondary">Admin</a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
 
-                <center>
-                  <img src={require("../Pictures/logo.png")} alt=""/>
-                </center>
+
+                <div className="row">
+                  <div className="col-10 col-md-11">
+                  </div>
+                  <div className="col-2 col-md-1">
+                    <a href="/login" class="text-secondary">Admin</a>
+                  </div>
+                </div><br/>
+
+
 
 
 
                 <h3 align="left" style={helpLink}>
-                  Please enter KMUTT username and password. <br/>Click on the Login button to continue.
+                  Please enter KMUTT username and password.<br/>Click on the Login button to continue.
                 </h3>
 
                 <br/>
@@ -104,17 +103,13 @@ class LoginView extends Component {
                 <br/>
 
                 <div className="row">
-                  <div style={cardColor} className="col-sm-6" >
+                  <div style={cardColor} className="col-2 col-md-2" >
                     <a href="/" className="btn btn-outline-info">Login</a>
                   </div>
-                  <div style={cardColor} className="col-sm-6" >
-                    <div className="row">
-                      <div style={cardColor} className="col-sm-9" >
-                      </div>
-                      <div style={cardColor} className="col-sm-3" >
-                        <a href="/contact" class="text-info">Help</a>
-                      </div>
-                    </div>
+                  <div className="col-8 col-md-9">
+                  </div>
+                  <div className="col-2 col-md-1">
+                    <a href="/login" class="text-info">Help</a>
                   </div>
                 </div>
 
@@ -122,15 +117,14 @@ class LoginView extends Component {
 
             </div>
 
-            <div className="col-2 col-sm-2">
-            </div>
+
 
           </div>
 
           <center>
             <button type="button" className="btn btn-link" style={languageLink}>English</button>
             <button type="button" className="btn btn-link" style={languageLink}>ภาษาไทย</button>
-            <br/><br/><br/>
+            <br/>
           </center>
 
         </div>
