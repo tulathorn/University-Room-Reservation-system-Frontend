@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
+import axios from 'axios'
 
 import { Consumer as RoomConsumer } from '../Components/RoomDataProvider'
+
 import Navbar from '../Components/Navbar'
 
 const jumbotronStyle = {
