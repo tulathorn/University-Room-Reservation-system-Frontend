@@ -1,8 +1,10 @@
 import React, { Component } from 'react'
-import ListStore from '../stores/ListStore'
+import RoomStore from '../stores/RoomStore'
 
 import Navbar from '../Components/Navbar'
 import { observer } from 'mobx-react'
+
+import RoomInformationCard from '../Components/RoomInformationCard'
 
 const jumbotronStyle = {
   width: 'auto',
@@ -13,7 +15,7 @@ const jumbotronStyle = {
 @observer
 class ListView extends Component {
   componentDidMount() {
-    ListStore.fetchData()
+    RoomStore.fetchData()
   }
 
   render() {
@@ -44,8 +46,8 @@ class ListView extends Component {
             </div>
           </div>
 
-          {ListStore.roomDatas.map(room => (
-            <div className="jumbotron text-white" style={jumbotronStyle} key={ListStore.RoomName}>
+          {/* {RoomStore.roomDatas.map(room => (
+            <div className="jumbotron text-white" style={jumbotronStyle} key={RoomStore.RoomName}>
               <div className="row">
                 <div className="col-12 col-md-4">
                   <center>
@@ -88,6 +90,10 @@ class ListView extends Component {
                 </div>
               </div>
             </div>
+          ))} */}
+
+          {RoomStore.roomDatas.map(room => (
+            <RoomInformationCard room={room} />
           ))}
 
           <center>

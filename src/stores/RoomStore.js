@@ -1,7 +1,7 @@
 import { action, observable } from 'mobx'
 import axios from '../Utils/axiosConfig'
 
-class ListStore {
+class RoomStore {
   @observable
   roomDatas = []
 
@@ -14,4 +14,4 @@ class ListStore {
   }
 }
 
-export default new ListStore()
+export default new RoomStore()
