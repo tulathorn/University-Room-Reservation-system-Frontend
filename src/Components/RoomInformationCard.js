@@ -7,10 +7,6 @@ const jumbotronStyle = {
 }
 
 class RooomInformationCard extends React.Component {
-  constructor(props) {
-    super(props)
-  }
-
   render() {
     return (
       <div className="jumbotron text-white" style={jumbotronStyle}>

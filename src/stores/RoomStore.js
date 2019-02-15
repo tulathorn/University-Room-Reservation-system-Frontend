@@ -12,6 +12,11 @@ class RoomStore {
   fetchData = async () => {
     this.roomDatas = await axios.get('./rooms').then(resp => resp.data)
   }
+
+  @action
+  addRoom = async data => {
+    await axios.put('./rooms', data).then(resp => resp.data)
+  }
 }
 
 export default new RoomStore()
