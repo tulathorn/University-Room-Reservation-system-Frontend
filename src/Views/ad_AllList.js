@@ -7,7 +7,7 @@ const jumbotronStyle = {
   backgroundColor: '#203C50'
 }
 
-class AdListView extends Component {
+class AdAllListView extends Component {
 
   render() {
     return (
@@ -95,4 +95,4 @@ class AdListView extends Component {
   }
 }
 
-export default AdListView
+export default AdAllListView

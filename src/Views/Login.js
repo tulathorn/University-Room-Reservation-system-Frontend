@@ -70,9 +70,9 @@ class LoginView extends Component {
 
 
                 <div className="row">
-                  <div className="col-10 col-md-11">
+                  <div className="col-11 col-md-11 col-sm-10">
                   </div>
-                  <div className="col-2 col-md-1">
+                  <div className="col-1 col-md-1 col-sm-2">
                     <a href="/login" class="text-secondary">Admin</a>
                   </div>
                 </div><br/>
