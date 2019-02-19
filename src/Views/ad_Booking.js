@@ -104,20 +104,27 @@ class AdBookingView extends Component {
 
                       </div>
                       <div className="col-6">
-                      <label for="info3">Email Address</label>
-                    <input
-                      type="email"
-                      className="form-control"
-                      id="info3"
-                      placeholder="Email Address"
-                    />
-                    <label for="info4">Phone Number</label>
-                    <input
-                      type="text"
-                      className="form-control"
-                      id="info4"
-                      placeholder="Phone Number"
-                      />
+                        <label for="info3">Email Address</label>
+                        <input
+                          type="email"
+                          className="form-control"
+                          id="info3"
+                          placeholder="Email Address"
+                        />
+                        <label for="info4">Phone Number</label>
+                        <input
+                          type="text"
+                          className="form-control"
+                          id="info4"
+                          placeholder="Phone Number"
+                          />
+                        <label for="info4">Section</label>
+                        <input
+                          type="text"
+                          className="form-control"
+                          id="info4"
+                          placeholder="Section"
+                          />
                       </div>
                     </div>
 
@@ -129,51 +136,9 @@ class AdBookingView extends Component {
                       rows="5"
                     />
                   </div>
-                  <label className="radio-inline"><input type="radio" name="optradio" checked/>Normal</label>
-                  <label className="radio-inline"><input type="radio" name="optradio"/>Recurring</label>
 
 
-                  <div className="form-group col-md-4">
-                        <label className="my-1 mr-2" for="inlineFormCustomSelectPref" >Date</label>
-                        <select className="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
-                          <option selected>DD/MM/YY</option>
-                          <option value="1">One</option>
-                          <option value="2">Two</option>
-                          <option value="3">Three</option>
-                        </select>
-                      </div>
-
-                      <h2>Time :</h2>
-                  <form className="form-inline">
-                    <label className="my-1 mr-2" for="inlineFormCustomSelectPref">From</label>
-                    <select className="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
-                      <option selected>Choose...</option>
-                      <option value="1">One</option>
-                      <option value="2">Two</option>
-                      <option value="3">Three</option>
-                    </select>
-                    <label className="my-1 mr-2" for="inlineFormCustomSelectPref">:</label>
-                    <select className="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
-                      <option selected>Choose...</option>
-                      <option value="1">One</option>
-                      <option value="2">Two</option>
-                      <option value="3">Three</option>
-                    </select>
-                    <label className="my-1 mr-2" for="inlineFormCustomSelectPref">To</label>
-                    <select className="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
-                      <option selected>Choose...</option>
-                      <option value="1">One</option>
-                      <option value="2">Two</option>
-                      <option value="3">Three</option>
-                    </select>
-                    <label className="my-1 mr-2" for="inlineFormCustomSelectPref">:</label>
-                    <select className="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
-                      <option selected>Choose...</option>
-                      <option value="1">One</option>
-                      <option value="2">Two</option>
-                      <option value="3">Three</option>
-                    </select>
-                  </form>
+                    
 
 
                   <br/>

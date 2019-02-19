@@ -51,15 +51,6 @@ class AdSearchView extends Component {
                <form>
                  <div className="form-row">
                    <div className="form-group col-md-4">
-                     <label className="my-1 mr-2" for="inlineFormCustomSelectPref" style={textColor}>Date</label>
-                     <select className="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
-                       <option selected>DD/MM/YY</option>
-                       <option value="1">One</option>
-                       <option value="2">Two</option>
-                       <option value="3">Three</option>
-                     </select>
-                   </div>
-                   <div className="form-group col-md-4">
                      <label className="my-1 mr-2" for="inlineFormCustomSelectPref" style={textColor}>Building</label>
                      <select className="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
                        <option selected>Building Name</option>
@@ -80,8 +71,44 @@ class AdSearchView extends Component {
                  </div>
                </form>
 
+
+               <hr className="my-4" color="white"/>
+               <Title_2>Date :</Title_2>
+                 <form className="form-inline">
+                   <label className="my-1 mr-2" for="inlineFormCustomSelectPref" style={textColor}>From</label>
+                   <select className="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
+                     <option selected>Choose...</option>
+                     <option value="1">One</option>
+                     <option value="2">Two</option>
+                     <option value="3">Three</option>
+                   </select>
+                   <label className="my-1 mr-2" for="inlineFormCustomSelectPref" style={textColor}>To</label>
+                   <select className="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
+                     <option selected>Choose...</option>
+                     <option value="1">One</option>
+                     <option value="2">Two</option>
+                     <option value="3">Three</option>
+                   </select>
+
+                 </form>
+
              <hr className="my-4" color="white"/>
              <Title_2>Time :</Title_2>
+               <form className="form-inline">
+                 <label className="my-1 mr-2" for="inlineFormCustomSelectPref" style={textColor}>Day</label>
+                 <select className="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
+                   <option selected>Choose...</option>
+                   <option value="1">Sunday</option>
+                   <option value="2">Monday</option>
+                   <option value="3">Tuesday</option>
+                   <option value="4">Wednesday</option>
+                   <option value="5">Thursday</option>
+                   <option value="6">Friday</option>
+                   <option value="7">Saturday</option>
+                 </select>
+      
+
+               </form>
                <form className="form-inline">
                  <label className="my-1 mr-2" for="inlineFormCustomSelectPref" style={textColor}>From</label>
                  <select className="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
