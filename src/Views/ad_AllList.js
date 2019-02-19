@@ -7,6 +7,8 @@ const jumbotronStyle = {
   backgroundColor: '#203C50'
 }
 
+
+
 class AdAllListView extends Component {
 
   render() {
@@ -14,28 +16,10 @@ class AdAllListView extends Component {
       <div>
         <Navbar />
         <div className="container">
-          <div className="row">
-            <div className="col-4">
-              <p>Result : 1</p>
-            </div>
-            <div className="col-8" />
-          </div>
-          <div className="row">
-            <div className="col-4">
-              <p>
-                <b>Search For : </b>
-              </p>
-              <p>Building : Witsawa Watthana</p>
-              <p>Size : 60 People</p>
-              <p>Date : Monday 12 November 2018</p>
-              <p>From 13:30 to 17:30</p>
-            </div>
-            <div className="col-8">
-              <p>
-                <b>Filtered : </b>
-              </p>
-            </div>
-          </div>
+
+
+
+
 
 
 
@@ -89,8 +73,9 @@ class AdAllListView extends Component {
           <center>
             <a href="/booking">Go to booking page(Temporary)</a>
           </center>
-        </div>
+      
       </div>
+</div>
     )
   }
 }
