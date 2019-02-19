@@ -17,7 +17,7 @@ class BookingView extends Component {
           <br/>
           <div className="row">
 
-            <div className="col-6">
+            <div className="col-md-6 col-sm-12">
               <div className="row"><h2>CPE1121</h2></div>
               <div className="row">
 
@@ -46,7 +46,7 @@ class BookingView extends Component {
                 <p><b>Amenity : </b></p>
               </div>
               <div className="row">
-                <div className="col-6">
+                <div className="col-md-6 col-sm-12">
                   <div className="form-check">
                     <input className="form-check-input" type="checkbox" value="" id="defaultCheck1"/>
                     <label className="form-check-label" for="defaultCheck1">
@@ -63,7 +63,7 @@ class BookingView extends Component {
                   </div>
                 </div>
 
-                <div className="col-6">
+                <div className="col-md-6 col-sm-12">
                   <div className="form-check">
                     <input className="form-check-input" type="checkbox" value="" id="defaultCheck1"/>
                     <label className="form-check-label" for="defaultCheck1">
@@ -82,7 +82,7 @@ class BookingView extends Component {
               </div>
             </div>
 
-            <div className="col-6 col-sm-4">
+            <div className="col-md-6 col-sm-12">
               <div className="jumbotron text-white" style={jumbotronStyle}>
                 <form action="">
                   <div className="form-group">

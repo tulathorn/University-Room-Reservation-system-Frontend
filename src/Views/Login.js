@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import '../Styles/bootstrap/bootstrap.min.css'
 import styled, { createGlobalStyle } from 'styled-components'
 
+import Swal from 'sweetalert2'
+
  const logoImage = require('../Pictures/logoBg.png');
  const logoStyle = {
    width: 'auto',
@@ -46,6 +48,23 @@ const helpLink = {
 }
 
 class LoginView extends Component {
+
+  loginclick = () =>{
+    Swal.fire({
+      title: 'User Information',
+      html:
+        'FirstName : <input id="swal-input1" class="swal2-input" placeholder="tul">' +
+        '<input id="swal-input2" class="swal2-input" placeholder="lathorn">',
+      focusConfirm: false,
+      preConfirm: () => {
+        return [
+          document.getElementById('swal-input1').value,
+          document.getElementById('swal-input2').value
+        ]
+      }
+    })
+  }
+  
   render() {
     return(
 
@@ -106,6 +125,7 @@ class LoginView extends Component {
                   <div className="col-2 col-md-2" >
                     <a href="/" className="btn btn-outline-info">Login</a>
                   </div>
+                  <button onClick={() => this.loginclick()} type="button" className="btn btn-outline-info">ClickSA</button>
                   <div className="col-8 col-md-9">
                   </div>
                   <div className="col-2 col-md-1">
@@ -124,6 +144,7 @@ class LoginView extends Component {
           <center>
             <button type="button" className="btn btn-link" style={languageLink}>English</button>
             <button type="button" className="btn btn-link" style={languageLink}>ภาษาไทย</button>
+            
             <br/>
           </center>
 
