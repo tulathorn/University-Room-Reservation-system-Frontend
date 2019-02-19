@@ -53,13 +53,17 @@ class LoginView extends Component {
     Swal.fire({
       title: 'User Information',
       html:
-        'FirstName : <input id="swal-input1" class="swal2-input" placeholder="tul">' +
-        '<input id="swal-input2" class="swal2-input" placeholder="lathorn">',
+        '<input id="swal-input1" class="swal2-input" placeholder="First Name">' +
+        '<input id="swal-input2" class="swal2-input" placeholder="Last Name">' +
+        '<input id="swal-input3" class="swal2-input" placeholder="Email Address">' +
+        '<input id="swal-input4" class="swal2-input" placeholder="Phone Number">',
       focusConfirm: false,
       preConfirm: () => {
         return [
           document.getElementById('swal-input1').value,
-          document.getElementById('swal-input2').value
+          document.getElementById('swal-input2').value,
+          document.getElementById('swal-input3').value,
+          document.getElementById('swal-input4').value
         ]
       }
     })
@@ -89,8 +93,7 @@ class LoginView extends Component {
 
 
                 <div className="row">
-                  <div className="col-11 col-md-11 col-sm-10">
-                  </div>
+
                   <div className="col-1 col-md-1 col-sm-2">
                     <a href="/login" class="text-secondary">Admin</a>
                   </div>
