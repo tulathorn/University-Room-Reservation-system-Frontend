@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Navbar from '../Components/Navbar'
+import AdNavbar from '../Components/ad_Navbar'
 
 const jumbotronStyle = {
   width: 'auto',
@@ -12,7 +12,7 @@ class AdListView extends Component {
   render() {
     return (
       <div>
-        <Navbar />
+        <AdNavbar />
         <div className="container">
           <div className="row">
             <div className="col-4">
@@ -69,17 +69,7 @@ class AdListView extends Component {
 
                       </div>
                     </div>
-                    <div className="col-12 col-md-3">
-                      <button type="button" className="btn btn-danger btn-lg btn-block" disabled>
-                        Not Completed
-                      </button>
-                      <button type="button" className="btn btn-info btn-lg btn-block" disabled>
-                        Completed
-                      </button>
-                      <button type="button" className="btn btn-warning btn-lg btn-block" disabled>
-                        Canceled
-                      </button>
-                    </div>
+                    
                   </div>
                 </div>
 
@@ -87,7 +77,7 @@ class AdListView extends Component {
 
 
           <center>
-            <a href="/booking">Go to booking page(Temporary)</a>
+            <a href="/ad_booking">Go to booking page(Temporary)</a>
           </center>
         </div>
       </div>

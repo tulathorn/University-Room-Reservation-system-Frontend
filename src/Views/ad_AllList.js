@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Navbar from '../Components/Navbar'
+import AdNavbar from '../Components/ad_Navbar'
 
 const jumbotronStyle = {
   width: 'auto',
@@ -7,21 +7,19 @@ const jumbotronStyle = {
   backgroundColor: '#203C50'
 }
 
-
-
 class AdAllListView extends Component {
 
   render() {
     return (
       <div>
-        <Navbar />
+        <AdNavbar />
         <div className="container">
-
-
-
-
-
-
+          <br/>
+          <form class="form-inline">
+            <i class="fas fa-search" aria-hidden="true"></i>
+            <input class="form-control form-control-sm ml-3 w-75" type="text" placeholder="Search" aria-label="Search" />
+          </form>
+          <br/>
 
                 <div className="jumbotron text-white" style={jumbotronStyle}>
                   <div className="row">

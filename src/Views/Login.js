@@ -93,8 +93,9 @@ class LoginView extends Component {
 
 
                 <div className="row">
-
-                  <div className="col-1 col-md-1 col-sm-2">
+                  <div className="col-10">
+                  </div>
+                  <div className="col-2">
                     <a href="/login" class="text-secondary">Admin</a>
                   </div>
                 </div><br/>
@@ -127,8 +128,9 @@ class LoginView extends Component {
                 <div className="row">
                   <div className="col-2 col-md-2" >
                     <a href="/" className="btn btn-outline-info">Login</a>
+                    <button onClick={() => this.loginclick()} type="button" className="btn btn-outline-info">ClickSA</button>
                   </div>
-                  <button onClick={() => this.loginclick()} type="button" className="btn btn-outline-info">ClickSA</button>
+                  
                   <div className="col-8 col-md-9">
                   </div>
                   <div className="col-2 col-md-1">
