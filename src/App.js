@@ -26,7 +26,8 @@ import AdEditRoomView from './Views/ad_EditRoom'
 import AdReplyView from './Views/ad_Reply'
 import AdRoomInfoView from './Views/ad_RoomInfo'
 import AdSupportView from './Views/ad_Support'
-import AdListView from './Views/ad_list'
+import AdListView from './Views/ad_List'
+import AdAllListView from './Views/ad_AllList'
 
 window.appHistory = history
 
@@ -54,7 +55,9 @@ class App extends Component {
           <Route path="/ad_support" component={AdSupportView} />{' '}
           <Route path="/ad_booking" component={AdBookingView} />{' '}
           <Route path="/ad_list" component={AdListView} />{' '}
+          <Route path="/ad_all_list" component={AdAllListView} />{' '}
           <Route path="/ad_timetable" component={AdBookingTimatableView} />{' '}
+
         </Switch>
       </BrowserRouter>
     )

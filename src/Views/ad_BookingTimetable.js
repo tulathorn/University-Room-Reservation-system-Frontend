@@ -14,77 +14,42 @@ class AdBookingTimatableView extends Component {
         <AdNavbar />
         <div className="container">
           <div className="row"><h2>Booking Timetable</h2></div><br/>
-          <div className="row">
-            <div className="col-5">
-              <div className="row">
-                <div className="col-2">
-                  <button className="btn btn-info btn-lg btn-block" disabled></button>
-                </div>
-                <div className="col-10">
-                  <p>Available Time</p>
-                </div>
-              </div>
 
-              <div className="row">
-                <div className="col-2">
-                  <button className="btn btn-danger btn-lg btn-block" disabled></button>
-                </div>
-                <div className="col-10">
-                  <p>Reserved Time</p>
-                </div>
-              </div>
+            <table class="table table-hover table-bordered">
+              <thead class="text-center">
+                <tr class="table-info">
+                  <th scope="col">Date (From)</th>
+                  <th scope="col">Date (To)</th>
+                  <th scope="col">Time (From)</th>
+                  <th scope="col">Time (to)</th>
+                  <th scope="col">Day</th>
+                  <th scope="col">Booking</th>
+                  <th scope="col">Purpose</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="text-center">12/02/2019</td>
+                  <td class="text-center">-</td>
+                  <td class="text-center">8:30</td>
+                  <td class="text-center">17:30</td>
+                  <td class="text-center">Monday</td>
+                  <td>
+                    Arnan Hirunratanakorn<br/>
+                    58070503438<br/>
+                    honhon013@hotmail.com<br/>
+                    0948761543
+                  </td>
+                  <td>CPE111</td>
 
-              <div className="row">
-                <div className="col-2">
-                  <button className="btn btn-dark btn-lg btn-block" disabled></button>
-                </div>
-                <div className="col-10">
-                  <p>Unavailable Time</p>
-                </div>
-              </div>
+                </tr>
 
-              <div className="row">
-                <button type="button" className="btn btn-outline-dark">Back</button>
-              </div>
-            </div>
-            <div className="col-7">
-              <div className="row">
-                <div className="col-1">
-                  <p>0</p>
-                </div>
-                <div className="col-11">
-                  <button className="btn btn-dark btn-lg btn-block" disabled>-</button>
-                </div>
-              </div>
+              </tbody>
+            </table>
+            <button type="button" className="btn btn-outline-info">
+              Back
+            </button>
 
-              <div className="row">
-                <div className="col-1">
-                  <p>1</p>
-                </div>
-                <div className="col-11">
-                  <button className="btn btn-danger btn-lg btn-block" disabled>58070503412 : YWC Meeting</button>
-                </div>
-              </div>
-
-              <div className="row">
-                <div className="col-1">
-                  <p>2</p>
-                </div>
-                <div className="col-11">
-                  <button className="btn btn-danger btn-lg btn-block" disabled>-</button>
-                </div>
-              </div>
-
-              <div className="row">
-                <div className="col-1">
-                  <p>3</p>
-                </div>
-                <div className="col-11">
-                  <button className="btn btn-info btn-lg btn-block" disabled>-</button>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     )
