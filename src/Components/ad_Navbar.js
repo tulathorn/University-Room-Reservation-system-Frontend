@@ -63,7 +63,7 @@ class AdNavbar extends React.Component {
   render() {
     return (
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
-        <a className="navbar-brand" href="/ad_search">
+        <a className="navbar-brand" href="/ad_all_list">
           <img src={require("../Pictures/logo.png")} width="40" height="40" alt=""/>
         </a>
         <button
