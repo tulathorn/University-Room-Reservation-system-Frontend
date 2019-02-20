@@ -68,22 +68,22 @@ class ReservationForm extends React.Component {
                   id="inlineFormCustomSelectPref"
                   onChange={this.setForm('Building')}
                 >
-                  <option selected>Building Name</option>
+                  <option>Building Name</option>
                   <option value="Witsawa Watthana">Witsawa Watthana</option>
-                  <option value="2">Two</option>
-                  <option value="3">Three</option>
                 </select>
               </div>
               <div className="form-group col-md-4">
                 <label className="my-1 mr-2" for="inlineFormCustomSelectPref" style={textColor}>
                   Size
                 </label>
-                <input
-                  type="text"
-                  className="form-control my-1 mr-sm-2"
-                  id="inlineFormCustomSelectPref"
-                  onChange={this.setForm('PeopleCapacity')}
-                />
+                <select className="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
+                  <option>Choose...</option>
+                  <option value="30">30</option>
+                  <option value="40">40</option>
+                  <option value="60">60</option>
+                  <option value="80">80</option>
+                  <option value="100">100</option>
+                </select>
               </div>
             </div>
           </form>
@@ -95,37 +95,77 @@ class ReservationForm extends React.Component {
               From
             </label>
             <select className="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
-              <option selected>Choose...</option>
-              <option value="1">One</option>
-              <option value="2">Two</option>
-              <option value="3">Three</option>
+                <option>Choose...</option>
+                <option value="1">00</option>
+                <option value="2">01</option>
+                <option value="3">02</option>
+                <option value="4">03</option>
+                <option value="5">04</option>
+                <option value="6">05</option>
+                <option value="7">06</option>
+                <option value="8">07</option>
+                <option value="9">08</option>
+                <option value="10">09</option>
+                <option value="11">10</option>
+                <option value="12">11</option>
+                <option value="13">12</option>
+                <option value="14">13</option>
+                <option value="15">14</option>
+                <option value="16">15</option>
+                <option value="17">16</option>
+                <option value="18">17</option>
+                <option value="19">18</option>
+                <option value="20">19</option>
+                <option value="21">20</option>
+                <option value="22">21</option>
+                <option value="23">22</option>
+                <option value="24">23</option>
             </select>
             <label className="my-1 mr-2" for="inlineFormCustomSelectPref" style={textColor}>
               :
             </label>
             <select className="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
-              <option selected>Choose...</option>
-              <option value="1">One</option>
-              <option value="2">Two</option>
-              <option value="3">Three</option>
+              <option>Choose...</option>
+              <option value="1">00</option>
+              <option value="2">30</option>
             </select>
             <label className="my-1 mr-2" for="inlineFormCustomSelectPref" style={textColor}>
               To
             </label>
             <select className="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
-              <option selected>Choose...</option>
-              <option value="1">One</option>
-              <option value="2">Two</option>
-              <option value="3">Three</option>
+              <option>Choose...</option>
+              <option value="1">00</option>
+              <option value="2">01</option>
+              <option value="3">02</option>
+              <option value="4">03</option>
+              <option value="5">04</option>
+              <option value="6">05</option>
+              <option value="7">06</option>
+              <option value="8">07</option>
+              <option value="9">08</option>
+              <option value="10">09</option>
+              <option value="11">10</option>
+              <option value="12">11</option>
+              <option value="13">12</option>
+              <option value="14">13</option>
+              <option value="15">14</option>
+              <option value="16">15</option>
+              <option value="17">16</option>
+              <option value="18">17</option>
+              <option value="19">18</option>
+              <option value="20">19</option>
+              <option value="21">20</option>
+              <option value="22">21</option>
+              <option value="23">22</option>
+              <option value="24">23</option>
             </select>
             <label className="my-1 mr-2" for="inlineFormCustomSelectPref" style={textColor}>
               :
             </label>
             <select className="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
-              <option selected>Choose...</option>
-              <option value="1">One</option>
-              <option value="2">Two</option>
-              <option value="3">Three</option>
+              <option>Choose...</option>
+              <option value="1">00</option>
+              <option value="2">30</option>
             </select>
           </form>
 
