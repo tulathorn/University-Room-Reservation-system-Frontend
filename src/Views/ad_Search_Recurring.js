@@ -32,10 +32,10 @@ class AdSearchView extends Component {
             <br/>
               <div className="row">
                 <div className="col-6">
-                  <a href="/ad_prehistory" className="btn btn-outline-danger btn-lg btn-block">Normal Booking</a>
+                  <a href="/ad_search_nor" className="btn btn-outline-info btn-lg btn-block">Normal Booking</a>
                 </div>
                 <div className="col-6">
-                  <button type="button" className="btn btn-danger btn-lg btn-block" disabled>Recurring Booking</button>
+                  <button type="button" className="btn btn-info btn-lg btn-block" disabled>Recurring Booking</button>
                 </div>
               </div>
             <br/>

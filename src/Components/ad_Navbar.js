@@ -80,7 +80,19 @@ class AdNavbar extends React.Component {
 
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav mr-auto">
-            <NavItem path="/ad_search" name="Room List" />
+            <NavDropdown name="Searchroom">
+              <a className="dropdown-item" href="/ad_search_nor">
+                Normal Search
+              </a>
+              <a className="dropdown-item" href="/ad_search_rec">
+                Recurring Search
+              </a>
+              <div className="dropdown-divider" />
+              <a className="dropdown-item" href="/ad_all_list">
+                Room Search
+              </a>
+            </NavDropdown>
+            <NavItem path="/ad_search" name="" />
             <NavItem path="/ad_curhistory" name="History" />
             <NavItem path="/ad_add_room" name="Add Room" />
             <NavItem path="/ad_support" name="Support" />
