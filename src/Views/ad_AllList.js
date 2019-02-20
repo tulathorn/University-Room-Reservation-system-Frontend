@@ -73,7 +73,7 @@ class AdAllListView extends Component {
           <center>
             <a href="/booking">Go to booking page(Temporary)</a>
           </center>
-      
+
       </div>
 </div>
     )
