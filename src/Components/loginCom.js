@@ -11,7 +11,7 @@ const cardColor = {
 
 class LoginCard extends React.Component {
 
-  loginclick = () =>{
+  loginClick = () =>{
     Swal.fire({
       title: 'User Information',
       html:
@@ -19,7 +19,11 @@ class LoginCard extends React.Component {
         '<input id="swal-input2" class="swal2-input" placeholder="Last Name">' +
         '<input id="swal-input3" class="swal2-input" placeholder="Email Address">' +
         '<input id="swal-input4" class="swal2-input" placeholder="Phone Number">',
-      focusConfirm: false,
+      focusConfirm: true,
+      showCancelButton: true,
+      confirmButtonColor: '#17a2b8',
+      confirmButtonText: 'Login',
+      cancelButtonColor: '#dc3545',
       preConfirm: () => {
         return [
           document.getElementById('swal-input1').value,
@@ -27,6 +31,10 @@ class LoginCard extends React.Component {
           document.getElementById('swal-input3').value,
           document.getElementById('swal-input4').value
         ]
+      }
+    }).then((result) => {
+      if (result.value) {
+        //Go to main page
       }
     })
   }
@@ -66,7 +74,7 @@ class LoginCard extends React.Component {
           <div className="row">
             <div className="col-2 col-md-2" >
               {/*<a href="/" className="btn btn-outline-info">Login</a>*/}
-              <button onClick={() => this.loginclick()} type="button" className="btn btn-outline-info">Login</button>
+              <button onClick={() => this.loginClick()} type="button" className="btn btn-outline-info">Login</button>
             </div>
 
             <div className="col-7 col-md-8">

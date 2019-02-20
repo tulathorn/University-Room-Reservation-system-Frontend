@@ -1,5 +1,6 @@
 import React from 'react'
 import '../Styles/bootstrap/bootstrap.min.css'
+import Swal from 'sweetalert2'
 
 const helpLink = {
   color: '#1F384B'
@@ -9,6 +10,15 @@ const cardColor = {
 }
 
 class ContactCard extends React.Component {
+  sentClick = () =>{
+      Swal.fire({
+      position: 'center',
+      type: 'success',
+      title: 'Your messege has been sent',
+      showConfirmButton: false,
+      timer: 1500
+    })
+  }
   render() {
     return (
       <div>
@@ -53,7 +63,9 @@ class ContactCard extends React.Component {
                     />
                   </div>
                   <center>
-                    <a href="/Login" className="btn btn-outline-info">Submit</a>
+                    <button onClick={() => this.sentClick()} type="button" className="btn btn-outline-info">
+                      Submit
+                    </button>
                   </center>
                 </form>
               </div>
