@@ -36,12 +36,14 @@ class PreHistoryRoomCard extends React.Component {
             </div>
 					</div>
 					<div className="col-3">
+            {/* //Alert for each status of booking
             <div class="alert alert-danger" role="alert" >
               Not Completed
             </div>
             <div class="alert alert-warning" role="alert">
               Canceled
             </div>
+            */}
             <div class="alert alert-info" role="alert">
               Completed
             </div>
