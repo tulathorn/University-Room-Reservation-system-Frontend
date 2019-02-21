@@ -21,11 +21,13 @@ class CurHistoryRoomCard extends React.Component {
       confirmButtonText: 'Yes, cancel it!'
     }).then((result) => {
       if (result.value) {
-        Swal.fire(
-          'Cancel!',
-          'Your booking has been canceled.',
-          'success',
-        )
+        Swal.fire({
+          position: 'center',
+          type: 'success',
+          title: 'Your booking has been canceled',
+          showConfirmButton: false,
+          timer: 1500
+        })
       }
     })
   }

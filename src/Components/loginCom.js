@@ -35,7 +35,7 @@ class LoginCard extends React.Component {
       }
     }).then((result) => {
       if (result.value) {
-        //Go to main page
+        // Go to main page
       }
     })
   }
