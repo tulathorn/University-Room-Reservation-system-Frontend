@@ -81,10 +81,15 @@ class Navbar extends React.Component {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav mr-auto">
             <NavItem path="/" name="Find Room" />
-            <NavItem path="/curhistory" name="History" />
+            <NavDropdown name="History">
+              <a className="dropdown-item" href="/curhistory">
+                Current History
+              </a>
+              <a className="dropdown-item" href="/prehistory">
+                Previous HIstory
+              </a>
+            </NavDropdown> 
             <NavItem path="/contact" name="Help" />
-            {/* <NavItem path="/page3" name="Disabled" disabled="true" /> */}
-
             <NavDropdown name="Languages">
               <a className="dropdown-item" href="/">
                 ภาษาไทย

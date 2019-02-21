@@ -13,10 +13,10 @@ class PreHistoryRoomCard extends React.Component {
       <div>
 			<div className="jumbotron text-white" style={jumbotronStyle}>
 				<div className="row">
-					<div className="col-4">
+					<div className="col-md-4 col-sm-12">
 						<center><img src={require("../Pictures/testclassroom.jpg")} height="150" alt=""/></center>
 					</div>
-          <div className="col-5">
+          <div className="col-md-5 col-sm-12">
             <div className="row">
               <p>
                 <b>CPE1121</b>
@@ -35,7 +35,7 @@ class PreHistoryRoomCard extends React.Component {
 							<p>From 12:00 to 17:00</p>
             </div>
 					</div>
-					<div className="col-3">
+					<div className="col-md-3 col-sm-12">
             {/* //Alert for each status of booking
             <div class="alert alert-danger" role="alert" >
               Not Completed

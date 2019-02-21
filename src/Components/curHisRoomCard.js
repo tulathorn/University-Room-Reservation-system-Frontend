@@ -24,7 +24,7 @@ class CurHistoryRoomCard extends React.Component {
         Swal.fire(
           'Cancel!',
           'Your booking has been canceled.',
-          'success'
+          'success',
         )
       }
     })
@@ -43,10 +43,10 @@ class CurHistoryRoomCard extends React.Component {
       <div>
 			<div className="jumbotron text-white" style={jumbotronStyle}>
 				<div className="row">
-					<div className="col-4">
+					<div className="col-md-4  col-sm-12">
 						<center><img src={require("../Pictures/testclassroom.jpg")} height="150" alt=""/></center>
 					</div>
-					<div className="col-5">
+					<div className="col-md-5  col-sm-12">
             <div className="row">
               <p>
                 <b>CPE1121</b>
@@ -65,7 +65,7 @@ class CurHistoryRoomCard extends React.Component {
 							<p>From 12:00 to 17:00</p>
             </div>
 					</div>
-					<div className="col-3">
+					<div className="col-md-3 col-sm-12">
             <button onClick={() => this.pinClick()} type="button" className="btn btn-outline-light btn-lg btn-block">Request Pin Via Email</button>
             <button onClick={() => this.pinClick()} type="button" className="btn btn-outline-light btn-lg btn-block">Request Pin Via Phone</button>
             <button onClick={() => this.cancelClick()} type="button" className="btn btn-danger btn-lg btn-block">Cancel the booking</button>

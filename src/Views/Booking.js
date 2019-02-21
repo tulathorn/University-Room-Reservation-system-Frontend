@@ -11,10 +11,10 @@ class BookingView extends Component {
         <div className="container">
           <br/>
           <div className="row">
-            <div className="col-md-6 col-sm-11">
+            <div className="col-md-6 col-sm-12">
               <RoomInfoCard/>
             </div>
-            <div className="col-md-6 col-sm-11">
+            <div className="col-md-6 col-sm-12">
               <BookingForm/>
             </div>
           </div>

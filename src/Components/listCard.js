@@ -13,15 +13,15 @@ class ListCard extends React.Component {
       <div>
         <div className="jumbotron text-white" style={jumbotronStyle}>
           <div className="row">
-            <div className="col-4 col-md-4">
+            <div className="col-md-4 col-sm-12">
               <center>
                 <img src={require('../Pictures/testclassroom.jpg')} height="150" alt=""/>
               </center>
             </div>
-            <div className="col-3 col-md-3">
+            <div className="col-md-3 col-sm-12">
               <div className="row">
                 <p>
-                  <b>Roomname</b>
+                  <b>Roomname:</b>
                 </p>
               </div>
               <div className="row">
@@ -43,14 +43,14 @@ class ListCard extends React.Component {
                 <p></p>
               </div>
             </div>
-            <div className="col-5 col-md-5">
+            <div className="col-md-5 col-sm-12">
               <div className="row">
                 <p>
                   <b>Amenities:</b>
                 </p>
               </div>
               <div className="row">
-                <div className="col-6">
+                <div className="col-md-6 col-sm-12">
                   <div className="form-check">
                     <input className="form-check-input" type="checkbox" value="" id="defaultCheck1"/>
                     <label className="form-check-label" for="defaultCheck1">
@@ -66,7 +66,7 @@ class ListCard extends React.Component {
                     </label>
                   </div>
                 </div>
-                <div className="col-6">
+                <div className="col-md-6 col-sm-12">
                   <div className="form-check">
                     <input className="form-check-input" type="checkbox" value="" id="defaultCheck1"disabled/>
                     <label className="form-check-label" for="defaultCheck1">

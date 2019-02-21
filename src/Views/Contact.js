@@ -18,16 +18,15 @@ class ContactView extends Component {
   render() {
     return (
       <div style={bgStyle}>
-        <Navbar />
         <div className="container">
           <br/><br/><br/>
           <div className="row">
-            <div className="col-2">
+            <div className="col-md-2 col-sm-0">
             </div>
-            <div className="col-8">
+            <div className="col-md-8 col-sm-10">
               <ContactCard/>
             </div>
-            <div className="col-2">
+            <div className="col-md-2 col-sm-0">
             </div>
           </div>
           <center>

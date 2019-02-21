@@ -26,13 +26,15 @@ class ContactCard extends React.Component {
           <div className="card-body">
             <a href="/Login" className="btn btn-outline-info">Back</a>
             <div className="row">
-              <div className="col-12" style={{ textAlign: 'center' }}>
+              <div className="col-md-12 col-sm-12" style={{ textAlign: 'center' }}>
                 <img src={require("../Pictures/logo.png")} width="150" height="150" alt=""/>
                 <h5 className="card-tile">Contact us</h5>
               </div>
             </div>
             <div className="row">
-              <div className="col-8 offset-2">
+              <div className="col-md-2 col-sm-1">
+              </div>
+              <div className="col-md-8 col-sm-10">
                 <form action="">
                   <div className="form-group">
                     <label for="exampleFormControlInput1">Email address</label>
@@ -68,6 +70,8 @@ class ContactCard extends React.Component {
                     </button>
                   </center>
                 </form>
+              </div>
+              <div className="col-md-2 col-sm-1">
               </div>
             </div>
           </div>

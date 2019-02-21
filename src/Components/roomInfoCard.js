@@ -20,29 +20,35 @@ class RoomInfoCard extends React.Component {
           </center>
           <br/>
 
-          <div className="row offset-1">
-            <div className="col-4">
+          <div className="row">
+            <div className="col-md-1 col-sm-0">
+            </div>
+            <div className="col-md-4 col-sm-4">
               <p><b>Booked Date : </b></p>
             </div>
-            <div className="col-8">
+            <div className="col-md-7 col-sm-8">
               <p>Monday 12 November 2018</p>
             </div>
           </div>
 
-          <div className="row offset-1">
-            <div className="col-4">
+          <div className="row">
+            <div className="col-md-1 col-sm-0">
+            </div>
+            <div className="col-md-4 col-sm-4">
               <p><b>Booked Time : </b></p>
             </div>
-            <div className="col-8">
+            <div className="col-md-7 col-sm-8">
               <p>From 13:30 to 17:30</p>
             </div>
           </div>
 
-          <div className="row offset-1">
-            <div className="col-4">
+          <div className="row">
+            <div className="col-md-1 col-sm-0">
+            </div>
+            <div className="col-md-4 col-sm-4">
               <p><b>Information : </b></p>
             </div>
-            <div className="col-8">
+            <div className="col-md-7 col-sm-8">
               <p>People Capacity : 50</p>
               <p>Building : Witsawa Watthana</p>
               <p>Floor : 11</p>
@@ -50,16 +56,18 @@ class RoomInfoCard extends React.Component {
             </div>
           </div>
 
-          <div className="row offset-1">
-            <div className="col-4">
+          <div className="row">
+            <div className="col-md-1 col-sm-0">
+            </div>
+            <div className="col-md-4 col-sm-4">
               <p><b>Amenity : </b></p>
             </div>
-            <div className="col-8">
+            <div className="col-md-7 col-sm-8">
             </div>
           </div>
 
-          <div className="row offset-1">
-            <div className="col-6">
+          <div className="row">
+            <div className="col-md-6">
               <div className="form-check">
                 <input className="form-check-input" type="checkbox" value="" id="defaultCheck1"/>
                 <label className="form-check-label" for="defaultCheck1">
@@ -75,7 +83,7 @@ class RoomInfoCard extends React.Component {
                 </label>
               </div>
             </div>
-            <div className="col-6">
+            <div className="col-md-6">
               <div className="form-check">
                 <input className="form-check-input" type="checkbox" value="" id="defaultCheck1"disabled/>
                 <label className="form-check-label" for="defaultCheck1">

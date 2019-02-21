@@ -51,8 +51,6 @@ class BookingForm extends React.Component {
   							id="info1"
   							placeholder="Firstname"
   						/>
-  					</div>
-  					<div className="form-group">
   						<label for="info2">Surname</label>
   						<input
   							type="text"
@@ -60,8 +58,6 @@ class BookingForm extends React.Component {
   							id="info2"
   							placeholder="Lastname"
   						/>
-  					</div>
-  					<div className="form-group">
   						<label for="info3">Email Address</label>
   						<input
   							type="email"
@@ -69,8 +65,6 @@ class BookingForm extends React.Component {
   							id="info3"
   							placeholder="Email Address"
   						/>
-  					</div>
-  					<div className="form-group">
   						<label for="info4">Phone Number</label>
   						<input
   							type="text"
@@ -78,8 +72,6 @@ class BookingForm extends React.Component {
   							id="info4"
   							placeholder="Phone Number"
   							/>
-  					</div>
-  					<div className="form-group">
   						<label for="info5">Purpose</label>
   						<textarea
   							className="form-control"
@@ -90,14 +82,14 @@ class BookingForm extends React.Component {
   					</div>
 
   					<div className="row">
-  						<div className="col-2 col-md-2 col-sm-2">
-  							<a onClick={() => this.submitClick()}className="btn btn-info">
+  						<div className="col-2 col-md-2 col-sm-5">
+  							<a onClick={() => this.submitClick()} className="btn btn-info">
                   Submit
                 </a>
   						</div>
-  						<div className="col-7 col-md-7 col-sm-6">
+  						<div className="col-7 col-md-7 col-sm-2">
   						</div>
-  						<div className="col-3 col-md-3 col-sm-4">
+  						<div className="col-3 col-md-3 col-sm-5">
                 <button onClick={() => this.updateClick()} type="button" className="btn btn-outline-info">
                   Update
                 </button>

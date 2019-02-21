@@ -13,7 +13,7 @@ class PreviewCard extends React.Component {
       <div>
         <div className="jumbotron" style={jumbotronStyle}>
           <div className="row">
-            <div className="col-4">
+            <div className="col-md-4 col-sm-12">
               <p>
                 <b>Search For : </b>
               </p>
@@ -22,9 +22,21 @@ class PreviewCard extends React.Component {
               <p><b>Date</b> : Monday 12 November 2018</p>
               <p><b>From</b> 13:30 to 17:30</p>
             </div>
-            <div className="col-8">
+            <div className="col-md-8 col-sm-12">
               <p>
                 <b>Filtered : </b>
+                <div className="row">
+                  <div className="col-md-6 col-sm-12">
+                  <p>Amentity 1</p>
+                  <p>Amentity 2</p>
+                  <p>Amentity 3</p>
+                  </div>
+                  <div className="col-md-6 col-sm-12">
+                  <p>Amentity 4</p>
+                  <p>Amentity 5</p>
+                  <p>Amentity 6</p>
+                  </div>
+                </div>
               </p>
             </div>
           </div>

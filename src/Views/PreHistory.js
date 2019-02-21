@@ -16,10 +16,10 @@ class PreHistoryView extends Component {
         <div className="container">
           <br/>
           <div className="row">
-            <div className="col-6">
+            <div className="col-md-6 col-sm-12">
               <button type="button" className="btn btn-info btn-lg btn-block" disabled>Previous Booking</button>
             </div>
-            <div className="col-6">
+            <div className="col-md-6 col-sm-12">
               <a href="/curhistory" className="btn btn-outline-info btn-lg btn-block">Current Booking</a>
             </div>
           </div>

@@ -31,7 +31,7 @@ class MainView extends Component {
           <RoomConsumer>{state => <ReservationForm {...state} />}</RoomConsumer>
 
           <center>
-            <a href="/search">Go to list page(Temporary)</a>
+            <a href="/list">Go to list page(Temporary)</a>
           </center>
         </div>
       </div>
