@@ -40,7 +40,6 @@ class BookingForm extends React.Component {
   }
   render() {
     return (
-      <div>
   			<div className="jumbotron text-white" style={jumbotronStyle}>
   				<form action="">
   					<div className="form-group">
@@ -95,11 +94,8 @@ class BookingForm extends React.Component {
                 </button>
   						</div>
   					</div>
-
-
   				</form>
   			</div>
-      </div>
     )
   }
 }

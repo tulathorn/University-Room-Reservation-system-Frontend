@@ -7,7 +7,7 @@ const jumbotronStyle = {
   backgroundColor: '#203C50'
 }
 
-class ListCard extends React.Component {
+class AllListCard extends React.Component {
   render() {
     return (
         <div className="jumbotron text-white" style={jumbotronStyle}>
@@ -89,4 +89,4 @@ class ListCard extends React.Component {
   }
 }
 
-export default ListCard
+export default AllListCard

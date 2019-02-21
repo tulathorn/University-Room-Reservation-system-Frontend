@@ -21,7 +21,6 @@ class ContactCard extends React.Component {
   }
   render() {
     return (
-      <div>
         <div className="card">
           <div className="card-body">
             <a href="/Login" className="btn btn-outline-info">Back</a>
@@ -76,7 +75,6 @@ class ContactCard extends React.Component {
             </div>
           </div>
         </div>
-      </div>
     )
   }
 }

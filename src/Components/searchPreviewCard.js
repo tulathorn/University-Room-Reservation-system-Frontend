@@ -10,7 +10,6 @@ const jumbotronStyle = {
 class PreviewCard extends React.Component {
   render() {
     return (
-      <div>
         <div className="jumbotron" style={jumbotronStyle}>
           <div className="row">
             <div className="col-md-4 col-sm-12">
@@ -41,7 +40,6 @@ class PreviewCard extends React.Component {
             </div>
           </div>
         </div>
-      </div>
     )
   }
 }

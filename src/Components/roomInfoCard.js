@@ -10,7 +10,6 @@ const jumbotronStyle1 = {
 class RoomInfoCard extends React.Component {
   render() {
     return (
-      <div>
         <div className="jumbotron" style={jumbotronStyle1} >
           <h2>CPE1121</h2>
           <center>
@@ -67,7 +66,9 @@ class RoomInfoCard extends React.Component {
           </div>
 
           <div className="row">
-            <div className="col-md-6">
+            <div className="col-md-2">
+            </div>
+            <div className="col-md-5">
               <div className="form-check">
                 <input className="form-check-input" type="checkbox" value="" id="defaultCheck1"/>
                 <label className="form-check-label" for="defaultCheck1">
@@ -83,7 +84,7 @@ class RoomInfoCard extends React.Component {
                 </label>
               </div>
             </div>
-            <div className="col-md-6">
+            <div className="col-md-5">
               <div className="form-check">
                 <input className="form-check-input" type="checkbox" value="" id="defaultCheck1"disabled/>
                 <label className="form-check-label" for="defaultCheck1">
@@ -101,7 +102,6 @@ class RoomInfoCard extends React.Component {
             </div>
           </div>
         </div>
-      </div>
     )
   }
 }

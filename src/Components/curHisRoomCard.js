@@ -42,7 +42,6 @@ class CurHistoryRoomCard extends React.Component {
   }
   render() {
     return (
-      <div>
 			<div className="jumbotron text-white" style={jumbotronStyle}>
 				<div className="row">
 					<div className="col-md-4  col-sm-12">
@@ -72,7 +71,6 @@ class CurHistoryRoomCard extends React.Component {
             <button onClick={() => this.pinClick()} type="button" className="btn btn-outline-light btn-lg btn-block">Request Pin Via Phone</button>
             <button onClick={() => this.cancelClick()} type="button" className="btn btn-danger btn-lg btn-block">Cancel the booking</button>
 					</div>
-				</div>
 				</div>
       </div>
     )

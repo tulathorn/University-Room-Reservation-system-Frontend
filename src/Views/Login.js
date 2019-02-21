@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import '../Styles/bootstrap/bootstrap.min.css'
 import styled, { createGlobalStyle } from 'styled-components'
-import LoginCard from '../Components/loginCom'
+import LoginCard from '../Components/loginForm'
 
  const logoImage = require('../Pictures/logoBg.png');
  const logoStyle = {

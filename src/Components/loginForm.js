@@ -42,7 +42,6 @@ class LoginCard extends React.Component {
 
   render() {
     return (
-      <div>
         <div style={cardColor} className="jumbotron">
           <div className="row">
             <div className="col-9 col-md-10 col-sm-8">
@@ -86,7 +85,6 @@ class LoginCard extends React.Component {
           </div>
 
         </div>
-      </div>
     )
   }
 }
