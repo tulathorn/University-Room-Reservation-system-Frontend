@@ -14,7 +14,7 @@ class RoomInfoCard extends React.Component {
           <h2>CPE1121</h2>
           <center>
             <img
-              src={require("../Pictures/testclassroom.jpg")} width="auto" alt=""
+              src={require("../Pictures/testclassroom.jpg")} width="300" alt=""
             />
           </center>
           <br/>

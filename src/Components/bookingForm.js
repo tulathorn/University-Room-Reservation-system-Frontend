@@ -9,7 +9,7 @@ const jumbotronStyle = {
 }
 
 class BookingForm extends React.Component {
-  submitClick = () =>{
+  bookClick = () =>{
       Swal.fire({
       position: 'center',
       type: 'success',
@@ -82,8 +82,8 @@ class BookingForm extends React.Component {
 
   					<div className="row">
   						<div className="col-2 col-md-2 col-sm-5">
-  							<a onClick={() => this.submitClick()} className="btn btn-info">
-                  Submit
+  							<a onClick={() => this.bookClick()} className="btn btn-info">
+                  Book
                 </a>
   						</div>
   						<div className="col-7 col-md-7 col-sm-2">
