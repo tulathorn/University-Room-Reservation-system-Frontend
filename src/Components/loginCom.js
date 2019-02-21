@@ -19,10 +19,9 @@ class LoginCard extends React.Component {
         '<input id="swal-input2" class="swal2-input" placeholder="Last Name">' +
         '<input id="swal-input3" class="swal2-input" placeholder="Email Address">' +
         '<input id="swal-input4" class="swal2-input" placeholder="Phone Number">',
-      focusConfirm: true,
+      focusConfirm: false,
       showCancelButton: true,
       confirmButtonColor: '#17a2b8',
-      confirmButton: '<a href="/login"></a>',
       confirmButtonColor: '#17a2b8',
       confirmButtonText: 'Login',
       cancelButtonColor: '#dc3545',

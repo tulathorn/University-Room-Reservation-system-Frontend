@@ -27,6 +27,7 @@ class BookingForm extends React.Component {
         '<input id="swal-input3" class="swal2-input" placeholder="Email Address">' +
         '<input id="swal-input4" class="swal2-input" placeholder="Phone Number">',
       focusConfirm: false,
+      confirmButtonColor: '#17a2b8',
       preConfirm: () => {
         return [
           document.getElementById('swal-input1').value,

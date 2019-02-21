@@ -14,6 +14,7 @@ class CurHistoryRoomCard extends React.Component {
       title: 'Are you sure?',
       text: "You want to cancel this booking?",
       type: 'warning',
+      focusCancel: true,
       showCancelButton: true,
       confirmButtonColor: '#17a2b8',
       cancelButtonColor: '#dc3545',
@@ -46,19 +47,23 @@ class CurHistoryRoomCard extends React.Component {
 						<center><img src={require("../Pictures/testclassroom.jpg")} height="150" alt=""/></center>
 					</div>
 					<div className="col-5">
-						<h4>CPE1121</h4>
-						<div className="row">
-							<p><b>Purpose : </b></p>
-							<p>Tutor Camp</p>
-						</div>
-						<div className="row">
-							<p><b>Date : </b></p>
+            <div className="row">
+              <p>
+                <b>CPE1121</b>
+              </p>
+            </div>
+            <div className="row">
+              <p><b>Purpose : </b></p>
+              <p>Tutor Camp</p>
+            </div>
+            <div className="row">
+              <p><b>Date : </b></p>
 							<p>Friday 9 November 2018</p>
-						</div>
-						<div className="row">
-							<p><b>Schedule : </b></p>
+            </div>
+            <div className="row">
+              <p><b>Schedule : </b></p>
 							<p>From 12:00 to 17:00</p>
-						</div>
+            </div>
 					</div>
 					<div className="col-3">
             <button onClick={() => this.pinClick()} type="button" className="btn btn-outline-light btn-lg btn-block">Request Pin Via Email</button>
