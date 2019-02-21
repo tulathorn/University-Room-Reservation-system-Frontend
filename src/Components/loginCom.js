@@ -22,6 +22,8 @@ class LoginCard extends React.Component {
       focusConfirm: true,
       showCancelButton: true,
       confirmButtonColor: '#17a2b8',
+      confirmButton: '<a href="/login"></a>',
+      confirmButtonColor: '#17a2b8',
       confirmButtonText: 'Login',
       cancelButtonColor: '#dc3545',
       preConfirm: () => {

@@ -26,7 +26,7 @@ import AdEditRoomView from './Views/ad_EditRoom'
 import AdReplyView from './Views/ad_Reply'
 import AdRoomInfoView from './Views/ad_RoomInfo'
 import AdSupportView from './Views/ad_Support'
-import AdListView from './Views/ad_List'
+import AdListView from './Views/ad_Lists'
 import AdAllListView from './Views/ad_AllList'
 
 window.appHistory = history

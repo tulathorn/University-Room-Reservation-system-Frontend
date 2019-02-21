@@ -69,7 +69,7 @@ class AdListView extends Component {
 
                       </div>
                     </div>
-                    
+
                   </div>
                 </div>
 
