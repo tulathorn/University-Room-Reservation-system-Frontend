@@ -23,19 +23,20 @@ class RecPreviewCard extends React.Component {
           <div className="col-md-6 col-sm-12">
             <p>
               <b>Filtered : </b>
-              <div className="row">
-                <div className="col-md-6 col-sm-12">
+            </p>
+            <div className="row">
+              <div className="col-md-6 col-sm-12">
                 <p>Amentity 1</p>
                 <p>Amentity 2</p>
                 <p>Amentity 3</p>
-                </div>
-                <div className="col-md-6 col-sm-12">
+              </div>
+              <div className="col-md-6 col-sm-12">
                 <p>Amentity 4</p>
                 <p>Amentity 5</p>
                 <p>Amentity 6</p>
-                </div>
               </div>
-            </p>
+            </div>
+
           </div>
         </div>
       </div>
