@@ -14,7 +14,7 @@ class ContactCard extends React.Component {
       Swal.fire({
       position: 'center',
       type: 'success',
-      title: 'Your messege has been sent',
+      title: 'Your message has been sent',
       showConfirmButton: false,
       timer: 1500
     })
