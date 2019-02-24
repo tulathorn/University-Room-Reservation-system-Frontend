@@ -12,16 +12,16 @@ class PreviewCard extends React.Component {
     return (
         <div className="jumbotron" style={jumbotronStyle}>
           <div className="row">
-            <div className="col-md-4 col-sm-12">
+            <div className="col-md-6 col-sm-12">
               <p>
                 <b>Search For : </b>
               </p>
               <p><b>Building</b> : Witsawa Watthana</p>
               <p><b>Size</b> : 60 People</p>
               <p><b>Date</b> : Monday 12 November 2018</p>
-              <p><b>From</b> 13:30 to 17:30</p>
+              <p><b>Time</b> 13:30 - 17:30</p>
             </div>
-            <div className="col-md-8 col-sm-12">
+            <div className="col-md-6 col-sm-12">
               <p>
                 <b>Filtered : </b>
                 <div className="row">

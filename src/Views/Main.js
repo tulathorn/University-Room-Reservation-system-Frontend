@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
+import Swal from 'sweetalert2'
 
 import Navbar from '../Components/Navbar'
 
@@ -11,6 +12,16 @@ const Title = styled.h1`
 `
 
 class MainView extends Component {
+  searchClick = () =>{
+    Swal.fire({
+      position: 'center',
+      type: 'error',
+      title: 'Oops...',
+      text: 'There are no matching rooms',
+      showConfirmButton: false,
+      timer: 1500
+    })
+  }
   constructor(props){
     super(props)
     this.state = {
@@ -31,6 +42,9 @@ class MainView extends Component {
           <RoomConsumer>{state => <ReservationForm {...state} />}</RoomConsumer>
 
           <center>
+            <button type="button" className="btn btn-outline-info" onClick={() => this.searchClick()}  >
+              Search
+            </button><br/>
             <a href="/list">Go to list page(Temporary)</a>
           </center>
         </div>

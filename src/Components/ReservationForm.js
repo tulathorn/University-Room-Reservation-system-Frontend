@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
 import { withRouter } from 'react-router-dom'
-import Swal from 'sweetalert2'
 
 const Heading = styled.h2`
   color: white;
@@ -25,16 +24,6 @@ const jumbotronStyle = {
 }
 
 class ReservationForm extends React.Component {
-  searchClick = () =>{
-    Swal.fire({
-      position: 'center',
-      type: 'error',
-      title: 'Oops...',
-      text: 'There are no matching rooms',
-      showConfirmButton: false,
-      timer: 1500
-    })
-  }
   setForm = name => event => {
     this.props.setField(name, event.target.value)
   }
@@ -51,7 +40,7 @@ class ReservationForm extends React.Component {
 
   render() {
     return (
-      <div>
+
         <div className="jumbotron" style={jumbotronStyle}>
           <Heading>Find a Room</Heading>
 
@@ -88,7 +77,7 @@ class ReservationForm extends React.Component {
                   Size
                 </label>
                 <select className="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
-                  <option>Choose...</option>
+                  <option>Room Size</option>
                   <option value="30">30</option>
                   <option value="40">40</option>
                   <option value="60">60</option>
@@ -227,12 +216,8 @@ class ReservationForm extends React.Component {
           </div>
         </div>
 
-        <center>
-          <button type="button" className="btn btn-outline-dark" onClick={() => this.searchClick()}  >
-            Search
-          </button>
-        </center>
-      </div>
+
+
     )
   }
 }
