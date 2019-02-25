@@ -46,6 +46,16 @@ class AdBookingForm extends React.Component {
                 id="info2"
                 placeholder="Lastname"
               />
+              <label className="my-1 mr-2" for="inlineFormCustomSelectPref">
+                Year
+              </label>
+              <select className="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
+                <option>Year</option>
+                <option value="0">1</option>
+                <option value="1">2</option>
+                <option value="2">3</option>
+                <option value="3">4</option>
+              </select>
 
                 </div>
                 <div className="col-6">
@@ -70,6 +80,14 @@ class AdBookingForm extends React.Component {
                     id="info4"
                     placeholder="Section"
                     />
+                    <label className="my-1 mr-2" for="inlineFormCustomSelectPref">
+                      Program
+                    </label>
+                    <select className="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
+                      <option>Program</option>
+                      <option value="0">Regular</option>
+                      <option value="1">International</option>
+                    </select>
                 </div>
               </div>
 

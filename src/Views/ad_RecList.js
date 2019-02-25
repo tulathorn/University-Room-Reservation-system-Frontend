@@ -12,7 +12,7 @@ class AdRecListView extends Component {
         <AdNavbar />
         <div className="container">
           <RecPreviewCard/>
-          <a href="/booking" target="_blank">
+          <a href="/ad_booking" target="_blank">
             <ListCard/>
           </a>
         </div>
