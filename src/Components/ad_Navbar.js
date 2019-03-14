@@ -112,10 +112,10 @@ class AdNavbar extends React.Component {
           </ul>
 
           <form className="form-inline my-2 my-lg-0">
-            <ul className="navbar-nav mr-auto">
+            {/*<ul className="navbar-nav mr-auto">
               <NavItem name="580705034XX" disabled="true" />
             </ul>
-            {/* <input
+            <input
               className="form-control mr-sm-2"
               type="search"
               placeholder="Search"
