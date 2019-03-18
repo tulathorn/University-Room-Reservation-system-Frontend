@@ -15,32 +15,7 @@ const jumbotronStyle1 = {
 }
 
 class AdRoomInfoView extends Component {
-{/*
-  delete(event) {
-        fetch('/user', {
-                method: 'DELETE',
-                headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    firstname: this.state.firstname,
-                    lastname: this.state.lastname,
-                })
-            }).then((response) => response.json())
-            .then((responseJson) => {
-                this.setState({
-                    showUsers: false,
-                    users: responseJson
-                });
-                return;
-            })
-            .catch((error) => {
-                throw (error);
-            });
-        event.preventDefault();
-    }
-*/}
+
 
   deleteClick = () =>{
     Swal.fire({
