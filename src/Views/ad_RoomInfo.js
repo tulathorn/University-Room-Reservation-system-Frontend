@@ -15,6 +15,33 @@ const jumbotronStyle1 = {
 }
 
 class AdRoomInfoView extends Component {
+{/*
+  delete(event) {
+        fetch('/user', {
+                method: 'DELETE',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    firstname: this.state.firstname,
+                    lastname: this.state.lastname,
+                })
+            }).then((response) => response.json())
+            .then((responseJson) => {
+                this.setState({
+                    showUsers: false,
+                    users: responseJson
+                });
+                return;
+            })
+            .catch((error) => {
+                throw (error);
+            });
+        event.preventDefault();
+    }
+*/}
+
   deleteClick = () =>{
     Swal.fire({
       title: 'Are you sure?',
@@ -135,6 +162,8 @@ class AdRoomInfoView extends Component {
             <div className="col-md-5 col-sm-0">
             </div>
             <div className="col-md-1 col-sm-6">
+
+
               <button onClick={() => this.deleteClick()} type="button" className="btn btn-outline-danger">Delete</button>
             </div>
             <div className="col-md-1 col-sm-6">

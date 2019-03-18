@@ -1,18 +1,18 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
+import { observer } from 'mobx-react'
 import Swal from 'sweetalert2'
 
 import Navbar from '../Components/Navbar'
 
 import ReservationForm from '../Components/ReservationForm'
-import { Consumer as RoomConsumer } from '../Components/RoomDataProvider'
 
 const Title = styled.h1`
   color: #1f384b;
 `
-
+@observer
 class MainView extends Component {
-  searchClick = () =>{
+  searchClick = () => {
     Swal.fire({
       position: 'center',
       type: 'error',
@@ -22,7 +22,7 @@ class MainView extends Component {
       timer: 1500
     })
   }
-  constructor(props){
+  constructor(props) {
     super(props)
     this.state = {
       SearchData: []
@@ -39,10 +39,14 @@ class MainView extends Component {
           </center>
           <br />
 
-          <RoomConsumer>{state => <ReservationForm {...state} />}</RoomConsumer>
+          <ReservationForm />
 
           <center>
-            <button type="button" className="btn btn-outline-info" onClick={() => this.searchClick()}  >
+            <button
+              type="button"
+              className="btn btn-outline-info"
+              onClick={() => this.searchClick()}
+            >
               Search
             </button><br/>
           {/*<a href="/list">Go to list page(Temporary)</a>*/}

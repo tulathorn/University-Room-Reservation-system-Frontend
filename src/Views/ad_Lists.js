@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import AdNavbar from '../Components/ad_Navbar'
-import ListCard from '../Components/listCard'
+import ListCard from '../Components/RoomInformationCard'
 import PreviewCard from '../Components/searchPreviewCard'
 
 const jumbotronStyle = {
@@ -10,17 +10,16 @@ const jumbotronStyle = {
 }
 
 class AdListView extends Component {
-
   render() {
     return (
       <div>
         <AdNavbar />
-          <div className="container">
-            <PreviewCard/>
-            <a href="/ad_booking" target="_blank">
-              <ListCard/>
-            </a>
-          </div>
+        <div className="container">
+          <PreviewCard />
+          <a href="/ad_booking" target="_blank">
+            <ListCard />
+          </a>
+        </div>
       </div>
     )
   }
