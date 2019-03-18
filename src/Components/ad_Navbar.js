@@ -63,7 +63,7 @@ class AdNavbar extends React.Component {
   render() {
     return (
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
-        <a className="navbar-brand" href="/ad_search">
+        <a className="navbar-brand" href="/ad_all_list">
           <img src={require("../Pictures/logo.png")} width="40" height="40" alt=""/>
         </a>
         <button
@@ -80,7 +80,19 @@ class AdNavbar extends React.Component {
 
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav mr-auto">
-            <NavItem path="/ad_search" name="Room List" />
+            <NavDropdown name="Searchroom">
+              <a className="dropdown-item" href="/ad_search_nor">
+                Normal Search
+              </a>
+              <a className="dropdown-item" href="/ad_search_rec">
+                Recurring Search
+              </a>
+              <div className="dropdown-divider" />
+              <a className="dropdown-item" href="/ad_all_list">
+                Room Search
+              </a>
+            </NavDropdown>
+            <NavItem path="/ad_search" name="" />
             <NavItem path="/ad_curhistory" name="History" />
             <NavItem path="/ad_add_room" name="Add Room" />
             <NavItem path="/ad_support" name="Support" />
@@ -100,17 +112,17 @@ class AdNavbar extends React.Component {
           </ul>
 
           <form className="form-inline my-2 my-lg-0">
-            <ul className="navbar-nav mr-auto">
+            {/*<ul className="navbar-nav mr-auto">
               <NavItem name="580705034XX" disabled="true" />
             </ul>
-            {/* <input
+            <input
               className="form-control mr-sm-2"
               type="search"
               placeholder="Search"
               aria-label="Search"
             /> */}
-            <a href="/ad_login" class="btn btn-sm btn-outline-danger">Logout</a>
-            
+            <a href="/ad_login" class="btn btn-sm btn-outline-info">Logout</a>
+
           </form>
         </div>
       </nav>
