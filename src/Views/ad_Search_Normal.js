@@ -53,7 +53,7 @@ class AdSearchNorView extends Component {
             <button type="button" className="btn btn-outline-info" onClick={() => this.searchClick()}  >
               Search
             </button><br/>
-          <a href="/ad_list">Go to list page(Temporary)</a>
+          {/*<a href="/ad_list">Go to list page(Temporary)</a>*/}
           </center>
         </div>
       </div>

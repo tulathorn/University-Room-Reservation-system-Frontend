@@ -30,9 +30,10 @@ class LoginView extends Component {
 
       <div style={bgStyle}>
         <div className="container">
+          <br/><br/><br/><br/>
           <div className="row justify-content-center">
             <div className="col-sm-4" >
-              <br/><br/><br/>
+              <br/><br/><br/><br/><br/><br/><br/><br/>
                 <center>
                   <img src={require("../Pictures/logoText3.png")} alt=""/>
                 </center>
@@ -47,6 +48,7 @@ class LoginView extends Component {
             <button type="button" className="btn btn-link" style={languageLink}>ภาษาไทย</button>
             <br/>
           </center>
+          <br/><br/><br/><br/><br/><br/>
         </div>
       </div>
     );

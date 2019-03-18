@@ -56,7 +56,7 @@ class AdSearchRecView extends Component {
           </center>
         </div>
         <center>
-          <a href="/ad_rec_list">Go to room info(Temporary)</a>
+          {/*<a href="/ad_rec_list">Go to room info(Temporary)</a>*/}
         </center>
       </div>
     )

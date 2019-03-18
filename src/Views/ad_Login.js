@@ -50,6 +50,7 @@ class AdLoginView extends Component {
     return(
       <div style={bgStyle} >
         <div className="container">
+          <br/><br/><br/><br/><br/><br/><br/><br/>
           <div className="row justify-content-center">
             <div className="col-sm-4" >
               <br/><br/><br/>
@@ -68,6 +69,7 @@ class AdLoginView extends Component {
             <button type="button" className="btn btn-link" style={languageLink}>ภาษาไทย</button>
             <br/>
           </center>
+          <br/><br/><br/><br/><br/><br/><br/><br/>
         </div>
       </div>
     );
