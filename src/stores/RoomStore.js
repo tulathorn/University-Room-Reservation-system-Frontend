@@ -6,14 +6,14 @@ class RoomStore {
   roomDatas = []
 
   @observable
-  seachConfig = {}
+  searchConfig = {RoomName:"CPE1121"}
 
   @observable
   selectedRoom = 0
 
   @action
   fetchData = async () => {
-    this.roomDatas = await axios.get('./rooms').then(resp => resp.data)
+    this.roomDatas = await axios.get('./rooms', this.searchConfig).then(resp => resp.data)
   }
 
   @action

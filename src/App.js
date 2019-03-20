@@ -46,6 +46,7 @@ class App extends Component {
           <Route path="/ad_search_nor" component={AdSearchNorView} />{' '}
           <Route path="/ad_search_rec" component={AdSearchRecView} />{' '}
           <Route path="/ad_room_info" component={AdRoomInfoView} />{' '}
+          <Route path="/ad_all_list" component={AdAllListView} />{' '}
           <Route path="/ad_add_room" component={AdAddRoomView} />{' '}
           <Route path="/ad_edit_room" component={AdEditRoomView} />{' '}
           <Route path="/ad_curhistory" component={AdCurHistoryView} />{' '}

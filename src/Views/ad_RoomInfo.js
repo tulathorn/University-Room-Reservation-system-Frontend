@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import AdNavbar from '../Components/ad_Navbar'
+import RoomStore from '../stores/RoomStore'
 import Swal from 'sweetalert2'
+import { observer } from 'mobx-react'
 
 const jumbotronStyle = {
   width: 'auto',
@@ -14,8 +16,11 @@ const jumbotronStyle1 = {
   backgroundColor: 'white'
 }
 
+@observer
 class AdRoomInfoView extends Component {
-
+  componentDidMount() {
+    RoomStore.fetchData()
+  }
 
   deleteClick = () =>{
     Swal.fire({
@@ -50,7 +55,7 @@ class AdRoomInfoView extends Component {
             </div>
             <div className="col-md-11 col-sm-11">
             <h2>
-              CPE1121
+               CPE1121
             </h2>
             </div>
           </div>

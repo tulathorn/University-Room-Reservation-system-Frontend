@@ -5,6 +5,7 @@ import Swal from 'sweetalert2'
 
 import Navbar from '../Components/Navbar'
 
+import RoomStore from '../stores/RoomStore'
 import ReservationForm from '../Components/ReservationForm'
 
 const Title = styled.h1`
