@@ -2,6 +2,8 @@ import React from 'react'
 import '../Styles/bootstrap/bootstrap.min.css'
 import Swal from 'sweetalert2'
 
+import { observer } from 'mobx-react'
+
 const jumbotronStyle = {
   width: 'auto',
   height: 'auto',
@@ -69,6 +71,7 @@ class BookingForm extends React.Component {
             Name
               <input name="firstname" type="text" className="form-control" id="firstname" placeholder="Firstname"
               value={this.state.firstname} onChange={this.handleChange}/>
+              {/*value={BookingStore.SearchConfig.firstname} */}
             Surname
               <input name="surname" type="text" className="form-control" id="surname" placeholder="Surname"
               value={this.state.surname} onChange={this.handleChange}/>

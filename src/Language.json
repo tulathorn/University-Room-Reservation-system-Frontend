@@ -1,0 +1,28 @@
+[
+    {
+    "list" : {
+        "title": "aaa",
+        "info": "bbb"
+
+        },
+    "main" : {
+        "title": "university roommm.........",
+        "text1": "Find a room",
+        "text2": "Info:"
+        }
+    }
+],
+[
+    {
+    "list" : {
+        "title": "ฟฟฟ",
+        "info": "สา"
+        },
+    "main" : {
+        "title": "ระบบจองห้อง",
+        "text1": "หาห้อง",
+        "text2": "ข้อมูล"
+        },
+    }
+]
+

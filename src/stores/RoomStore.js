@@ -6,7 +6,7 @@ class RoomStore {
   roomDatas = []
 
   @observable
-  searchConfig = {RoomName:"CPE1121"}
+  searchConfig = {}
 
   @observable
   selectedRoom = 0

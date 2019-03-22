@@ -41,7 +41,6 @@ class MainView extends Component {
           <br />
 
           <ReservationForm />
-
           <center>
             <button
               type="button"
