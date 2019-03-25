@@ -3,13 +3,21 @@ import AdNavbar from '../Components/ad_Navbar'
 import ListCard from '../Components/RoomInformationCard'
 import PreviewCard from '../Components/searchPreviewCard'
 
+import { observer } from 'mobx-react'
+import RoomStore from '../stores/RoomStore'
+
 const jumbotronStyle = {
   width: 'auto',
   height: 'auto',
   backgroundColor: '#203C50'
 }
 
+@observer
 class AdListView extends Component {
+  componentDidMount() {
+    RoomStore.fetchData()
+  }
+
   render() {
     return (
       <div>
@@ -17,7 +25,10 @@ class AdListView extends Component {
         <div className="container">
           <PreviewCard />
           <a href="/ad_booking" target="_blank">
-            <ListCard />
+          {RoomStore.roomDatas.map(room => {
+            console.log(room)
+            return <ListCard room={room} />
+          })}
           </a>
         </div>
       </div>

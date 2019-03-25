@@ -18,6 +18,7 @@ class RecPreviewCard extends React.Component {
             <p><b>Building</b> : Witsawa Watthana</p>
             <p><b>Size</b> : 60 People</p>
             <p><b>Date</b> : Monday 12 November 2018 - Monday 12 Decemmber 2018</p>
+            <p><b>Day</b> : Monday</p>
             <p><b>Time</b> 13:30 - 17:30</p>
           </div>
           <div className="col-md-6 col-sm-12">

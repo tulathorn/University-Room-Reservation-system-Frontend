@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import AdNavbar from '../Components/ad_Navbar'
 import AllListCard from '../Components/allListCard'
-import RoomInformationCard from '../Components/RoomInformationCard'
+import ListCard from '../Components/RoomInformationCard'
 import styled from 'styled-components'
 
 import { observer } from 'mobx-react'
@@ -37,9 +37,8 @@ class AdAllListView extends Component {
           <br/>
           {RoomStore.roomDatas.map(room => {
             console.log(room)
-            return <RoomInformationCard room={room} />
+            return <ListCard room={room} />
           })}
-
           {/*<AllListCard/>*/}
 
       </div>

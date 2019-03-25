@@ -13,10 +13,10 @@ class SupPreview extends React.Component {
         <h5 className="card-header">
           <div className="row">
             <div className="col-6">
-              Email
+              Email : gg@gmail
             </div>
             <div className="col-6" align="right">
-              Time
+              Time : 12:22 01/01/19
             </div>
           </div>
         </h5>
