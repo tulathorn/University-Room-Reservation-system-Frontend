@@ -1,7 +1,12 @@
 import { action, observable } from 'mobx'
 import axios from '../Utils/axiosConfig'
 
-class RoomStore{
+// import language from '../language.json'
+
+class RoomStore {
+  @observable
+  printText = []
+
   @observable
   roomDatas = []
 
@@ -15,6 +20,12 @@ class RoomStore{
   fetchData = async () => {
     this.roomDatas = await axios.get('./rooms', this.searchConfig).then(resp => resp.data)
   }
+
+  // @action
+  // fetchText = async lang => {
+  //   lang = 1
+  //   this.printText = language[lang].List
+  // }
 
   @action
   addRoom = async data => {
