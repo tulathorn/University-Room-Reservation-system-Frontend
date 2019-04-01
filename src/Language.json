@@ -2,13 +2,13 @@
 [{
 	//Views
     "adAddRoom" : {
-        "": "",
+        "": ""
         },
     "adAllList" : {
         "Title": "Welcome to University Room Reservation System"
         },
     "adBooking" : {
-        "": "",
+        "": ""
         },
     "adBookingTimetable" : {
         "BookingTimetable": "Booking Timetable"
@@ -18,10 +18,10 @@
         "CurrentBooking": "Current Booking"
         },
     "adEditRoom" : {
-        "": "",
+        "": ""
         },
     "adList" : {
-        "": "",
+        "": ""
         },
     "adLogin" : {
         "English": "English",
@@ -32,7 +32,7 @@
         "CurrentBooking": "Current Booking"
         },
     "adRecList" : {
-        "": "",
+        "": ""
         },
     "adReply" : {
         "Title": "Title",
@@ -76,7 +76,7 @@
         "Support": "Support"
         },
     "Booking" : {
-        "": "",
+        "": ""
         },
     "Contact" : {
         "English": "English",
@@ -199,7 +199,7 @@
         "Completed": "Completed"
         },
     "allListCard" : {
-        "": "",
+        "": ""
         },
     "bookingForm" : {
         "Firstname": "Firstname",
@@ -424,20 +424,20 @@
         "Reply": "Reply"
         },
     "supPreviewCard" : {
-        "": "",
-        },
+        "": ""
+        }
 },
 //Thai
 {
 	//Views
     "adAddRoom" : {
-        "": "",
+        "": ""
         },
     "adAllList" : {
         "Title": "ยินดีต้องรับเข้าสู้ระบบจองห้องเรียนออนไลน์"
         },
     "adBooking" : {
-        "": "",
+        "": ""
         },
     "adBookingTimetable" : {
         "BookingTimetable": "ตารางการใช้งานห้องเรียน"
@@ -447,10 +447,10 @@
         "CurrentBooking": "การจองในปัจจุบัน"
         },
     "adEditRoom" : {
-        "": "",
+        "": ""
         },
     "adList" : {
-        "": "",
+        "": ""
         },
     "adLogin" : {
         "English": "English",
@@ -461,7 +461,7 @@
         "CurrentBooking": "การจองในปัจจุบัน"
         },
     "adRecList" : {
-        "": "",
+        "": ""
         },
     "adReply" : {
         "Title": "หัวข้อ",
@@ -505,7 +505,7 @@
         "Support": "ช่วยเหลือ"
         },
     "Booking" : {
-        "": "",
+        "": ""
         },
     "Contact" : {
         "English": "English",
@@ -628,7 +628,7 @@
         "Completed": "เข้าใช้งาน"
         },
     "allListCard" : {
-        "": "",
+        "": ""
         },
     "bookingForm" : {
         "Firstname": "ชื่อ",
@@ -853,8 +853,8 @@
         "Reply": "ตอบกลับ"
         },
     "supPreviewCard" : {
-        "": "",
-        },
+        "": ""
+        }
 }]
 
 
