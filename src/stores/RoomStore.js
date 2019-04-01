@@ -1,7 +1,7 @@
 import { action, observable } from 'mobx'
 import axios from '../Utils/axiosConfig'
 
-class RoomStore {
+class RoomStore{
   @observable
   roomDatas = []
 
