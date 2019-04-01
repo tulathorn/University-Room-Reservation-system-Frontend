@@ -1,6 +1,4 @@
-//English
 [{
-	//Views
     "adAddRoom" : {
         "": ""
         },
@@ -116,7 +114,6 @@
         "NormalBooking": "Normal Booking",
         "RecurringBooking": "Recurring Booking"
         },
-    //Components
     "adBookingForm" : {
         "ID": "ID",
         "FirstName": "FirstName",
@@ -427,9 +424,7 @@
         "": ""
         }
 },
-//Thai
 {
-	//Views
     "adAddRoom" : {
         "": ""
         },
@@ -545,7 +540,6 @@
         "NormalBooking": "การจองแบบครั้งเดียว",
         "RecurringBooking": "การจองแบบต่อเนื่อง"
         },
-    //Components
     "adBookingForm" : {
         "ID": "รหัสผู้จอง",
         "FirstName": "ชื่อ",
