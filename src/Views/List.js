@@ -7,7 +7,7 @@ import { observer } from 'mobx-react'
 
 import RoomInformationCard from '../Components/RoomInformationCard'
 
-import language from '../language.json'
+import language from '../languages.json'
 
 @observer
 class ListView extends Component {
