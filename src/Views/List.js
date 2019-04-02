@@ -1,13 +1,13 @@
 import React, { Component } from 'react'
 import RoomStore from '../stores/RoomStore'
 import LanguageStore from '../stores/LanguageStore'
-
+import language from '../languages.json'
 import Navbar from '../Components/Navbar'
 import { observer } from 'mobx-react'
 
 import RoomInformationCard from '../Components/RoomInformationCard'
 
-import language from '../language.json'
+
 
 @observer
 class ListView extends Component {
@@ -24,33 +24,44 @@ class ListView extends Component {
       <div>
         <Navbar />
         <div className="container">
+
           <div className="row">
-            <div className="col-4">
-              <p>{language[LanguageStore.lang].List.Result} : 1</p>
-            </div>
-            <div className="col-8" />
-          </div>
-          <div className="row">
-            <div className="col-4">
+            <div className="col-md-6 col-sm-12">
               <p>
-                <b>{language[LanguageStore.lang].List.SearchFor} </b>
+                {language[LanguageStore.lang].List.Result} : 1
               </p>
-              <p>{language[LanguageStore.lang].List.Building} : Witsawa Watthana</p>
               <p>
-                {language[LanguageStore.lang].List.Size} : 60{' '}
+                <b>{language[LanguageStore.lang].List.SearchFor} : </b>
+              </p>
+              <p><b>{language[LanguageStore.lang].List.Building}</b> : Witsawa Watthana</p>
+              <p>
+                <b>
+                  {language[LanguageStore.lang].List.Size}
+                </b> : 60{' '}
                 {language[LanguageStore.lang].List.People}
               </p>
-              <p>{language[LanguageStore.lang].List.Date} : Monday 12 November 2018</p>
-              <p>{language[LanguageStore.lang].List.From} 13:30 to 17:30</p>
+              <p><b>{language[LanguageStore.lang].List.Date}</b> : Monday 12 November 2018</p>
+              <p><b>{language[LanguageStore.lang].List.From}</b> 13:30 <b>{language[LanguageStore.lang].List.To}</b> 17:30</p>
             </div>
-            <div className="col-8">
-              <p>
-                <b>{language[LanguageStore.lang].List.Filtered} : </b>
+            <div className="col-md-6 col-sm-12">
+              <br/><br/><p>
+                <b>{language[LanguageStore.lang].List.Amenity} : </b>
               </p>
-              {console.log(JSON.stringify(language[1].List))}
+              <div className="row">
+                <div className="col-md-6 col-sm-12">
+                  <p>{language[LanguageStore.lang].List.Amenities.TeacherComputer}</p>
+                  <p>{language[LanguageStore.lang].List.Amenities.StudentComputer}</p>
+                  <p>{language[LanguageStore.lang].List.Amenities.AirConditioner}</p>
+                </div>
+                <div className="col-md-6 col-sm-12">
+                  <p>{language[LanguageStore.lang].List.Amenities.Projector}</p>
+                  <p>{language[LanguageStore.lang].List.Amenities.WhiteBoard}</p>
+                  <p>{language[LanguageStore.lang].List.Amenities.Visualizer}</p>
+                </div>
+              </div>
+
             </div>
           </div>
-
           {/* {RoomStore.roomDatas.map(room => (
             <RoomInformationCard room={room} />
           ))} */}
@@ -65,6 +76,7 @@ class ListView extends Component {
           </center>
         </div>
       </div>
+
     )
   }
 }

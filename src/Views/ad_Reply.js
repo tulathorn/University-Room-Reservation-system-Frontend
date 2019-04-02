@@ -4,6 +4,9 @@ import SupPreview from '../Components/supPreviewCard'
 import ReplyForm from '../Components/replyForm'
 import styled, { createGlobalStyle } from 'styled-components'
 
+import LanguageStore from '../stores/LanguageStore'
+import language from '../languages.json'
+
 const Title = styled.h1`
   color: #1F384B;
 `
@@ -15,9 +18,9 @@ class AdReplyView extends Component {
       <div>
         <AdNavbar />
         <div className="container">
-          <br/><Title>Title</Title>
+          <br/><Title>{language[LanguageStore.lang].adReply.Title}</Title>
           <SupPreview/>
-          <br/><Title>Reply</Title>
+          <br/><Title>{language[LanguageStore.lang].adReply.Reply}</Title>
           <ReplyForm/>
         </div>
       </div>

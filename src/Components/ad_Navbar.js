@@ -1,5 +1,7 @@
 import React from 'react'
 import '../Styles/bootstrap/bootstrap.min.css'
+import LanguageStore from '../stores/LanguageStore'
+import language from '../languages.json'
 
 const navColor = {
   backgroundColor: '#1F384B'
@@ -80,29 +82,29 @@ class AdNavbar extends React.Component {
 
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav mr-auto">
-            <NavDropdown name="Searchroom">
+            <NavDropdown name={language[LanguageStore.lang].adNavbar.SearchRoom}>
               <a className="dropdown-item" href="/ad_search_nor">
-                Normal Search
+                {language[LanguageStore.lang].adNavbar.NormalSearch}
               </a>
               <a className="dropdown-item" href="/ad_search_rec">
-                Recurring Search
+                {language[LanguageStore.lang].adNavbar.RecurringSearch}
               </a>
               <div className="dropdown-divider" />
               <a className="dropdown-item" href="/ad_all_list">
-                Room Search
+                {language[LanguageStore.lang].adNavbar.RoomSearch}
               </a>
             </NavDropdown>
             <NavItem path="/ad_search" name="" />
-            <NavItem path="/ad_curhistory" name="History" />
-            <NavItem path="/ad_add_room" name="Add Room" />
-            <NavItem path="/ad_support" name="Support" />
+            <NavItem path="/ad_curhistory" name={language[LanguageStore.lang].adNavbar.History} />
+            <NavItem path="/ad_add_room" name={language[LanguageStore.lang].adNavbar.AddRoom} />
+            <NavItem path="/ad_support" name={language[LanguageStore.lang].adNavbar.Support} />
 
-            <NavDropdown name="Languages">
+            <NavDropdown name={language[LanguageStore.lang].adNavbar.Languages}>
               <a className="dropdown-item" href="/">
-                ภาษาไทย
+                {language[LanguageStore.lang].adNavbar.Thai}
               </a>
               <a className="dropdown-item" href="/">
-                English
+                {language[LanguageStore.lang].adNavbar.English}
               </a>
               {/* <div className="dropdown-divider" />
               <a className="dropdown-item" href="/">
@@ -121,7 +123,7 @@ class AdNavbar extends React.Component {
               placeholder="Search"
               aria-label="Search"
             /> */}
-            <a href="/ad_login" class="btn btn-sm btn-outline-info">Logout</a>
+            <a href="/ad_login" class="btn btn-sm btn-outline-info">{language[LanguageStore.lang].adNavbar.Logout}</a>
 
           </form>
         </div>

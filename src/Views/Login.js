@@ -3,6 +3,9 @@ import '../Styles/bootstrap/bootstrap.min.css'
 import styled, { createGlobalStyle } from 'styled-components'
 import LoginCard from '../Components/loginForm'
 
+import LanguageStore from '../stores/LanguageStore'
+import language from '../languages.json'
+
  const logoImage = require('../Pictures/logoBg.png');
  const logoStyle = {
    width: 'auto',
@@ -44,8 +47,8 @@ class LoginView extends Component {
             </div>
           </div>
           <center>
-            <button type="button" className="btn btn-link" style={languageLink}>English</button>
-            <button type="button" className="btn btn-link" style={languageLink}>ภาษาไทย</button>
+            <button type="button" className="btn btn-link" style={languageLink}>{language[LanguageStore.lang].Login.English}</button>
+            <button type="button" className="btn btn-link" style={languageLink}>{language[LanguageStore.lang].Login.Thai}</button>
             <br/>
           </center>
           <br/><br/><br/><br/><br/><br/>

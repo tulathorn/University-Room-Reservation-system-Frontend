@@ -1,6 +1,8 @@
 import React from 'react'
 import '../Styles/bootstrap/bootstrap.min.css'
 import Swal from 'sweetalert2'
+import LanguageStore from '../stores/LanguageStore'
+import language from '../languages.json'
 
 const jumbotronStyle = {
   width: 'auto',
@@ -54,22 +56,22 @@ class CurHistoryRoomCard extends React.Component {
               </p>
             </div>
             <div className="row">
-              <p><b>Purpose : </b></p>
+              <p><b>{language[LanguageStore.lang].curHisRoomCard.Purpose}: </b></p>
               <p>Tutor Camp</p>
             </div>
             <div className="row">
-              <p><b>Date : </b></p>
+              <p><b>{language[LanguageStore.lang].curHisRoomCard.Date} : </b></p>
 							<p>Friday 9 November 2018</p>
             </div>
             <div className="row">
-              <p><b>Schedule : </b></p>
-							<p>From 12:00 to 17:00</p>
+              <p><b>{language[LanguageStore.lang].curHisRoomCard.Schedule} : </b></p>
+							<p>{language[LanguageStore.lang].curHisRoomCard.From} 12:00 {language[LanguageStore.lang].curHisRoomCard.To} 17:00</p>
             </div>
 					</div>
 					<div className="col-md-3 col-sm-12">
-            <button onClick={() => this.pinClick()} type="button" className="btn btn-outline-light btn-lg btn-block">Request Pin Via Email</button>
-            <button onClick={() => this.pinClick()} type="button" className="btn btn-outline-light btn-lg btn-block">Request Pin Via Phone</button>
-            <button onClick={() => this.cancelClick()} type="button" className="btn btn-danger btn-lg btn-block">Cancel the booking</button>
+            <button onClick={() => this.pinClick()} type="button" className="btn btn-outline-light btn-lg btn-block">{language[LanguageStore.lang].curHisRoomCard.RequestPinViaEmail}</button>
+            <button onClick={() => this.pinClick()} type="button" className="btn btn-outline-light btn-lg btn-block">{language[LanguageStore.lang].curHisRoomCard.RequestPinViaPhone}</button>
+            <button onClick={() => this.cancelClick()} type="button" className="btn btn-danger btn-lg btn-block">{language[LanguageStore.lang].curHisRoomCard.CancelTheBooking}</button>
 					</div>
 				</div>
       </div>

@@ -2,6 +2,8 @@ import React from 'react'
 import '../Styles/bootstrap/bootstrap.min.css'
 import styled, { createGlobalStyle } from 'styled-components'
 import Swal from 'sweetalert2'
+import LanguageStore from '../stores/LanguageStore'
+import language from '../languages.json'
 
 const Title = styled.h1`
   color: #1F384B;
@@ -21,11 +23,11 @@ class ReplyForm extends React.Component {
     return (
       <form>
         <div className="form-group">
-          <label for="exampleFormControlInput1">Email address</label>
+          <label for="exampleFormControlInput1">{language[LanguageStore.lang].replyForm.Email}</label>
           <input type="email" className="form-control" id="exampleFormControlInput1" placeholder="name@example.com"/>
         </div>
         <div className="form-group">
-          <label for="exampleFormControlInput2">Title</label>
+          <label for="exampleFormControlInput2">{language[LanguageStore.lang].replyForm.Title}</label>
           <input
             type="text"
             className="form-control"
@@ -34,7 +36,7 @@ class ReplyForm extends React.Component {
           />
         </div>
         <div className="form-group">
-          <label for="exampleFormControlTextarea1">Detail</label>
+          <label for="exampleFormControlTextarea1">{language[LanguageStore.lang].replyForm.Details}</label>
           <textarea
             className="form-control"
             id="exampleFormControlTextarea1"
@@ -44,7 +46,7 @@ class ReplyForm extends React.Component {
           />
         </div>
         <center><button onClick={() => this.ReplyClick()} type="button" className="btn btn-outline-info">
-          Reply
+          {language[LanguageStore.lang].replyForm.Reply}
         </button></center>
       </form>
     )

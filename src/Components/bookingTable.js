@@ -1,5 +1,7 @@
 import React from 'react'
 import '../Styles/bootstrap/bootstrap.min.css'
+import LanguageStore from '../stores/LanguageStore'
+import language from '../languages.json'
 
 class BookingTable extends React.Component {
   render() {
@@ -7,13 +9,13 @@ class BookingTable extends React.Component {
       <table class="table table-hover table-bordered">
         <thead class="text-center">
           <tr class="table-info">
-            <th scope="col">Date (From)</th>
-            <th scope="col">Date (To)</th>
-            <th scope="col">Time (From)</th>
-            <th scope="col">Time (to)</th>
-            <th scope="col">Day</th>
-            <th scope="col">Booking</th>
-            <th scope="col">Purpose</th>
+            <th scope="col">{language[LanguageStore.lang].bookingTable.DateFrom}</th>
+            <th scope="col">{language[LanguageStore.lang].bookingTable.DateTo}</th>
+            <th scope="col">{language[LanguageStore.lang].bookingTable.TimeFrom}</th>
+            <th scope="col">{language[LanguageStore.lang].bookingTable.TimeTo}</th>
+            <th scope="col">{language[LanguageStore.lang].bookingTable.Day}</th>
+            <th scope="col">{language[LanguageStore.lang].bookingTable.UserInfo}</th>
+            <th scope="col">{language[LanguageStore.lang].bookingTable.Purpose}</th>
           </tr>
         </thead>
         <tbody>

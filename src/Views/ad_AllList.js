@@ -7,6 +7,9 @@ import styled from 'styled-components'
 import { observer } from 'mobx-react'
 import RoomStore from '../stores/RoomStore'
 
+import LanguageStore from '../stores/LanguageStore'
+import language from '../languages.json'
+
 const Title = styled.h1`
   color: #1f384b;
 `
@@ -30,7 +33,7 @@ class AdAllListView extends Component {
         <div className="container">
           <br/>
           <center>
-            <Title>Welcome to University Room Reservation System</Title>
+            <Title>{language[LanguageStore.lang].adAllList.Title}</Title>
           </center>
           <br/>
           <input class="form-control" id="myInput" type="text" placeholder="Search.."/>

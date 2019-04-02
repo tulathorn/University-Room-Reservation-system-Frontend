@@ -4,8 +4,8 @@ import LanguageStore from '../stores/LanguageStore'
 
 import { NavLink } from 'react-router-dom'
 
-import language from '../language.json'
 import '../Styles/bootstrap/bootstrap.min.css'
+import language from '../languages.json'
 
 const navColor = {
   backgroundColor: '#1F384B'

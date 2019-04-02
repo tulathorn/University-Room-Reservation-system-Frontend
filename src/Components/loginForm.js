@@ -1,6 +1,8 @@
 import React from 'react'
 import '../Styles/bootstrap/bootstrap.min.css'
 import Swal from 'sweetalert2'
+import LanguageStore from '../stores/LanguageStore'
+import language from '../languages.json'
 
 const helpLink = {
   color: '#1F384B'
@@ -44,27 +46,28 @@ class LoginCard extends React.Component {
     return (
         <div style={cardColor} className="jumbotron">
           <div className="row">
-            <div className="col-9 col-md-10 col-sm-8">
+            <div className="col-md-8 col-sm-8">
             </div>
-            <div className="col-3 col-md-2 col-sm-4">
-              <a href="/ad_login" class="text-secondary">Admin</a>
+            <div className="col-md-4 col-sm-4">
+              <a href="/ad_login" class="text-secondary">{language[LanguageStore.lang].loginForm.Admin}</a>
             </div>
           </div><br/>
 
           <h3 align="left" style={helpLink}>
-            Please enter KMUTT username and password.<br/>Click on the Login button to continue.
+          {language[LanguageStore.lang].loginForm.Title1}<br/>
+          {language[LanguageStore.lang].loginForm.Title2}
           </h3>
           <br/>
 
           <form>
             <div className="form-group">
-              <label for="exampleInputEmail1" style={helpLink}>Username</label>
+              <label for="exampleInputEmail1" style={helpLink}>{language[LanguageStore.lang].loginForm.Username}</label>
               <input type="text" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter username"/>
-              <small id="emailHelp" className="form-text text-muted">Enter your KMUTT student ID or username.</small>
+              <small id="emailHelp" className="form-text text-muted">{language[LanguageStore.lang].loginForm.UsernameDef}</small>
             </div>
 
             <div className="form-group">
-              <label for="exampleInputPassword1" style={helpLink}>Password</label>
+              <label for="exampleInputPassword1" style={helpLink}>{language[LanguageStore.lang].loginForm.Password}</label>
               <input type="password" className="form-control" id="exampleInputPassword1" placeholder="Password"/>
             </div>
           </form>
@@ -72,15 +75,15 @@ class LoginCard extends React.Component {
           <br/>
 
           <div className="row">
-            <div className="col-2 col-md-2" >
+            <div className="col-md-2" >
               {/*<a href="/" className="btn btn-outline-info">Login</a>*/}
-              <button onClick={() => this.loginClick()} type="button" className="btn btn-outline-info">Login</button>
+              <button onClick={() => this.loginClick()} type="button" className="btn btn-outline-info">{language[LanguageStore.lang].loginForm.Login}</button>
             </div>
 
-            <div className="col-7 col-md-8">
+            <div className="col-md-8">
             </div>
-            <div className="col-3 col-md-2">
-              <a href="/contact" class="text-info">Help</a>
+            <div className="col-md-2">
+              <a href="/contact" class="text-info">{language[LanguageStore.lang].loginForm.Help}</a>
             </div>
           </div>
 

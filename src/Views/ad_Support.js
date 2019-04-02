@@ -3,6 +3,9 @@ import AdNavbar from '../Components/ad_Navbar'
 import SupCard from '../Components/supportCard'
 import styled, { createGlobalStyle } from 'styled-components'
 
+import LanguageStore from '../stores/LanguageStore'
+import language from '../languages.json'
+
 const Title = styled.h1`
   color: #1F384B;
 `
@@ -13,7 +16,7 @@ class AdSupportView extends Component {
       <div>
         <AdNavbar />
         <div className="container">
-          <br/><Title>Support</Title><br/>
+          <br/><Title>{language[LanguageStore.lang].adSupport.Support}</Title><br/>
           <SupCard/>
         </div>
       </div>

@@ -1,5 +1,8 @@
 import React from 'react'
 import '../Styles/bootstrap/bootstrap.min.css'
+import LanguageStore from '../stores/LanguageStore'
+import language from '../languages.json'
+
 
 const jumbotronStyle = {
   width: 'auto',
@@ -14,27 +17,27 @@ class PreviewCard extends React.Component {
           <div className="row">
             <div className="col-md-6 col-sm-12">
               <p>
-                <b>Search For : </b>
+                <b>{language[LanguageStore.lang].searchPreviewCard.SearchFor} : </b>
               </p>
-              <p><b>Building</b> : Witsawa Watthana</p>
-              <p><b>Size</b> : 60 People</p>
-              <p><b>Date</b> : Monday 12 November 2018</p>
-              <p><b>Time</b> 13:30 - 17:30</p>
+              <p><b>{language[LanguageStore.lang].searchPreviewCard.Building}</b> : Witsawa Watthana</p>
+              <p><b>{language[LanguageStore.lang].searchPreviewCard.Size}</b> : 60 People</p>
+              <p><b>{language[LanguageStore.lang].searchPreviewCard.Date}</b> : Monday 12 November 2018</p>
+              <p><b>{language[LanguageStore.lang].searchPreviewCard.Time}</b> {language[LanguageStore.lang].searchPreviewCard.From} 13:30 {language[LanguageStore.lang].searchPreviewCard.To} 17:30</p>
             </div>
             <div className="col-md-6 col-sm-12">
               <p>
-                <b>Filtered : </b>
+                <b>{language[LanguageStore.lang].searchPreviewCard.Amenity} : </b>
               </p>
               <div className="row">
                 <div className="col-md-6 col-sm-12">
-                  <p>Amentity 1</p>
-                  <p>Amentity 2</p>
-                  <p>Amentity 3</p>
+                  <p>{language[LanguageStore.lang].searchPreviewCard.Amenities.TeacherComputer}</p>
+                  <p>{language[LanguageStore.lang].searchPreviewCard.Amenities.StudentComputer}</p>
+                  <p>{language[LanguageStore.lang].searchPreviewCard.Amenities.AirConditioner}</p>
                 </div>
                 <div className="col-md-6 col-sm-12">
-                  <p>Amentity 4</p>
-                  <p>Amentity 5</p>
-                  <p>Amentity 6</p>
+                  <p>{language[LanguageStore.lang].searchPreviewCard.Amenities.Projector}</p>
+                  <p>{language[LanguageStore.lang].searchPreviewCard.Amenities.WhiteBoard}</p>
+                  <p>{language[LanguageStore.lang].searchPreviewCard.Amenities.Visualizer}</p>
                 </div>
               </div>
 
