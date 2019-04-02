@@ -1,5 +1,7 @@
 import React from 'react'
 import '../Styles/bootstrap/bootstrap.min.css'
+import LanguageStore from '../stores/LanguageStore'
+import language from '../languages.json'
 
 const jumbotronStyle = {
   width: 'auto',
@@ -13,28 +15,28 @@ class RecPreviewCard extends React.Component {
         <div className="row">
           <div className="col-md-6 col-sm-12">
             <p>
-              <b>Search For : </b>
+              <b>{language[LanguageStore.lang].recPreviewCard.SearchFor} : </b>
             </p>
-            <p><b>Building</b> : Witsawa Watthana</p>
-            <p><b>Size</b> : 60 People</p>
-            <p><b>Date</b> : Monday 12 November 2018 - Monday 12 Decemmber 2018</p>
-            <p><b>Day</b> : Monday</p>
-            <p><b>Time</b> 13:30 - 17:30</p>
+            <p><b>{language[LanguageStore.lang].recPreviewCard.Building}</b> : Witsawa Watthana</p>
+            <p><b>{language[LanguageStore.lang].recPreviewCard.Size}</b> : 60 {language[LanguageStore.lang].recPreviewCard.Peoples}</p>
+            <p><b>{language[LanguageStore.lang].recPreviewCard.Date}</b> : Monday 12 November 2018 - Monday 12 Decemmber 2018</p>
+            <p><b>{language[LanguageStore.lang].recPreviewCard.Day}</b> : Monday</p>
+            <p><b>{language[LanguageStore.lang].recPreviewCard.Time}</b> {language[LanguageStore.lang].recPreviewCard.From} 13:30 {language[LanguageStore.lang].recPreviewCard.To} 17:30</p>
           </div>
           <div className="col-md-6 col-sm-12">
             <p>
-              <b>Filtered : </b>
+              <b>{language[LanguageStore.lang].recPreviewCard.Amenity} : </b>
             </p>
             <div className="row">
               <div className="col-md-6 col-sm-12">
-                <p>Amentity 1</p>
-                <p>Amentity 2</p>
-                <p>Amentity 3</p>
+                <p>{language[LanguageStore.lang].recPreviewCard.Amenities.TeacherComputer}</p>
+                <p>{language[LanguageStore.lang].recPreviewCard.Amenities.StudentComputer}</p>
+                <p>{language[LanguageStore.lang].recPreviewCard.Amenities.AirConditioner}</p>
               </div>
               <div className="col-md-6 col-sm-12">
-                <p>Amentity 4</p>
-                <p>Amentity 5</p>
-                <p>Amentity 6</p>
+                <p>{language[LanguageStore.lang].recPreviewCard.Amenities.Projector}</p>
+                <p>{language[LanguageStore.lang].recPreviewCard.Amenities.WhiteBoard}</p>
+                <p>{language[LanguageStore.lang].recPreviewCard.Amenities.Visualizer}</p>
               </div>
             </div>
 

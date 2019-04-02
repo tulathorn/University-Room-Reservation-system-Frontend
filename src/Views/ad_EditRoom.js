@@ -18,16 +18,16 @@ class AdEditRoomView extends Component {
         <div className="container">
           <br/>
           <div className="row">
-            <div className="col-md-3 col-sm-0">
+            <div className="col-md-1 col-sm-0">
             </div>
-            <div className="col-md-6 col-sm-12">
+            <div className="col-md-10 col-sm-12">
               <EditForm/>
             </div>
-            <div className="col-md-3 col-sm-0">
+            <div className="col-md-1 col-sm-0">
             </div>
           </div>
+          <br/>
         </div>
-        <br/>
       </div>
     )
   }

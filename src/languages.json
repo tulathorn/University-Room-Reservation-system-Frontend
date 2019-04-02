@@ -550,7 +550,7 @@
         "EmailAddress": "อีเมล",
         "Phone": "เบอร์โทรศัพท์",
         "Section": "กลุ่ม",
-        "Program": "โปรแกรม",
+        "Program": "หลักสูตร",
         "Purpose": "จุดประสงค์",
         "Book": "จอง"
       },
@@ -591,13 +591,13 @@
         "RoomNumber": "ห้องที่",
         "OperatingDay": "วันเปิดให้บริการ",
         "Day": {
-          "Sunday": "อาทิตย์",
-          "Monday": "จันทร์",
-          "Tuesday": "อังคาร",
-          "Wednesday": "พุธ",
-          "Thursday": "พฤหัสบดี",
-          "Friday": "ศุกร์",
-          "Saturday": "เสาร์"
+          "Sunday": "วันอาทิตย์",
+          "Monday": "วันจันทร์",
+          "Tuesday": "วันอังคาร",
+          "Wednesday": "วันพุธ",
+          "Thursday": "วันพฤหัสบดี",
+          "Friday": "วันศุกร์",
+          "Saturday": "วันเสาร์"
         },
         "OperatingTime": "เวลาเปิดให้บริการ",
         "From": "จาก",
@@ -641,7 +641,7 @@
         "TimeFrom": "เวลาเริ่มต้น",
         "TimeTo": "เวลาสิ้นสุด",
         "Day": "วัน",
-        "๊UserInfo": "ข้อมูลผู้ใช้งาน",
+        "UserInfo": "ข้อมูลผู้ใช้งาน",
         "Purpose": "จุดประสงค์"
       },
       "contactCard": {
@@ -671,13 +671,13 @@
         "RoomNumber": "ห้องที่",
         "OperatingDay": "วันเปิดให้บริการ",
         "Day": {
-          "Sunday": "อาทิตย์",
-          "Monday": "จันทร์",
-          "Tuesday": "อังคาร",
-          "Wednesday": "พุธ",
-          "Thursday": "พฤหัสบดี",
-          "Friday": "ศุกร์",
-          "Saturday": "เสาร์"
+          "Sunday": "วันอาทิตย์",
+          "Monday": "วันจันทร์",
+          "Tuesday": "วันอังคาร",
+          "Wednesday": "วันพุธ",
+          "Thursday": "วันพฤหัสบดี",
+          "Friday": "วันศุกร์",
+          "Saturday": "วันเสาร์"
         },
         "OperatingTime": "เวลาเปิดให้บริการ",
         "From": "จาก",

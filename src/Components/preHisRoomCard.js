@@ -1,5 +1,7 @@
 import React from 'react'
 import '../Styles/bootstrap/bootstrap.min.css'
+import LanguageStore from '../stores/LanguageStore'
+import language from '../languages.json'
 
 const jumbotronStyle = {
   width: 'auto',
@@ -22,29 +24,29 @@ class PreHistoryRoomCard extends React.Component {
               </p>
             </div>
             <div className="row">
-              <p><b>Purpose : </b></p>
+              <p><b>{language[LanguageStore.lang].preHisRoomCard.Purpose}: </b></p>
               <p>Tutor Camp</p>
             </div>
             <div className="row">
-              <p><b>Date : </b></p>
+              <p><b>{language[LanguageStore.lang].preHisRoomCard.Date} : </b></p>
 							<p>Friday 9 November 2018</p>
             </div>
             <div className="row">
-              <p><b>Schedule : </b></p>
-							<p>From 12:00 to 17:00</p>
+              <p><b>{language[LanguageStore.lang].preHisRoomCard.Schedule} : </b></p>
+							<p>{language[LanguageStore.lang].preHisRoomCard.From} 12:00 {language[LanguageStore.lang].preHisRoomCard.To} 17:00</p>
             </div>
 					</div>
 					<div className="col-md-3 col-sm-12">
             {/* //Alert for each status of booking
             <div class="alert alert-danger" role="alert" >
-              Not Completed
+              {language[LanguageStore.lang].preHisRoomCard.NotCompleted}
             </div>
             <div class="alert alert-warning" role="alert">
-              Canceled
-            </div>
-            */}
+              {language[LanguageStore.lang].preHisRoomCard.Cancel}
+            </div>*/}
+            
             <div class="alert alert-info" role="alert">
-              Completed
+            {language[LanguageStore.lang].preHisRoomCard.Completed}
             </div>
 					</div>
 				</div>

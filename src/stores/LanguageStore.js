@@ -2,7 +2,7 @@ import { action, observable } from 'mobx'
 
 class LanguageStore {
   @observable
-  lang = 0
+  lang = 1
 
   @action
   setLang = async language => {
