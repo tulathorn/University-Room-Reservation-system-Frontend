@@ -1,6 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 import { withRouter } from 'react-router-dom'
+import LanguageStore from '../stores/LanguageStore'
+import language from '../languages.json'
 
 const Heading = styled.h2`
   color: white;
@@ -41,14 +43,14 @@ class ReservationForm extends React.Component {
   render() {
     return (
       <div className="jumbotron" style={jumbotronStyle}>
-        <Heading> Find a Room </Heading>
+        <Heading> {language[LanguageStore.lang].reservationForm.FindRoom} </Heading>
         <hr className="my-4" color="white" />
-        <SubHeading> Info: </SubHeading>{' '}
+        <SubHeading> {language[LanguageStore.lang].reservationForm.Info}: </SubHeading>{' '}
         <form>
           <div className="form-row">
             <div className="form-group col-md-4">
               <label className="my-1 mr-2" for="inlineFormCustomSelectPref" style={textColor}>
-                Date{' '}
+              {language[LanguageStore.lang].reservationForm.Date}{' '}
               </label>{' '}
               <input
                 type="date"
@@ -59,7 +61,7 @@ class ReservationForm extends React.Component {
             </div>{' '}
             <div className="form-group col-md-4">
               <label className="my-1 mr-2" for="inlineFormCustomSelectPref" style={textColor}>
-                Building{' '}
+              {language[LanguageStore.lang].reservationForm.Building}{' '}
               </label>{' '}
               <select
                 className="custom-select my-1 mr-sm-2"
@@ -72,7 +74,7 @@ class ReservationForm extends React.Component {
             </div>
             <div className="form-group col-md-4">
               <label className="my-1 mr-2" for="inlineFormCustomSelectPref" style={textColor}>
-                Size
+              {language[LanguageStore.lang].reservationForm.Size}
               </label>
               <select className="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
                 <option>Room Size</option>
@@ -86,10 +88,10 @@ class ReservationForm extends React.Component {
           </div>
         </form>
         <hr className="my-4" color="white" />
-        <SubHeading> Time: </SubHeading>{' '}
+        <SubHeading> {language[LanguageStore.lang].reservationForm.Time}: </SubHeading>{' '}
         <form className="form-inline">
           <label className="my-1 mr-2" for="inlineFormCustomSelectPref" style={textColor}>
-            From{' '}
+          {language[LanguageStore.lang].reservationForm.From}{' '}
           </label>{' '}
           <select className="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
             <option>Choose...</option>
@@ -127,7 +129,7 @@ class ReservationForm extends React.Component {
             <option value="2">30</option>
           </select>
           <label className="my-1 mr-2" for="inlineFormCustomSelectPref" style={textColor}>
-            To{' '}
+          {language[LanguageStore.lang].reservationForm.To}{' '}
           </label>{' '}
           <select className="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
             <option>Choose...</option>
@@ -166,18 +168,18 @@ class ReservationForm extends React.Component {
           </select>
         </form>
         <hr className="my-4" color="white" />
-        <SubHeading> Filters: </SubHeading>{' '}
+        <SubHeading> {language[LanguageStore.lang].reservationForm.Amenity}: </SubHeading>{' '}
         <div className="form-row">
           <div className="col-sm-4">
             <div className="form-check">
               <input className="form-check-input" type="checkbox" value="" id="defaultCheck1" />
               <label className="form-check-label" for="defaultCheck1" style={textColor}>
-                Teacher Computer{' '}
+              {language[LanguageStore.lang].reservationForm.Amenities.TeacherComputer}{' '}
               </label>{' '}
               <br />
               <input className="form-check-input" type="checkbox" value="" id="defaultCheck1" />
               <label className="form-check-label" for="defaultCheck1" style={textColor}>
-                Student Computer{' '}
+              {language[LanguageStore.lang].reservationForm.Amenities.StudentComputer}{' '}
               </label>{' '}
             </div>{' '}
           </div>
@@ -185,12 +187,12 @@ class ReservationForm extends React.Component {
             <div className="form-check">
               <input className="form-check-input" type="checkbox" value="" id="defaultCheck1" />
               <label className="form-check-label" for="defaultCheck1" style={textColor}>
-                Projector{' '}
+              {language[LanguageStore.lang].reservationForm.Amenities.Projector}{' '}
               </label>{' '}
               <br />
               <input className="form-check-input" type="checkbox" value="" id="defaultCheck1" />
               <label className="form-check-label" for="defaultCheck1" style={textColor}>
-                White Board{' '}
+              {language[LanguageStore.lang].reservationForm.Amenities.WhiteBoard}{' '}
               </label>{' '}
             </div>{' '}
           </div>
@@ -198,12 +200,12 @@ class ReservationForm extends React.Component {
             <div className="form-check">
               <input className="form-check-input" type="checkbox" value="" id="defaultCheck1" />
               <label className="form-check-label" for="defaultCheck1" style={textColor}>
-                Air Conditioner{' '}
+              {language[LanguageStore.lang].reservationForm.Amenities.AirConditioner}{' '}
               </label>{' '}
               <br />
               <input className="form-check-input" type="checkbox" value="" id="defaultCheck1" />
               <label className="form-check-label" for="defaultCheck1" style={textColor}>
-                Visualizer{' '}
+              {language[LanguageStore.lang].reservationForm.Amenities.Visualizer}{' '}
               </label>{' '}
             </div>{' '}
           </div>{' '}

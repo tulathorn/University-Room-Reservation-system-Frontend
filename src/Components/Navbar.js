@@ -1,5 +1,7 @@
 import React from 'react'
 import '../Styles/bootstrap/bootstrap.min.css'
+import LanguageStore from '../stores/LanguageStore'
+import language from '../languages.json'
 
 const navColor = {
   backgroundColor: '#1F384B'
@@ -80,22 +82,22 @@ class Navbar extends React.Component {
 
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav mr-auto">
-            <NavItem path="/" name="Find Room" />
-            <NavDropdown name="History">
+            <NavItem path="/" name={language[LanguageStore.lang].Navbar.FindRoom} />
+            <NavDropdown name={language[LanguageStore.lang].Navbar.History}>
               <a className="dropdown-item" href="/curhistory">
-                Current History
+                {language[LanguageStore.lang].Navbar.CurrentHistory}
               </a>
               <a className="dropdown-item" href="/prehistory">
-                Previous HIstory
+                {language[LanguageStore.lang].Navbar.PreviousHistory}
               </a>
             </NavDropdown> 
-            <NavItem path="/contact" name="Help" />
-            <NavDropdown name="Languages">
+            <NavItem path="/contact" name={language[LanguageStore.lang].Navbar.Help} />
+            <NavDropdown name={language[LanguageStore.lang].Navbar.Languages}>
               <a className="dropdown-item" href="/">
-                ภาษาไทย
+                {language[LanguageStore.lang].Navbar.Thai}
               </a>
               <a className="dropdown-item" href="/">
-                English
+                {language[LanguageStore.lang].Navbar.English}
               </a>
               {/* <div className="dropdown-divider" />
               <a className="dropdown-item" href="/">
@@ -114,7 +116,7 @@ class Navbar extends React.Component {
               placeholder="Search"
               aria-label="Search"
             /> */}
-            <a href="/login" class="btn btn-sm btn-outline-info">Logout</a>
+            <a href="/login" class="btn btn-sm btn-outline-info">{language[LanguageStore.lang].Navbar.Logout}</a>
           </form>
         </div>
       </nav>

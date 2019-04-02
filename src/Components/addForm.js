@@ -1,6 +1,8 @@
 import React from 'react'
 import '../Styles/bootstrap/bootstrap.min.css'
 import Swal from 'sweetalert2'
+import LanguageStore from '../stores/LanguageStore'
+import language from '../languages.json'
 
 class AddForm extends React.Component {
 
@@ -75,14 +77,14 @@ class AddForm extends React.Component {
         <form onSubmit={this.handleSubmit}>
           <div className="row">
             <div className="col-md-6 col-sm-12">
-            Room ID
+            {language[LanguageStore.lang].addForm.RoomID}
               <input name="roomid" type="text" className="form-control" id="roomid" placeholder="Room ID"
               value={this.state.roomid} onChange={this.handleChange}/>
               {/*value={BookingStore.SearchConfig.firstname} */}
-            Update Room Photo
+            {language[LanguageStore.lang].addForm.RoomPhoto}
               <input name="photo" type="file" className="form-control-file" id="photo"
               value={this.state.photo} onChange={this.handleChange}/>
-            People Capacity
+            {language[LanguageStore.lang].addForm.PeopleCapacity}
               <select name="capacity" type="number" className="custom-select" id="capacity"
               value={this.state.capacity} onChange={this.handleChange}>
               <option>Choose...</option>
@@ -100,7 +102,7 @@ class AddForm extends React.Component {
               <option value="12">150</option>
               <option value="13">200</option>
               </select>
-            Building
+            {language[LanguageStore.lang].addForm.Building}
               <select name="building" type="text" className="custom-select" id="building"
               value={this.state.building} onChange={this.handleChange}>
               <option>Choose...</option>
@@ -111,46 +113,49 @@ class AddForm extends React.Component {
               <option value="CB4">CB4</option>
               <option value="CB5">CB5</option>
               </select>
-            Floor
+            {language[LanguageStore.lang].addForm.Floor}
               <input name="floor" type="number" className="form-control" id="floor" placeholder="Floor"
               value={this.state.floor} onChange={this.handleChange}/>
-            Room Number
+            {language[LanguageStore.lang].addForm.RoomNumber}
               <input name="number" type="number" className="form-control" id="number" placeholder="Room Number"
               value={this.state.number} onChange={this.handleChange}/>
             </div>
             <div className="col-md-6 col-sm-12">
-            Operating Day :
+            {language[LanguageStore.lang].addForm.OperatingDay}
               <div className="form-check">
                 <div className="row">
                   <div className="col-md-6 col-sm-12">
                     <input name="monday" type="checkbox" className="form-check-input" id="monday"
                     value={this.state.day.monday} onChange={this.handleChange}/>
-                    <label className="form-check-label" for="monday">Monday</label><br/>
+                    <label className="form-check-label" for="monday">{language[LanguageStore.lang].addForm.Day.Monday}</label><br/>
                     <input name="tuesday" type="checkbox" className="form-check-input" id="tuesday"
                     value={this.state.day.tuesday} onChange={this.handleChange}/>
-                    <label className="form-check-label" for="tuesday">Tuesday</label><br/>
+                    <label className="form-check-label" for="tuesday">{language[LanguageStore.lang].addForm.Day.Tuesday}</label><br/>
                     <input name="wednesday" type="checkbox" className="form-check-input" id="wednesday"
                     value={this.state.day.wednesday} onChange={this.handleChange}/>
-                    <label className="form-check-label" for="wednesday">Wednesday</label><br/>
+                    <label className="form-check-label" for="wednesday">{language[LanguageStore.lang].addForm.Day.Wednesday}</label><br/>
                     <input name="thursday" type="checkbox" className="form-check-input" id="thursday"
                     value={this.state.day.thursday} onChange={this.handleChange}/>
-                    <label className="form-check-label" for="thursday">Thursday</label><br/>
+                    <label className="form-check-label" for="thursday">{language[LanguageStore.lang].addForm.Day.Thursday}</label><br/>
                   </div>
                   <div className="col-md-6 col-sm-12">
                     <input name="friday" type="checkbox" className="form-check-input" id="friday"
                     value={this.state.day.friday} onChange={this.handleChange}/>
-                    <label className="form-check-label" for="friday">Friday</label><br/>
+                    <label className="form-check-label" for="friday">{language[LanguageStore.lang].addForm.Day.Friday}</label><br/>
                     <input name="saturday" type="checkbox" className="form-check-input" id="saturday"
                     value={this.state.day.saturday} onChange={this.handleChange}/>
-                    <label className="form-check-label" for="saturday">Saturday</label><br/>
+                    <label className="form-check-label" for="saturday">{language[LanguageStore.lang].addForm.Day.Saturday}</label><br/>
                     <input name="sunday" type="checkbox" className="form-check-input" id="sunday"
                     value={this.state.day.sunday} onChange={this.handleChange}/>
-                    <label className="form-check-label" for="sunday">Sunday</label><br/>
+                    <label className="form-check-label" for="sunday">{language[LanguageStore.lang].addForm.Day.Sunday}</label><br/>
                   </div>
                 </div>
               </div>
-            From
+            {language[LanguageStore.lang].addForm.OperatingTime}
               <div className="row">
+                <div className="col-md-2 col-sm-12">
+                {language[LanguageStore.lang].addForm.From}
+                </div>
                 <div className="col-md-4 col-sm-12">
                   <select name="fromhr" type="number" className="custom-select" id="fromhr"
                   value={this.state.fromhr} onChange={this.handleChange}>
@@ -193,8 +198,10 @@ class AddForm extends React.Component {
                   </select>
                 </div>
               </div>
-            To
               <div className="row">
+                <div className="col-md-2 col-sm-12">
+                  {language[LanguageStore.lang].addForm.To}
+                </div>
                 <div className="col-md-4 col-sm-12">
                   <select name="tohr" type="number" className="custom-select" id="tohr"
                   value={this.state.tohr} onChange={this.handleChange}>
@@ -237,40 +244,39 @@ class AddForm extends React.Component {
                   </select>
                 </div>
               </div>
-            Amenity :
+            {language[LanguageStore.lang].addForm.Amenity}
               <div class="form-check">
                 <div className="row">
                   <div className="col-md-6 col-sm-12">
                     <input name="teachercom" type="checkbox" className="form-check-input" id="teachercom"
                     value={this.state.amenity.teachercom} onChange={this.handleChange}/>
-                    <label className="form-check-label" for="teachercom">Teacher Computer</label><br/>
+                    <label className="form-check-label" for="teachercom">{language[LanguageStore.lang].addForm.Amenities.TeacherComputer}</label><br/>
                     <input name="studentcom" type="checkbox" className="form-check-input" id="studentcom"
                     value={this.state.amenity.studentcom} onChange={this.handleChange}/>
-                    <label className="form-check-label" for="studentcom">Student Computer</label><br/>
+                    <label className="form-check-label" for="studentcom">{language[LanguageStore.lang].addForm.Amenities.StudentComputer}</label><br/>
                     <input name="aircon" type="checkbox" className="form-check-input" id="aircon"
                     value={this.state.amenity.aircon} onChange={this.handleChange}/>
-                    <label className="form-check-label" for="aircon">Air Conditioner</label><br/>
+                    <label className="form-check-label" for="aircon">{language[LanguageStore.lang].addForm.Amenities.AirConditioner}</label><br/>
                   </div>
                   <div className="col-md-6 col-sm-12">
                     <input name="projector" type="checkbox" className="form-check-input" id="projector"
                     value={this.state.amenity.projector} onChange={this.handleChange}/>
-                    <label className="form-check-label" for="projector">Projector</label><br/>
+                    <label className="form-check-label" for="projector">{language[LanguageStore.lang].addForm.Amenities.Projector}</label><br/>
                     <input name="whiteboard" type="checkbox" className="form-check-input" id="whiteboard"
                     value={this.state.amenity.whiteboard} onChange={this.handleChange}/>
-                    <label className="form-check-label" for="whiteboard">White Board</label><br/>
+                    <label className="form-check-label" for="whiteboard">{language[LanguageStore.lang].addForm.Amenities.WhiteBoard}</label><br/>
                     <input name="visualizer" type="checkbox" className="form-check-input" id="visualizer"
                     value={this.state.amenity.visualizer} onChange={this.handleChange}/>
-                    <label className="form-check-label" for="visualizer">Visualizer</label><br/>
+                    <label className="form-check-label" for="visualizer">{language[LanguageStore.lang].addForm.Amenities.Visualizer}</label><br/>
                   </div>
                 </div>
               </div>
 
             </div>
           </div>
-          {this.state.monday ? <p>yes</p> : <p>no</p>}
             <br/><center>
             <button onClick={() => this.addClick()} type="submit" value="Submit" className="btn btn-info">
-              Submit
+              {language[LanguageStore.lang].addForm.Submit}
             </button> </center>
           </form>
         </div>

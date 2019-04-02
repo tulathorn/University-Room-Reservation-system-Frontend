@@ -1,6 +1,8 @@
 import React from 'react'
 import '../Styles/bootstrap/bootstrap.min.css'
 import styled from 'styled-components'
+import LanguageStore from '../stores/LanguageStore'
+import language from '../languages.json'
 
 const jumbotronStyle = {
   width: 'auto',
@@ -31,39 +33,39 @@ class ListCard extends React.Component {
             </div>
             <div className="row">
               <p>
-                <b>Building: </b>
+                <b>{language[LanguageStore.lang].roomInformationCard.Building}: </b>
               </p>
               <p>{this.props.room.Floor}</p>
             </div>
             <div className="row">
               <p>
-                <b>Floor: </b>
+                <b>{language[LanguageStore.lang].roomInformationCard.Floor}: </b>
               </p>
               <p>{this.props.room.Floor}</p>
             </div>
             <div className="row">
               <p>
-                <b>Size: </b>
+                <b>{language[LanguageStore.lang].roomInformationCard.Size}: </b>
               </p>
-              <p>{this.props.room.PeopleCapacity} Peoples</p>
+              <p>{this.props.room.PeopleCapacity} {language[LanguageStore.lang].roomInformationCard.Peoples}</p>
             </div>
           </div>
           <div className="col-md-5 col-sm-12">
             <div className="row">
               <p>
-                <b>Amenities:</b>
+                <b>{language[LanguageStore.lang].roomInformationCard.Amenity}:</b>
               </p>
             </div>
             <div className="row">
               <div className="col-md-6 col-sm-12">
-                {this.props.room.Equipment.HasAirConditioner ? <p>Air Conditioner</p> : <Hasno>Air Conditioner</Hasno>}
-                {this.props.room.Equipment.HasProjector ? <p>Projector</p> : <Hasno>Projector</Hasno>}
-                {this.props.room.Equipment.HasStudentComputers ? <p>Student Computer</p> : <Hasno>Student Computer</Hasno>}
+                {this.props.room.Equipment.HasAirConditioner ? <p>{language[LanguageStore.lang].roomInformationCard.Amenities.AirConditioner}</p> : <Hasno>{language[LanguageStore.lang].roomInformationCard.Amenities.AirConditioner}</Hasno>}
+                {this.props.room.Equipment.HasProjector ? <p>{language[LanguageStore.lang].roomInformationCard.Amenities.Projector}</p> : <Hasno>{language[LanguageStore.lang].roomInformationCard.Amenities.Projector}</Hasno>}
+                {this.props.room.Equipment.HasStudentComputers ? <p>{language[LanguageStore.lang].roomInformationCard.Amenities.StudentComputer}</p> : <Hasno>{language[LanguageStore.lang].roomInformationCard.Amenities.StudentComputer}</Hasno>}
               </div>
               <div className="col-md-6 col-sm-12">
-                {this.props.room.Equipment.HasTeacherComputers ? <p>Teacher Computer</p> : <Hasno>Teacher Computer</Hasno>}
-                {this.props.room.Equipment.HasVisualizer ? <p>Visualizer</p> : <Hasno>Visualizer</Hasno>}
-                {this.props.room.Equipment.HasWhiteboard ? <p>White Board</p> : <Hasno>White Board</Hasno>}
+                {this.props.room.Equipment.HasTeacherComputers ? <p>{language[LanguageStore.lang].roomInformationCard.Amenities.TeacherComputer}</p> : <Hasno>{language[LanguageStore.lang].roomInformationCard.Amenities.TeacherComputer}</Hasno>}
+                {this.props.room.Equipment.HasVisualizer ? <p>{language[LanguageStore.lang].roomInformationCard.Amenities.Visualizer}</p> : <Hasno>{language[LanguageStore.lang].roomInformationCard.Amenities.Visualizer}</Hasno>}
+                {this.props.room.Equipment.HasWhiteboard ? <p>{language[LanguageStore.lang].roomInformationCard.Amenities.WhiteBoard}</p> : <Hasno>{language[LanguageStore.lang].roomInformationCard.Amenities.WhiteBoard}</Hasno>}
               </div>
             </div>
           </div>

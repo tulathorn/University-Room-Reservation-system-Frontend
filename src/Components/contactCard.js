@@ -1,6 +1,8 @@
 import React from 'react'
 import '../Styles/bootstrap/bootstrap.min.css'
 import Swal from 'sweetalert2'
+import LanguageStore from '../stores/LanguageStore'
+import language from '../languages.json'
 
 const helpLink = {
   color: '#1F384B'
@@ -23,11 +25,11 @@ class ContactCard extends React.Component {
     return (
         <div className="card">
           <div className="card-body">
-            <a href="/Login" className="btn btn-outline-info">Back</a>
+            <a href="/Login" className="btn btn-outline-info">{language[LanguageStore.lang].contactCard.Back}</a>
             <div className="row">
               <div className="col-md-12 col-sm-12" style={{ textAlign: 'center' }}>
                 <img src={require("../Pictures/logo.png")} width="150" height="150" alt=""/>
-                <h5 className="card-tile">Contact us</h5>
+                <h5 className="card-tile">{language[LanguageStore.lang].contactCard.ContactUs}</h5>
               </div>
             </div>
             <div className="row">
@@ -36,7 +38,7 @@ class ContactCard extends React.Component {
               <div className="col-md-8 col-sm-10">
                 <form action="">
                   <div className="form-group">
-                    <label for="exampleFormControlInput1">Email address</label>
+                    <label for="exampleFormControlInput1">{language[LanguageStore.lang].contactCard.Email}</label>
                     <input
                       type="email"
                       className="form-control"
@@ -45,7 +47,7 @@ class ContactCard extends React.Component {
                     />
                   </div>
                   <div className="form-group">
-                    <label for="exampleFormControlInput2">Title</label>
+                    <label for="exampleFormControlInput2">{language[LanguageStore.lang].contactCard.Title}</label>
                     <input
                       type="text"
                       className="form-control"
@@ -54,7 +56,7 @@ class ContactCard extends React.Component {
                     />
                   </div>
                   <div className="form-group">
-                    <label for="exampleFormControlTextarea1">Detail</label>
+                    <label for="exampleFormControlTextarea1">{language[LanguageStore.lang].contactCard.Detail}</label>
                     <textarea
                       className="form-control"
                       id="exampleFormControlTextarea1"
@@ -65,7 +67,7 @@ class ContactCard extends React.Component {
                   </div>
                   <center>
                     <button onClick={() => this.sentClick()} type="button" className="btn btn-outline-info">
-                      Submit
+                      {language[LanguageStore.lang].contactCard.Submit}
                     </button>
                   </center>
                 </form>

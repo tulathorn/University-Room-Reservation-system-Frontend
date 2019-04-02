@@ -1,6 +1,8 @@
 import React from 'react'
 import '../Styles/bootstrap/bootstrap.min.css'
 import Swal from 'sweetalert2'
+import LanguageStore from '../stores/LanguageStore'
+import language from '../languages.json'
 
 import { observer } from 'mobx-react'
 
@@ -68,34 +70,34 @@ class BookingForm extends React.Component {
   			<div className="jumbotron text-white" style={jumbotronStyle}>
 
           <form onSubmit={this.handleSubmit}>
-            Name
+            {language[LanguageStore.lang].bookingForm.Firstname}
               <input name="firstname" type="text" className="form-control" id="firstname" placeholder="Firstname"
               value={this.state.firstname} onChange={this.handleChange}/>
               {/*value={BookingStore.SearchConfig.firstname} */}
-            Surname
+            {language[LanguageStore.lang].bookingForm.Surname}
               <input name="surname" type="text" className="form-control" id="surname" placeholder="Surname"
               value={this.state.surname} onChange={this.handleChange}/>
-             Email Address
+            {language[LanguageStore.lang].bookingForm.Email}
               <input name="email" type="text" className="form-control" id="email" placeholder="Email Address"
               value={this.state.email} onChange={this.handleChange}/>
-            Phone Number
+            {language[LanguageStore.lang].bookingForm.Phone}
               <input name="phone" type="text" className="form-control" id="phone" placeholder="Phone Number"
               value={this.state.phone} onChange={this.handleChange}/>
-            Purpose
+            {language[LanguageStore.lang].bookingForm.Purpose}
               <textarea name="purpose" type="text" className="form-control" id="purpose" rows="5" placeholder="Identify your purpose for booking this room..."
               value={this.state.purpose} onChange={this.handleChange}/>
             <br/>
             <div className="row">
               <div className="col-md-2 col-sm-5">
                 <button onClick={() => this.bookClick()} type="submit" value="Submit" className="btn btn-info">
-                  Book
+                  {language[LanguageStore.lang].bookingForm.Book}
                 </button>
               </div>
               <div className="col-md-7 col-sm-2">
               </div>
               <div className="col-md-3 col-sm-5">
                 <button onClick={() => this.updateClick()} type="button" className="btn btn-outline-info">
-                  Update
+                  {language[LanguageStore.lang].bookingForm.Update}
                 </button>
               </div>
             </div>

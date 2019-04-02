@@ -1,6 +1,9 @@
 import React from 'react'
 import '../Styles/bootstrap/bootstrap.min.css'
 import Swal from 'sweetalert2'
+import LanguageStore from '../stores/LanguageStore'
+import language from '../languages.json'
+
 
 const jumbotronStyle = {
   width: 'auto',
@@ -25,21 +28,21 @@ class AdBookingForm extends React.Component {
             <div className="form-group">
               <div className="row">
                 <div className="col-6">
-                <label for="info1">ID</label>
+                <label for="info1">{language[LanguageStore.lang].adBookingForm.ID}</label>
               <input
                 type="text"
                 className="form-control"
                 id="info1"
                 placeholder="Username ID"
               />
-                <label for="info1">Name</label>
+                <label for="info1">{language[LanguageStore.lang].adBookingForm.FirstName}</label>
               <input
                 type="text"
                 className="form-control"
                 id="info1"
                 placeholder="Firstname"
               />
-              <label for="info2">Surname</label>
+              <label for="info2">{language[LanguageStore.lang].adBookingForm.Surname}</label>
               <input
                 type="text"
                 className="form-control"
@@ -47,7 +50,7 @@ class AdBookingForm extends React.Component {
                 placeholder="Lastname"
               />
               <label className="my-1 mr-2" for="inlineFormCustomSelectPref">
-                Year
+                {language[LanguageStore.lang].adBookingForm.Year}
               </label>
               <select className="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
                 <option>Year</option>
@@ -59,21 +62,21 @@ class AdBookingForm extends React.Component {
 
                 </div>
                 <div className="col-6">
-                  <label for="info3">Email Address</label>
+                  <label for="info3">{language[LanguageStore.lang].adBookingForm.EmailAddress}</label>
                   <input
                     type="email"
                     className="form-control"
                     id="info3"
                     placeholder="Email Address"
                   />
-                  <label for="info4">Phone Number</label>
+                  <label for="info4">{language[LanguageStore.lang].adBookingForm.Phone}</label>
                   <input
                     type="text"
                     className="form-control"
                     id="info4"
                     placeholder="Phone Number"
                     />
-                  <label for="info4">Section</label>
+                  <label for="info4">{language[LanguageStore.lang].adBookingForm.Section}</label>
                   <input
                     type="text"
                     className="form-control"
@@ -81,7 +84,7 @@ class AdBookingForm extends React.Component {
                     placeholder="Section"
                     />
                     <label className="my-1 mr-2" for="inlineFormCustomSelectPref">
-                      Program
+                      {language[LanguageStore.lang].adBookingForm.Program}
                     </label>
                     <select className="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
                       <option>Program</option>
@@ -91,7 +94,7 @@ class AdBookingForm extends React.Component {
                 </div>
               </div>
 
-              <label for="info5">Purpose</label>
+              <label for="info5">{language[LanguageStore.lang].adBookingForm.Purpose}</label>
               <textarea
                 className="form-control"
                 id="info5"
@@ -101,7 +104,7 @@ class AdBookingForm extends React.Component {
             </div>
             <br/>
             <button onClick={() => this.bookClick()} type="button" className="btn btn-info">
-              Book
+              {language[LanguageStore.lang].adBookingForm.Book}
             </button>
           </form>
         </div>
