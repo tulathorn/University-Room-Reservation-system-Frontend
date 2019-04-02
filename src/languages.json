@@ -82,8 +82,8 @@
         "Thai": "ภาษาไทย"
       },
       "CurHistory": {
-        "NormalBooking": "Normal Booking",
-        "RecurringBooking": "Recurring Booking"
+        "PreviousHistory": "Previous History",
+        "CurrentHistory": "Current History"
       },
       "List": {
         "Result": "Result",
@@ -109,13 +109,14 @@
         "Thai": "ภาษาไทย"
       },
       "Main": {
-        "Title": "Welcome to University Room Reservation System"
+        "Title": "Welcome to University Room Reservation System",
+        "Search": "Search"
       },
       "PreHistory": {
-        "NormalBooking": "Normal Booking",
-        "RecurringBooking": "Recurring Booking"
+        "PreviousHistory": "Previous History",
+        "CurrentHistory": "Current History"
       },
-  
+
       "adBookingForm": {
         "ID": "ID",
         "FirstName": "FirstName",
@@ -509,8 +510,8 @@
         "Thai": "ภาษาไทย"
       },
       "CurHistory": {
-        "NormalBooking": "การจองแบบครั้งเดียว",
-        "RecurringBooking": "การจองแบบต่อเนื่อง"
+        "PreviousHistory": "การจองก่อนหน้า",
+        "CurrentHistory": "การจองในปัจจุบัน"
       },
       "List": {
         "Result": "ผลลัพธ์",
@@ -536,11 +537,13 @@
         "Thai": "ภาษาไทย"
       },
       "Main": {
-        "Title": "ยินดีต้องรับเข้าสู้ระบบจองห้องเรียนออนไลน์"
+        "Title": "ยินดีต้องรับเข้าสู่ระบบจองห้องเรียนออนไลน์",
+        "Search": "ค้นหา"
+
       },
       "PreHistory": {
-        "NormalBooking": "การจองแบบครั้งเดียว",
-        "RecurringBooking": "การจองแบบต่อเนื่อง"
+        "PreviousHistory": "การจองก่อนหน้า",
+        "CurrentHistory": "การจองในปัจจุบัน"
       },
       "adBookingForm": {
         "ID": "รหัสผู้จอง",
@@ -853,4 +856,3 @@
       }
     }
   ]
-  

@@ -3,10 +3,19 @@ import styled from 'styled-components'
 import { observer } from 'mobx-react'
 import Swal from 'sweetalert2'
 
+
+
+import LanguageStore from '../stores/LanguageStore'
+import language from '../languages.json'
+
+
+
 import Navbar from '../Components/Navbar'
 
 import RoomStore from '../stores/RoomStore'
 import ReservationForm from '../Components/ReservationForm'
+
+
 
 const Title = styled.h1`
   color: #1f384b;
@@ -36,7 +45,7 @@ class MainView extends Component {
         <div className="container">
           <br />
           <center>
-            <Title>Welcome to University Room Reservation System</Title>
+            <Title>{language[LanguageStore.lang].Main.Title}</Title>
           </center>
           <br />
 
@@ -47,7 +56,7 @@ class MainView extends Component {
               className="btn btn-outline-info"
               onClick={() => this.searchClick()}
             >
-              Search
+              {language[LanguageStore.lang].Main.Search}
             </button><br/>
           {/*<a href="/list">Go to list page(Temporary)</a>*/}
           </center>

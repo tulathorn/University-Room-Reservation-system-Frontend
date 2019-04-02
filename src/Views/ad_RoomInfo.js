@@ -4,6 +4,9 @@ import RoomStore from '../stores/RoomStore'
 import Swal from 'sweetalert2'
 import { observer } from 'mobx-react'
 
+import LanguageStore from '../stores/LanguageStore'
+import language from '../languages.json'
+
 const jumbotronStyle = {
   width: 'auto',
   height: 'auto',
@@ -73,7 +76,7 @@ class AdRoomInfoView extends Component {
                   <div className="col-md-1 col-sm-0">
                   </div>
                   <div className="col-md-4 col-sm-4">
-                    <p><b>Amenity : </b></p>
+                    <p><b>{language[LanguageStore.lang].adRoomInfo.Amenity} : </b></p>
                   </div>
                   <div className="col-md-7 col-sm-8">
                   </div>
@@ -86,15 +89,15 @@ class AdRoomInfoView extends Component {
                     <div className="form-check">
                       <input className="form-check-input" type="checkbox" value="" id="defaultCheck1"/>
                       <label className="form-check-label" for="defaultCheck1">
-                        Teacher Computer
+                        {language[LanguageStore.lang].adRoomInfo.Amenities.TeacherComputer}
                       </label><br/>
                       <input className="form-check-input" type="checkbox" value="" id="defaultCheck1"/>
                       <label className="form-check-label" for="defaultCheck1">
-                        Student Computer
+                        {language[LanguageStore.lang].adRoomInfo.Amenities.StudentComputer}
                       </label><br/>
                       <input className="form-check-input" type="checkbox" value="" id="defaultCheck1"/>
                       <label className="form-check-label" for="defaultCheck1">
-                        Air Conditioner
+                        {language[LanguageStore.lang].adRoomInfo.Amenities.AirConditioner}
                       </label>
                     </div>
                   </div>
@@ -102,15 +105,15 @@ class AdRoomInfoView extends Component {
                     <div className="form-check">
                       <input className="form-check-input" type="checkbox" value="" id="defaultCheck1"disabled/>
                       <label className="form-check-label" for="defaultCheck1">
-                        Projector
+                        {language[LanguageStore.lang].adRoomInfo.Amenities.Projector}
                       </label><br/>
                     <input className="form-check-input" type="checkbox" value="" id="defaultCheck1"select/>
                       <label className="form-check-label" for="defaultCheck1">
-                        White Board
+                        {language[LanguageStore.lang].adRoomInfo.Amenities.WhiteBoard}
                       </label><br/>
                     <input className="form-check-input" type="checkbox" value="" id="defaultCheck1" selected/>
                       <label className="form-check-label" for="defaultCheck1">
-                        Visualizer
+                        {language[LanguageStore.lang].adRoomInfo.Amenities.Visualizer}
                       </label>
                     </div>
                   </div>
@@ -122,18 +125,18 @@ class AdRoomInfoView extends Component {
               <div className="jumbotron text-white" style={jumbotronStyle}>
                 <div className="row">
                   <div className="col-md-5 col-sm-4">
-                    <p><b>Information : </b></p>
+                    <p><b>{language[LanguageStore.lang].adRoomInfo.Information} : </b></p>
                   </div>
                   <div className="col-md-7 col-sm-8">
-                    <p>People Capacity : 50</p>
-                    <p>Building : Witsawa Watthana</p>
-                    <p>Floor : 11</p>
-                    <p>Room number : CPE1121</p>
-                    <p>Operating Day : Mon-Fri</p>
-                    <p>Operating Time : 08:00 - 20:00</p>
+                    <p>{language[LanguageStore.lang].adRoomInfo.PeopleCapacity} : 50{''}{language[LanguageStore.lang].adRoomInfo.People}</p>
+                    <p>{language[LanguageStore.lang].adRoomInfo.Building} : Witsawa Watthana</p>
+                    <p>{language[LanguageStore.lang].adRoomInfo.Floor} : 11</p>
+                    <p>{language[LanguageStore.lang].adRoomInfo.RoomName} : CPE1121</p>
+                    <p>{language[LanguageStore.lang].adRoomInfo.OperatingDay} : Mon-Fri</p>
+                    <p>{language[LanguageStore.lang].adRoomInfo.OperatingTime} : 08:00 - 20:00</p>
                   </div>
                 </div>
-                <a href="/ad_timetable" class="text-info" target="_blank">See Booking Timetable</a>
+                <a href="/ad_timetable" class="text-info" target="_blank">{language[LanguageStore.lang].adRoomInfo.BookingTimeTable}</a>
               </div>
             </div>
           </div>
@@ -144,10 +147,10 @@ class AdRoomInfoView extends Component {
             <div className="col-md-1 col-sm-6">
 
 
-              <button onClick={() => this.deleteClick()} type="button" className="btn btn-outline-danger">Delete</button>
+              <button onClick={() => this.deleteClick()} type="button" className="btn btn-outline-danger">{language[LanguageStore.lang].adRoomInfo.Delete}</button>
             </div>
             <div className="col-md-1 col-sm-6">
-              <a href="/ad_edit_room" className="btn btn-outline-info" target="_blank">Edit</a>
+              <a href="/ad_edit_room" className="btn btn-outline-info" target="_blank">{language[LanguageStore.lang].adRoomInfo.Edit}</a>
             </div>
             <div className="col-md-5 col-sm-0">
             </div>

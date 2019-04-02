@@ -2,6 +2,10 @@ import React, { Component } from 'react'
 import AdNavbar from '../Components/ad_Navbar'
 import BookingTable from '../Components/bookingTable'
 
+import LanguageStore from '../stores/LanguageStore'
+import language from '../languages.json'
+
+
 const jumbotronStyle = {
   width: 'auto',
   height: 'auto',
@@ -15,7 +19,7 @@ class AdBookingTimatableView extends Component {
         <AdNavbar />
         <div className="container">
           <div className="row">
-            <h2>Booking Timetable</h2>
+            <h2>{language[LanguageStore.lang].adBookingTimetable.BookingTimetable}</h2>
           </div>
           <br/>
           <BookingTable/>
