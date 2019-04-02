@@ -2,6 +2,9 @@ import React from 'react'
 import styled from 'styled-components'
 import { withRouter } from 'react-router-dom'
 
+import LanguageStore from '../stores/LanguageStore'
+import language from '../languages.json'
+
 const textColor = {
   color: 'white'
 }
@@ -44,14 +47,14 @@ class SearchRecForm extends React.Component {
     return (
 
         <div className="jumbotron" style={jumbotronStyle}>
-           <Title_1>Find a Room</Title_1>
+           <Title_1>{language[LanguageStore.lang].searchRecForm.FindRoom}</Title_1>
 
            <hr className="my-4" color="white"/>
-           <Title_2>Info :</Title_2>
+           <Title_2>{language[LanguageStore.lang].searchRecForm.Info} :</Title_2>
            <form>
              <div className="form-row">
                <div className="form-group col-md-4">
-                 <label className="my-1 mr-2" for="inlineFormCustomSelectPref" style={textColor}>Building</label>
+                 <label className="my-1 mr-2" for="inlineFormCustomSelectPref" style={textColor}>{language[LanguageStore.lang].searchRecForm.Building}</label>
                  <select
                   className="custom-select my-1 mr-sm-2"
                   id="inlineFormCustomSelectPref"
@@ -63,7 +66,7 @@ class SearchRecForm extends React.Component {
                </div>
                <div className="form-group col-md-4">
                  <label className="my-1 mr-2" for="inlineFormCustomSelectPref" style={textColor}>
-                   Size
+                   {language[LanguageStore.lang].searchRecForm.Size}
                  </label>
                  <select className="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
                    <option>Room Size</option>
@@ -79,10 +82,10 @@ class SearchRecForm extends React.Component {
 
 
            <hr className="my-4" color="white"/>
-           <Title_2>Date :</Title_2>
+           <Title_2>{language[LanguageStore.lang].searchRecForm.Date} :</Title_2>
              <form className="form-inline">
                <label className="my-1 mr-2" for="inlineFormCustomSelectPref" style={textColor}>
-                 From
+                 {language[LanguageStore.lang].searchRecForm.From}
                </label>
                <input
                  type="date"
@@ -91,7 +94,7 @@ class SearchRecForm extends React.Component {
                  onChange={this.setForm('date')}
                />
                <label className="my-1 mr-2" for="inlineFormCustomSelectPref" style={textColor}>
-                 To
+                 {language[LanguageStore.lang].searchRecForm.To}
                </label>
                <input
                  type="date"
@@ -102,9 +105,9 @@ class SearchRecForm extends React.Component {
              </form>
 
          <hr className="my-4" color="white"/>
-         <Title_2>Time :</Title_2>
+         <Title_2>{language[LanguageStore.lang].searchRecForm.Time} :</Title_2>
            <form className="form-inline">
-             <label className="my-1 mr-2" for="inlineFormCustomSelectPref" style={textColor}>Day</label>
+             <label className="my-1 mr-2" for="inlineFormCustomSelectPref" style={textColor}>{language[LanguageStore.lang].searchRecForm.Day}</label>
              <select className="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
                <option selected>Choose...</option>
                <option value="1">Sunday</option>
@@ -119,7 +122,7 @@ class SearchRecForm extends React.Component {
 
            </form>
            <form className="form-inline">
-             <label className="my-1 mr-2" for="inlineFormCustomSelectPref" style={textColor}>From</label>
+             <label className="my-1 mr-2" for="inlineFormCustomSelectPref" style={textColor}>{language[LanguageStore.lang].searchRecForm.From}</label>
              <select className="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
                <option>Choose...</option>
                <option value="1">00</option>
@@ -153,7 +156,7 @@ class SearchRecForm extends React.Component {
                <option value="1">00</option>
                <option value="2">30</option>
              </select>
-             <label className="my-1 mr-2" for="inlineFormCustomSelectPref" style={textColor}>To</label>
+             <label className="my-1 mr-2" for="inlineFormCustomSelectPref" style={textColor}>{language[LanguageStore.lang].searchRecForm.To}</label>
              <select className="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
                <option>Choose...</option>
                <option value="1">00</option>
@@ -190,18 +193,18 @@ class SearchRecForm extends React.Component {
            </form>
 
          <hr className="my-4" color="white"/>
-         <Title_2>Filters :</Title_2>
+         <Title_2>{language[LanguageStore.lang].searchRecForm.Amenity} :</Title_2>
            <div className="form-row">
 
              <div className="col-sm-4">
                <div className="form-check">
                  <input className="form-check-input" type="checkbox" value="" id="defaultCheck1"/>
                  <label className="form-check-label" for="defaultCheck1" style={textColor}>
-                   Teacher Computer
+                   {language[LanguageStore.lang].searchRecForm.Amenities.TeacherComputer}
                  </label><br/>
                  <input className="form-check-input" type="checkbox" value="" id="defaultCheck1"/>
                  <label className="form-check-label" for="defaultCheck1" style={textColor}>
-                   Student Computer
+                   {language[LanguageStore.lang].searchRecForm.Amenities.StudentComputer}
                  </label>
                </div>
              </div>
@@ -210,11 +213,11 @@ class SearchRecForm extends React.Component {
                <div className="form-check">
                  <input className="form-check-input" type="checkbox" value="" id="defaultCheck1"/>
                  <label className="form-check-label" for="defaultCheck1" style={textColor}>
-                   Projector
+                   {language[LanguageStore.lang].searchRecForm.Amenities.AirConditioner}
                  </label><br/>
                  <input className="form-check-input" type="checkbox" value="" id="defaultCheck1"/>
                  <label className="form-check-label" for="defaultCheck1" style={textColor}>
-                   White Board
+                   {language[LanguageStore.lang].searchRecForm.Amenities.Projector}
                  </label>
                </div>
              </div>
@@ -223,11 +226,11 @@ class SearchRecForm extends React.Component {
                <div className="form-check">
                  <input className="form-check-input" type="checkbox" value="" id="defaultCheck1"/>
                  <label className="form-check-label" for="defaultCheck1" style={textColor}>
-                   Air Conditioner
+                   {language[LanguageStore.lang].searchRecForm.Amenities.WhiteBoard}
                  </label><br/>
                  <input className="form-check-input" type="checkbox" value="" id="defaultCheck1"/>
                  <label className="form-check-label" for="defaultCheck1" style={textColor}>
-                   Visualizer
+                   {language[LanguageStore.lang].searchRecForm.Amenities.Visualizer}
                  </label>
                </div>
              </div>

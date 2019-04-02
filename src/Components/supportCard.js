@@ -2,6 +2,9 @@ import React from 'react'
 import '../Styles/bootstrap/bootstrap.min.css'
 import styled, { createGlobalStyle } from 'styled-components'
 
+import LanguageStore from '../stores/LanguageStore'
+import language from '../languages.json'
+
 const Title = styled.h1`
   color: #1F384B;
 `
@@ -32,7 +35,7 @@ class SupCard extends React.Component {
            <div className="col-12 col-md-11">
            </div>
            <div className="col-6 col-md-1">
-            <a href="/ad_reply" className="btn btn-outline-info" target="_blank">Reply</a>
+            <a href="/ad_reply" className="btn btn-outline-info" target="_blank">{language[LanguageStore.lang].supportCard.Reply}</a>
            </div>
           </div>
         </div>
