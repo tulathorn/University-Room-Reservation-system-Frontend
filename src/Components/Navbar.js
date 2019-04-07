@@ -1,12 +1,15 @@
 import React from 'react'
-import '../Styles/bootstrap/bootstrap.min.css'
+import { observer } from 'mobx-react'
 import LanguageStore from '../stores/LanguageStore'
+
+import { NavLink } from 'react-router-dom'
+
+import '../Styles/bootstrap/bootstrap.min.css'
 import language from '../languages.json'
 
 const navColor = {
   backgroundColor: '#1F384B'
 }
-
 
 const NavItem = props => {
   const pageURI = window.location.pathname + window.location.search
@@ -22,6 +25,7 @@ const NavItem = props => {
   )
 }
 
+@observer
 class NavDropdown extends React.Component {
   constructor(props) {
     super(props)
@@ -61,13 +65,14 @@ class NavDropdown extends React.Component {
   }
 }
 
+@observer
 class Navbar extends React.Component {
   render() {
     return (
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
-        <a className="navbar-brand" href="/">
-          <img src={require("../Pictures/logo.png")} width="40" height="40" alt=""/>
-        </a>
+        <NavLink className="navbar-brand" to="/">
+          <img src={require('../Pictures/logo.png')} width="40" height="40" alt="" />
+        </NavLink>
         <button
           className="navbar-toggler"
           type="button"
@@ -82,27 +87,25 @@ class Navbar extends React.Component {
 
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav mr-auto">
-            <NavItem path="/" name={language[LanguageStore.lang].Navbar.FindRoom} />
-            <NavDropdown name={language[LanguageStore.lang].Navbar.History}>
-              <a className="dropdown-item" href="/curhistory">
-                {language[LanguageStore.lang].Navbar.CurrentHistory}
-              </a>
-              <a className="dropdown-item" href="/prehistory">
-                {language[LanguageStore.lang].Navbar.PreviousHistory}
-              </a>
-            </NavDropdown> 
-            <NavItem path="/contact" name={language[LanguageStore.lang].Navbar.Help} />
-            <NavDropdown name={language[LanguageStore.lang].Navbar.Languages}>
-              <a className="dropdown-item" href="/">
-                {language[LanguageStore.lang].Navbar.Thai}
-              </a>
-              <a className="dropdown-item" href="/">
-                {language[LanguageStore.lang].Navbar.English}
-              </a>
-              {/* <div className="dropdown-divider" />
-              <a className="dropdown-item" href="/">
-                Something else here
-              </a> */}
+            <NavItem path="/" name="Find Room" />
+            <NavDropdown name="History">
+              <NavLink to="/curhistory" className="dropdown-item">
+                Current History
+              </NavLink>
+              <NavLink to="/prehistory" className="dropdown-item">
+                Previous HIstory
+              </NavLink>
+            </NavDropdown>
+            <NavItem path="/contact" name="Help" />
+            <NavDropdown name="Languages">
+              <div className="dropdown-item" onClick={() => LanguageStore.setLang(0)}>
+                {' '}
+                English
+              </div>
+              <div className="dropdown-item" onClick={() => LanguageStore.setLang(1)}>
+                {' '}
+                ภาษาไทย
+              </div>
             </NavDropdown>
           </ul>
 
@@ -116,7 +119,9 @@ class Navbar extends React.Component {
               placeholder="Search"
               aria-label="Search"
             /> */}
-            <a href="/login" class="btn btn-sm btn-outline-info">{language[LanguageStore.lang].Navbar.Logout}</a>
+            <NavLink to="/login" class="btn btn-sm btn-outline-info">
+              Logout
+            </NavLink>
           </form>
         </div>
       </nav>
