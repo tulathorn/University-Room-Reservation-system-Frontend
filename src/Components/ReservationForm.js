@@ -3,6 +3,8 @@ import styled from 'styled-components'
 import { withRouter } from 'react-router-dom'
 import LanguageStore from '../stores/LanguageStore'
 import language from '../languages.json'
+import RoomStore from '../stores/RoomStore'
+import { observer } from 'mobx-react'
 
 const Heading = styled.h2`
   color: white;
@@ -40,9 +42,36 @@ class ReservationForm extends React.Component {
     this.props.history.push('/search')
   }
 
+
+  @observer
   render() {
     return (
       <div className="jumbotron" style={jumbotronStyle}>
+
+          PeopleCapacity
+          <select name="capacity" type="number" className="custom-select" id="capacity"
+              value={RoomStore.searchConfig.PeopleCapacity} onChange={e => RoomStore.onFilterChange(e.target.value)}>
+              <option>Choose...</option>
+              <option value="10">10</option>
+              <option value="20">20</option>
+              <option value="30">30</option>
+              <option value="40">40</option>
+              <option value="50">50</option>
+              <option value="60">60</option>
+              <option value="70">70</option>
+              <option value="80">80</option>
+              <option value="90">90</option>
+              <option value="100">100</option>
+              <option value="120">120</option>
+              <option value="150">150</option>
+              <option value="200">200</option>
+              </select>
+          
+        
+
+
+{/* 
+
         <Heading> {language[LanguageStore.lang].reservationForm.FindRoom} </Heading>
         <hr className="my-4" color="white" />
         <SubHeading> {language[LanguageStore.lang].reservationForm.Info}: </SubHeading>{' '}
@@ -209,7 +238,7 @@ class ReservationForm extends React.Component {
               </label>{' '}
             </div>{' '}
           </div>{' '}
-        </div>{' '}
+        </div>{' '}*/}
       </div>
     )
   }

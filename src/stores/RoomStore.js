@@ -1,4 +1,4 @@
-import { action, observable } from 'mobx'
+import { observable, action, runInAction } from 'mobx'
 import axios from '../Utils/axiosConfig'
 
 // import language from '../language.json'
@@ -11,7 +11,7 @@ class RoomStore {
   roomDatas = []
 
   @observable
-  searchConfig = {}
+  searchConfig = {"PeopleCapacity" : "60"}
 
   @observable
   selectedRoom = 0
@@ -26,6 +26,14 @@ class RoomStore {
   //   lang = 1
   //   this.printText = language[lang].List
   // }
+
+  @action
+  onFilterChange = async searchConfig => {
+    this.searchConfig.PeopleCapacity = searchConfig
+    await this.fetchData()
+  }
+
+
 
   @action
   addRoom = async data => {

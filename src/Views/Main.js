@@ -58,7 +58,7 @@ class MainView extends Component {
             >
               {language[LanguageStore.lang].Main.Search}
             </button><br/>
-          {/*<a href="/list">Go to list page(Temporary)</a>*/}
+          <a href="/search">Go to list page(Temporary)</a>
           </center>
         </div>
       </div>
