@@ -3,19 +3,14 @@ import styled from 'styled-components'
 import { observer } from 'mobx-react'
 import Swal from 'sweetalert2'
 
-
-
 import LanguageStore from '../stores/LanguageStore'
 import language from '../languages.json'
 
-
-
 import Navbar from '../Components/Navbar'
+import AuthenticationGate from '../Components/AuthenticationGate'
 
 import RoomStore from '../stores/RoomStore'
 import ReservationForm from '../Components/ReservationForm'
-
-
 
 const Title = styled.h1`
   color: #1f384b;
@@ -40,7 +35,7 @@ class MainView extends Component {
   }
   render() {
     return (
-      <div>
+      <AuthenticationGate>
         <Navbar />
         <div className="container">
           <br />
@@ -57,11 +52,12 @@ class MainView extends Component {
               onClick={() => this.searchClick()}
             >
               {language[LanguageStore.lang].Main.Search}
-            </button><br/>
-          <a href="/search">Go to list page(Temporary)</a>
+            </button>
+            <br />
+            <a href="/search">Go to list page(Temporary)</a>
           </center>
         </div>
-      </div>
+      </AuthenticationGate>
     )
   }
 }
