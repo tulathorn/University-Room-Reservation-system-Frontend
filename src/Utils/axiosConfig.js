@@ -14,8 +14,6 @@ const handleResponse = response => {
   return Promise.resolve(response)
 }
 
-const catchError = e => Promise.reject(e.response)
-
 export default {
   get: (path, params) =>
     createApiInstance()
@@ -24,8 +22,7 @@ export default {
         method: 'GET',
         params
       })
-      .then(handleResponse)
-      .catch(catchError),
+      .then(handleResponse),
   post: (path, body = {}, headers = {}) =>
     createApiInstance()
       .request({
@@ -34,8 +31,7 @@ export default {
         headers,
         data: body
       })
-      .then(handleResponse)
-      .catch(catchError),
+      .then(handleResponse),
   put: (path, body = {}) =>
     createApiInstance()
       .request({
@@ -43,11 +39,9 @@ export default {
         method: 'PUT',
         data: body
       })
-      .then(handleResponse)
-      .catch(catchError),
+      .then(handleResponse),
   delete: path =>
     createApiInstance()
       .delete(path)
       .then(handleResponse)
-      .catch(catchError)
 }

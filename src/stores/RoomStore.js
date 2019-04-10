@@ -11,7 +11,7 @@ class RoomStore {
   roomDatas = []
 
   @observable
-  searchConfig = {"PeopleCapacity" : "60"}
+  searchConfig = {}
 
   @observable
   selectedRoom = 0
@@ -32,8 +32,6 @@ class RoomStore {
     this.searchConfig.PeopleCapacity = searchConfig
     await this.fetchData()
   }
-
-
 
   @action
   addRoom = async data => {
