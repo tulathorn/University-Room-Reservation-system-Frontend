@@ -13,11 +13,7 @@ class AddForm extends React.Component {
     await RoomStore.resetAddForm()
   }
 
-  onCheck = (boxID ) => {
-    if (boxID.checked == true){
-      console.log('yesyes');
-    }
-  }
+  
 
 
   onSubmit = e => {
