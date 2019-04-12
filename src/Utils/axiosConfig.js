@@ -4,17 +4,16 @@ import axios from 'axios'
 const createApiInstance = () =>
   axios.create({
     // baseURL: 'https://api.luna.codes',
-    baseURL: 'http://localhost:4000'
-    // headers: {
-    //   Authorization: store.getAccessToken() ? `JWT ${store.getAccessToken()}` : ''
-    // }
+    baseURL: 'http://localhost:4000',
+    headers: {
+      Authorization: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IjU4MDcwNTAzNDM4IiwiaWF0IjoxNTU1MDUzMTEwfQ.vFrdCwfSSQQ3UXpPruawuUOze0FCu_lbOHnFP2KcQqY'
+       //Authorization: store.getAccessToken() ? `JWT ${store.getAccessToken()}` : ''
+     }
   })
 
 const handleResponse = response => {
   return Promise.resolve(response)
 }
-
-const catchError = e => Promise.reject(e.response)
 
 export default {
   get: (path, params) =>
@@ -24,8 +23,7 @@ export default {
         method: 'GET',
         params
       })
-      .then(handleResponse)
-      .catch(catchError),
+      .then(handleResponse),
   post: (path, body = {}, headers = {}) =>
     createApiInstance()
       .request({
@@ -34,8 +32,7 @@ export default {
         headers,
         data: body
       })
-      .then(handleResponse)
-      .catch(catchError),
+      .then(handleResponse),
   put: (path, body = {}) =>
     createApiInstance()
       .request({
@@ -43,11 +40,9 @@ export default {
         method: 'PUT',
         data: body
       })
-      .then(handleResponse)
-      .catch(catchError),
+      .then(handleResponse),
   delete: path =>
     createApiInstance()
       .delete(path)
       .then(handleResponse)
-      .catch(catchError)
 }

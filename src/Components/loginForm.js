@@ -4,6 +4,11 @@ import Swal from 'sweetalert2'
 import LanguageStore from '../stores/LanguageStore'
 import language from '../languages.json'
 
+import { withRouter } from 'react-router-dom'
+
+import axios from '../Utils/axiosConfig'
+import { from } from 'rxjs'
+
 const helpLink = {
   color: '#1F384B'
 }
@@ -12,8 +17,16 @@ const cardColor = {
 }
 
 class LoginCard extends React.Component {
+  constructor(props) {
+    super(props)
+    this.inputUsername = React.createRef()
+    this.inputPassword = React.createRef()
+    this.state = {
+      login: false
+    }
+  }
 
-  loginClick = () =>{
+  loginClick = () => {
     Swal.fire({
       title: 'User Information',
       html:
@@ -35,61 +48,110 @@ class LoginCard extends React.Component {
           document.getElementById('swal-input4').value
         ]
       }
-    }).then((result) => {
+    }).then(result => {
       if (result.value) {
         // Go to main page
       }
     })
   }
 
+  login = async e => {
+    e.preventDefault()
+    // console.log(this.inputUsername)
+    // console.log(this.inputPassword)
+    try {
+      const response = await axios.post('/auth', {
+        username: this.inputUsername.current.value,
+        password: this.inputPassword.current.value
+      })
+      localStorage.setItem('token', response.data.token)
+      localStorage.setItem('username', response.data.username)
+      // console.log(response)
+      // console.log(this.props)
+      this.props.history.push('/')
+    } catch (err) {
+      console.log({ err })
+      if (err.response && err.response.status === 401) {
+        window.alert('Invalid username or password')
+      } else {
+        window.alert('Unknown error \n' + err)
+      }
+    }
+  }
+
   render() {
     return (
-        <div style={cardColor} className="jumbotron">
-          <div className="row">
-            <div className="col-md-8 col-sm-8">
-            </div>
-            <div className="col-md-4 col-sm-4">
-              <a href="/ad_login" class="text-secondary">{language[LanguageStore.lang].loginForm.Admin}</a>
-            </div>
-          </div><br/>
+      <div style={cardColor} className="jumbotron">
+        <div className="row">
+          <div className="col-md-8 col-sm-8" />
+          <div className="col-md-4 col-sm-4">
+            <a href="/ad_login" class="text-secondary">
+              {language[LanguageStore.lang].loginForm.Admin}
+            </a>
+          </div>
+        </div>
+        <br />
 
-          <h3 align="left" style={helpLink}>
-          {language[LanguageStore.lang].loginForm.Title1}<br/>
+        <h3 align="left" style={helpLink}>
+          {language[LanguageStore.lang].loginForm.Title1}
+          <br />
           {language[LanguageStore.lang].loginForm.Title2}
-          </h3>
-          <br/>
+        </h3>
+        <br />
 
-          <form>
-            <div className="form-group">
-              <label for="exampleInputEmail1" style={helpLink}>{language[LanguageStore.lang].loginForm.Username}</label>
-              <input type="text" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter username"/>
-              <small id="emailHelp" className="form-text text-muted">{language[LanguageStore.lang].loginForm.UsernameDef}</small>
-            </div>
-
-            <div className="form-group">
-              <label for="exampleInputPassword1" style={helpLink}>{language[LanguageStore.lang].loginForm.Password}</label>
-              <input type="password" className="form-control" id="exampleInputPassword1" placeholder="Password"/>
-            </div>
-          </form>
-
-          <br/>
-
-          <div className="row">
-            <div className="col-md-2" >
-              {/*<a href="/" className="btn btn-outline-info">Login</a>*/}
-              <button onClick={() => this.loginClick()} type="button" className="btn btn-outline-info">{language[LanguageStore.lang].loginForm.Login}</button>
-            </div>
-
-            <div className="col-md-8">
-            </div>
-            <div className="col-md-2">
-              <a href="/contact" class="text-info">{language[LanguageStore.lang].loginForm.Help}</a>
-            </div>
+        <form onSubmit={e => this.login(e)}>
+          <div className="form-group">
+            <label for="exampleInputEmail1" style={helpLink}>
+              {language[LanguageStore.lang].loginForm.Username}
+            </label>
+            <input
+              type="text"
+              ref={this.inputUsername}
+              className="form-control"
+              id="exampleInputEmail1"
+              aria-describedby="emailHelp"
+              placeholder="Enter username"
+            />
+            <small id="emailHelp" className="form-text text-muted">
+              {language[LanguageStore.lang].loginForm.UsernameDef}
+            </small>
           </div>
 
+          <div className="form-group">
+            <label for="exampleInputPassword1" style={helpLink}>
+              {language[LanguageStore.lang].loginForm.Password}
+            </label>
+            <input
+              type="password"
+              ref={this.inputPassword}
+              className="form-control"
+              id="exampleInputPassword1"
+              placeholder="Password"
+            />
+          </div>
+          <button type="submit" className="btn btn-outline-info">
+            {language[LanguageStore.lang].loginForm.Login}
+          </button>
+        </form>
+
+        <br />
+
+        <div className="row">
+          <div className="col-md-2">
+            {/*<a href="/" className="btn btn-outline-info">Login</a>*/}
+            {/* <button onClick={() => this.loginClick()} type="button" className="btn btn-outline-info">{language[LanguageStore.lang].loginForm.Login}</button> */}
+          </div>
+
+          <div className="col-md-8" />
+          <div className="col-md-2">
+            <a href="/contact" class="text-info">
+              {language[LanguageStore.lang].loginForm.Help}
+            </a>
+          </div>
         </div>
+      </div>
     )
   }
 }
 
-export default LoginCard
+export default withRouter(LoginCard)
