@@ -1,9 +1,17 @@
 import { observable, action, runInAction } from 'mobx'
 import axios from '../Utils/axiosConfig'
 
+
 // import language from '../language.json'
 
+
+
+
 class RoomStore {
+  
+  @observable
+  verify= "{headers : {Authorization : \'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IjU4MDcwNTAzNDM4IiwiaWF0IjoxNTU1MDUzMTEwfQ.vFrdCwfSSQQ3UXpPruawuUOze0FCu_lbOHnFP2KcQqY\'}}"
+
   @observable
   printText = []
 
@@ -16,6 +24,14 @@ class RoomStore {
   @observable
   selectedRoom = 0
 
+  @observable // Temporary
+  fakeToken = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IjU4MDcwNTAzNDM4IiwiaWF0IjoxNTU1MDUzMTEwfQ.vFrdCwfSSQQ3UXpPruawuUOze0FCu_lbOHnFP2KcQqY"
+  
+  @observable
+  roomInfo = {}
+  
+
+  
   @action
   fetchData = async () => {
     this.roomDatas = await axios.get('./rooms', this.searchConfig).then(resp => resp.data)
@@ -33,79 +49,20 @@ class RoomStore {
   //}
 
   @action
-  deleteData = async data => {
-    await axios.delete('./rooms', data).then(resp => resp.data)
-  }
-
-  /////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-  @observable
-  roomInfo = {}
-
-  @action
   setValue = (field, value) => {
     this.roomInfo[field] = value
     //console.log(this.roomInfo.roomid)
   }
-
+  @action
+  deleteData = async () => {
+    await axios.delete('./rooms', this.roomInfo).then(resp => resp.data)
+  }
   @action
   addRoom = async () => {
     console.log(this.roomInfo)
-    /*let topic_level = await TopicService.getAllTopicLevel(this.task.topic, this.task.level).then(
-        resp => resp.data[0]
-      )
-
-      let order = null
-      if (this.task.task_type === 'PRACTICE') {
-        order = await TaskService.getLastOfOrderInMainTopic(topic_level.pk).then(
-          resp => resp.data.order
-        )
-        // force to next
-        order = order + 1
-      } else {
-        order = null
-      }
-
-      let roomInfo = await TaskService.createTask({
-
-        roomid: this.roomInfo.roomid,
-        capacity: this.roomInfo.capacity,
-        building: this.roomInfo.building,
-        floor: this.roomInfo.floor,
-        number: this.roomInfo.number,
-        day: {
-          monday: this.roomInfo.day.monday,
-          tuesday: this.roomInfo.day.tuesday,
-          wednesday: this.roomInfo.day.wednesday,
-          thursday: this.roomInfo.day.thursday,
-          friday: this.roomInfo.day.friday,
-          saturday: this.roomInfo.day.saturday,
-          sunday: this.roomInfo.day.sunday},
-        fromhr: this.roomInfo.fromhr,
-        frommin: this.roomInfo.frommin,
-        tohr: this.roomInfo.tohr,
-        tomin: this.roomInfo.tomin,
-        amenity:{
-          teachercom: this.roomInfo.amenity.teachercom,
-          studentcom: this.roomInfo.amenity.studentcom,
-          aircon: this.roomInfo.amenity.aircon,
-          projector: this.roomInfo.amenity.projector,
-          whiteboard: this.roomInfo.amenity.whiteboard,
-          visualizer: this.roomInfo.amenity.visualizer}
-      }).then(resp => resp.data)
-
-      await Promise.all(
-        this.testcases.map(async testcase => {
-          await TaskService.createTestcase({
-            ...testcase,
-            is_hidden: false,
-            task: task.id
-          })
-        })
-      )
-*/
+    this.roomDatas = await axios.post('./rooms', this.roomInfo).then(resp => resp.data)
     console.log('เพิ่มห้องสำเร็จแล้ว!')
-    this.resetAddForm()
+    //this.resetAddForm()
   }
 
   @action
