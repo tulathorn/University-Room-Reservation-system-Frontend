@@ -71,9 +71,9 @@ class LoginCard extends React.Component {
     } catch (err) {
       console.log({ err })
       if (err.response && err.response.status === 401) {
-        window.alert('Invalid username or passowrd')
+        window.alert('Invalid username or password')
       } else {
-        window.alert('Unknow error \n' + err)
+        window.alert('Unknown error \n' + err)
       }
     }
   }
