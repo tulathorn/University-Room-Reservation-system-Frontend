@@ -111,7 +111,7 @@ class Navbar extends React.Component {
 
           <form className="form-inline my-2 my-lg-0">
             <ul className="navbar-nav mr-auto">
-              <NavItem name="580705034XX" disabled="true" />
+              <NavItem name={localStorage.getItem('username')} disabled="true" />
             </ul>
             {/* <input
               className="form-control mr-sm-2"
@@ -119,7 +119,11 @@ class Navbar extends React.Component {
               placeholder="Search"
               aria-label="Search"
             /> */}
-            <NavLink to="/login" class="btn btn-sm btn-outline-info">
+            <NavLink
+              to="/login"
+              class="btn btn-sm btn-outline-info"
+              onClick={() => localStorage.removeItem('token')}
+            >
               Logout
             </NavLink>
           </form>
