@@ -58,6 +58,7 @@ class MainView extends Component {
           </center>
         </div>
       </AuthenticationGate>
+      
     )
   }
 }
