@@ -41,11 +41,12 @@ class RoomStore {
   /////////////////////////////////////////////////////////////////////////////////////////////////////////
 
   @observable
-  roomInfo = {}
+  roomInfo = {"roomid" : "CPExxxx",
+            }
 
 
-  
-  
+
+
   @action
   setValue = (field, value) => {
     this.roomInfo[field] = value
@@ -110,7 +111,7 @@ class RoomStore {
 */
       console.log('เพิ่มห้องสำเร็จแล้ว!')
       this.resetAddForm()
-    
+
   }
 
 
@@ -149,7 +150,7 @@ class RoomStore {
         visualizer: ''}
     }
   }
- 
+
   /////////////////////////////////////////////////////////////////////////////////
 }
 
