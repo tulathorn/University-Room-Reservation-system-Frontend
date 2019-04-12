@@ -57,16 +57,16 @@ class LoginCard extends React.Component {
 
   login = async e => {
     e.preventDefault()
-    console.log(this.inputUsername)
-    console.log(this.inputPassword)
+    // console.log(this.inputUsername)
+    // console.log(this.inputPassword)
     try {
       const response = await axios.post('/auth', {
         username: this.inputUsername.current.value,
         password: this.inputPassword.current.value
       })
       localStorage.setItem('token', response.data.token)
-      console.log(response)
-      console.log(this.props)
+      // console.log(response)
+      // console.log(this.props)
       this.props.history.push('/')
     } catch (err) {
       console.log({ err })
