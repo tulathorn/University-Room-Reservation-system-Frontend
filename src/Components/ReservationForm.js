@@ -38,8 +38,8 @@ class ReservationForm extends React.Component {
   }
 
   componentDidMount() {
-    console.log('RoomData =', this.props)
     RoomStore.resetFilterForm()
+    RoomStore.resetSchedule()
   }
 
 
@@ -76,7 +76,7 @@ class ReservationForm extends React.Component {
             <div className="col-md-4 col-sm-12">
               <NormalText>{language[LanguageStore.lang].reservationForm.Date}</NormalText>
               <input name="date" type="date" className="form-control" id="date"
-              value={RoomStore.searchConfig.Date} onChange={e => RoomStore.setConfig('Date', e.target.value)}/>
+              value={RoomStore.schedule.Date} onChange={e => RoomStore.setSchedule('Date', e.target.value)}/>
             </div>
             <div className="col-md-4 col-sm-12">
               <NormalText>{language[LanguageStore.lang].reservationForm.Building}</NormalText>
@@ -121,7 +121,7 @@ class ReservationForm extends React.Component {
             </div>
             <div className="col-md-3 col-sm-12">
               <select name="fromhr" type="number" className="custom-select" id="fromhr"
-              value={RoomStore.searchConfig.fromhr} onChange={e => RoomStore.setConfig('fromhr', e.target.value)}>
+              value={RoomStore.schedule.fromhr} onChange={e => RoomStore.setSchedule('fromhr', e.target.value)}>
                 <option value="">Choose...</option>
                 <option value="00">00</option>
                 <option value="01">01</option>
@@ -154,8 +154,8 @@ class ReservationForm extends React.Component {
             </div>
             <div className="col-md-3 col-sm-12">
               <select name="frommin" type="number" className="custom-select" id="frommin"
-              value={RoomStore.searchConfig.frommin} onChange={e => RoomStore.setConfig('frommin', e.target.value)}>
-                <option value="00">Choose...</option>
+              value={RoomStore.schedule.frommin} onChange={e => RoomStore.setSchedule('frommin', e.target.value)}>
+                <option>Choose...</option>
                 <option value="00">00</option>
                 <option value="30">30</option>
               </select>
@@ -167,7 +167,7 @@ class ReservationForm extends React.Component {
             </div>
             <div className="col-md-3 col-sm-12">
               <select name="tohr" type="number" className="custom-select" id="tohr"
-              value={RoomStore.searchConfig.tohr} onChange={e => RoomStore.setConfig('tohr', e.target.value)}>
+              value={RoomStore.schedule.tohr} onChange={e => RoomStore.setSchedule('tohr', e.target.value)}>
                 <option value="">Choose...</option>
                 <option value="00">00</option>
                 <option value="01">01</option>
@@ -200,7 +200,7 @@ class ReservationForm extends React.Component {
             </div>
             <div className="col-md-3 col-sm-12">
               <select name="tomin" type="number" className="custom-select" id="tomin"
-              value={RoomStore.searchConfig.tomin} onChange={e => RoomStore.setConfig('tomin', e.target.value)}>
+              value={RoomStore.schedule.tomin} onChange={e => RoomStore.setSchedule('tomin', e.target.value)}>
                 <option >Choose...</option>
                 <option value="00">00</option>
                 <option value="30">30</option>

@@ -23,7 +23,7 @@ const jumbotronStyle = {
 @observer
 class AdAllListView extends Component {
   componentDidMount() {
-    RoomStore.fetchData()
+    RoomStore.fetchsomeData()
   }
 
   render() {
@@ -36,11 +36,16 @@ class AdAllListView extends Component {
             <Title>{language[LanguageStore.lang].adAllList.Title}</Title>
           </center>
           <br/>
-          <input class="form-control" id="myInput" type="text" placeholder="Search.."/>
-          <br/>
-          {RoomStore.roomDatas.map(room => {
-            console.log(room)
-            return <ListCard room={room} />
+
+          <input name="roomname" type="text" className="form-control" id="roomname" placeholder="Room ID"
+          value={RoomStore.objecta.RoomName} onChange={e => RoomStore.setRoomName('RoomName', e.target.value)}/>
+          
+          
+          
+          
+          {RoomStore.roomDatas.map(roomv => {
+            //console.log(roomv)
+            return <ListCard room={roomv} />
           })}
           {/*<AllListCard/>*/}
 

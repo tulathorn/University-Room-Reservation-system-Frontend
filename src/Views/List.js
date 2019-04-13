@@ -24,7 +24,7 @@ class ListView extends Component {
       <div>
         <Navbar />
         <div className="container">
-
+{/*
           <div className="row">
             <div className="col-md-6 col-sm-12">
               <p>{language[LanguageStore.lang].List.Result} : 1</p>
@@ -38,12 +38,12 @@ class ListView extends Component {
                 <p><b>{language[LanguageStore.lang].List.Size}</b> : {RoomStore.searchConfig.PeopleCapacity} {language[LanguageStore.lang].List.People}</p>
                  : <p></p>}
 
-              {RoomStore.searchConfig.Date ? 
-                <p><b>{language[LanguageStore.lang].List.Date}</b> : {RoomStore.searchConfig.Date}</p>
+              {RoomStore.schedule.Date ? 
+                <p><b>{language[LanguageStore.lang].List.Date}</b> : {RoomStore.schedule.Date}</p>
                  : <p></p>}
 
-              {RoomStore.searchConfig.fromhr ? 
-                <p><b>{language[LanguageStore.lang].List.From}</b> : {RoomStore.searchConfig.fromhr}:{RoomStore.searchConfig.frommin} <b>{language[LanguageStore.lang].List.To}</b> {RoomStore.searchConfig.tohr}:{RoomStore.searchConfig.tomin}</p>
+              {RoomStore.schedule.fromhr ? 
+                <p><b>{language[LanguageStore.lang].List.From}</b> : {RoomStore.schedule.fromhr}:{RoomStore.schedule.frommin} <b>{language[LanguageStore.lang].List.To}</b> {RoomStore.schedule.tohr}:{RoomStore.schedule.tomin}</p>
                  : <p></p>}
             </div>
             <div className="col-md-6 col-sm-12">
@@ -69,15 +69,14 @@ class ListView extends Component {
             <RoomInformationCard room={room} />
           ))} */}
 
-          {RoomStore.roomDatas.map(room => {
+          {RoomStore.roomDatas.map(roomv => {
             // console.log(room)
-            return <RoomInformationCard room={room} />
+            return <RoomInformationCard room={roomv} />
           })}
           
           <center>
             <a href="/booking">Go to booking page(Temporary)</a>
           </center>
-          {console.log(RoomStore.searchConfig.PeopleCapacity)}
         </div>
       </div>
 

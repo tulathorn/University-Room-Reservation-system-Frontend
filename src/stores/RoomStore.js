@@ -26,10 +26,35 @@ class RoomStore {
 
 
 
+///////////////////////////////////
+
+  @observable
+  objecta = {}
+
+  @action
+  setRoomName = (field, value) => {
+    this.objecta[field] = value
+    console.log([field] + ' = ' + this.objecta[field])
+    this.fetchsomeData()
+  }
+  
+  @action
+  fetchsomeData = async () => {
+    this.roomDatas = await axios.get('./rooms', this.objecta).then(resp => resp.data)
+  }
+////////////////////////////////////
+
+  // get
+  // post
+  // put
+  // delete
+
   @action
   fetchData = async () => {
     this.roomDatas = await axios.get('./rooms', this.searchConfig).then(resp => resp.data)
   }
+
+  
 
   @action
   addRoom = async () => {
@@ -62,7 +87,8 @@ class RoomStore {
   roomInfo = {"roomid" : "CPExxxx",
             }
 
-
+  @observable
+  schedule = {}
 
 
   @action
@@ -71,12 +97,17 @@ class RoomStore {
   }
 
   @action
+  setSchedule = (field, value) => {
+    this.schedule[field] = value
+    console.log([field] + ' = ' + this.schedule[field])
+  }
+
+  @action
   setConfig = (field, value) => {
     this.searchConfig[field] = value
     console.log([field] + ' = ' + this.searchConfig[field])
   }
 
-  
 
   @action
   deleteData = async () => {
@@ -84,22 +115,28 @@ class RoomStore {
   }
   
   @action
-  resetFilterForm = () => {
-    this.searchConfig = {
+  resetSchedule = () => {
+    this.schedule = {
       Date: '',
-      Building: '',
-      PeopleCapacity: '',
       fromhr: '',
       frommin: '',
       tohr: '',
       tomin: '',
+    }
+  }
+
+  @action
+  resetFilterForm = () => {
+    this.searchConfig = {
+      Building: '',
+      PeopleCapacity: '',
       amenity: {
-        teachercom: '1',
-        studentcom: '1',
-        aircon: '1',
-        projector: '1',
-        whiteboard: '1',
-        visualizer: '1'
+        teachercom: '',
+        studentcom: '',
+        aircon: '',
+        projector: '',
+        whiteboard: '',
+        visualizer: ''
       }
       
     }
