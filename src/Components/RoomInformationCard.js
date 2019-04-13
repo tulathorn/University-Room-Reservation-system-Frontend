@@ -3,7 +3,11 @@ import '../Styles/bootstrap/bootstrap.min.css'
 import styled from 'styled-components'
 import LanguageStore from '../stores/LanguageStore'
 import language from '../languages.json'
+import RoomStore from '../stores/RoomStore';
+import BookingView from '../Views/Booking'
+import { Redirect } from 'react-router'
 
+import { withRouter } from 'react-router-dom'
 const jumbotronStyle = {
   width: 'auto',
   height: 'auto',
@@ -13,11 +17,19 @@ const Hasno = styled.p`
   color: #696969;
 `
 
+
+
 class ListCard extends React.Component {
+  
+  onClick = e => {
+    e.preventDefault()
+    localStorage.setItem('RoomName',this.props.room.RoomName)
+    window.location = "/booking";
+  }
   render() {
     return (
 
-      <a href="/ad_room_info" target="_blank">
+      <form action="#" onClick={e => this.onClick(e)} >
       <div className="jumbotron text-white" style={jumbotronStyle}>
         <div className="row">
           <div className="col-md-4 col-sm-12">
@@ -35,7 +47,7 @@ class ListCard extends React.Component {
               <p>
                 <b>{language[LanguageStore.lang].roomInformationCard.Building}: </b>
               </p>
-              <p>{this.props.room.Floor}</p>
+              <p>{this.props.room.Building}</p>
             </div>
             <div className="row">
               <p>
@@ -71,7 +83,7 @@ class ListCard extends React.Component {
           </div>
         </div>
       </div>
-    </a>
+    </form>
     )
   }
 }

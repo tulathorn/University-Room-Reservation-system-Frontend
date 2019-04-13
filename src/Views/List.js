@@ -24,10 +24,10 @@ class ListView extends Component {
       <div>
         <Navbar />
         <div className="container">
-{/*
+
           <div className="row">
             <div className="col-md-6 col-sm-12">
-              <p>{language[LanguageStore.lang].List.Result} : 1</p>
+              <p>{language[LanguageStore.lang].List.Result} : {RoomStore.roomDatas.length}</p>
               <p><b>{language[LanguageStore.lang].List.SearchFor} : </b></p>
 
               {RoomStore.searchConfig.Building ? 
@@ -45,7 +45,7 @@ class ListView extends Component {
               {RoomStore.schedule.fromhr ? 
                 <p><b>{language[LanguageStore.lang].List.From}</b> : {RoomStore.schedule.fromhr}:{RoomStore.schedule.frommin} <b>{language[LanguageStore.lang].List.To}</b> {RoomStore.schedule.tohr}:{RoomStore.schedule.tomin}</p>
                  : <p></p>}
-            </div>
+            </div>{/*
             <div className="col-md-6 col-sm-12">
               <br/><br/><p>
                 <b>{language[LanguageStore.lang].List.Amenity} : </b>
@@ -63,17 +63,13 @@ class ListView extends Component {
                 </div>
               </div>
 
-            </div>
+            </div>*/}
           </div>
-          {/* {RoomStore.roomDatas.map(room => (
-            <RoomInformationCard room={room} />
-          ))} */}
+          {console.log()}
 
           {RoomStore.roomDatas.map(roomv => {
-            // console.log(room)
             return <RoomInformationCard room={roomv} />
           })}
-          
           <center>
             <a href="/booking">Go to booking page(Temporary)</a>
           </center>

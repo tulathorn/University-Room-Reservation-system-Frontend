@@ -14,26 +14,10 @@ const jumbotronStyle = {
 
 class BookingForm extends React.Component {
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      firstname: '',
-      surname: '',
-      email: '',
-      phone: '',
-      purpose: ''};
-
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-  }
-
-  handleChange(event) {
-    this.setState({[event.target.name]: event.target.value});
-  }
-
-  handleSubmit(event) {
-    alert(this.state.firstname + ' ' + this.state.surname + 'Mail ' + this.state.email + 'Phone ' + this.state.phone + 'Purpose-' + this.state.purpose);
-    event.preventDefault();
+  
+  onSubmit = e => {
+    e.preventDefault()
+    this.bookClick()
   }
 
   bookClick = () =>{
@@ -69,27 +53,26 @@ class BookingForm extends React.Component {
     return (
   			<div className="jumbotron text-white" style={jumbotronStyle}>
 
-          <form onSubmit={this.handleSubmit}>
+          <form action="#" onSubmit={e => this.onSubmit(e)}>
             {language[LanguageStore.lang].bookingForm.Firstname}
               <input name="firstname" type="text" className="form-control" id="firstname" placeholder="Firstname"
-              value={this.state.firstname} onChange={this.handleChange}/>
-              {/*value={BookingStore.SearchConfig.firstname} */}
+              value={localStorage.getItem('token')} readonly disabled/>
             {language[LanguageStore.lang].bookingForm.Surname}
               <input name="surname" type="text" className="form-control" id="surname" placeholder="Surname"
-              value={this.state.surname} onChange={this.handleChange}/>
+              value={localStorage.getItem('token')} readonly disabled/>
             {language[LanguageStore.lang].bookingForm.Email}
               <input name="email" type="text" className="form-control" id="email" placeholder="Email Address"
-              value={this.state.email} onChange={this.handleChange}/>
+              value={localStorage.getItem('token')} readonly disabled/>
             {language[LanguageStore.lang].bookingForm.Phone}
               <input name="phone" type="text" className="form-control" id="phone" placeholder="Phone Number"
-              value={this.state.phone} onChange={this.handleChange}/>
+              value={localStorage.getItem('token')} readonly disabled/>
             {language[LanguageStore.lang].bookingForm.Purpose}
               <textarea name="purpose" type="text" className="form-control" id="purpose" rows="5" placeholder="Identify your purpose for booking this room..."
-              value={this.state.purpose} onChange={this.handleChange}/>
+              value={localStorage.getItem('token')} readonly disabled/>
             <br/>
             <div className="row">
               <div className="col-md-2 col-sm-5">
-                <button onClick={() => this.bookClick()} type="submit" value="Submit" className="btn btn-info">
+                <button type="submit" value="Submit" className="btn btn-info">
                   {language[LanguageStore.lang].bookingForm.Book}
                 </button>
               </div>

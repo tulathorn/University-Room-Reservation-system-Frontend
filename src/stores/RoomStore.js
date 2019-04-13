@@ -24,6 +24,7 @@ class RoomStore {
   @observable
   roomInfo = {}
 
+  
 
 
 ///////////////////////////////////
@@ -54,6 +55,14 @@ class RoomStore {
     this.roomDatas = await axios.get('./rooms', this.searchConfig).then(resp => resp.data)
   }
 
+  @action
+  GetRoomInfo = async () => {
+    this.roomInfo = await axios.get('./rooms', this.searchConfig).then(resp => resp.data)
+  }
+  
+
+  
+
   
 
   @action
@@ -83,12 +92,12 @@ class RoomStore {
 
   /////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-  @observable
-  roomInfo = {"roomid" : "CPExxxx",
-            }
+ 
 
   @observable
   schedule = {}
+
+
 
 
   @action
@@ -102,6 +111,11 @@ class RoomStore {
     console.log([field] + ' = ' + this.schedule[field])
   }
 
+  @action
+  loadSchedule = (value) => {
+    this.schedule = value
+  }
+  
   @action
   setConfig = (field, value) => {
     this.searchConfig[field] = value
@@ -127,19 +141,7 @@ class RoomStore {
 
   @action
   resetFilterForm = () => {
-    this.searchConfig = {
-      Building: '',
-      PeopleCapacity: '',
-      amenity: {
-        teachercom: '',
-        studentcom: '',
-        aircon: '',
-        projector: '',
-        whiteboard: '',
-        visualizer: ''
-      }
-      
-    }
+    this.searchConfig = {}
   }
 
   @action

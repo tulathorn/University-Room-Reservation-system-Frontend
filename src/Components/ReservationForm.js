@@ -47,6 +47,12 @@ class ReservationForm extends React.Component {
   onSubmit = e => {
     e.preventDefault()
     RoomStore.fetchData()
+    //localStorage.setItem('BookingSchedule',JSON.stringify(RoomStore.schedule))
+    localStorage.setItem('ScheduleDate',RoomStore.schedule.Date)
+    localStorage.setItem('ScheduleFromHr',RoomStore.schedule.fromhr)
+    localStorage.setItem('ScheduleFromMin',RoomStore.schedule.frommin)
+    localStorage.setItem('ScheduleToHr',RoomStore.schedule.tohr)
+    localStorage.setItem('ScheduleToMin',RoomStore.schedule.tomin)
     this.search()
   }
 
@@ -67,7 +73,7 @@ class ReservationForm extends React.Component {
 
 
  
-
+        
         <Heading> {language[LanguageStore.lang].reservationForm.FindRoom} </Heading>
         <hr className="my-4" color="white" />
         <SubHeading> {language[LanguageStore.lang].reservationForm.Info}: </SubHeading>
@@ -80,9 +86,9 @@ class ReservationForm extends React.Component {
             </div>
             <div className="col-md-4 col-sm-12">
               <NormalText>{language[LanguageStore.lang].reservationForm.Building}</NormalText>
-              <select name="building" type="text" className="custom-select" id="building"
+              <select name="building" type="text" className="custom-select" id="building" placeholder="Room ID"
                 value={RoomStore.searchConfig.Building} onChange={e => RoomStore.setConfig('Building', e.target.value)}>
-                <option value="">Choose...</option>
+                <option value="" disabled selected>Choose...</option>
                 <option value="Witsawa Watthana">Witsawa Watthana</option>
                 <option value="CB1">CB1</option>
                 <option value="CB2">CB2</option>
@@ -95,7 +101,7 @@ class ReservationForm extends React.Component {
               <NormalText>{language[LanguageStore.lang].reservationForm.Size}</NormalText>
               <select name="capacity" type="number" className="custom-select" id="capacity"
                 value={RoomStore.searchConfig.PeopleCapacity} onChange={e => RoomStore.setConfig('PeopleCapacity', e.target.value)}>
-                <option value="">Choose...</option>
+                <option value="" disabled selected>Choose...</option>
                 <option value="10">10</option>
                 <option value="20">20</option>
                 <option value="30">30</option>
@@ -122,7 +128,7 @@ class ReservationForm extends React.Component {
             <div className="col-md-3 col-sm-12">
               <select name="fromhr" type="number" className="custom-select" id="fromhr"
               value={RoomStore.schedule.fromhr} onChange={e => RoomStore.setSchedule('fromhr', e.target.value)}>
-                <option value="">Choose...</option>
+                <option value="" disabled selected>Choose...</option>
                 <option value="00">00</option>
                 <option value="01">01</option>
                 <option value="02">02</option>
@@ -155,7 +161,7 @@ class ReservationForm extends React.Component {
             <div className="col-md-3 col-sm-12">
               <select name="frommin" type="number" className="custom-select" id="frommin"
               value={RoomStore.schedule.frommin} onChange={e => RoomStore.setSchedule('frommin', e.target.value)}>
-                <option>Choose...</option>
+                <option value="" disabled selected>Choose...</option>
                 <option value="00">00</option>
                 <option value="30">30</option>
               </select>
@@ -168,7 +174,7 @@ class ReservationForm extends React.Component {
             <div className="col-md-3 col-sm-12">
               <select name="tohr" type="number" className="custom-select" id="tohr"
               value={RoomStore.schedule.tohr} onChange={e => RoomStore.setSchedule('tohr', e.target.value)}>
-                <option value="">Choose...</option>
+                <option value="" disabled selected>Choose...</option>
                 <option value="00">00</option>
                 <option value="01">01</option>
                 <option value="02">02</option>
@@ -201,7 +207,7 @@ class ReservationForm extends React.Component {
             <div className="col-md-3 col-sm-12">
               <select name="tomin" type="number" className="custom-select" id="tomin"
               value={RoomStore.schedule.tomin} onChange={e => RoomStore.setSchedule('tomin', e.target.value)}>
-                <option >Choose...</option>
+                <option value="" disabled selected>Choose...</option>
                 <option value="00">00</option>
                 <option value="30">30</option>
               </select>
