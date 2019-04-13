@@ -207,6 +207,10 @@ class ReservationForm extends React.Component {
           </div>
           <hr className="my-4" color="white" />
           <SubHeading> {language[LanguageStore.lang].reservationForm.Amenity}: </SubHeading>
+
+
+          <center><button type="submit" value="Submit" className="btn btn-info">
+          {language[LanguageStore.lang].Main.Search}</button> </center>
         </form>
       </div>
 

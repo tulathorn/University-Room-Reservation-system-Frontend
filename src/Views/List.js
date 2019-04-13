@@ -33,7 +33,7 @@ class ListView extends Component {
               <p>
                 <b>{language[LanguageStore.lang].List.SearchFor} : </b>
               </p>
-              <p><b>{language[LanguageStore.lang].List.Building}</b> : Witsawa Watthana</p>
+              <p><b>{language[LanguageStore.lang].List.Building}</b> : {RoomStore.searchConfig.Building}</p>
               <p>
                 <b>
                   {language[LanguageStore.lang].List.Size}
