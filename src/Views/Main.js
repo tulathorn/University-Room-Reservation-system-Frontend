@@ -46,14 +46,7 @@ class MainView extends Component {
 
           <ReservationForm />
           <center>
-            <button
-              type="button"
-              className="btn btn-outline-info"
-              onClick={() => this.searchClick()}
-            >
-              {language[LanguageStore.lang].Main.Search}
-            </button>
-            <br />
+            
             <a href="/search">Go to list page(Temporary)</a>
           </center>
         </div>

@@ -21,7 +21,6 @@ class AddForm extends React.Component {
   onSubmit = e => {
     e.preventDefault()
     RoomStore.addRoom()
-    window.alert(RoomStore.verify)
     window.alert(RoomStore.roomDatas)
   }
 /*  

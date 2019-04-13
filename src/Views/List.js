@@ -14,7 +14,7 @@ class ListView extends Component {
   // componentWillMount() {
   //   RoomStore.fetchText()
   // }
-
+  
   componentDidMount() {
     RoomStore.fetchData()
   }
@@ -70,10 +70,11 @@ class ListView extends Component {
             // console.log(room)
             return <RoomInformationCard room={room} />
           })}
-
+          
           <center>
             <a href="/booking">Go to booking page(Temporary)</a>
           </center>
+          {console.log(RoomStore.searchConfig.PeopleCapacity)}
         </div>
       </div>
 

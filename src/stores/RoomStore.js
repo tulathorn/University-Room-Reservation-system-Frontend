@@ -9,9 +9,7 @@ import axios from '../Utils/axiosConfig'
 
 class RoomStore {
   
-  @observable
-  verify= "{headers : {Authorization : \'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IjU4MDcwNTAzNDM4IiwiaWF0IjoxNTU1MDUzMTEwfQ.vFrdCwfSSQQ3UXpPruawuUOze0FCu_lbOHnFP2KcQqY\'}}"
-
+  
   @observable
   printText = []
 
@@ -20,12 +18,10 @@ class RoomStore {
 
   @observable
   searchConfig = {}
-
+  
   @observable
   selectedRoom = 0
 
-  @observable // Temporary
-  fakeToken = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IjU4MDcwNTAzNDM4IiwiaWF0IjoxNTU1MDUzMTEwfQ.vFrdCwfSSQQ3UXpPruawuUOze0FCu_lbOHnFP2KcQqY"
   
   @observable
   roomInfo = {}
@@ -36,6 +32,14 @@ class RoomStore {
   fetchData = async () => {
     this.roomDatas = await axios.get('./rooms', this.searchConfig).then(resp => resp.data)
   }
+
+  @action
+  addRoom = async () => {
+    this.roomDatas = await axios.post('./rooms', this.roomInfo).then(resp => resp.data)
+    console.log('เพิ่มห้องสำเร็จแล้ว!')
+    this.resetAddForm()
+  }
+
 
   @action
   onFilterChange = async searchConfig => {
@@ -51,18 +55,39 @@ class RoomStore {
   @action
   setValue = (field, value) => {
     this.roomInfo[field] = value
-    //console.log(this.roomInfo.roomid)
   }
+
+  @action
+  setConfig = (field, value) => {
+    this.searchConfig[field] = value
+    console.log([field] + ' = ' + this.searchConfig[field])
+  }
+
   @action
   deleteData = async () => {
     await axios.delete('./rooms', this.roomInfo).then(resp => resp.data)
   }
+  
   @action
-  addRoom = async () => {
-    console.log(this.roomInfo)
-    this.roomDatas = await axios.post('./rooms', this.roomInfo).then(resp => resp.data)
-    console.log('เพิ่มห้องสำเร็จแล้ว!')
-    //this.resetAddForm()
+  resetFilterForm = () => {
+    this.searchConfig = {
+      Date: '',
+      Building: '',
+      PeopleCapacity: '',
+      fromhr: '',
+      frommin: '',
+      tohr: '',
+      tomin: '',
+      amenity: {
+        teachercom: '',
+        studentcom: '',
+        aircon: '',
+        projector: '',
+        whiteboard: '',
+        visualizer: ''
+      }
+      
+    }
   }
 
   @action

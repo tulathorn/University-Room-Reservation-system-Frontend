@@ -18,6 +18,10 @@ const textColor = {
   color: 'white'
 }
 
+const NormalText = styled.p`
+  color: white;
+`
+
 const jumbotronImage = require('../Pictures/bg.png')
 
 const jumbotronStyle = {
@@ -36,8 +40,17 @@ class ReservationForm extends React.Component {
     console.log('RoomData =', this.props)
   }
 
+
+
+  onSubmit = e => {
+    e.preventDefault()
+    RoomStore.fetchData()
+    this.search()
+  }
+
+
   search = async () => {
-    await this.props.fetchRooms()
+    //await this.props.fetchRooms()
 
     this.props.history.push('/search')
   }
@@ -47,157 +60,163 @@ class ReservationForm extends React.Component {
   render() {
     return (
       <div className="jumbotron" style={jumbotronStyle}>
-
-          PeopleCapacity
-          <select name="capacity" type="number" className="custom-select" id="capacity"
-              value={RoomStore.searchConfig.PeopleCapacity} onChange={e => RoomStore.onFilterChange(e.target.value)}>
-              <option>Choose...</option>
-              <option value="10">10</option>
-              <option value="20">20</option>
-              <option value="30">30</option>
-              <option value="40">40</option>
-              <option value="50">50</option>
-              <option value="60">60</option>
-              <option value="70">70</option>
-              <option value="80">80</option>
-              <option value="90">90</option>
-              <option value="100">100</option>
-              <option value="120">120</option>
-              <option value="150">150</option>
-              <option value="200">200</option>
-              </select>
-          
+        
         
 
 
-{/* 
+ 
 
         <Heading> {language[LanguageStore.lang].reservationForm.FindRoom} </Heading>
         <hr className="my-4" color="white" />
-        <SubHeading> {language[LanguageStore.lang].reservationForm.Info}: </SubHeading>{' '}
-        <form>
-          <div className="form-row">
-            <div className="form-group col-md-4">
-              <label className="my-1 mr-2" for="inlineFormCustomSelectPref" style={textColor}>
-              {language[LanguageStore.lang].reservationForm.Date}{' '}
-              </label>{' '}
-              <input
-                type="date"
-                className="form-control my-1 mr-sm-2"
-                id="inlineFormCustomSelectPref"
-                onChange={this.setForm('date')}
-              />{' '}
-            </div>{' '}
-            <div className="form-group col-md-4">
-              <label className="my-1 mr-2" for="inlineFormCustomSelectPref" style={textColor}>
-              {language[LanguageStore.lang].reservationForm.Building}{' '}
-              </label>{' '}
-              <select
-                className="custom-select my-1 mr-sm-2"
-                id="inlineFormCustomSelectPref"
-                onChange={this.setForm('Building')}
-              >
-                <option>Building Name</option>
+        <SubHeading> {language[LanguageStore.lang].reservationForm.Info}: </SubHeading>
+        <form action="#" onSubmit={e => this.onSubmit(e)}>
+          <div className="row">
+            <div className="col-md-4 col-sm-12">
+              <NormalText>{language[LanguageStore.lang].reservationForm.Date}</NormalText>
+              <input name="date" type="date" className="form-control" id="date"
+              value={RoomStore.searchConfig.Date} onChange={e => RoomStore.setConfig('Date', e.target.value)}/>
+            </div>
+            <div className="col-md-4 col-sm-12">
+              <NormalText>{language[LanguageStore.lang].reservationForm.Building}</NormalText>
+              <select name="building" type="text" className="custom-select" id="building"
+                value={RoomStore.searchConfig.Building} onChange={e => RoomStore.setConfig('Building', e.target.value)}>
+                <option value="">Choose...</option>
                 <option value="Witsawa Watthana">Witsawa Watthana</option>
+                <option value="CB1">CB1</option>
+                <option value="CB2">CB2</option>
+                <option value="CB3">CB3</option>
+                <option value="CB4">CB4</option>
+                <option value="CB5">CB5</option>
               </select>
             </div>
-            <div className="form-group col-md-4">
-              <label className="my-1 mr-2" for="inlineFormCustomSelectPref" style={textColor}>
-              {language[LanguageStore.lang].reservationForm.Size}
-              </label>
-              <select className="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
-                <option>Room Size</option>
+            <div className="col-md-4 col-sm-12">
+              <NormalText>{language[LanguageStore.lang].reservationForm.Size}</NormalText>
+              <select name="capacity" type="number" className="custom-select" id="capacity"
+                value={RoomStore.searchConfig.PeopleCapacity} onChange={e => RoomStore.setConfig('PeopleCapacity', e.target.value)}>
+                <option value="">Choose...</option>
+                <option value="10">10</option>
+                <option value="20">20</option>
                 <option value="30">30</option>
                 <option value="40">40</option>
+                <option value="50">50</option>
                 <option value="60">60</option>
+                <option value="70">70</option>
                 <option value="80">80</option>
+                <option value="90">90</option>
                 <option value="100">100</option>
+                <option value="120">120</option>
+                <option value="150">150</option>
+                <option value="200">200</option>
+                </select>
+            </div>
+          </div>
+          <hr className="my-4" color="white" />
+          <SubHeading> {language[LanguageStore.lang].reservationForm.Time}: </SubHeading>
+          
+          <div className="row">
+            <div className="col-md-2 col-sm-12">
+            <NormalText>{language[LanguageStore.lang].reservationForm.From}</NormalText>
+            </div>
+            <div className="col-md-3 col-sm-12">
+              <select name="fromhr" type="number" className="custom-select" id="fromhr"
+              value={RoomStore.searchConfig.fromhr} onChange={e => RoomStore.setConfig('fromhr', e.target.value)}>
+                <option value="">Choose...</option>
+                <option value="00">00</option>
+                <option value="01">01</option>
+                <option value="02">02</option>
+                <option value="03">03</option>
+                <option value="04">04</option>
+                <option value="05">05</option>
+                <option value="06">06</option>
+                <option value="07">07</option>
+                <option value="08">08</option>
+                <option value="09">09</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+                <option value="13">13</option>
+                <option value="14">14</option>
+                <option value="15">15</option>
+                <option value="16">16</option>
+                <option value="17">17</option>
+                <option value="18">18</option>
+                <option value="19">19</option>
+                <option value="20">20</option>
+                <option value="21">21</option>
+                <option value="22">22</option>
+                <option value="23">23</option>
+              </select>
+            </div>
+            <div className="col-md-1 col-sm-12">
+            <center><NormalText> : </NormalText></center>
+            </div>
+            <div className="col-md-3 col-sm-12">
+              <select name="frommin" type="number" className="custom-select" id="frommin"
+              value={RoomStore.searchConfig.frommin} onChange={e => RoomStore.setConfig('frommin', e.target.value)}>
+                <option value="">Choose...</option>
+                <option value="00">00</option>
+                <option value="30">30</option>
               </select>
             </div>
           </div>
+          <div className="row">
+            <div className="col-md-2 col-sm-12">
+            <NormalText>{language[LanguageStore.lang].reservationForm.To}</NormalText>
+            </div>
+            <div className="col-md-3 col-sm-12">
+              <select name="tohr" type="number" className="custom-select" id="tohr"
+              value={RoomStore.searchConfig.tohr} onChange={e => RoomStore.setConfig('tohr', e.target.value)}>
+                <option value="">Choose...</option>
+                <option value="00">00</option>
+                <option value="01">01</option>
+                <option value="02">02</option>
+                <option value="03">03</option>
+                <option value="04">04</option>
+                <option value="05">05</option>
+                <option value="06">06</option>
+                <option value="07">07</option>
+                <option value="08">08</option>
+                <option value="09">09</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+                <option value="13">13</option>
+                <option value="14">14</option>
+                <option value="15">15</option>
+                <option value="16">16</option>
+                <option value="17">17</option>
+                <option value="18">18</option>
+                <option value="19">19</option>
+                <option value="20">20</option>
+                <option value="21">21</option>
+                <option value="22">22</option>
+                <option value="23">23</option>
+              </select>
+            </div>
+            <div className="col-md-1 col-sm-12">
+            <center><NormalText> : </NormalText></center>
+            </div>
+            <div className="col-md-3 col-sm-12">
+              <select name="tomin" type="number" className="custom-select" id="tomin"
+              value={RoomStore.searchConfig.tomin} onChange={e => RoomStore.setConfig('tomin', e.target.value)}>
+                <option value="">Choose...</option>
+                <option value="00">00</option>
+                <option value="30">30</option>
+              </select>
+            </div>
+          </div>
+          <hr className="my-4" color="white" />
+          <SubHeading> {language[LanguageStore.lang].reservationForm.Amenity}: </SubHeading>
         </form>
-        <hr className="my-4" color="white" />
-        <SubHeading> {language[LanguageStore.lang].reservationForm.Time}: </SubHeading>{' '}
-        <form className="form-inline">
-          <label className="my-1 mr-2" for="inlineFormCustomSelectPref" style={textColor}>
-          {language[LanguageStore.lang].reservationForm.From}{' '}
-          </label>{' '}
-          <select className="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
-            <option>Choose...</option>
-            <option value="1">00</option>
-            <option value="2">01</option>
-            <option value="3">02</option>
-            <option value="4">03</option>
-            <option value="5">04</option>
-            <option value="6">05</option>
-            <option value="7">06</option>
-            <option value="8">07</option>
-            <option value="9">08</option>
-            <option value="10">09</option>
-            <option value="11">10</option>
-            <option value="12">11</option>
-            <option value="13">12</option>
-            <option value="14">13</option>
-            <option value="15">14</option>
-            <option value="16">15</option>
-            <option value="17">16</option>
-            <option value="18">17</option>
-            <option value="19">18</option>
-            <option value="20">19</option>
-            <option value="21">20</option>
-            <option value="22">21</option>
-            <option value="23">22</option>
-            <option value="24">23</option>
-          </select>
-          <label className="my-1 mr-2" for="inlineFormCustomSelectPref" style={textColor}>
-            :
-          </label>{' '}
-          <select className="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
-            <option>Choose...</option>
-            <option value="1">00</option>
-            <option value="2">30</option>
-          </select>
-          <label className="my-1 mr-2" for="inlineFormCustomSelectPref" style={textColor}>
-          {language[LanguageStore.lang].reservationForm.To}{' '}
-          </label>{' '}
-          <select className="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
-            <option>Choose...</option>
-            <option value="1">00</option>
-            <option value="2">01</option>
-            <option value="3">02</option>
-            <option value="4">03</option>
-            <option value="5">04</option>
-            <option value="6">05</option>
-            <option value="7">06</option>
-            <option value="8">07</option>
-            <option value="9">08</option>
-            <option value="10">09</option>
-            <option value="11">10</option>
-            <option value="12">11</option>
-            <option value="13">12</option>
-            <option value="14">13</option>
-            <option value="15">14</option>
-            <option value="16">15</option>
-            <option value="17">16</option>
-            <option value="18">17</option>
-            <option value="19">18</option>
-            <option value="20">19</option>
-            <option value="21">20</option>
-            <option value="22">21</option>
-            <option value="23">22</option>
-            <option value="24">23</option>
-          </select>
-          <label className="my-1 mr-2" for="inlineFormCustomSelectPref" style={textColor}>
-            :
-          </label>{' '}
-          <select className="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
-            <option>Choose...</option>
-            <option value="1">00</option>
-            <option value="2">30</option>
-          </select>
-        </form>
-        <hr className="my-4" color="white" />
-        <SubHeading> {language[LanguageStore.lang].reservationForm.Amenity}: </SubHeading>{' '}
+      </div>
+
+
+
+         /*
+        {' '}
+        
+        
+        {' '}
         <div className="form-row">
           <div className="col-sm-4">
             <div className="form-check">
@@ -235,11 +254,8 @@ class ReservationForm extends React.Component {
               <input className="form-check-input" type="checkbox" value="" id="defaultCheck1" />
               <label className="form-check-label" for="defaultCheck1" style={textColor}>
               {language[LanguageStore.lang].reservationForm.Amenities.Visualizer}{' '}
-              </label>{' '}
-            </div>{' '}
-          </div>{' '}
-        </div>{' '}*/}
-      </div>
+              </label>{' '}*/
+      
     )
   }
 }
