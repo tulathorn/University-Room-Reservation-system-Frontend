@@ -22,6 +22,7 @@ const NormalText = styled.p`
   color: white;
 `
 
+
 const jumbotronImage = require('../Pictures/bg.png')
 
 const jumbotronStyle = {
@@ -38,6 +39,7 @@ class ReservationForm extends React.Component {
 
   componentDidMount() {
     console.log('RoomData =', this.props)
+    RoomStore.resetFilterForm()
   }
 
 
@@ -153,7 +155,7 @@ class ReservationForm extends React.Component {
             <div className="col-md-3 col-sm-12">
               <select name="frommin" type="number" className="custom-select" id="frommin"
               value={RoomStore.searchConfig.frommin} onChange={e => RoomStore.setConfig('frommin', e.target.value)}>
-                <option value="">Choose...</option>
+                <option value="00">Choose...</option>
                 <option value="00">00</option>
                 <option value="30">30</option>
               </select>
@@ -199,7 +201,7 @@ class ReservationForm extends React.Component {
             <div className="col-md-3 col-sm-12">
               <select name="tomin" type="number" className="custom-select" id="tomin"
               value={RoomStore.searchConfig.tomin} onChange={e => RoomStore.setConfig('tomin', e.target.value)}>
-                <option value="">Choose...</option>
+                <option >Choose...</option>
                 <option value="00">00</option>
                 <option value="30">30</option>
               </select>
@@ -207,7 +209,7 @@ class ReservationForm extends React.Component {
           </div>
           <hr className="my-4" color="white" />
           <SubHeading> {language[LanguageStore.lang].reservationForm.Amenity}: </SubHeading>
-
+          
 
           <center><button type="submit" value="Submit" className="btn btn-info">
           {language[LanguageStore.lang].Main.Search}</button> </center>

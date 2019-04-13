@@ -76,6 +76,8 @@ class RoomStore {
     console.log([field] + ' = ' + this.searchConfig[field])
   }
 
+  
+
   @action
   deleteData = async () => {
     await axios.delete('./rooms', this.roomInfo).then(resp => resp.data)
@@ -92,12 +94,12 @@ class RoomStore {
       tohr: '',
       tomin: '',
       amenity: {
-        teachercom: '',
-        studentcom: '',
-        aircon: '',
-        projector: '',
-        whiteboard: '',
-        visualizer: ''
+        teachercom: '1',
+        studentcom: '1',
+        aircon: '1',
+        projector: '1',
+        whiteboard: '1',
+        visualizer: '1'
       }
       
     }

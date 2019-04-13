@@ -27,21 +27,24 @@ class ListView extends Component {
 
           <div className="row">
             <div className="col-md-6 col-sm-12">
-              <p>
-                {language[LanguageStore.lang].List.Result} : 1
-              </p>
-              <p>
-                <b>{language[LanguageStore.lang].List.SearchFor} : </b>
-              </p>
-              <p><b>{language[LanguageStore.lang].List.Building}</b> : {RoomStore.searchConfig.Building}</p>
-              <p>
-                <b>
-                  {language[LanguageStore.lang].List.Size}
-                </b> : 60{' '}
-                {language[LanguageStore.lang].List.People}
-              </p>
-              <p><b>{language[LanguageStore.lang].List.Date}</b> : Monday 12 November 2018</p>
-              <p><b>{language[LanguageStore.lang].List.From}</b> 13:30 <b>{language[LanguageStore.lang].List.To}</b> 17:30</p>
+              <p>{language[LanguageStore.lang].List.Result} : 1</p>
+              <p><b>{language[LanguageStore.lang].List.SearchFor} : </b></p>
+
+              {RoomStore.searchConfig.Building ? 
+                <p><b>{language[LanguageStore.lang].List.Building}</b> : {RoomStore.searchConfig.Building}</p>
+                 : <p></p>}
+
+              {RoomStore.searchConfig.PeopleCapacity ? 
+                <p><b>{language[LanguageStore.lang].List.Size}</b> : {RoomStore.searchConfig.PeopleCapacity} {language[LanguageStore.lang].List.People}</p>
+                 : <p></p>}
+
+              {RoomStore.searchConfig.Date ? 
+                <p><b>{language[LanguageStore.lang].List.Date}</b> : {RoomStore.searchConfig.Date}</p>
+                 : <p></p>}
+
+              {RoomStore.searchConfig.fromhr ? 
+                <p><b>{language[LanguageStore.lang].List.From}</b> : {RoomStore.searchConfig.fromhr}:{RoomStore.searchConfig.frommin} <b>{language[LanguageStore.lang].List.To}</b> {RoomStore.searchConfig.tohr}:{RoomStore.searchConfig.tomin}</p>
+                 : <p></p>}
             </div>
             <div className="col-md-6 col-sm-12">
               <br/><br/><p>
@@ -49,14 +52,14 @@ class ListView extends Component {
               </p>
               <div className="row">
                 <div className="col-md-6 col-sm-12">
-                  <p>{language[LanguageStore.lang].List.Amenities.TeacherComputer}</p>
-                  <p>{language[LanguageStore.lang].List.Amenities.StudentComputer}</p>
-                  <p>{language[LanguageStore.lang].List.Amenities.AirConditioner}</p>
+                  {RoomStore.searchConfig.amenity.teachercom ? <p>{language[LanguageStore.lang].List.Amenities.TeacherComputer}</p> : <p></p>}
+                  {RoomStore.searchConfig.amenity.studentcom ? <p>{language[LanguageStore.lang].List.Amenities.StudentComputer}</p> : <p></p>}
+                  {RoomStore.searchConfig.amenity.aircon ? <p>{language[LanguageStore.lang].List.Amenities.AirConditioner}</p> : <p></p>}
                 </div>
                 <div className="col-md-6 col-sm-12">
-                  <p>{language[LanguageStore.lang].List.Amenities.Projector}</p>
-                  <p>{language[LanguageStore.lang].List.Amenities.WhiteBoard}</p>
-                  <p>{language[LanguageStore.lang].List.Amenities.Visualizer}</p>
+                  {RoomStore.searchConfig.amenity.projector ? <p>{language[LanguageStore.lang].List.Amenities.Projector}</p> : <p></p>}
+                  {RoomStore.searchConfig.amenity.whiteboard ? <p>{language[LanguageStore.lang].List.Amenities.WhiteBoard}</p> : <p></p>}
+                  {RoomStore.searchConfig.amenity.visualizer ? <p>{language[LanguageStore.lang].List.Amenities.Visualizer}</p> : <p></p>}
                 </div>
               </div>
 
