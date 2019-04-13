@@ -7,6 +7,9 @@ import { observer } from 'mobx-react'
 import LanguageStore from '../stores/LanguageStore'
 import language from '../languages.json'
 
+
+
+
 const jumbotronStyle = {
   width: 'auto',
   height: 'auto',
@@ -37,6 +40,9 @@ class AdRoomInfoView extends Component {
       confirmButtonText: 'Yes, delete it!',
     }).then((result) => {
       if (result.value) {
+        {/*delete room action*/}
+        
+      
         Swal.fire({
           position: 'center',
           type: 'success',

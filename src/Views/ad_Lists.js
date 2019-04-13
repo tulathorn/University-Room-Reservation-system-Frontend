@@ -25,10 +25,10 @@ class AdListView extends Component {
         <div className="container">
           <PreviewCard />
           <a href="/ad_booking" target="_blank">
-          {RoomStore.roomDatas.map(room => {
-            console.log(room)
-            return <ListCard room={room} />
-          })}
+            {RoomStore.roomDatas.map(room => {
+              console.log(room)
+              return <ListCard room={room} />
+            })}
           </a>
         </div>
       </div>

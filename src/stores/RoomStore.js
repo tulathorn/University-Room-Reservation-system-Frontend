@@ -8,8 +8,7 @@ import axios from '../Utils/axiosConfig'
 
 
 class RoomStore {
-  
-  
+
   @observable
   printText = []
 
@@ -22,12 +21,11 @@ class RoomStore {
   @observable
   selectedRoom = 0
 
-  
   @observable
   roomInfo = {}
-  
 
-  
+
+
   @action
   fetchData = async () => {
     this.roomDatas = await axios.get('./rooms', this.searchConfig).then(resp => resp.data)
@@ -51,6 +49,21 @@ class RoomStore {
   //addRoom = async data => {
   //  await axios.put('./rooms', data).then(resp => resp.data)
   //}
+
+  @action
+  deleteData = async data => {
+    await axios.delete('./rooms', data).then(resp => resp.data)
+  }
+
+
+  /////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+  @observable
+  roomInfo = {"roomid" : "CPExxxx",
+            }
+
+
+
 
   @action
   setValue = (field, value) => {
