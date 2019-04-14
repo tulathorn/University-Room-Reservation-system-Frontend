@@ -104,6 +104,10 @@ class RoomStore {
   setValue = (field, value) => {
     this.roomInfo[field] = value
   }
+  @action
+  setEquipment = (field, value) => {
+    this.roomInfo.Equipment[field] = value
+  }
 
   @action
   setSchedule = (field, value) => {
@@ -147,31 +151,22 @@ class RoomStore {
   @action
   resetAddForm = () => {
     this.roomInfo = {
-      roomid: '',
-      capacity: '',
-      building: '',
-      floor: '',
-      number: '',
-      day: {
-        monday: '',
-        tuesday: '',
-        wednesday: '',
-        thursday: '',
-        friday: '',
-        saturday: '',
-        sunday: ''
-      },
-      fromhr: '',
-      frommin: '',
-      tohr: '',
-      tomin: '',
-      amenity: {
-        teachercom: '',
-        studentcom: '',
-        aircon: '',
-        projector: '',
-        whiteboard: '',
-        visualizer: ''
+      RoomName: '',
+      Picture: '',
+      PeopleCapacity: '',
+      Building: '',
+      Floor: '',
+      RoomNumber: '',
+      ClosingDay: '',
+      OpenTime: '',
+      CloseTime: '',
+      Equipment: {
+        HasTeacherComputers: false,
+        HasStudentComputers: false,
+        HasProjector: false,
+        HasAirConditioner: false,
+        HasWhiteboard: false,
+        HasVisualizer: false
       }
     }
   }

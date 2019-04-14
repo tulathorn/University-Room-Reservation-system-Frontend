@@ -67,7 +67,7 @@ class LoginCard extends React.Component {
       localStorage.setItem('token', response.data.token)
       localStorage.setItem('username', response.data.username)
       //console.log(response)
-      //console.log(this.props)
+      console.log(this.props)
       this.props.history.push('/')
     } catch (err) {
       console.log({ err })
