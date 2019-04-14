@@ -16,11 +16,15 @@ const jumbotronStyle = {
 const Hasno = styled.p`
   color: #696969;
 `
-class AllListCard extends React.Component {
+
+
+
+class RoomListCard extends React.Component {
+  
   onClick = e => {
     e.preventDefault()
     localStorage.setItem('RoomName',this.props.room.RoomName)
-    window.location = "/ad_room_info";
+    window.location = "/booking";
   }
   render() {
     return (
@@ -84,4 +88,4 @@ class AllListCard extends React.Component {
   }
 }
 
-export default AllListCard
+export default RoomListCard

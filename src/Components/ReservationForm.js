@@ -9,20 +9,15 @@ import { observer } from 'mobx-react'
 const Heading = styled.h2`
   color: white;
 `
-
 const SubHeading = styled.h4`
   color: white;
 `
-
 const textColor = {
   color: 'white'
 }
-
 const NormalText = styled.p`
   color: white;
 `
-
-
 const jumbotronImage = require('../Pictures/bg.png')
 
 const jumbotronStyle = {
@@ -36,23 +31,46 @@ class ReservationForm extends React.Component {
   setForm = name => event => {
     this.props.setField(name, event.target.value)
   }
-
   componentDidMount() {
     RoomStore.resetFilterForm()
     RoomStore.resetSchedule()
   }
+  constructor(props) {
+    super(props);
+    this.state = { 
+      HasTeacherComputers: true,
+      HasStudentComputers: true,
+      HasProjector: true,
+      HasAirConditioner: true,
+      HasWhiteboard: true,
+      HasVisualizer: true};
+  }
 
+  toggleCheck = (field) => {
+    this.setState(state => ({ [field]: !state[field] }));
+  };
 
+  
 
-  onSubmit = e => {
-    e.preventDefault()
-    RoomStore.fetchData()
-    //localStorage.setItem('BookingSchedule',JSON.stringify(RoomStore.schedule))
+  reformDatas= () => {
     localStorage.setItem('ScheduleDate',RoomStore.schedule.Date)
     localStorage.setItem('ScheduleFromHr',RoomStore.schedule.fromhr)
     localStorage.setItem('ScheduleFromMin',RoomStore.schedule.frommin)
     localStorage.setItem('ScheduleToHr',RoomStore.schedule.tohr)
     localStorage.setItem('ScheduleToMin',RoomStore.schedule.tomin)
+    //RoomStore.setConfigEquipment('HasTeacherComputers', this.state.HasTeacherComputers ? this.state.HasTeacherComputers=1 : this.state.HasTeacherComputers=0)
+    //RoomStore.setConfigEquipment('HasStudentComputers', this.state.HasStudentComputers ? this.state.HasStudentComputers=1 : this.state.HasStudentComputers=0)
+    //RoomStore.setConfigEquipment('HasProjector', this.state.HasProjector ? this.state.HasProjector=1 : this.state.HasProjector=0)
+    //RoomStore.setConfigEquipment('HasAirConditioner', this.state.HasAirConditioner ? this.state.HasAirConditioner=1 : this.state.HasAirConditioner=0)
+    //RoomStore.setConfigEquipment('HasWhiteboard', this.state.HasWhiteboard ? this.state.HasWhiteboard=1 : this.state.HasWhiteboard=0)
+    //RoomStore.setConfigEquipment('HasVisualizer', this.state.HasVisualizer ? this.state.HasVisualizer=1 : this.state.HasVisualizer=0)
+    console.log(RoomStore.searchConfig)
+  }
+  
+  onSubmit = e => {
+    e.preventDefault()
+    this.reformDatas()
+    RoomStore.fetchData()
     this.search()
   }
 
@@ -216,57 +234,41 @@ class ReservationForm extends React.Component {
           <hr className="my-4" color="white" />
           <SubHeading> {language[LanguageStore.lang].reservationForm.Amenity}: </SubHeading>
           
+            <div class="form-check">
+              <div className="row">
+                <div className="col-md-6 col-sm-12">
+                  <input name="teachercom" type="checkbox" className="form-check-input" id="teachercom"
+                  value={this.state.HasTeacherComputers} onClick={() => this.toggleCheck('HasTeacherComputers')} defaultChecked/>
+                  <label className="form-check-label" for="teachercom" style={textColor}>{language[LanguageStore.lang].reservationForm.Amenities.TeacherComputer}</label><br/>
+                  <input name="studentcom" type="checkbox" className="form-check-input" id="studentcom"
+                  value={this.state.HasStudentComputers} onClick={() => this.toggleCheck('HasStudentComputers')} defaultChecked/>
+                  <label className="form-check-label" for="studentcom" style={textColor}>{language[LanguageStore.lang].reservationForm.Amenities.StudentComputer}</label><br/>
+                  <input name="aircon" type="checkbox" className="form-check-input" id="aircon"
+                  value={this.state.HasAirConditioner} onClick={() => this.toggleCheck('HasAirConditioner')} defaultChecked/>
+                  <label className="form-check-label" for="aircon" style={textColor}>{language[LanguageStore.lang].reservationForm.Amenities.AirConditioner}</label><br/>
+                </div>
+                <div className="col-md-6 col-sm-12">
+                  <input name="projector" type="checkbox" className="form-check-input" id="projector"
+                  value={this.state.HasProjector} onClick={() => this.toggleCheck('HasProjector')} defaultChecked/>
+                  <label className="form-check-label" for="projector" style={textColor}>{language[LanguageStore.lang].reservationForm.Amenities.Projector}</label><br/>
+                  <input name="whiteboard" type="checkbox" className="form-check-input" id="whiteboard"
+                  value={this.state.HasWhiteboard} onClick={() => this.toggleCheck('HasWhiteboard')} defaultChecked/>
+                  <label className="form-check-label" for="whiteboard" style={textColor}>{language[LanguageStore.lang].reservationForm.Amenities.WhiteBoard}</label><br/>
+                  <input name="visualizer" type="checkbox" className="form-check-input" id="visualizer"
+                  value={this.state.HasVisualizer} onClick={() => this.toggleCheck('HasVisualizer')} defaultChecked/>
+                  <label className="form-check-label" for="visualizer" style={textColor}>{language[LanguageStore.lang].reservationForm.Amenities.Visualizer}</label><br/>
+                </div>
+              </div>
+            </div>
+
+
+
+
 
           <center><button type="submit" value="Submit" className="btn btn-info">
           {language[LanguageStore.lang].Main.Search}</button> </center>
         </form>
       </div>
-
-
-
-         /*
-        {' '}
-        
-        
-        {' '}
-        <div className="form-row">
-          <div className="col-sm-4">
-            <div className="form-check">
-              <input className="form-check-input" type="checkbox" value="" id="defaultCheck1" />
-              <label className="form-check-label" for="defaultCheck1" style={textColor}>
-              {language[LanguageStore.lang].reservationForm.Amenities.TeacherComputer}{' '}
-              </label>{' '}
-              <br />
-              <input className="form-check-input" type="checkbox" value="" id="defaultCheck1" />
-              <label className="form-check-label" for="defaultCheck1" style={textColor}>
-              {language[LanguageStore.lang].reservationForm.Amenities.StudentComputer}{' '}
-              </label>{' '}
-            </div>{' '}
-          </div>
-          <div className="col-sm-4">
-            <div className="form-check">
-              <input className="form-check-input" type="checkbox" value="" id="defaultCheck1" />
-              <label className="form-check-label" for="defaultCheck1" style={textColor}>
-              {language[LanguageStore.lang].reservationForm.Amenities.Projector}{' '}
-              </label>{' '}
-              <br />
-              <input className="form-check-input" type="checkbox" value="" id="defaultCheck1" />
-              <label className="form-check-label" for="defaultCheck1" style={textColor}>
-              {language[LanguageStore.lang].reservationForm.Amenities.WhiteBoard}{' '}
-              </label>{' '}
-            </div>{' '}
-          </div>
-          <div className="col-sm-4">
-            <div className="form-check">
-              <input className="form-check-input" type="checkbox" value="" id="defaultCheck1" />
-              <label className="form-check-label" for="defaultCheck1" style={textColor}>
-              {language[LanguageStore.lang].reservationForm.Amenities.AirConditioner}{' '}
-              </label>{' '}
-              <br />
-              <input className="form-check-input" type="checkbox" value="" id="defaultCheck1" />
-              <label className="form-check-label" for="defaultCheck1" style={textColor}>
-              {language[LanguageStore.lang].reservationForm.Amenities.Visualizer}{' '}
-              </label>{' '}*/
       
     )
   }

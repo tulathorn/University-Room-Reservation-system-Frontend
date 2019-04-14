@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import AdNavbar from '../Components/ad_Navbar'
 import AllListCard from '../Components/allListCard'
-import ListCard from '../Components/RoomInformationCard'
 import styled from 'styled-components'
 
 import { observer } from 'mobx-react'
@@ -40,12 +39,9 @@ class AdAllListView extends Component {
           <input name="roomname" type="text" className="form-control" id="roomname" placeholder="Room ID"
           value={RoomStore.objecta.RoomName} onChange={e => RoomStore.setRoomName('RoomName', e.target.value)}/>
           
-          
-          
-          
           {RoomStore.roomDatas.map(roomv => {
             //console.log(roomv)
-            return <ListCard room={roomv} />
+            return <AllListCard room={roomv} />
           })}
           {/*<AllListCard/>*/}
 

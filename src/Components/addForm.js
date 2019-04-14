@@ -14,7 +14,6 @@ class AddForm extends React.Component {
   
   componentDidMount() {
     RoomStore.resetAddForm()
-    //this.SetDefaultState()
   }
   constructor(props) {
     super(props);
@@ -73,10 +72,6 @@ class AddForm extends React.Component {
     this.reformDatas()
     RoomStore.addRoom()
   }
-/*  
-  toggleCheckboxValue = () => {
-    this.setState({checkBoxValue: !this.state.checkboxValue});
-  }*/
 
 	addClick = () =>{
       Swal.fire({

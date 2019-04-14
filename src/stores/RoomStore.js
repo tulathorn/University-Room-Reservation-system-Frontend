@@ -12,20 +12,26 @@ class RoomStore {
   @observable
   printText = []
 
-  @observable
+  @observable //Get Rooms from database
   roomDatas = []
 
-  @observable
+  @observable //Use to search for room
   searchConfig = {}
+  
+  @observable //Store time that user prefer to book
+  schedule = {}
   
   @observable
   selectedRoom = 0
 
-  @observable
+  @observable //Use to add Room
   roomInfo = {}
 
   
-
+  @observable //Use in contact page
+  contactMSG = {}
+  
+  
 
 ///////////////////////////////////
 
@@ -60,9 +66,10 @@ class RoomStore {
     this.roomInfo = await axios.get('./rooms', this.searchConfig).then(resp => resp.data)
   }
   
-
-  
-
+  @action
+  SubmitContact = async () => {
+    ///post to contact
+  }
   
 
   @action
@@ -73,16 +80,7 @@ class RoomStore {
   }
 
 
-  @action
-  onFilterChange = async searchConfig => {
-    this.searchConfig.PeopleCapacity = searchConfig
-    await this.fetchData()
-  }
-
-  //@action
-  //addRoom = async data => {
-  //  await axios.put('./rooms', data).then(resp => resp.data)
-  //}
+  
 
   @action
   deleteData = async data => {
@@ -94,11 +92,14 @@ class RoomStore {
 
  
 
-  @observable
-  schedule = {}
+  
 
 
-
+  @action
+  setContactMSG = (field, value) => {
+    this.contactMSG[field] = value
+    console.log([field] + ' = ' + this.contactMSG[field])
+  }
 
   @action
   setValue = (field, value) => {
@@ -123,7 +124,11 @@ class RoomStore {
   @action
   setConfig = (field, value) => {
     this.searchConfig[field] = value
-    console.log([field] + ' = ' + this.searchConfig[field])
+  }
+
+  @action
+  setConfigEquipment = (field, value) => {
+    this.searchConfig.Equipment[field] = value
   }
 
 
@@ -144,8 +149,15 @@ class RoomStore {
   }
 
   @action
+  resetContactMSG = () => {
+    this.contactMSG = {}
+  }
+
+  @action
   resetFilterForm = () => {
-    this.searchConfig = {}
+    this.searchConfig = {
+      //Equipment: {}
+    }
   }
 
   @action

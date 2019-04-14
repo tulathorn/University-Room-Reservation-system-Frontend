@@ -3,6 +3,7 @@ import '../Styles/bootstrap/bootstrap.min.css'
 import Swal from 'sweetalert2'
 import LanguageStore from '../stores/LanguageStore'
 import language from '../languages.json'
+import RoomStore from '../stores/RoomStore';
 
 const helpLink = {
   color: '#1F384B'
@@ -12,13 +13,23 @@ const cardColor = {
 }
 
 class ContactCard extends React.Component {
+  componentDidMount() {
+    RoomStore.resetContactMSG()
+  }
+  
+  onSubmit = e => {
+    e.preventDefault()
+    console.log(RoomStore.contactMSG)
+    RoomStore.SubmitContact()
+  }
+
   sentClick = () =>{
       Swal.fire({
       position: 'center',
       type: 'success',
       title: 'Your message has been sent',
       showConfirmButton: false,
-      timer: 1500
+      timer: 2000
     })
   }
   render() {
@@ -36,37 +47,21 @@ class ContactCard extends React.Component {
               <div className="col-md-2 col-sm-1">
               </div>
               <div className="col-md-8 col-sm-10">
-                <form action="">
-                  <div className="form-group">
-                    <label for="exampleFormControlInput1">{language[LanguageStore.lang].contactCard.Email}</label>
-                    <input
-                      type="email"
-                      className="form-control"
-                      id="exampleFormControlInput1"
-                      placeholder="name@example.com"
-                    />
-                  </div>
-                  <div className="form-group">
-                    <label for="exampleFormControlInput2">{language[LanguageStore.lang].contactCard.Title}</label>
-                    <input
-                      type="text"
-                      className="form-control"
-                      id="exampleFormControlInput2"
-                      placeholder="Place yor title here"
-                    />
-                  </div>
-                  <div className="form-group">
-                    <label for="exampleFormControlTextarea1">{language[LanguageStore.lang].contactCard.Detail}</label>
-                    <textarea
-                      className="form-control"
-                      id="exampleFormControlTextarea1"
-                      placeholder="Insert details, question, problem..."
-                      rows="5"
-                      placeholder="Please type your comment..."
-                    />
-                  </div>
+                <form action="#" onSubmit={e => this.onSubmit(e)}>
+                  <label for="email">{language[LanguageStore.lang].contactCard.Email}</label>
+                  <input name="email" type="text" className="form-control" id="email" placeholder="name@example.com"
+                  value={RoomStore.contactMSG.EmailAddress} onChange={e => RoomStore.setContactMSG('EmailAddress', e.target.value)}/>
+
+                  <label for="title">{language[LanguageStore.lang].contactCard.Title}</label>
+                  <input name="title" type="text" className="form-control" id="title" placeholder="Place yor title here"
+                  value={RoomStore.contactMSG.Title} onChange={e => RoomStore.setContactMSG('Title', e.target.value)}/>
+
+                  <label for="details">{language[LanguageStore.lang].contactCard.Detail}</label>
+                  <textarea name="details" type="text" rows="5" className="form-control" id="details" placeholder="Insert details, question, problem..."
+                  value={RoomStore.contactMSG.Detail} onChange={e => RoomStore.setContactMSG('Detail', e.target.value)}/>
+                  
                   <center>
-                    <button onClick={() => this.sentClick()} type="button" className="btn btn-outline-info">
+                    <button onClick={() => this.sentClick()} type="submit" value="Submit" className="btn btn-outline-info">
                       {language[LanguageStore.lang].contactCard.Submit}
                     </button>
                   </center>

@@ -25,7 +25,10 @@ const jumbotronStyle1 = {
 @observer
 class AdRoomInfoView extends Component {
   componentDidMount() {
-    RoomStore.fetchData()
+    RoomStore.resetFilterForm()
+    RoomStore.setConfig('RoomName', localStorage.getItem('RoomName'))
+    RoomStore.fetchData()//Doing This
+    console.log(RoomStore.roomDatas)
   }
 
   deleteClick = () =>{
@@ -64,7 +67,7 @@ class AdRoomInfoView extends Component {
             </div>
             <div className="col-md-11 col-sm-11">
             <h2>
-               CPE1121
+               {RoomStore.searchConfig.RoomName}
             </h2>
             </div>
           </div>
