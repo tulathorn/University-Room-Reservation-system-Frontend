@@ -6,6 +6,7 @@ import { observer } from 'mobx-react'
 
 import LanguageStore from '../stores/LanguageStore'
 import language from '../languages.json'
+import AdRoomInfoCard from '../Components/adRoomInfoCard';
 
 
 
@@ -27,7 +28,7 @@ class AdRoomInfoView extends Component {
   componentDidMount() {
     RoomStore.resetFilterForm()
     RoomStore.setConfig('RoomName', localStorage.getItem('RoomName'))
-    RoomStore.fetchData()//Doing This
+    RoomStore.fetchData()
     console.log(RoomStore.roomDatas)
   }
 
@@ -60,113 +61,9 @@ class AdRoomInfoView extends Component {
     return (
       <div>
         <AdNavbar />
-        <div className="container">
-          <br/>
-          <div className="row">
-            <div className="col-md-1 col-sm-1">
-            </div>
-            <div className="col-md-11 col-sm-11">
-            <h2>
-               {RoomStore.searchConfig.RoomName}
-            </h2>
-            </div>
-          </div>
-
-          <div className="row">
-            <div className="col-md-6 col-sm-12">
-              <div className="jumbotron" style={jumbotronStyle1} >
-                <center>
-                  <img
-                    src={require("../Pictures/testclassroom.jpg")} width="300px" alt=""
-                    />
-                </center>
-                <br/>
-                <div className="row">
-                  <div className="col-md-1 col-sm-0">
-                  </div>
-                  <div className="col-md-4 col-sm-4">
-                    <p><b>{language[LanguageStore.lang].adRoomInfo.Amenity} : </b></p>
-                  </div>
-                  <div className="col-md-7 col-sm-8">
-                  </div>
-                </div>
-
-                <div className="row">
-                  <div className="col-md-2">
-                  </div>
-                  <div className="col-md-5">
-                    <div className="form-check">
-                      <input className="form-check-input" type="checkbox" value="" id="defaultCheck1"/>
-                      <label className="form-check-label" for="defaultCheck1">
-                        {language[LanguageStore.lang].adRoomInfo.Amenities.TeacherComputer}
-                      </label><br/>
-                      <input className="form-check-input" type="checkbox" value="" id="defaultCheck1"/>
-                      <label className="form-check-label" for="defaultCheck1">
-                        {language[LanguageStore.lang].adRoomInfo.Amenities.StudentComputer}
-                      </label><br/>
-                      <input className="form-check-input" type="checkbox" value="" id="defaultCheck1"/>
-                      <label className="form-check-label" for="defaultCheck1">
-                        {language[LanguageStore.lang].adRoomInfo.Amenities.AirConditioner}
-                      </label>
-                    </div>
-                  </div>
-                  <div className="col-md-5">
-                    <div className="form-check">
-                      <input className="form-check-input" type="checkbox" value="" id="defaultCheck1"disabled/>
-                      <label className="form-check-label" for="defaultCheck1">
-                        {language[LanguageStore.lang].adRoomInfo.Amenities.Projector}
-                      </label><br/>
-                    <input className="form-check-input" type="checkbox" value="" id="defaultCheck1"select/>
-                      <label className="form-check-label" for="defaultCheck1">
-                        {language[LanguageStore.lang].adRoomInfo.Amenities.WhiteBoard}
-                      </label><br/>
-                    <input className="form-check-input" type="checkbox" value="" id="defaultCheck1" selected/>
-                      <label className="form-check-label" for="defaultCheck1">
-                        {language[LanguageStore.lang].adRoomInfo.Amenities.Visualizer}
-                      </label>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="col-md-6 col-sm-12">
-              <div className="jumbotron text-white" style={jumbotronStyle}>
-                <div className="row">
-                  <div className="col-md-5 col-sm-4">
-                    <p><b>{language[LanguageStore.lang].adRoomInfo.Information} : </b></p>
-                  </div>
-                  <div className="col-md-7 col-sm-8">
-                    <p>{language[LanguageStore.lang].adRoomInfo.PeopleCapacity} : 50{''}{language[LanguageStore.lang].adRoomInfo.People}</p>
-                    <p>{language[LanguageStore.lang].adRoomInfo.Building} : Witsawa Watthana</p>
-                    <p>{language[LanguageStore.lang].adRoomInfo.Floor} : 11</p>
-                    <p>{language[LanguageStore.lang].adRoomInfo.RoomName} : CPE1121</p>
-                    <p>{language[LanguageStore.lang].adRoomInfo.OperatingDay} : Mon-Fri</p>
-                    <p>{language[LanguageStore.lang].adRoomInfo.OperatingTime} : 08:00 - 20:00</p>
-                  </div>
-                </div>
-                <a href="/ad_timetable" class="text-info" target="_blank">{language[LanguageStore.lang].adRoomInfo.BookingTimeTable}</a>
-              </div>
-            </div>
-          </div>
-
-          <div className="row">
-            <div className="col-md-5 col-sm-0">
-            </div>
-            <div className="col-md-1 col-sm-6">
-
-
-              <button onClick={() => this.deleteClick()} type="button" className="btn btn-outline-danger">{language[LanguageStore.lang].adRoomInfo.Delete}</button>
-            </div>
-            <div className="col-md-1 col-sm-6">
-              <a href="/ad_edit_room" className="btn btn-outline-info" target="_blank">{language[LanguageStore.lang].adRoomInfo.Edit}</a>
-            </div>
-            <div className="col-md-5 col-sm-0">
-            </div>
-          </div>
-
+        <div className="container"><br/>
+          {RoomStore.roomDatas.map(roomv => { return <AdRoomInfoCard room={roomv} />})}
         </div>
-        <br/><br/>
       </div>
     )
   }

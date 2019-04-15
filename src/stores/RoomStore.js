@@ -24,9 +24,9 @@ class RoomStore {
   @observable
   selectedRoom = 0
 
-  @observable //Use to add Room
+  @observable //Use to add Room 
   roomInfo = {}
-
+  
   
   @observable //Use in contact page
   contactMSG = {}
@@ -147,6 +147,7 @@ class RoomStore {
       tomin: '',
     }
   }
+
 
   @action
   resetContactMSG = () => {
