@@ -3,6 +3,8 @@ import Navbar from '../Components/Navbar'
 import styled, { createGlobalStyle } from 'styled-components'
 import ContactCard from '../Components/contactCard'
 
+import ContactStore from '../stores/ContactStore';
+
 import LanguageStore from '../stores/LanguageStore'
 import language from '../languages.json'
 

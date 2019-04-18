@@ -51,10 +51,7 @@ class RoomStore {
   }
 ////////////////////////////////////
 
-  // get
-  // post
-  // put
-  // delete
+
 
   @action
   fetchData = async () => {
@@ -65,11 +62,7 @@ class RoomStore {
   GetRoomInfo = async () => {
     this.roomInfo = await axios.get('./rooms', this.searchConfig).then(resp => resp.data)
   }
-  
-  @action
-  SubmitContact = async () => {
-    ///post to contact
-  }
+
   
 
   @action
@@ -89,11 +82,6 @@ class RoomStore {
 
 
   /////////////////////////////////////////////////////////////////////////////////////////////////////////
-
- 
-
-  
-
 
   @action
   setContactMSG = (field, value) => {
@@ -131,7 +119,6 @@ class RoomStore {
     this.searchConfig.Equipment[field] = value
   }
 
-
   @action
   deleteData = async () => {
     await axios.delete('./rooms', this.roomInfo).then(resp => resp.data)
@@ -146,12 +133,6 @@ class RoomStore {
       tohr: '',
       tomin: '',
     }
-  }
-
-
-  @action
-  resetContactMSG = () => {
-    this.contactMSG = {}
   }
 
   @action
@@ -184,7 +165,6 @@ class RoomStore {
     }
   }
 
-  /////////////////////////////////////////////////////////////////////////////////
 }
 
 export default new RoomStore()
