@@ -3,7 +3,7 @@ import '../Styles/bootstrap/bootstrap.min.css'
 import Swal from 'sweetalert2'
 import LanguageStore from '../stores/LanguageStore'
 import language from '../languages.json'
-import RoomStore from '../stores/RoomStore';
+import ContactStore from '../stores/ContactStore';
 
 const helpLink = {
   color: '#1F384B'
@@ -14,13 +14,13 @@ const cardColor = {
 
 class ContactCard extends React.Component {
   componentDidMount() {
-    RoomStore.resetContactMSG()
+    //xxx
   }
   
   onSubmit = e => {
     e.preventDefault()
-    console.log(RoomStore.contactMSG)
-    RoomStore.SubmitContact()
+    console.log(ContactStore.message)
+    ContactStore.addContact()
   }
 
   sentClick = () =>{
@@ -48,10 +48,20 @@ class ContactCard extends React.Component {
               </div>
               <div className="col-md-8 col-sm-10">
                 <form action="#" onSubmit={e => this.onSubmit(e)}>
+
                   <label for="email">{language[LanguageStore.lang].contactCard.Email}</label>
                   <input name="email" type="text" className="form-control" id="email" placeholder="name@example.com"
-                  value={RoomStore.contactMSG.EmailAddress} onChange={e => RoomStore.setContactMSG('EmailAddress', e.target.value)}/>
+                  value={ContactStore.message.EmailAddress} onChange={e => ContactStore.setContact('EmailAddress', e.target.value)}/>
 
+                  <label for="title">{language[LanguageStore.lang].contactCard.Title}</label>
+                  <input name="title" type="text" className="form-control" id="title" placeholder="Place yor title here"
+                  value={ContactStore.message.Title} onChange={e => ContactStore.setContact('Title', e.target.value)}/>
+
+                  <label for="details">{language[LanguageStore.lang].contactCard.Detail}</label>
+                  <textarea name="details" type="text" rows="5" className="form-control" id="details" placeholder="Insert details, question, problem..."
+                  value={ContactStore.message.Detail} onChange={e => ContactStore.setContact('Detail', e.target.value)}/>
+
+{/* --------------------------Email-------------------------------------------- 
                   <label for="title">{language[LanguageStore.lang].contactCard.Title}</label>
                   <input name="title" type="text" className="form-control" id="title" placeholder="Place yor title here"
                   value={RoomStore.contactMSG.Title} onChange={e => RoomStore.setContactMSG('Title', e.target.value)}/>
@@ -59,8 +69,7 @@ class ContactCard extends React.Component {
                   <label for="details">{language[LanguageStore.lang].contactCard.Detail}</label>
                   <textarea name="details" type="text" rows="5" className="form-control" id="details" placeholder="Insert details, question, problem..."
                   value={RoomStore.contactMSG.Detail} onChange={e => RoomStore.setContactMSG('Detail', e.target.value)}/>
-                  
-                  <center>
+                 */} <center>
                     <button onClick={() => this.sentClick()} type="submit" value="Submit" className="btn btn-outline-info">
                       {language[LanguageStore.lang].contactCard.Submit}
                     </button>
