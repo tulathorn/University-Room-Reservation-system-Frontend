@@ -5,11 +5,6 @@ import PreHistoryRoomCard from '../Components/preHisRoomCard'
 import LanguageStore from '../stores/LanguageStore'
 import language from '../languages.json'
 
-const jumbotronStyle = {
-  width: 'auto',
-  height: 'auto',
-  backgroundColor: '#203C50'
-}
 
 class PreHistoryView extends Component {
   render() {

@@ -13,11 +13,7 @@ const Title = styled.h1`
   color: #1f384b;
 `
 
-const jumbotronStyle = {
-  width: 'auto',
-  height: 'auto',
-  backgroundColor: '#203C50'
-}
+
 
 @observer
 class AdAllListView extends Component {

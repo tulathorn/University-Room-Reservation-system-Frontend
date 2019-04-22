@@ -7,7 +7,6 @@ import language from '../languages.json'
 import { withRouter } from 'react-router-dom'
 
 import axios from '../Utils/axiosConfig'
-import { from } from 'rxjs'
 
 const helpLink = {
   color: '#1F384B'
@@ -36,7 +35,6 @@ class LoginCard extends React.Component {
         '<input id="swal-input4" class="swal2-input" placeholder="Phone Number">',
       focusConfirm: false,
       showCancelButton: true,
-      confirmButtonColor: '#17a2b8',
       confirmButtonColor: '#17a2b8',
       confirmButtonText: 'Login',
       cancelButtonColor: '#dc3545',

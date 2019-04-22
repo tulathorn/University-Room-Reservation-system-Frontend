@@ -7,9 +7,7 @@ import { NavLink } from 'react-router-dom'
 import '../Styles/bootstrap/bootstrap.min.css'
 import language from '../languages.json'
 
-const navColor = {
-  backgroundColor: '#1F384B'
-}
+
 
 const NavItem = props => {
   const pageURI = window.location.pathname + window.location.search
@@ -87,24 +85,24 @@ class Navbar extends React.Component {
 
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav mr-auto">
-            <NavItem path="/" name="Find Room" />
-            <NavDropdown name="History">
+            <NavItem path="/" name={language[LanguageStore.lang].Navbar.FindRoom} />
+            <NavDropdown name={language[LanguageStore.lang].Navbar.History}>
               <NavLink to="/curhistory" className="dropdown-item">
-                Current History
+                {language[LanguageStore.lang].Navbar.CurrentHistory}
               </NavLink>
               <NavLink to="/prehistory" className="dropdown-item">
-                Previous HIstory
+                {language[LanguageStore.lang].Navbar.PreviousHistory}
               </NavLink>
             </NavDropdown>
-            <NavItem path="/contact" name="Help" />
-            <NavDropdown name="Languages">
+            <NavItem path="/contact" name={language[LanguageStore.lang].Navbar.Help} />
+            <NavDropdown name={language[LanguageStore.lang].Navbar.Languages}>
               <div className="dropdown-item" onClick={() => LanguageStore.setLang(0)}>
                 {' '}
-                English
+                {language[LanguageStore.lang].Navbar.English}
               </div>
               <div className="dropdown-item" onClick={() => LanguageStore.setLang(1)}>
                 {' '}
-                ภาษาไทย
+                {language[LanguageStore.lang].Navbar.Thai}
               </div>
             </NavDropdown>
           </ul>
@@ -124,7 +122,7 @@ class Navbar extends React.Component {
               class="btn btn-sm btn-outline-info"
               onClick={() => localStorage.removeItem('token')}
             >
-              Logout
+              {language[LanguageStore.lang].Navbar.Logout}
             </NavLink>
           </form>
         </div>

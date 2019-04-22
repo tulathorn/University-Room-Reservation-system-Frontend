@@ -1,18 +1,11 @@
 import React, { Component } from 'react'
 import '../Styles/bootstrap/bootstrap.min.css'
-import styled, { createGlobalStyle } from 'styled-components'
 import AdLoginCard from '../Components/ad_loginForm'
 
 import LanguageStore from '../stores/LanguageStore'
 import language from '../languages.json'
 
- const logoImage = require('../Pictures/logoBg.png');
- const logoStyle = {
-   width: 'auto',
-   height: 'auto',
-   backgroundImage: `url(${logoImage})`,
-   backgroundSize: 'absolute'
- }
+
 
  const bgImage = require('../Pictures/bg.png');
  const bgStyle = {
@@ -26,27 +19,11 @@ const cardColor = {
   backgroundColor: 'white'
 }
 
-const text1Style = {
-  color: 'white',
-  textAlign: 'right',
-};
-
-const text2Style = {
-  color: 'white',
-  textAlign: 'center'
-};
-
-const bgColor = {
-  backgroundColor: '#1F384B'
-}
-
 const languageLink = {
   color: '#6c757d'
 }
 
-const helpLink = {
-  color: '#1F384B'
-}
+
 
 class AdLoginView extends Component {
   render() {

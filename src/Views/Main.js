@@ -9,7 +9,6 @@ import language from '../languages.json'
 import Navbar from '../Components/Navbar'
 import AuthenticationGate from '../Components/AuthenticationGate'
 
-import RoomStore from '../stores/RoomStore'
 import ReservationForm from '../Components/ReservationForm'
 
 const Title = styled.h1`

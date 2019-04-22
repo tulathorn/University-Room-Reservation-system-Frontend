@@ -3,9 +3,7 @@ import '../Styles/bootstrap/bootstrap.min.css'
 import LanguageStore from '../stores/LanguageStore'
 import language from '../languages.json'
 
-const navColor = {
-  backgroundColor: '#1F384B'
-}
+
 
 
 const NavItem = props => {

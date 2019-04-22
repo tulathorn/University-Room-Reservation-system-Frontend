@@ -6,11 +6,6 @@ import PreviewCard from '../Components/searchPreviewCard'
 import { observer } from 'mobx-react'
 import RoomStore from '../stores/RoomStore'
 
-const jumbotronStyle = {
-  width: 'auto',
-  height: 'auto',
-  backgroundColor: '#203C50'
-}
 
 @observer
 class AdListView extends Component {

@@ -12,14 +12,6 @@ const Title = styled.h1`
   color: #1f384b;
 `
 
-const jumbotronImage = require('../Pictures/bg.png');
-const jumbotronStyle = {
-  width: 'auto',
-  height: 'auto',
-  backgroundImage: `url(${jumbotronImage})`,
-  backgroundSize: 'absolute'
-}
-
 class AdSearchRecView extends Component {
   searchClick = () =>{
     Swal.fire({

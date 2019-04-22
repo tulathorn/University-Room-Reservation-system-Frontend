@@ -3,11 +3,7 @@ import '../Styles/bootstrap/bootstrap.min.css'
 import styled from 'styled-components'
 import LanguageStore from '../stores/LanguageStore'
 import language from '../languages.json'
-import RoomStore from '../stores/RoomStore';
-import BookingView from '../Views/Booking'
-import { Redirect } from 'react-router'
 
-import { withRouter } from 'react-router-dom'
 const jumbotronStyle = {
   width: 'auto',
   height: 'auto',

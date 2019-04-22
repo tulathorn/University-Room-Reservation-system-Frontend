@@ -5,11 +5,7 @@ import AdCurHistoryRoomCard from '../Components/adCurHisCard'
 import LanguageStore from '../stores/LanguageStore'
 import language from '../languages.json'
 
-const jumbotronStyle = {
-  width: 'auto',
-  height: 'auto',
-  backgroundColor: '#203C50'
-}
+
 class AdCurHistoryView extends Component {
   render() {
     return (

@@ -2,7 +2,6 @@ import React from 'react'
 import '../Styles/bootstrap/bootstrap.min.css'
 import LanguageStore from '../stores/LanguageStore'
 import language from '../languages.json'
-import RoomStore from '../stores/RoomStore'
 
 const jumbotronStyle = {
   width: 'auto',
@@ -17,20 +16,6 @@ const jumbotronStyle1 = {
 }
 
 class AdRoomInfoCard extends React.Component {
-  componentDidMount() {
-    this.reformData()
-  }
-  
-
-  reformData = () => {
-    
-    
-  }
-
-
-
-
-
   render() {
     return (
       <div>

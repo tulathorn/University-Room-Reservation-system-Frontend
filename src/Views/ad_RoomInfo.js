@@ -4,24 +4,7 @@ import RoomStore from '../stores/RoomStore'
 import Swal from 'sweetalert2'
 import { observer } from 'mobx-react'
 
-import LanguageStore from '../stores/LanguageStore'
-import language from '../languages.json'
 import AdRoomInfoCard from '../Components/adRoomInfoCard';
-
-
-
-
-const jumbotronStyle = {
-  width: 'auto',
-  height: 'auto',
-  backgroundColor: '#203C50'
-}
-
-const jumbotronStyle1 = {
-  width: 'auto',
-  height: 'auto',
-  backgroundColor: 'white'
-}
 
 @observer
 class AdRoomInfoView extends Component {
@@ -44,9 +27,6 @@ class AdRoomInfoView extends Component {
       confirmButtonText: 'Yes, delete it!',
     }).then((result) => {
       if (result.value) {
-        {/*delete room action*/}
-        
-      
         Swal.fire({
           position: 'center',
           type: 'success',

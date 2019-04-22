@@ -5,21 +5,15 @@ import LanguageStore from '../stores/LanguageStore'
 import language from '../languages.json'
 import ContactStore from '../stores/ContactStore';
 
-const helpLink = {
-  color: '#1F384B'
-}
-const cardColor = {
-  backgroundColor: 'white'
-}
+
 
 class ContactCard extends React.Component {
   componentDidMount() {
-    //xxx
+    ContactStore.resetContactForm()
   }
   
   onSubmit = e => {
     e.preventDefault()
-    console.log(ContactStore.message)
     ContactStore.addContact()
   }
 
@@ -61,15 +55,7 @@ class ContactCard extends React.Component {
                   <textarea name="details" type="text" rows="5" className="form-control" id="details" placeholder="Insert details, question, problem..."
                   value={ContactStore.message.Detail} onChange={e => ContactStore.setContact('Detail', e.target.value)}/>
 
-{/* --------------------------Email-------------------------------------------- 
-                  <label for="title">{language[LanguageStore.lang].contactCard.Title}</label>
-                  <input name="title" type="text" className="form-control" id="title" placeholder="Place yor title here"
-                  value={RoomStore.contactMSG.Title} onChange={e => RoomStore.setContactMSG('Title', e.target.value)}/>
-
-                  <label for="details">{language[LanguageStore.lang].contactCard.Detail}</label>
-                  <textarea name="details" type="text" rows="5" className="form-control" id="details" placeholder="Insert details, question, problem..."
-                  value={RoomStore.contactMSG.Detail} onChange={e => RoomStore.setContactMSG('Detail', e.target.value)}/>
-                 */} <center>
+                    <center>
                     <button onClick={() => this.sentClick()} type="submit" value="Submit" className="btn btn-outline-info">
                       {language[LanguageStore.lang].contactCard.Submit}
                     </button>

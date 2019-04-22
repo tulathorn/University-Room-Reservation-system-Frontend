@@ -49,8 +49,8 @@ class AddForm extends React.Component {
   };
 
   reformDatas= () => {
-    this.state.Monday ? this.state.Monday='0' : this.state.Monday='1'
-    this.state.Tuesday ? this.state.Tuesday='0' : this.state.Tuesday='1'
+    this.state.Monday ? this.setState({Monday : '0'}) : this.setState({Monday : '1'})
+    this.state.Tuesday ? this.setState({Tuesday : '0'}) : this.setState({Tuesday : '1'})
     this.state.Wednesday ? this.state.Wednesday='0' : this.state.Wednesday='1'
     this.state.Thursday ? this.state.Thursday='0' : this.state.Thursday='1'
     this.state.Friday ? this.state.Friday='0' : this.state.Friday='1'

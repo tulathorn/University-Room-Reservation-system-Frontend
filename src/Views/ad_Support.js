@@ -1,10 +1,7 @@
 import React, { Component } from 'react'
 import AdNavbar from '../Components/ad_Navbar'
 
-import styled, { createGlobalStyle } from 'styled-components'
-
-import RoomStore from '../stores/RoomStore' 
-import RoomInformationCard from '../Components/RoomInformationCard'
+import styled from 'styled-components'
 
 import ContactStore from '../stores/ContactStore'
 import SupCard from '../Components/supportCard'
@@ -29,12 +26,10 @@ class AdSupportView extends Component {
         <AdNavbar />
         <div className="container">
           <br/><Title>{language[LanguageStore.lang].adSupport.Support}</Title><br/>
-          {ContactStore.contact.map(xxx => {
-            return <SupCard user={xxx} />
+          
+          {ContactStore.contact.map(comment => {
+            return <SupCard data={comment} />
           })}
-          
-          
-          <SupCard/>
 
 
         </div>
