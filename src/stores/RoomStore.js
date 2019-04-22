@@ -27,10 +27,7 @@ class RoomStore {
   @observable //Use to add Room 
   roomInfo = {}
   
-  
-  @observable //Use in contact page
-  contactMSG = {}
-  
+
   
 
 ///////////////////////////////////
@@ -83,11 +80,6 @@ class RoomStore {
 
   /////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-  @action
-  setContactMSG = (field, value) => {
-    this.contactMSG[field] = value
-    console.log([field] + ' = ' + this.contactMSG[field])
-  }
 
   @action
   setValue = (field, value) => {
@@ -128,6 +120,8 @@ class RoomStore {
   resetSchedule = () => {
     this.schedule = {
       Date: '',
+      DateTo: '',
+      Day: '',
       fromhr: '',
       frommin: '',
       tohr: '',

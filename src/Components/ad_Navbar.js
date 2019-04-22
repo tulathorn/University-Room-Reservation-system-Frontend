@@ -121,7 +121,7 @@ class AdNavbar extends React.Component {
               placeholder="Search"
               aria-label="Search"
             /> */}
-            <a href="/ad_login" class="btn btn-sm btn-outline-info">{language[LanguageStore.lang].adNavbar.Logout}</a>
+            <a href="/ad_login" className="btn btn-sm btn-outline-info">{language[LanguageStore.lang].adNavbar.Logout}</a>
 
           </form>
         </div>

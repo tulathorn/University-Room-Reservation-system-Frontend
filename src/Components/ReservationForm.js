@@ -76,8 +76,6 @@ class ReservationForm extends React.Component {
 
 
   search = async () => {
-    //await this.props.fetchRooms()
-
     this.props.history.push('/search')
   }
 

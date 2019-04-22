@@ -1,23 +1,21 @@
 import React from 'react'
 import styled from 'styled-components'
-import { withRouter } from 'react-router-dom'
 
+import RoomStore from '../stores/RoomStore'
 import LanguageStore from '../stores/LanguageStore'
 import language from '../languages.json'
 
-const textColor = {
-  color: 'white'
-}
 
-const Title = styled.h1`
-  color: #1F384B;
-`
-const Title_1 = styled.h2`
+const NormalText = styled.p`
   color: white;
 `
-const Title_2 = styled.h4`
+const Heading = styled.h2`
   color: white;
 `
+const SubHeading = styled.h4`
+  color: white;
+`
+
 
 const jumbotronImage = require('../Pictures/bg.png')
 
@@ -34,12 +32,15 @@ class SearchRecForm extends React.Component {
   }
 
   componentDidMount() {
-    console.log('Room Data =', this.props)
   }
 
+  onSubmit = e => {
+    e.preventDefault()
+    //this.reformDatas()
+    //RoomStore.fetchData()
+    this.search()
+  }
   search = async () => {
-    await this.props.fetchRooms()
-
     this.props.history.push('/search')
   }
 
@@ -47,198 +48,185 @@ class SearchRecForm extends React.Component {
     return (
 
         <div className="jumbotron" style={jumbotronStyle}>
-           <Title_1>{language[LanguageStore.lang].searchRecForm.FindRoom}</Title_1>
-
-           <hr className="my-4" color="white"/>
-           <Title_2>{language[LanguageStore.lang].searchRecForm.Info} :</Title_2>
-           <form>
-             <div className="form-row">
-               <div className="form-group col-md-4">
-                 <label className="my-1 mr-2" for="inlineFormCustomSelectPref" style={textColor}>{language[LanguageStore.lang].searchRecForm.Building}</label>
-                 <select
-                  className="custom-select my-1 mr-sm-2"
-                  id="inlineFormCustomSelectPref"
-                  onChange={this.setForm('Building')}
-                >
-                  <option>Building Name</option>
+          <form action="#" onSubmit={e => this.onSubmit(e)}>
+            <Heading>{language[LanguageStore.lang].searchRecForm.FindRoom}</Heading>
+            <hr className="my-4" color="white"/>
+            <SubHeading>{language[LanguageStore.lang].searchRecForm.Info} :</SubHeading>
+            <div className="row">
+              <div className="col-md-6 col-sm-12">
+                <NormalText>{language[LanguageStore.lang].searchRecForm.Building}</NormalText>
+                <select name="building" type="text" className="custom-select" id="building" placeholder="Room ID"
+                  value={RoomStore.searchConfig.Building} onChange={e => RoomStore.setConfig('Building', e.target.value)}>
+                  <option value="" disabled defaultValue>Choose...</option>
                   <option value="Witsawa Watthana">Witsawa Watthana</option>
+                  <option value="CB1">CB1</option>
+                  <option value="CB2">CB2</option>
+                  <option value="CB3">CB3</option>
+                  <option value="CB4">CB4</option>
+                  <option value="CB5">CB5</option>
                 </select>
-               </div>
-               <div className="form-group col-md-4">
-                 <label className="my-1 mr-2" for="inlineFormCustomSelectPref" style={textColor}>
-                   {language[LanguageStore.lang].searchRecForm.Size}
-                 </label>
-                 <select className="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
-                   <option>Room Size</option>
-                   <option value="30">30</option>
-                   <option value="40">40</option>
-                   <option value="60">60</option>
-                   <option value="80">80</option>
-                   <option value="100">100</option>
-                 </select>
-               </div>
-             </div>
-           </form>
+              </div>
+              <div className="col-md-6 col-sm-12">
+                <NormalText>{language[LanguageStore.lang].searchRecForm.Size}</NormalText>
+                <select name="capacity" type="number" className="custom-select" id="capacity"
+                  value={RoomStore.searchConfig.PeopleCapacity} onChange={e => RoomStore.setConfig('PeopleCapacity', e.target.value)}>
+                  <option value="" disabled defaultValue>Choose...</option>
+                  <option value="10">10</option>
+                  <option value="20">20</option>
+                  <option value="30">30</option>
+                  <option value="40">40</option>
+                  <option value="50">50</option>
+                  <option value="60">60</option>
+                  <option value="70">70</option>
+                  <option value="80">80</option>
+                  <option value="90">90</option>
+                  <option value="100">100</option>
+                  <option value="120">120</option>
+                  <option value="150">150</option>
+                  <option value="200">200</option>
+                </select>
+              </div>
+            </div>
+            <hr className="my-4" color="white"/>
+            <SubHeading>{language[LanguageStore.lang].searchRecForm.Date} :</SubHeading>
+            <div className="row">
+              <div className="col-md-3 col-sm-12">
+                <NormalText>{language[LanguageStore.lang].searchRecForm.From}</NormalText>
+              </div>
+              <div className="col-md-3 col-sm-12">
+                <input name="datefrom" type="date" className="form-control" id="datefrom"
+                value={RoomStore.schedule.Date} onChange={e => RoomStore.setSchedule('Date', e.target.value)}/>
+              </div>
+              <div className="col-md-3 col-sm-12">
+                <NormalText>{language[LanguageStore.lang].searchRecForm.To}</NormalText>
+              </div>
+              <div className="col-md-3 col-sm-12">
+                <input name="dateto" type="date" className="form-control" id="dateto"
+                value={RoomStore.schedule.DateTo} onChange={e => RoomStore.setSchedule('DateTo', e.target.value)}/>
+              </div>
+            </div>
 
-
-           <hr className="my-4" color="white"/>
-           <Title_2>{language[LanguageStore.lang].searchRecForm.Date} :</Title_2>
-             <form className="form-inline">
-               <label className="my-1 mr-2" for="inlineFormCustomSelectPref" style={textColor}>
-                 {language[LanguageStore.lang].searchRecForm.From}
-               </label>
-               <input
-                 type="date"
-                 className="form-control my-1 mr-sm-2"
-                 id="inlineFormCustomSelectPref"
-                 onChange={this.setForm('date')}
-               />
-               <label className="my-1 mr-2" for="inlineFormCustomSelectPref" style={textColor}>
-                 {language[LanguageStore.lang].searchRecForm.To}
-               </label>
-               <input
-                 type="date"
-                 className="form-control my-1 mr-sm-2"
-                 id="inlineFormCustomSelectPref"
-                 onChange={this.setForm('date')}
-               />
-             </form>
-
-         <hr className="my-4" color="white"/>
-         <Title_2>{language[LanguageStore.lang].searchRecForm.Time} :</Title_2>
-           <form className="form-inline">
-             <label className="my-1 mr-2" for="inlineFormCustomSelectPref" style={textColor}>{language[LanguageStore.lang].searchRecForm.Day}</label>
-             <select className="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
-               <option selected>Choose...</option>
-               <option value="1">Sunday</option>
-               <option value="2">Monday</option>
-               <option value="3">Tuesday</option>
-               <option value="4">Wednesday</option>
-               <option value="5">Thursday</option>
-               <option value="6">Friday</option>
-               <option value="7">Saturday</option>
-             </select>
-
-
-           </form>
-           <form className="form-inline">
-             <label className="my-1 mr-2" for="inlineFormCustomSelectPref" style={textColor}>{language[LanguageStore.lang].searchRecForm.From}</label>
-             <select className="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
-               <option>Choose...</option>
-               <option value="1">00</option>
-               <option value="2">01</option>
-               <option value="3">02</option>
-               <option value="4">03</option>
-               <option value="5">04</option>
-               <option value="6">05</option>
-               <option value="7">06</option>
-               <option value="8">07</option>
-               <option value="9">08</option>
-               <option value="10">09</option>
-               <option value="11">10</option>
-               <option value="12">11</option>
-               <option value="13">12</option>
-               <option value="14">13</option>
-               <option value="15">14</option>
-               <option value="16">15</option>
-               <option value="17">16</option>
-               <option value="18">17</option>
-               <option value="19">18</option>
-               <option value="20">19</option>
-               <option value="21">20</option>
-               <option value="22">21</option>
-               <option value="23">22</option>
-               <option value="24">23</option>
-             </select>
-             <label className="my-1 mr-2" for="inlineFormCustomSelectPref" style={textColor}>:</label>
-             <select className="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
-               <option>Choose...</option>
-               <option value="1">00</option>
-               <option value="2">30</option>
-             </select>
-             <label className="my-1 mr-2" for="inlineFormCustomSelectPref" style={textColor}>{language[LanguageStore.lang].searchRecForm.To}</label>
-             <select className="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
-               <option>Choose...</option>
-               <option value="1">00</option>
-               <option value="2">01</option>
-               <option value="3">02</option>
-               <option value="4">03</option>
-               <option value="5">04</option>
-               <option value="6">05</option>
-               <option value="7">06</option>
-               <option value="8">07</option>
-               <option value="9">08</option>
-               <option value="10">09</option>
-               <option value="11">10</option>
-               <option value="12">11</option>
-               <option value="13">12</option>
-               <option value="14">13</option>
-               <option value="15">14</option>
-               <option value="16">15</option>
-               <option value="17">16</option>
-               <option value="18">17</option>
-               <option value="19">18</option>
-               <option value="20">19</option>
-               <option value="21">20</option>
-               <option value="22">21</option>
-               <option value="23">22</option>
-               <option value="24">23</option>
-             </select>
-             <label className="my-1 mr-2" for="inlineFormCustomSelectPref" style={textColor}>:</label>
-             <select className="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
-               <option>Choose...</option>
-               <option value="1">00</option>
-               <option value="2">30</option>
-             </select>
-           </form>
-
-         <hr className="my-4" color="white"/>
-         <Title_2>{language[LanguageStore.lang].searchRecForm.Amenity} :</Title_2>
-           <div className="form-row">
-
-             <div className="col-sm-4">
-               <div className="form-check">
-                 <input className="form-check-input" type="checkbox" value="" id="defaultCheck1"/>
-                 <label className="form-check-label" for="defaultCheck1" style={textColor}>
-                   {language[LanguageStore.lang].searchRecForm.Amenities.TeacherComputer}
-                 </label><br/>
-                 <input className="form-check-input" type="checkbox" value="" id="defaultCheck1"/>
-                 <label className="form-check-label" for="defaultCheck1" style={textColor}>
-                   {language[LanguageStore.lang].searchRecForm.Amenities.StudentComputer}
-                 </label>
-               </div>
-             </div>
-
-             <div className="col-sm-4">
-               <div className="form-check">
-                 <input className="form-check-input" type="checkbox" value="" id="defaultCheck1"/>
-                 <label className="form-check-label" for="defaultCheck1" style={textColor}>
-                   {language[LanguageStore.lang].searchRecForm.Amenities.AirConditioner}
-                 </label><br/>
-                 <input className="form-check-input" type="checkbox" value="" id="defaultCheck1"/>
-                 <label className="form-check-label" for="defaultCheck1" style={textColor}>
-                   {language[LanguageStore.lang].searchRecForm.Amenities.Projector}
-                 </label>
-               </div>
-             </div>
-
-             <div className="col-sm-4">
-               <div className="form-check">
-                 <input className="form-check-input" type="checkbox" value="" id="defaultCheck1"/>
-                 <label className="form-check-label" for="defaultCheck1" style={textColor}>
-                   {language[LanguageStore.lang].searchRecForm.Amenities.WhiteBoard}
-                 </label><br/>
-                 <input className="form-check-input" type="checkbox" value="" id="defaultCheck1"/>
-                 <label className="form-check-label" for="defaultCheck1" style={textColor}>
-                   {language[LanguageStore.lang].searchRecForm.Amenities.Visualizer}
-                 </label>
-               </div>
-             </div>
-
-           </div>
-         </div>
-
-
+            <hr className="my-4" color="white"/>
+            <SubHeading>{language[LanguageStore.lang].searchRecForm.Time} :</SubHeading>
+            <div className="row">
+              <div className="col-md-1 col-sm-12">
+                <NormalText>{language[LanguageStore.lang].searchRecForm.From}</NormalText>
+              </div>
+              <div className="col-md-2 col-sm-12">
+                <select name="fromhr" type="number" className="custom-select" id="fromhr"
+                  value={RoomStore.schedule.fromhr} onChange={e => RoomStore.setSchedule('fromhr', e.target.value)}>
+                  <option value="" disabled defaultValue>Choose...</option>
+                  <option value="00">00</option>
+                  <option value="01">01</option>
+                  <option value="02">02</option>
+                  <option value="03">03</option>
+                  <option value="04">04</option>
+                  <option value="05">05</option>
+                  <option value="06">06</option>
+                  <option value="07">07</option>
+                  <option value="08">08</option>
+                  <option value="09">09</option>
+                  <option value="10">10</option>
+                  <option value="11">11</option>
+                  <option value="12">12</option>
+                  <option value="13">13</option>
+                  <option value="14">14</option>
+                  <option value="15">15</option>
+                  <option value="16">16</option>
+                  <option value="17">17</option>
+                  <option value="18">18</option>
+                  <option value="19">19</option>
+                  <option value="20">20</option>
+                  <option value="21">21</option>
+                  <option value="22">22</option>
+                  <option value="23">23</option>
+                </select>
+              </div>
+              <div className="col-md-1 col-sm-12">
+                <NormalText> : </NormalText>
+              </div>
+              <div className="col-md-2 col-sm-12">
+                <select name="frommin" type="number" className="custom-select" id="frommin"
+                  value={RoomStore.schedule.frommin} onChange={e => RoomStore.setSchedule('frommin', e.target.value)}>
+                  <option value="" disabled defaultValue>Choose...</option>
+                  <option value="00">00</option>
+                  <option value="30">30</option>
+                </select>
+              </div>
+              <div className="col-md-1 col-sm-12">
+                <NormalText>{language[LanguageStore.lang].searchRecForm.To}</NormalText>
+              </div>
+              <div className="col-md-2 col-sm-12">
+                <select name="tohr" type="number" className="custom-select" id="tohr"
+                  value={RoomStore.schedule.tohr} onChange={e => RoomStore.setSchedule('tohr', e.target.value)}>
+                  <option value="" disabled defaultValue>Choose...</option>
+                  <option value="00">00</option>
+                  <option value="01">01</option>
+                  <option value="02">02</option>
+                  <option value="03">03</option>
+                  <option value="04">04</option>
+                  <option value="05">05</option>
+                  <option value="06">06</option>
+                  <option value="07">07</option>
+                  <option value="08">08</option>
+                  <option value="09">09</option>
+                  <option value="10">10</option>
+                  <option value="11">11</option>
+                  <option value="12">12</option>
+                  <option value="13">13</option>
+                  <option value="14">14</option>
+                  <option value="15">15</option>
+                  <option value="16">16</option>
+                  <option value="17">17</option>
+                  <option value="18">18</option>
+                  <option value="19">19</option>
+                  <option value="20">20</option>
+                  <option value="21">21</option>
+                  <option value="22">22</option>
+                  <option value="23">23</option>
+                </select>
+              </div>
+              <div className="col-md-1 col-sm-12">
+                <NormalText> : </NormalText>
+              </div>
+              <div className="col-md-2 col-sm-12">
+                <select name="tomin" type="number" className="custom-select" id="tomin"
+                  value={RoomStore.schedule.tomin} onChange={e => RoomStore.setSchedule('tomin', e.target.value)}>
+                  <option value="" disabled defaultValue>Choose...</option>
+                  <option value="00">00</option>
+                  <option value="30">30</option>
+                </select>
+              </div>
+            </div>
+            <div className="row">
+              <div className="col-md-3 col-sm-12">
+                <NormalText>{language[LanguageStore.lang].searchRecForm.Day}</NormalText>
+              </div>
+              <div className="col-md-3 col-sm-12">
+                <select name="capacity" type="number" className="custom-select" id="capacity"
+                  value={RoomStore.schedule.Day} onChange={e => RoomStore.setSchedule('Day', e.target.value)}>
+                  <option defaultValue>Choose...</option>
+                  <option value="7">Sunday</option>
+                  <option value="1">Monday</option>
+                  <option value="2">Tuesday</option>
+                  <option value="3">Wednesday</option>
+                  <option value="4">Thursday</option>
+                  <option value="5">Friday</option>
+                  <option value="6">Saturday</option>
+                </select>
+              </div>
+            </div>
+            <hr className="my-4" color="white"/>
+            <SubHeading>{language[LanguageStore.lang].searchRecForm.Amenity} :</SubHeading>
+            {language[LanguageStore.lang].searchRecForm.Amenities.TeacherComputer}
+            {language[LanguageStore.lang].searchRecForm.Amenities.StudentComputer}
+            {language[LanguageStore.lang].searchRecForm.Amenities.AirConditioner}
+            {language[LanguageStore.lang].searchRecForm.Amenities.Projector} 
+            {language[LanguageStore.lang].searchRecForm.Amenities.WhiteBoard}
+            {language[LanguageStore.lang].searchRecForm.Amenities.Visualizer}
+          </form>
+        </div>
+      
 
     )
   }

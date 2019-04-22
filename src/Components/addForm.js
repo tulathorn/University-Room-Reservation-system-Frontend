@@ -49,22 +49,23 @@ class AddForm extends React.Component {
   };
 
   reformDatas= () => {
-    this.state.Monday ? this.setState({Monday : '0'}) : this.setState({Monday : '1'})
-    this.state.Tuesday ? this.setState({Tuesday : '0'}) : this.setState({Tuesday : '1'})
-    this.state.Wednesday ? this.state.Wednesday='0' : this.state.Wednesday='1'
-    this.state.Thursday ? this.state.Thursday='0' : this.state.Thursday='1'
-    this.state.Friday ? this.state.Friday='0' : this.state.Friday='1'
-    this.state.Saturday ? this.state.Saturday='0' : this.state.Saturday='1'
-    this.state.Sunday ? this.state.Sunday='0' : this.state.Sunday='1'
-    RoomStore.setValue('ClosingDay', this.state.Monday+this.state.Tuesday+this.state.Wednesday+this.state.Thursday+this.state.Friday+this.state.Saturday+this.state.Sunday)
-    RoomStore.setEquipment('HasTeacherComputers', this.state.HasTeacherComputers ? this.state.HasTeacherComputers=1 : this.state.HasTeacherComputers=0)
-    RoomStore.setEquipment('HasStudentComputers', this.state.HasStudentComputers ? this.state.HasStudentComputers=1 : this.state.HasStudentComputers=0)
-    RoomStore.setEquipment('HasProjector', this.state.HasProjector ? this.state.HasProjector=1 : this.state.HasProjector=0)
-    RoomStore.setEquipment('HasAirConditioner', this.state.HasAirConditioner ? this.state.HasAirConditioner=1 : this.state.HasAirConditioner=0)
-    RoomStore.setEquipment('HasWhiteboard', this.state.HasWhiteboard ? this.state.HasWhiteboard=1 : this.state.HasWhiteboard=0)
-    RoomStore.setEquipment('HasVisualizer', this.state.HasVisualizer ? this.state.HasVisualizer=1 : this.state.HasVisualizer=0)
+    
+    this.state.Monday ? RoomStore.setValue('ClosingDay', RoomStore.roomInfo.ClosingDay+'0') : RoomStore.setValue('ClosingDay', RoomStore.roomInfo.ClosingDay+'1')
+    this.state.Tuesday ? RoomStore.setValue('ClosingDay', RoomStore.roomInfo.ClosingDay+'0') : RoomStore.setValue('ClosingDay', RoomStore.roomInfo.ClosingDay+'1')
+    this.state.Wednesday ? RoomStore.setValue('ClosingDay', RoomStore.roomInfo.ClosingDay+'0') : RoomStore.setValue('ClosingDay', RoomStore.roomInfo.ClosingDay+'1')
+    this.state.Thursday ? RoomStore.setValue('ClosingDay', RoomStore.roomInfo.ClosingDay+'0') : RoomStore.setValue('ClosingDay', RoomStore.roomInfo.ClosingDay+'1')
+    this.state.Friday ? RoomStore.setValue('ClosingDay', RoomStore.roomInfo.ClosingDay+'0') : RoomStore.setValue('ClosingDay', RoomStore.roomInfo.ClosingDay+'1')
+    this.state.Saturday ? RoomStore.setValue('ClosingDay', RoomStore.roomInfo.ClosingDay+'0') : RoomStore.setValue('ClosingDay', RoomStore.roomInfo.ClosingDay+'1')
+    this.state.Sunday ? RoomStore.setValue('ClosingDay', RoomStore.roomInfo.ClosingDay+'0') : RoomStore.setValue('ClosingDay', RoomStore.roomInfo.ClosingDay+'1')
+    this.state.HasTeacherComputers ? RoomStore.setEquipment('HasTeacherComputers', 1) : RoomStore.setEquipment('HasTeacherComputers', 0)
+    this.state.HasStudentComputers ? RoomStore.setEquipment('HasStudentComputers', 1) : RoomStore.setEquipment('HasStudentComputers', 0)
+    this.state.HasProjector ? RoomStore.setEquipment('HasProjector', 1) : RoomStore.setEquipment('HasProjector', 0)
+    this.state.HasAirConditioner ? RoomStore.setEquipment('HasAirConditioner', 1) : RoomStore.setEquipment('HasAirConditioner', 0)
+    this.state.HasWhiteboard ? RoomStore.setEquipment('HasWhiteboard', 1) : RoomStore.setEquipment('HasWhiteboard', 0)
+    this.state.HasVisualizer ? RoomStore.setEquipment('HasVisualizer', 1) : RoomStore.setEquipment('HasVisualizer', 0)
     RoomStore.setValue('OpenTime', this.state.fromhr+':'+this.state.frommin)
     RoomStore.setValue('CloseTime', this.state.tohr+':'+this.state.tomin)
+    console.log(RoomStore.roomInfo)
   }
 
   onSubmit = e => {
@@ -260,7 +261,7 @@ class AddForm extends React.Component {
                   </div>
                 </div>
               {language[LanguageStore.lang].addForm.Amenity}
-                <div class="form-check">
+                <div className="form-check">
                   <div className="row">
                     <div className="col-md-6 col-sm-12">
                       <input name="teachercom" type="checkbox" className="form-check-input" id="teachercom"
