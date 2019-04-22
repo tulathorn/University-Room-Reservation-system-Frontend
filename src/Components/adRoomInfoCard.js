@@ -75,13 +75,13 @@ class AdRoomInfoCard extends React.Component {
                   <p>{language[LanguageStore.lang].adRoomInfo.RoomName} : {this.props.room.RoomName}</p>
                   <p>{language[LanguageStore.lang].adRoomInfo.OperatingDay} : {/*this.props.room.ClosingDay*/}
                     
-                    {this.props.room.ClosingDay[0].localeCompare('1')}
-                    {this.props.room.ClosingDay[1].localeCompare('1')}
-                    {this.props.room.ClosingDay[2].localeCompare('1')}
-                    {this.props.room.ClosingDay[3].localeCompare('1')}
-                    {this.props.room.ClosingDay[4].localeCompare('1')}
-                    {this.props.room.ClosingDay[5].localeCompare('1')}
-                    {this.props.room.ClosingDay[6].localeCompare('1')}
+                    {this.props.room.ClosingDay[0].localeCompare('1') ? 1 : 0}
+                    {this.props.room.ClosingDay[1].localeCompare('1') ? 1 : 0}
+                    {this.props.room.ClosingDay[2].localeCompare('1') ? 1 : 0}
+                    {this.props.room.ClosingDay[3].localeCompare('1') ? 1 : 0}
+                    {this.props.room.ClosingDay[4].localeCompare('1') ? 1 : 0}
+                    {this.props.room.ClosingDay[5].localeCompare('1') ? 1 : 0}
+                    {this.props.room.ClosingDay[6].localeCompare('1') ? 1 : 0}
                     </p>
                   <p>{language[LanguageStore.lang].adRoomInfo.OperatingTime} : {this.props.room.OpenTime} - {this.props.room.CloseTime}</p>
                 </div>
