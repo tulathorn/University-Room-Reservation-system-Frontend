@@ -67,7 +67,7 @@ class BookingForm extends React.Component {
               value={localStorage.getItem('token')} readonly disabled/>
             {language[LanguageStore.lang].bookingForm.Purpose}
               <textarea name="purpose" type="text" className="form-control" id="purpose" rows="5" placeholder="Identify your purpose for booking this room..."
-              value={localStorage.getItem('token')} readonly disabled/>
+              value="x"/>
             <br/>
             <div className="row">
               <div className="col-md-2 col-sm-5">
