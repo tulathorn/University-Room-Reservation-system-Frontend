@@ -23,6 +23,11 @@ class ContactStore {
     }
 
     @action
+    GetContact = async () => {
+        this.contact = await axios.get('./contact', this.message).then(resp => resp.data)
+    }
+
+    @action
     resetContactForm = () => {
         this.message = {}
     }

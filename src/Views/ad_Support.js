@@ -19,8 +19,8 @@ const Title = styled.h1`
 @observer
 class AdSupportView extends Component {
   componentDidMount() {
-    RoomStore.resetFilterForm()
-    RoomStore.fetchData()
+    ContactStore.resetContactForm()
+    ContactStore.GetContact()
   }
 
   render() {
