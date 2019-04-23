@@ -14,34 +14,12 @@ class ReservationStore {
         this.reservedDatas = await axios.get('./reservations', this.config).then(resp => resp.data)
     }
 
-    // @observable
-    // message = {}
-
-    // @observable
-    // contact = []
-
-    // @action
-    // setContact = (field, value) => {
-    //     this.message[field] = value
-    // }
-
-    // @action
-    // addContact = async () => {
-    //   this.contact = await axios.post('./contact', this.message).then(resp => resp.data)
-    //   console.log(this.contact)
-    //   console.log('yes!')
-    //   this.resetContactForm()
-    // }
-
-    // @action
-    // GetContact = async () => {
-    //     this.contact = await axios.get('./contact', this.message).then(resp => resp.data)
-    // }
-
-    // @action
-    // resetContactForm = () => {
-    //     this.message = {}
-    // }
+    @action
+    setConfig = () => {
+        //this.config = {'UserInfo' : {'UsernameID' : localStorage.getItem('username')}}
+        //อยากให้มัน หาด้วย username ที่เราได้มาจากตอนที่ user login อะ แต่ไม่รู้ทำไมมันไม่ยอม
+    }
+    
 }
 
 export default new ReservationStore()

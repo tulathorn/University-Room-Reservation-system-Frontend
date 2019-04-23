@@ -15,7 +15,7 @@ class RoomStore {
   @observable //Get Rooms from database
   roomDatas = []
 
-  @observable //Use to search for room
+  @observable //Use for most pages
   searchConfig = {}
   
   @observable //Store time that user prefer to book
@@ -53,7 +53,12 @@ class RoomStore {
   @action
   fetchData = async () => {
     this.roomDatas = await axios.get('./rooms', this.searchConfig).then(resp => resp.data)
- 
+  }
+
+  @action
+  fetchRoomData = async () => {
+    this.roomDatas = await axios.get('./rooms', this.roomInfo).then(resp => resp.data)
+    console.log(this.roomDatas)
   }
 
   @action
@@ -74,17 +79,22 @@ class RoomStore {
   
 
   @action
-  deleteData = async data => {
-    await axios.delete('./rooms', data).then(resp => resp.data)
+  deleteData = async () => {
+    await axios.delete('./rooms', this.searchConfig).then(resp => resp.data)
   }
 
 
   /////////////////////////////////////////////////////////////////////////////////////////////////////////
-
+  @action
+  copyValue = (value) => {
+    this.roomInfo = value
+    console.log(this.roomInfo)
+  }
 
   @action
   setValue = (field, value) => {
     this.roomInfo[field] = value
+    console.log(this.roomInfo[field])
   }
   @action
   setEquipment = (field, value) => {
@@ -115,6 +125,7 @@ class RoomStore {
   @action
   deleteData = async () => {
     await axios.delete('./rooms', this.roomInfo).then(resp => resp.data)
+    console.log('ลบห้องสำเร็จ!')
   }
   
   @action

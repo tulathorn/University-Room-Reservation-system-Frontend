@@ -3,73 +3,81 @@ import '../Styles/bootstrap/bootstrap.min.css'
 import Swal from 'sweetalert2'
 import LanguageStore from '../stores/LanguageStore'
 import language from '../languages.json'
+import RoomStore from '../stores/RoomStore'
+
 
 class EditForm extends React.Component {
 
+  componentDidMount() {
+    RoomStore.resetAddForm()
+    RoomStore.copyValue(this.props.room)
+    
+  }
+
+  
   constructor(props) {
     super(props);
+
     this.state = {
-      roomid: '',
-      capacity: '',
-      building: '',
-      floor: '',
-      number: '',
-      day: {
-        monday: '',
-        tuesday: '',
-        wednesday: '',
-        thursday: '',
-        friday: '',
-        saturday: '',
-        sunday: ''},
+      
+      HasTeacherComputers: true,
+      HasStudentComputers: true,
+      HasProjector: true,
+      HasAirConditioner: true,
+      HasWhiteboard: true,
+      HasVisualizer: true,
+      Monday: true,
+      Tuesday: true,
+      Wednesday: true,
+      Thursday: true,
+      Friday: true,
+      Saturday: true,
+      Sunday: true,
       fromhr: '',
       frommin: '',
       tohr: '',
-      tomin: '',
-      amenity:{
-        teachercom: '',
-        studentcom: '',
-        aircon: '',
-        projector: '',
-        whiteboard: '',
-        visualizer: ''}
-      };
-
+      tomin: ''};
     this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
+
+  }
+  handleChange(field,value) {
+    this.setState(state => ({ [field]: value }));
   }
 
-  handleChange(event) {
-    this.setState({[event.target.name]: event.target.value});
-  }
-
-  handleSubmit(event) {
-    alert('RoomID : ' + this.state.roomid + '\nCapacity : ' + this.state.capacity + '\nBuilding : ' + this.state.building +
-    '\nFloor : ' + this.state.floor + '\nNumber : ' + this.state.number + '\nOperate Day : ' + this.state.day.monday + this.state.day.tuesday
-    + this.state.day.wednesday + this.state.day.thursday + this.state.day.friday + this.state.day.saturday + this.state.day.sunday +
-    '\nTime : ' + this.state.fromhr + '.' + this.state.frommin + ' - ' + this.state.tohr + '.' + this.state.tomin + 
-    '\nAmenity : ' + this.state.amenity.teachercom + this.state.amenity.studentcom + this.state.amenity.aircon + 
-    this.state.amenity.projector + this.state.amenity.whiteboard + this.state.amenity.visualizer);
+  toggleCheck = (field) => {
+    this.setState(state => ({ [field]: !state[field] }));
+  };
+  
+  reformDatas= () => {
     
-    event.preventDefault();
+    this.state.Monday ? RoomStore.setValue('ClosingDay', RoomStore.roomInfo.ClosingDay+'0') : RoomStore.setValue('ClosingDay', RoomStore.roomInfo.ClosingDay+'1')
+    this.state.Tuesday ? RoomStore.setValue('ClosingDay', RoomStore.roomInfo.ClosingDay+'0') : RoomStore.setValue('ClosingDay', RoomStore.roomInfo.ClosingDay+'1')
+    this.state.Wednesday ? RoomStore.setValue('ClosingDay', RoomStore.roomInfo.ClosingDay+'0') : RoomStore.setValue('ClosingDay', RoomStore.roomInfo.ClosingDay+'1')
+    this.state.Thursday ? RoomStore.setValue('ClosingDay', RoomStore.roomInfo.ClosingDay+'0') : RoomStore.setValue('ClosingDay', RoomStore.roomInfo.ClosingDay+'1')
+    this.state.Friday ? RoomStore.setValue('ClosingDay', RoomStore.roomInfo.ClosingDay+'0') : RoomStore.setValue('ClosingDay', RoomStore.roomInfo.ClosingDay+'1')
+    this.state.Saturday ? RoomStore.setValue('ClosingDay', RoomStore.roomInfo.ClosingDay+'0') : RoomStore.setValue('ClosingDay', RoomStore.roomInfo.ClosingDay+'1')
+    this.state.Sunday ? RoomStore.setValue('ClosingDay', RoomStore.roomInfo.ClosingDay+'0') : RoomStore.setValue('ClosingDay', RoomStore.roomInfo.ClosingDay+'1')
+    this.state.HasTeacherComputers ? RoomStore.setEquipment('HasTeacherComputers', 1) : RoomStore.setEquipment('HasTeacherComputers', 0)
+    this.state.HasStudentComputers ? RoomStore.setEquipment('HasStudentComputers', 1) : RoomStore.setEquipment('HasStudentComputers', 0)
+    this.state.HasProjector ? RoomStore.setEquipment('HasProjector', 1) : RoomStore.setEquipment('HasProjector', 0)
+    this.state.HasAirConditioner ? RoomStore.setEquipment('HasAirConditioner', 1) : RoomStore.setEquipment('HasAirConditioner', 0)
+    this.state.HasWhiteboard ? RoomStore.setEquipment('HasWhiteboard', 1) : RoomStore.setEquipment('HasWhiteboard', 0)
+    this.state.HasVisualizer ? RoomStore.setEquipment('HasVisualizer', 1) : RoomStore.setEquipment('HasVisualizer', 0)
+    RoomStore.setValue('OpenTime', this.state.fromhr+':'+this.state.frommin)
+    RoomStore.setValue('CloseTime', this.state.tohr+':'+this.state.tomin)
+    console.log(RoomStore.roomInfo)
   }
 
-
-
-
-
-
-
-
-
-
-
-
+  onSubmit = e => {
+    e.preventDefault()
+    this.reformDatas()
+    RoomStore.addRoom()
+  }
 	saveClick = () =>{
       Swal.fire({
       position: 'center',
       type: 'success',
-      title: 'This room has been edited',
+      title: 'This room has been updated',
       showConfirmButton: false,
       timer: 1500
     })
@@ -77,38 +85,39 @@ class EditForm extends React.Component {
   render() {
     return (
       <div className="card">
-        <div className="card-body">
-          <form onSubmit={this.handleSubmit}>
+          <div className="card-body">
+          
+          
+          <form action="#" onSubmit={e => this.onSubmit(e)}>
             <div className="row">
               <div className="col-md-6 col-sm-12">
               {language[LanguageStore.lang].editForm.RoomID}
                 <input name="roomid" type="text" className="form-control" id="roomid" placeholder="Room ID"
-                value={this.state.roomid} onChange={this.handleChange}/>
-                {/*value={BookingStore.SearchConfig.firstname} */}
+                defaultValue={this.props.room.RoomName} value={RoomStore.roomInfo.RoomName} onChange={e => RoomStore.setValue('RoomName', e.target.value)}/>
               {language[LanguageStore.lang].editForm.RoomPhoto}
                 <input name="photo" type="file" className="form-control-file" id="photo"
-                value={this.state.photo} onChange={this.handleChange}/>
+                value={RoomStore.roomInfo.Picture} onChange={e => RoomStore.setValue('Picture', e.target.value)}/>
               {language[LanguageStore.lang].editForm.PeopleCapacity}
                 <select name="capacity" type="number" className="custom-select" id="capacity"
-                value={this.state.capacity} onChange={this.handleChange}>
+                defaultValue={this.props.room.PeopleCapacity} value={RoomStore.roomInfo.PeopleCapacity} onChange={e => RoomStore.setValue('PeopleCapacity', e.target.value)}>
                 <option>Choose...</option>
-                <option value="1">10</option>
-                <option value="2">20</option>
-                <option value="3">30</option>
-                <option value="4">40</option>
-                <option value="5">50</option>
-                <option value="6">60</option>
-                <option value="7">70</option>
-                <option value="8">80</option>
-                <option value="9">90</option>
-                <option value="10">100</option>
-                <option value="11">120</option>
-                <option value="12">150</option>
-                <option value="13">200</option>
+                <option value="10">10</option>
+                <option value="20">20</option>
+                <option value="30">30</option>
+                <option value="40">40</option>
+                <option value="50">50</option>
+                <option value="60">60</option>
+                <option value="70">70</option>
+                <option value="80">80</option>
+                <option value="90">90</option>
+                <option value="100">100</option>
+                <option value="120">120</option>
+                <option value="150">150</option>
+                <option value="200">200</option>
                 </select>
               {language[LanguageStore.lang].editForm.Building}
                 <select name="building" type="text" className="custom-select" id="building"
-                value={this.state.building} onChange={this.handleChange}>
+                defaultValue={this.props.room.Building} value={RoomStore.roomInfo.Building} onChange={e => RoomStore.setValue('Building', e.target.value)}>
                 <option>Choose...</option>
                 <option value="Witsawa Watthana">Witsawa Watthana</option>
                 <option value="CB1">CB1</option>
@@ -119,10 +128,10 @@ class EditForm extends React.Component {
                 </select>
               {language[LanguageStore.lang].editForm.Floor}
                 <input name="floor" type="number" className="form-control" id="floor" placeholder="Floor"
-                value={this.state.floor} onChange={this.handleChange}/>
+                defaultValue={this.props.room.Floor} value={RoomStore.roomInfo.Floor} onChange={e => RoomStore.setValue('Floor', e.target.value)}/>
               {language[LanguageStore.lang].editForm.RoomNumber}
                 <input name="number" type="number" className="form-control" id="number" placeholder="Room Number"
-                value={this.state.number} onChange={this.handleChange}/>
+                defaultValue={this.props.room.RoomNumber} value={RoomStore.roomInfo.RoomNumber} onChange={e => RoomStore.setValue('RoomNumber', e.target.value)}/>
               </div>
               <div className="col-md-6 col-sm-12">
               {language[LanguageStore.lang].editForm.OperatingDay}
@@ -130,50 +139,50 @@ class EditForm extends React.Component {
                   <div className="row">
                     <div className="col-md-6 col-sm-12">
                       <input name="monday" type="checkbox" className="form-check-input" id="monday"
-                      value={this.state.day.monday} onChange={this.handleChange}/>
-                      <label className="form-check-label" for="monday">{language[LanguageStore.lang].editForm.Day.Monday}</label><br/>
+                      value={this.state.Monday} onClick={() => this.toggleCheck('Monday')} defaultChecked/>
+                      <label className="form-check-label" for="monday">{language[LanguageStore.lang].addForm.Day.Monday}</label><br/>
                       <input name="tuesday" type="checkbox" className="form-check-input" id="tuesday"
-                      value={this.state.day.tuesday} onChange={this.handleChange}/>
-                      <label className="form-check-label" for="tuesday">{language[LanguageStore.lang].editForm.Day.Tuesday}</label><br/>
+                      alue={this.state.Tuesday} onClick={() => this.toggleCheck('Tuesday')} defaultChecked/>
+                      <label className="form-check-label" for="tuesday">{language[LanguageStore.lang].addForm.Day.Tuesday}</label><br/>
                       <input name="wednesday" type="checkbox" className="form-check-input" id="wednesday"
-                      value={this.state.day.wednesday} onChange={this.handleChange}/>
-                      <label className="form-check-label" for="wednesday">{language[LanguageStore.lang].editForm.Day.Wednesday}</label><br/>
+                      value={this.state.Wednesday} onClick={() => this.toggleCheck('Wednesday')} defaultChecked/>
+                      <label className="form-check-label" for="wednesday">{language[LanguageStore.lang].addForm.Day.Wednesday}</label><br/>
                       <input name="thursday" type="checkbox" className="form-check-input" id="thursday"
-                      value={this.state.day.thursday} onChange={this.handleChange}/>
-                      <label className="form-check-label" for="thursday">{language[LanguageStore.lang].editForm.Day.Thursday}</label><br/>
+                      value={this.state.Thursday} onClick={() => this.toggleCheck('Thursday')} defaultChecked/>
+                      <label className="form-check-label" for="thursday">{language[LanguageStore.lang].addForm.Day.Thursday}</label><br/>
                     </div>
                     <div className="col-md-6 col-sm-12">
                       <input name="friday" type="checkbox" className="form-check-input" id="friday"
-                      value={this.state.day.friday} onChange={this.handleChange}/>
-                      <label className="form-check-label" for="friday">{language[LanguageStore.lang].editForm.Day.Friday}</label><br/>
+                      value={this.state.Friday} onClick={() => this.toggleCheck('Friday')} defaultChecked/>
+                      <label className="form-check-label" for="friday">{language[LanguageStore.lang].addForm.Day.Friday}</label><br/>
                       <input name="saturday" type="checkbox" className="form-check-input" id="saturday"
-                      value={this.state.day.saturday} onChange={this.handleChange}/>
-                      <label className="form-check-label" for="saturday">{language[LanguageStore.lang].editForm.Day.Saturday}</label><br/>
+                      value={this.state.Saturday} onClick={() => this.toggleCheck('Saturday')} defaultChecked/>
+                      <label className="form-check-label" for="saturday">{language[LanguageStore.lang].addForm.Day.Saturday}</label><br/>
                       <input name="sunday" type="checkbox" className="form-check-input" id="sunday"
-                      value={this.state.day.sunday} onChange={this.handleChange}/>
-                      <label className="form-check-label" for="sunday">{language[LanguageStore.lang].editForm.Day.Sunday}</label><br/>
+                      value={this.state.Sunday} onClick={() => this.toggleCheck('Sunday')} defaultChecked/>
+                      <label className="form-check-label" for="sunday">{language[LanguageStore.lang].addForm.Day.Sunday}</label><br/>
                     </div>
                   </div>
                 </div>
               {language[LanguageStore.lang].editForm.OperatingTime}
                 <div className="row">
-                  <div className="col-md-2 col-sm-12">
+                  <div className="col-md-3 col-sm-12">
                   {language[LanguageStore.lang].editForm.From}
                   </div>
                   <div className="col-md-4 col-sm-12">
                     <select name="fromhr" type="number" className="custom-select" id="fromhr"
-                    value={this.state.fromhr} onChange={this.handleChange}>
+                    value={this.state.fromhr} onChange={e => this.handleChange('fromhr',e.target.value)}>
                     <option>Choose...</option>
-                    <option value="0">00</option>
-                    <option value="1">01</option>
-                    <option value="2">02</option>
-                    <option value="3">03</option>
-                    <option value="4">04</option>
-                    <option value="5">05</option>
-                    <option value="6">06</option>
-                    <option value="7">07</option>
-                    <option value="8">08</option>
-                    <option value="9">09</option>
+                    <option value="00">00</option>
+                    <option value="01">01</option>
+                    <option value="02">02</option>
+                    <option value="03">03</option>
+                    <option value="04">04</option>
+                    <option value="05">05</option>
+                    <option value="06">06</option>
+                    <option value="07">07</option>
+                    <option value="08">08</option>
+                    <option value="09">09</option>
                     <option value="10">10</option>
                     <option value="11">11</option>
                     <option value="12">12</option>
@@ -195,7 +204,7 @@ class EditForm extends React.Component {
                   </div>
                   <div className="col-md-4 col-sm-12">
                     <select name="frommin" type="number" className="custom-select" id="frommin"
-                    value={this.state.frommin} onChange={this.handleChange}>
+                    value={this.state.frommin} onChange={e => this.handleChange('frommin',e.target.value)}>
                     <option>Choose...</option>
                     <option value="00">00</option>
                     <option value="30">30</option>
@@ -203,23 +212,23 @@ class EditForm extends React.Component {
                   </div>
                 </div>
                 <div className="row">
-                  <div className="col-md-2 col-sm-12">
+                  <div className="col-md-3 col-sm-12">
                     {language[LanguageStore.lang].editForm.To}
                   </div>
                   <div className="col-md-4 col-sm-12">
                     <select name="tohr" type="number" className="custom-select" id="tohr"
-                    value={this.state.tohr} onChange={this.handleChange}>
+                    value={this.state.tohr} onChange={e => this.handleChange('tohr',e.target.value)}>
                     <option>Choose...</option>
-                    <option value="0">00</option>
-                    <option value="1">01</option>
-                    <option value="2">02</option>
-                    <option value="3">03</option>
-                    <option value="4">04</option>
-                    <option value="5">05</option>
-                    <option value="6">06</option>
-                    <option value="7">07</option>
-                    <option value="8">08</option>
-                    <option value="9">09</option>
+                    <option value="00">00</option>
+                    <option value="01">01</option>
+                    <option value="02">02</option>
+                    <option value="03">03</option>
+                    <option value="04">04</option>
+                    <option value="05">05</option>
+                    <option value="06">06</option>
+                    <option value="07">07</option>
+                    <option value="08">08</option>
+                    <option value="09">09</option>
                     <option value="10">10</option>
                     <option value="11">11</option>
                     <option value="12">12</option>
@@ -241,7 +250,7 @@ class EditForm extends React.Component {
                   </div>
                   <div className="col-md-4 col-sm-12">
                     <select name="tomin" type="number" className="custom-select" id="tomin"
-                    value={this.state.tomin} onChange={this.handleChange}>
+                    value={this.state.tomin} onChange={e => this.handleChange('tomin',e.target.value)}>
                     <option>Choose...</option>
                     <option value="00">00</option>
                     <option value="30">30</option>
@@ -249,42 +258,42 @@ class EditForm extends React.Component {
                   </div>
                 </div>
               {language[LanguageStore.lang].editForm.Amenity}
-                <div class="form-check">
+                <div className="form-check">
                   <div className="row">
                     <div className="col-md-6 col-sm-12">
                       <input name="teachercom" type="checkbox" className="form-check-input" id="teachercom"
-                      value={this.state.amenity.teachercom} onChange={this.handleChange}/>
-                      <label className="form-check-label" for="teachercom">{language[LanguageStore.lang].editForm.Amenities.TeacherComputer}</label><br/>
+                      value={this.state.HasTeacherComputers} onClick={() => this.toggleCheck('HasTeacherComputers')} defaultChecked/>
+                      <label className="form-check-label" for="teachercom">{language[LanguageStore.lang].addForm.Amenities.TeacherComputer}</label><br/>
                       <input name="studentcom" type="checkbox" className="form-check-input" id="studentcom"
-                      value={this.state.amenity.studentcom} onChange={this.handleChange}/>
-                      <label className="form-check-label" for="studentcom">{language[LanguageStore.lang].editForm.Amenities.StudentComputer}</label><br/>
+                      value={this.state.HasStudentComputers} onClick={() => this.toggleCheck('HasStudentComputers')} defaultChecked/>
+                      <label className="form-check-label" for="studentcom">{language[LanguageStore.lang].addForm.Amenities.StudentComputer}</label><br/>
                       <input name="aircon" type="checkbox" className="form-check-input" id="aircon"
-                      value={this.state.amenity.aircon} onChange={this.handleChange}/>
-                      <label className="form-check-label" for="aircon">{language[LanguageStore.lang].editForm.Amenities.AirConditioner}</label><br/>
+                      value={this.state.HasAirConditioner} onClick={() => this.toggleCheck('HasAirConditioner')} defaultChecked/>
+                      <label className="form-check-label" for="aircon">{language[LanguageStore.lang].addForm.Amenities.AirConditioner}</label><br/>
                     </div>
                     <div className="col-md-6 col-sm-12">
                       <input name="projector" type="checkbox" className="form-check-input" id="projector"
-                      value={this.state.amenity.projector} onChange={this.handleChange}/>
-                      <label className="form-check-label" for="projector">{language[LanguageStore.lang].editForm.Amenities.Projector}</label><br/>
+                      value={this.state.HasProjector} onClick={() => this.toggleCheck('HasProjector')} defaultChecked/>
+                      <label className="form-check-label" for="projector">{language[LanguageStore.lang].addForm.Amenities.Projector}</label><br/>
                       <input name="whiteboard" type="checkbox" className="form-check-input" id="whiteboard"
-                      value={this.state.amenity.whiteboard} onChange={this.handleChange}/>
-                      <label className="form-check-label" for="whiteboard">{language[LanguageStore.lang].editForm.Amenities.WhiteBoard}</label><br/>
+                      value={this.state.HasWhiteboard} onClick={() => this.toggleCheck('HasWhiteboard')} defaultChecked/>
+                      <label className="form-check-label" for="whiteboard">{language[LanguageStore.lang].addForm.Amenities.WhiteBoard}</label><br/>
                       <input name="visualizer" type="checkbox" className="form-check-input" id="visualizer"
-                      value={this.state.amenity.visualizer} onChange={this.handleChange}/>
-                      <label className="form-check-label" for="visualizer">{language[LanguageStore.lang].editForm.Amenities.Visualizer}</label><br/>
+                      value={this.state.HasVisualizer} onClick={() => this.toggleCheck('HasVisualizer')} defaultChecked/>
+                      <label className="form-check-label" for="visualizer">{language[LanguageStore.lang].addForm.Amenities.Visualizer}</label><br/>
                     </div>
                   </div>
                 </div>
-
               </div>
             </div>
               <br/><center>
               <button onClick={() => this.addClick()} type="submit" value="Submit" className="btn btn-info">
                 {language[LanguageStore.lang].editForm.Submit}
               </button> </center>
-          </form>
+            </form>
+          </div>
         </div>
-      </div>
+
     )
   }
 }

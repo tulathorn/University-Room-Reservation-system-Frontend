@@ -42,18 +42,18 @@ class AdCurHistoryRoomCard extends React.Component {
             <center><img src={require("../Pictures/testclassroom.jpg")} height="150" alt=""/></center>
           </div>
           <div className="col-md-5  col-sm-12">
-            <h4>CPE1121</h4>
+            <h4>{this.props.data.RoomInformation.RoomName}</h4>
             <div className="row">
               <p><b>{language[LanguageStore.lang].adCurHisCard.Purpose} : </b></p>
-              <p>Tutor Camp</p>
+              <p>{this.props.data.Purpose}</p>
             </div>
             <div className="row">
               <p><b>{language[LanguageStore.lang].adCurHisCard.Date} : </b></p>
-              <p>Friday 9 November 2018</p>
+              <p>{this.props.data.Date}</p>
             </div>
             <div className="row">
               <p><b>{language[LanguageStore.lang].adCurHisCard.Schedule} : </b></p>
-              <p>{language[LanguageStore.lang].adCurHisCard.From} 12:00 {language[LanguageStore.lang].adCurHisCard.To} 17:00</p>
+              <p>{language[LanguageStore.lang].adCurHisCard.From} {this.props.data.StartTime} {language[LanguageStore.lang].adCurHisCard.To} {this.props.data.EndTime}</p>
             </div>
           </div>
           <div className="col-md-3 col-sm-12">

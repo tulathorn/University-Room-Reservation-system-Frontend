@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import AdNavbar from '../Components/ad_Navbar'
 import RoomStore from '../stores/RoomStore'
-import Swal from 'sweetalert2'
+
 import { observer } from 'mobx-react'
 
 import AdRoomInfoCard from '../Components/adRoomInfoCard';
@@ -15,28 +15,7 @@ class AdRoomInfoView extends Component {
     console.log(RoomStore.roomDatas)
   }
 
-  deleteClick = () =>{
-    Swal.fire({
-      title: 'Are you sure?',
-      text: "You want to delete this room?",
-      type: 'warning',
-      focusCancel: true,
-      showCancelButton: true,
-      confirmButtonColor: '#17a2b8',
-      cancelButtonColor: '#dc3545',
-      confirmButtonText: 'Yes, delete it!',
-    }).then((result) => {
-      if (result.value) {
-        Swal.fire({
-          position: 'center',
-          type: 'success',
-          title: 'Your room has been deleted',
-          showConfirmButton: false,
-          timer: 1500
-        })
-      }
-    })
-  }
+  
   render() {
     return (
       <div>

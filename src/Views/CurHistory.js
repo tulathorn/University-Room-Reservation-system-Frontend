@@ -5,9 +5,17 @@ import CurHistoryRoomCard from '../Components/curHisRoomCard'
 import LanguageStore from '../stores/LanguageStore'
 import language from '../languages.json'
 
+import { observer } from 'mobx-react'
+import ReservationStore from '../stores/ReservationStore'
 
-
+@observer
 class CurHistoryView extends Component {
+  componentDidMount() {
+    ReservationStore.setConfig()
+    //Function setConfig มันใช้ได้นะ กับjson ชั้นแรกอะ แต่พอมันเข้าไปลึกๆแล้วมันไม่ยอมให้หา
+    ReservationStore.GetReservation()
+  }
+
   render() {
     return (
       <div>
@@ -24,7 +32,9 @@ class CurHistoryView extends Component {
           </div>
           <br/>
           <br/>
-          <CurHistoryRoomCard />
+          {ReservationStore.reservedDatas.map(reserved => {
+            return <CurHistoryRoomCard data={reserved} />
+          })}
         </div>
       </div>
     )

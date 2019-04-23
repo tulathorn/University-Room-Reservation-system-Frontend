@@ -20,20 +20,20 @@ class AdPreHistoryRoomCard extends React.Component {
           <div className="col-md-5 col-sm-12">
             <div className="row">
               <p>
-                <b>CPE1121</b>
+                <b>{this.props.data.RoomInformation.RoomName}</b>
               </p>
             </div>
             <div className="row">
               <p><b>{language[LanguageStore.lang].adPreHisCard.Purpose}: </b></p>
-              <p>Tutor Camp</p>
+              <p>{this.props.data.Purpose}</p>
             </div>
             <div className="row">
               <p><b>{language[LanguageStore.lang].adPreHisCard.Date} : </b></p>
-							<p>Friday 9 November 2018</p>
+							<p>{this.props.data.Date}</p>
             </div>
             <div className="row">
               <p><b>{language[LanguageStore.lang].adPreHisCard.Schedule} : </b></p>
-							<p>{language[LanguageStore.lang].adPreHisCard.From} 12:00 {language[LanguageStore.lang].adPreHisCard.To} 17:00</p>
+							<p>{language[LanguageStore.lang].adPreHisCard.From} {this.props.data.StartTime} {language[LanguageStore.lang].adPreHisCard.To} {this.props.data.EndTime}</p>
             </div>
 					</div>
 					<div className="col-md-3 col-sm-12">
@@ -43,11 +43,11 @@ class AdPreHistoryRoomCard extends React.Component {
             </div>
             <div class="alert alert-warning" role="alert">
               {language[LanguageStore.lang].adPreHisCard.Cancel}
-            </div>*/}
+            </div>
             
             <div class="alert alert-info" role="alert">
               {language[LanguageStore.lang].adPreHisCard.Completed}
-            </div>
+            </div>*/}
 					</div>
 				</div>
       </div>

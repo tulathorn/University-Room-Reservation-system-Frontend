@@ -6,8 +6,15 @@ import LanguageStore from '../stores/LanguageStore'
 import language from '../languages.json'
 
 
-
+import { observer } from 'mobx-react'
+import ReservationStore from '../stores/ReservationStore'
+@observer
 class AdPreHistoryView extends Component {
+  componentDidMount() {
+    ReservationStore.setConfig()
+    //Function setConfig มันใช้ได้นะ กับjson ชั้นแรกอะ แต่พอมันเข้าไปลึกๆแล้วมันไม่ยอมให้หา
+    ReservationStore.GetReservation()
+  }
   render() {
     return (
       <div>
@@ -24,7 +31,9 @@ class AdPreHistoryView extends Component {
           </div>
           <br/>
           <br/>
-          <AdPreHistoryRoomCard/>
+          {ReservationStore.reservedDatas.map(reserved => {
+            return <AdPreHistoryRoomCard data={reserved} />
+          })}
         </div>
       </div>
     )

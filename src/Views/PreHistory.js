@@ -1,15 +1,16 @@
 import React, { Component } from 'react'
 import Navbar from '../Components/Navbar'
 import PreHistoryRoomCard from '../Components/preHisRoomCard'
-
-import { observer } from 'mobx-react'
 import LanguageStore from '../stores/LanguageStore'
 import language from '../languages.json'
+import { observer } from 'mobx-react'
 import ReservationStore from '../stores/ReservationStore'
 
 @observer
 class PreHistoryView extends Component {
   componentDidMount() {
+    ReservationStore.setConfig()
+    //Function setConfig มันใช้ได้นะ กับjson ชั้นแรกอะ แต่พอมันเข้าไปลึกๆแล้วมันไม่ยอมให้หา
     ReservationStore.GetReservation()
   }
 

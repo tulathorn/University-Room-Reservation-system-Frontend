@@ -2,7 +2,8 @@ import React from 'react'
 import '../Styles/bootstrap/bootstrap.min.css'
 import LanguageStore from '../stores/LanguageStore'
 import language from '../languages.json'
-
+import Swal from 'sweetalert2'
+import RoomStore from '../stores/RoomStore';
 const jumbotronStyle = {
   width: 'auto',
   height: 'auto',
@@ -16,6 +17,41 @@ const jumbotronStyle1 = {
 }
 
 class AdRoomInfoCard extends React.Component {
+  DeleteRoom = () =>{
+    RoomStore.resetFilterForm()
+    RoomStore.setConfig('RoomID',this.props.room.RoomID)
+    console.log(RoomStore.searchConfig)
+    RoomStore.deleteData()
+    //window.location = "/ad_all_list";
+  }
+  EditClick = () =>{
+    localStorage.setItem('RoomID',this.props.room.RoomID)
+    window.location = "/ad_edit_room";
+  }
+
+  deleteClick = () =>{
+    Swal.fire({
+      title: 'Are you sure?',
+      text: "You want to delete this room?",
+      type: 'warning',
+      focusCancel: true,
+      showCancelButton: true,
+      confirmButtonColor: '#17a2b8',
+      cancelButtonColor: '#dc3545',
+      confirmButtonText: 'Yes, delete it!',
+    }).then((result) => {
+      if (result.value) {
+        this.DeleteRoom()
+        Swal.fire({
+          position: 'center',
+          type: 'success',
+          title: 'Your room has been deleted',
+          showConfirmButton: false,
+          timer: 1500
+        })
+      }
+    })
+  }
   render() {
     return (
       <div>
@@ -81,11 +117,11 @@ class AdRoomInfoCard extends React.Component {
           <div className="col-md-5 col-sm-0">
           </div>
           <div className="col-md-1 col-sm-6">
-            <button onClick={() => this.reformData()} type="button" className="btn btn-outline-danger">{language[LanguageStore.lang].adRoomInfo.Delete}</button>
+            <button onClick={() => this.deleteClick()} type="button" className="btn btn-outline-danger">{language[LanguageStore.lang].adRoomInfo.Delete}</button>
           </div>
           <div className="col-md-1 col-sm-6">
+          <button onClick={() => this.EditClick()} type="button" className="btn btn-outline-info">{language[LanguageStore.lang].adRoomInfo.Edit}</button>
             
-            <a href="/ad_edit_room" className="btn btn-outline-info" target="_blank">{language[LanguageStore.lang].adRoomInfo.Edit}</a>
           </div>
           <div className="col-md-5 col-sm-0">
           </div>

@@ -30,20 +30,21 @@ class PreHistoryRoomCard extends React.Component {
           <div className="col-md-5 col-sm-12">
             <div className="row">
               <p>
-                <b>{this.props.data.RoomID}</b>
+                <b>{this.props.data.RoomInformation.RoomName}</b>
+                
               </p>
             </div>
             <div className="row">
               <p><b>{language[LanguageStore.lang].preHisRoomCard.Purpose}: </b></p>
-              <p>Tutor Camp</p>
+              <p>{this.props.data.Purpose}</p>
             </div>
             <div className="row">
               <p><b>{language[LanguageStore.lang].preHisRoomCard.Date} : </b></p>
-							<p>Friday 9 November 2018</p>
+							<p>{this.props.data.Date}</p>
             </div>
             <div className="row">
               <p><b>{language[LanguageStore.lang].preHisRoomCard.Schedule} : </b></p>
-							<p>{language[LanguageStore.lang].preHisRoomCard.From} 12:00 {language[LanguageStore.lang].preHisRoomCard.To} 17:00</p>
+							<p>{language[LanguageStore.lang].preHisRoomCard.From} {this.props.data.StartTime} {language[LanguageStore.lang].preHisRoomCard.To} {this.props.data.EndTime}</p>
             </div>
 					</div>
 					<div className="col-md-3 col-sm-12">
@@ -53,11 +54,11 @@ class PreHistoryRoomCard extends React.Component {
             </div>
             <div class="alert alert-warning" role="alert">
               {language[LanguageStore.lang].preHisRoomCard.Cancel}
-            </div>*/}
+            </div>
             
             <div class="alert alert-info" role="alert">
             {language[LanguageStore.lang].preHisRoomCard.Completed}
-            </div>
+            </div>*/}
 					</div>
 				</div>
       </div>
