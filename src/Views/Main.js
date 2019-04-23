@@ -44,10 +44,7 @@ class MainView extends Component {
           <br />
 
           <ReservationForm />
-          <center>
-            
-            <a href="/search">Go to list page(Temporary)</a>
-          </center>
+          
         </div>
       </AuthenticationGate>
       

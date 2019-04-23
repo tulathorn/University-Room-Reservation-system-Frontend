@@ -65,14 +65,10 @@ class ListView extends Component {
 
             </div>*/}
           </div>
-          {console.log()}
 
           {RoomStore.roomDatas.map(roomv => {
             return <RoomInformationCard room={roomv} />
           })}
-          <center>
-            <a href="/booking">Go to booking page(Temporary)</a>
-          </center>
         </div>
       </div>
 

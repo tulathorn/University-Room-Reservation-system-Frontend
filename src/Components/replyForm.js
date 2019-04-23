@@ -6,6 +6,13 @@ import language from '../languages.json'
 
 
 class ReplyForm extends React.Component {
+  
+  onSubmit = e => {
+    e.preventDefault()
+    //window.open('mailto:honhon015@hotmail.com?subject=Title&body=Hon01Body');
+    this.ReplyClick()
+  }
+  
   ReplyClick = () =>{
     Swal.fire({
       position: 'center',
@@ -18,7 +25,7 @@ class ReplyForm extends React.Component {
   render() {
     return (
       <div>
-        <form action="#" >
+        <form action="#" onSubmit={e => this.onSubmit(e)}>
           <label for="email">{language[LanguageStore.lang].replyForm.Email}</label>
           <input name="email" type="text" className="form-control" id="email" placeholder="name@example.com"
           />

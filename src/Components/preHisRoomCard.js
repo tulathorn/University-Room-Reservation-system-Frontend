@@ -2,6 +2,7 @@ import React from 'react'
 import '../Styles/bootstrap/bootstrap.min.css'
 import LanguageStore from '../stores/LanguageStore'
 import language from '../languages.json'
+import RoomStore from '../stores/RoomStore'
 
 const jumbotronStyle = {
   width: 'auto',
@@ -9,10 +10,19 @@ const jumbotronStyle = {
   backgroundColor: '#203C50'
 }
 
+
+
 class PreHistoryRoomCard extends React.Component {
+  componentDidMount() {
+    RoomStore.resetFilterForm()
+    //RoomStore.setConfig('RoomID',this.props.data.RoomID)
+    RoomStore.fetchData()
+  }
+
   render() {
     return (
 			<div className="jumbotron text-white" style={jumbotronStyle}>
+      
 				<div className="row">
 					<div className="col-md-4 col-sm-12">
 						<center><img src={require("../Pictures/testclassroom.jpg")} height="150" alt=""/></center>
@@ -20,7 +30,7 @@ class PreHistoryRoomCard extends React.Component {
           <div className="col-md-5 col-sm-12">
             <div className="row">
               <p>
-                <b>CPE1121</b>
+                <b>{this.props.data.RoomID}</b>
               </p>
             </div>
             <div className="row">

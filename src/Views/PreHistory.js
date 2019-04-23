@@ -2,11 +2,17 @@ import React, { Component } from 'react'
 import Navbar from '../Components/Navbar'
 import PreHistoryRoomCard from '../Components/preHisRoomCard'
 
+import { observer } from 'mobx-react'
 import LanguageStore from '../stores/LanguageStore'
 import language from '../languages.json'
+import ReservationStore from '../stores/ReservationStore'
 
-
+@observer
 class PreHistoryView extends Component {
+  componentDidMount() {
+    ReservationStore.GetReservation()
+  }
+
   render() {
     return (
       <div>
@@ -23,8 +29,10 @@ class PreHistoryView extends Component {
           </div>
           <br/>
           <br/>
-
-          <PreHistoryRoomCard />
+          {ReservationStore.reservedDatas.map(reserved => {
+            return <PreHistoryRoomCard data={reserved} />
+          })}
+          
 
         </div>
       </div>

@@ -53,6 +53,7 @@ class RoomStore {
   @action
   fetchData = async () => {
     this.roomDatas = await axios.get('./rooms', this.searchConfig).then(resp => resp.data)
+ 
   }
 
   @action
