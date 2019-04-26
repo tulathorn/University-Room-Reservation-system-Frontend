@@ -2,10 +2,8 @@ import React, { Component } from 'react'
 import AdNavbar from '../Components/ad_Navbar'
 import AllListCard from '../Components/allListCard'
 import styled from 'styled-components'
-
 import { observer } from 'mobx-react'
 import RoomStore from '../stores/RoomStore'
-
 import LanguageStore from '../stores/LanguageStore'
 import language from '../languages.json'
 

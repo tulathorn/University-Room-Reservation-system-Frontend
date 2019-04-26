@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import '../Styles/bootstrap/bootstrap.min.css'
 import LoginCard from '../Components/loginForm'
-
 import LanguageStore from '../stores/LanguageStore'
 import language from '../languages.json'
 

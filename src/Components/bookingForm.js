@@ -3,7 +3,7 @@ import '../Styles/bootstrap/bootstrap.min.css'
 import Swal from 'sweetalert2'
 import LanguageStore from '../stores/LanguageStore'
 import language from '../languages.json'
-
+import ReservationStore from '../stores/ReservationStore'
 
 const jumbotronStyle = {
   width: 'auto',
@@ -12,11 +12,24 @@ const jumbotronStyle = {
 }
 
 class BookingForm extends React.Component {
+  componentDidMount() {
+    ReservationStore.cleanBookingConfig()
+  }
+  reformDatas= () => {
+    ReservationStore.setBookingConfig('Date',localStorage.getItem('ScheduleDate'))
+    ReservationStore.setBookingConfig('StartTime',localStorage.getItem('ScheduleFrom'))
+    ReservationStore.setBookingConfig('EndTime',localStorage.getItem('ScheduleTo'))
+    ReservationStore.setBookingConfig('UserID',localStorage.getItem('UserID'))
+    ReservationStore.setBookingConfig('RoomID',localStorage.getItem('RoomID'))
+  }
 
-  
   onSubmit = e => {
     e.preventDefault()
+    this.reformDatas()
+    console.log(ReservationStore.bookingConfig)
+    ReservationStore.addReservation()
     this.bookClick()
+    
   }
 
   bookClick = () =>{
@@ -24,26 +37,25 @@ class BookingForm extends React.Component {
       position: 'center',
       type: 'success',
       title: 'Booking completed',
-      showConfirmButton: false,
-      timer: 1500
+      focusConfirm: true,
+      showConfirmButton: true,
+      preConfirm: () => {
+        window.location = "/";
+      }
     })
   }
   updateClick = () =>{
     Swal.fire({
       title: 'User Information',
       html:
-        '<input id="swal-input1" class="swal2-input" placeholder="First Name">' +
-        '<input id="swal-input2" class="swal2-input" placeholder="Last Name">' +
-        '<input id="swal-input3" class="swal2-input" placeholder="Email Address">' +
-        '<input id="swal-input4" class="swal2-input" placeholder="Phone Number">',
+        '<input id="swal-input1" class="swal2-input" placeholder="Email Address">' +
+        '<input id="swal-input2" class="swal2-input" placeholder="Phone Number">',
       focusConfirm: false,
       confirmButtonColor: '#17a2b8',
       preConfirm: () => {
         return [
           document.getElementById('swal-input1').value,
-          document.getElementById('swal-input2').value,
-          document.getElementById('swal-input3').value,
-          document.getElementById('swal-input4').value
+          document.getElementById('swal-input2').value
         ]
       }
     })
@@ -65,9 +77,14 @@ class BookingForm extends React.Component {
             {language[LanguageStore.lang].bookingForm.Phone}
               <input name="phone" type="text" className="form-control" id="phone" placeholder="Phone Number"
               value={localStorage.getItem('token')} readonly disabled/>
+            {language[LanguageStore.lang].Additional.Title}
+              <input name="title" type="text" className="form-control" id="title" placeholder="Title"
+              value={ReservationStore.bookingConfig.Title} onChange={e => ReservationStore.setBookingConfig('Title', e.target.value)}/>
             {language[LanguageStore.lang].bookingForm.Purpose}
               <textarea name="purpose" type="text" className="form-control" id="purpose" rows="5" placeholder="Identify your purpose for booking this room..."
-              value="x"/>
+              value={ReservationStore.bookingConfig.Purpose} onChange={e => ReservationStore.setBookingConfig('Purpose', e.target.value)}/>
+
+              
             <br/>
             <div className="row">
               <div className="col-md-2 col-sm-5">

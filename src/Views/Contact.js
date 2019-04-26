@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import ContactCard from '../Components/contactCard'
 
-
 const bgImage = require('../Pictures/bg.png');
 const bgStyle = {
   width: 'auto',

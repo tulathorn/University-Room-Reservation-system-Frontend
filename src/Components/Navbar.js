@@ -1,9 +1,7 @@
 import React from 'react'
 import { observer } from 'mobx-react'
 import LanguageStore from '../stores/LanguageStore'
-
 import { NavLink } from 'react-router-dom'
-
 import '../Styles/bootstrap/bootstrap.min.css'
 import language from '../languages.json'
 

@@ -5,7 +5,6 @@ import LanguageStore from '../stores/LanguageStore'
 import language from '../languages.json'
 import RoomStore from '../stores/RoomStore'
 
-
 class EditForm extends React.Component {
 
   componentDidMount() {

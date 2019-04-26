@@ -3,6 +3,7 @@ import '../Styles/bootstrap/bootstrap.min.css'
 import Swal from 'sweetalert2'
 import LanguageStore from '../stores/LanguageStore'
 import language from '../languages.json'
+import ReservationStore from '../stores/ReservationStore';
 
 
 const jumbotronStyle = {
@@ -12,6 +13,16 @@ const jumbotronStyle = {
 }
 
 class AdCurHistoryRoomCard extends React.Component {
+  componentDidMount() {
+    ReservationStore.cleanConfig()
+    ReservationStore.GetReservation()
+  }
+
+  cancelBooking = () => {
+    ReservationStore.setConfig('BookingID',this.props.data.BookingID)
+    this.cancelClick()
+  }
+
   cancelClick = () =>{
     Swal.fire({
       title: 'Are you sure?',
@@ -23,13 +34,15 @@ class AdCurHistoryRoomCard extends React.Component {
       cancelButtonColor: '#dc3545',
       confirmButtonText: 'Yes, cancel it!'
     }).then((result) => {
+      ReservationStore.DeleteReservation()
       if (result.value) {
         Swal.fire({
           position: 'center',
           type: 'success',
           title: 'Your booking has been canceled',
           showConfirmButton: false,
-          timer: 1500
+          timer: 1500,
+          
         })
       }
     })
@@ -63,7 +76,7 @@ class AdCurHistoryRoomCard extends React.Component {
 
 
             <br/><br/><br/><br/><br/>
-            <button onClick={() => this.cancelClick()} type="button" className="btn btn-danger btn-lg btn-block">{language[LanguageStore.lang].adCurHisCard.CancelTheBooking}</button>
+            <button onClick={() => this.cancelBooking()} type="button" className="btn btn-danger btn-lg btn-block">{language[LanguageStore.lang].adCurHisCard.CancelTheBooking}</button>
           </div>
         </div>
       </div>

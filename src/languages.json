@@ -118,7 +118,7 @@
       },
 
       "adBookingForm": {
-        "ID": "ID",
+        "ID": "Username ID",
         "FirstName": "FirstName",
         "Surname": "Surname",
         "Year": "Year",
@@ -427,7 +427,8 @@
         "": ""
       },
       "Additional":{
-        "Username": "User"
+        "Username": "User",
+        "Title": "Title"
       }
     },
     {
@@ -858,7 +859,8 @@
         "": ""
       },
       "Additional":{
-        "Username": "ผู้ใช้งาน"
+        "Username": "ผู้ใช้งาน",
+        "Title": "หัวข้อ"
       }
     }
   ]

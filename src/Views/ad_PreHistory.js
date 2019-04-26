@@ -1,13 +1,11 @@
 import React, { Component } from 'react'
 import AdNavbar from '../Components/ad_Navbar'
 import AdPreHistoryRoomCard from '../Components/adPreHisCard'
-
 import LanguageStore from '../stores/LanguageStore'
 import language from '../languages.json'
-
-
 import { observer } from 'mobx-react'
 import ReservationStore from '../stores/ReservationStore'
+
 @observer
 class AdPreHistoryView extends Component {
   componentDidMount() {

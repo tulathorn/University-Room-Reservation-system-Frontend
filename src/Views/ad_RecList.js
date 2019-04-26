@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import AdNavbar from '../Components/ad_Navbar'
 import ListCard from '../Components/RoomInformationCard'
 import RecPreviewCard from '../Components/recPreviewCard'
-
 import { observer } from 'mobx-react'
 import RoomStore from '../stores/RoomStore'
 

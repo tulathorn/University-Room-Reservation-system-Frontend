@@ -3,22 +3,93 @@ import axios from '../Utils/axiosConfig'
 
 
 class ReservationStore {
-    @observable
+    @observable //Use to filter reservation
     config = {}
+
+    @observable //Find a room to search
+    searchConfig = {}
+
+    @observable
+    searchTemp = {}
+
+    @observable
+    bookingConfig = {}
 
     @observable
     reservedDatas = []
 
+    @observable
+    tempArray = []
+
+    ////////////////////////////////////////////////////// Get booking History / Delete Booking History
     @action
     GetReservation = async () => {
         this.reservedDatas = await axios.get('./reservations', this.config).then(resp => resp.data)
-
     }
 
     @action
-    setConfig = () => {
-        this.config = {'UserID' : localStorage.getItem('UserID')}
+    DeleteReservation = async () => {
+        this.reservedDatas = await axios.delete('./reservations', this.config).then(resp => resp.data)
+        console.log('ลบการจองสำเร็จแล้ว!')
     }
+    
+    @action
+    setConfig = (field, value) => {
+        this.config[field] = value
+    }
+
+    
+
+    
+
+   
+
+    /////////////////////////////////////////////////////// Find a room to book
+
+    @action
+    GetAvailableRoom = async () => {
+        this.reservedDatas = await axios.put('./reservations/avaiable', this.searchConfig).then(resp => resp.data)
+    }
+
+    @action
+    setSearchConfigRoom = (field, value) => {
+        this.searchConfig.room[field] = value
+    }
+    @action
+    setSearchConfigEquip = (field, value) => {
+        this.searchConfig.equipment[field] = value
+    }
+    @action
+    setSearchConfigTime = (field, value) => {
+        this.searchConfig.reservation[field] = value
+    }
+
+    @action
+    setSearch = (field, value) => {
+        this.searchTemp[field] = value
+    }
+
+    ////////////////////////////////////////////////////////////// Book a room
+    @action
+    ConvertUsernameToID = async () => {
+        this.tempArray = await axios.get('./users', this.searchTemp).then(resp => resp.data)
+        this.setBookingConfig('UserID',this.tempArray[0].UserID) 
+        console.log(this.bookingConfig)
+    }
+
+    @action
+    addReservation = async () => {
+        console.log(this.bookingConfig)
+        this.reservedDatas = await axios.post('./reservations', this.bookingConfig).then(resp => resp.data)
+        console.log('จองห้องสำเร็จแล้ว!')
+        //this.cleanBookingConfig()
+    }
+
+    @action
+    setBookingConfig = (field, value) => {
+        this.bookingConfig[field] = value
+    }
+    //////////////////////////////////////////////////////////////  Clear Search Config
 
     @action
     cleanConfig = () => {
@@ -26,9 +97,20 @@ class ReservationStore {
     }
 
     @action
-    setConfigRoom = () => {
-        this.config = {'RoomID' : localStorage.getItem('RoomID')}
+    cleanSearchConfig = () => {
+        this.searchConfig = {"room":{},"equipment":{},"reservation":{}}
     }
+
+    @action
+    cleanSearch = () => {
+        this.searchTemp = {}
+    }
+
+    @action
+    cleanBookingConfig = () => {
+        this.bookingConfig = {}
+    }
+
     
 }
 

@@ -1,11 +1,8 @@
 import React, { Component } from 'react'
 import AdNavbar from '../Components/ad_Navbar'
-
 import styled from 'styled-components'
-
 import ContactStore from '../stores/ContactStore'
 import SupCard from '../Components/supportCard'
-
 import { observer } from 'mobx-react'
 import LanguageStore from '../stores/LanguageStore'
 import language from '../languages.json'

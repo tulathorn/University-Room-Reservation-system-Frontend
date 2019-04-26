@@ -3,7 +3,6 @@ import AdNavbar from '../Components/ad_Navbar'
 import SupPreview from '../Components/supPreviewCard'
 import ReplyForm from '../Components/replyForm'
 import styled from 'styled-components'
-
 import LanguageStore from '../stores/LanguageStore'
 import language from '../languages.json'
 import ContactStore from '../stores/ContactStore'

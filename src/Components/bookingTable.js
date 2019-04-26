@@ -1,7 +1,5 @@
 import React from 'react'
 import '../Styles/bootstrap/bootstrap.min.css'
-import LanguageStore from '../stores/LanguageStore'
-import language from '../languages.json'
 
 class BookingTable extends React.Component {
   render() {

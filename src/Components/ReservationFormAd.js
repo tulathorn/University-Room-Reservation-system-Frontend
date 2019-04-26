@@ -27,7 +27,7 @@ const jumbotronStyle = {
   backgroundSize: 'absolute'
 }
 
-class ReservationForm extends React.Component {
+class ReservationFormAd extends React.Component {
   setForm = name => event => {
     this.props.setField(name, event.target.value)
   }
@@ -87,7 +87,7 @@ class ReservationForm extends React.Component {
 
 
   search = async () => {
-    this.props.history.push('/search')
+    this.props.history.push('/ad_list_nor')
   }
 
 
@@ -278,4 +278,4 @@ class ReservationForm extends React.Component {
   }
 }
 
-export default withRouter(ReservationForm)
+export default withRouter(ReservationFormAd)

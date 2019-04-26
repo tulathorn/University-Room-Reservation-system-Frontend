@@ -2,7 +2,6 @@ import React from 'react'
 import '../Styles/bootstrap/bootstrap.min.css'
 import styled from 'styled-components'
 
-
 const Title = styled.h1`
   color: #1F384B;
 `

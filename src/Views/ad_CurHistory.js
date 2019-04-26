@@ -1,10 +1,8 @@
 import React, { Component } from 'react'
 import AdNavbar from '../Components/ad_Navbar'
 import AdCurHistoryRoomCard from '../Components/adCurHisCard'
-
 import LanguageStore from '../stores/LanguageStore'
 import language from '../languages.json'
-
 import { observer } from 'mobx-react'
 import ReservationStore from '../stores/ReservationStore'
 

@@ -3,7 +3,6 @@ import AdNavbar from '../Components/ad_Navbar'
 import SearchRecForm from '../Components/searchRecForm'
 import styled from 'styled-components'
 import Swal from 'sweetalert2'
-
 import LanguageStore from '../stores/LanguageStore'
 import language from '../languages.json'
 

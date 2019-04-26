@@ -15,12 +15,12 @@ const Hasno = styled.p`
 
 
 
-class ListCard extends React.Component {
+class ListCardAd extends React.Component {
   
   onClick = e => {
     e.preventDefault()
     localStorage.setItem('RoomID',this.props.room.RoomID)
-    window.location = "/booking";
+    window.location = "/ad_booking";
   }
   render() {
     return (
@@ -84,4 +84,4 @@ class ListCard extends React.Component {
   }
 }
 
-export default ListCard
+export default ListCardAd

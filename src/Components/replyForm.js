@@ -4,7 +4,6 @@ import Swal from 'sweetalert2'
 import LanguageStore from '../stores/LanguageStore'
 import language from '../languages.json'
 
-
 class ReplyForm extends React.Component {
   
   onSubmit = e => {

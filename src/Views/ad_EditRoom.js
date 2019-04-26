@@ -3,6 +3,7 @@ import AdNavbar from '../Components/ad_Navbar'
 import EditForm from '../Components/editForm'
 import RoomStore from '../stores/RoomStore'
 import { observer } from 'mobx-react'
+
 const bgImage = require('../Pictures/bg.png');
 const bgStyle = {
   width: 'auto',

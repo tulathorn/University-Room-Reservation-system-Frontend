@@ -3,7 +3,8 @@ import '../Styles/bootstrap/bootstrap.min.css'
 import LanguageStore from '../stores/LanguageStore'
 import language from '../languages.json'
 import Swal from 'sweetalert2'
-import RoomStore from '../stores/RoomStore';
+import RoomStore from '../stores/RoomStore'
+
 const jumbotronStyle = {
   width: 'auto',
   height: 'auto',

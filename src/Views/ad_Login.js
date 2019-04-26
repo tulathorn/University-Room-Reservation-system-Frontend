@@ -1,11 +1,8 @@
 import React, { Component } from 'react'
 import '../Styles/bootstrap/bootstrap.min.css'
 import AdLoginCard from '../Components/ad_loginForm'
-
 import LanguageStore from '../stores/LanguageStore'
 import language from '../languages.json'
-
-
 
  const bgImage = require('../Pictures/bg.png');
  const bgStyle = {
@@ -22,8 +19,6 @@ const cardColor = {
 const languageLink = {
   color: '#6c757d'
 }
-
-
 
 class AdLoginView extends Component {
   render() {

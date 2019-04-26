@@ -1,18 +1,15 @@
 import React, { Component } from 'react'
 import Navbar from '../Components/Navbar'
 import CurHistoryRoomCard from '../Components/curHisRoomCard'
-
 import LanguageStore from '../stores/LanguageStore'
 import language from '../languages.json'
-
 import { observer } from 'mobx-react'
 import ReservationStore from '../stores/ReservationStore'
 
 @observer
 class CurHistoryView extends Component {
   componentDidMount() {
-    ReservationStore.setConfig()
-    //Function setConfig มันใช้ได้นะ กับjson ชั้นแรกอะ แต่พอมันเข้าไปลึกๆแล้วมันไม่ยอมให้หา
+    ReservationStore.setConfig('UserID',localStorage.getItem('UserID'))
     ReservationStore.GetReservation()
   }
 

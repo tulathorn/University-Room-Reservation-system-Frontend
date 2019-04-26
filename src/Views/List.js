@@ -1,22 +1,17 @@
 import React, { Component } from 'react'
 import RoomStore from '../stores/RoomStore'
+import ReservationStore from '../stores/ReservationStore'
 import LanguageStore from '../stores/LanguageStore'
 import language from '../languages.json'
 import Navbar from '../Components/Navbar'
 import { observer } from 'mobx-react'
-
 import RoomInformationCard from '../Components/RoomInformationCard'
-
-
 
 @observer
 class ListView extends Component {
-  // componentWillMount() {
-  //   RoomStore.fetchText()
-  // }
-  
   componentDidMount() {
     RoomStore.fetchData()
+    ReservationStore.GetAvailableRoom()
   }
 
   render() {
@@ -27,48 +22,49 @@ class ListView extends Component {
 
           <div className="row">
             <div className="col-md-6 col-sm-12">
-              <p>{language[LanguageStore.lang].List.Result} : {RoomStore.roomDatas.length}</p>
+              <p>{language[LanguageStore.lang].List.Result} : {ReservationStore.reservedDatas.length}</p>
               <p><b>{language[LanguageStore.lang].List.SearchFor} : </b></p>
 
-              {RoomStore.searchConfig.Building ? 
-                <p><b>{language[LanguageStore.lang].List.Building}</b> : {RoomStore.searchConfig.Building}</p>
+              {ReservationStore.searchTemp.Building ? 
+                <p><b>{language[LanguageStore.lang].List.Building}</b> : {ReservationStore.searchTemp.Building}</p>
                  : <p></p>}
 
-              {RoomStore.searchConfig.PeopleCapacity ? 
-                <p><b>{language[LanguageStore.lang].List.Size}</b> : {RoomStore.searchConfig.PeopleCapacity} {language[LanguageStore.lang].List.People}</p>
+              {ReservationStore.searchTemp.PeopleCapacity ? 
+                <p><b>{language[LanguageStore.lang].List.Size}</b> : {ReservationStore.searchTemp.PeopleCapacity} {language[LanguageStore.lang].List.People}</p>
                  : <p></p>}
 
-              {RoomStore.schedule.Date ? 
-                <p><b>{language[LanguageStore.lang].List.Date}</b> : {RoomStore.schedule.Date}</p>
+              {ReservationStore.searchTemp.Date ? 
+                <p><b>{language[LanguageStore.lang].List.Date}</b> : {ReservationStore.searchTemp.Date}</p>
                  : <p></p>}
 
-              {RoomStore.schedule.fromhr ? 
-                <p><b>{language[LanguageStore.lang].List.From}</b> : {RoomStore.schedule.fromhr}:{RoomStore.schedule.frommin} <b>{language[LanguageStore.lang].List.To}</b> {RoomStore.schedule.tohr}:{RoomStore.schedule.tomin}</p>
+              {ReservationStore.searchTemp.tohr ? 
+                <p><b>{language[LanguageStore.lang].List.From}</b> : {localStorage.getItem('ScheduleFrom')} <b>{language[LanguageStore.lang].List.To}</b> {localStorage.getItem('ScheduleTo')}</p>
                  : <p></p>}
-            </div>{/*
+            </div>
             <div className="col-md-6 col-sm-12">
               <br/><br/><p>
                 <b>{language[LanguageStore.lang].List.Amenity} : </b>
               </p>
               <div className="row">
                 <div className="col-md-6 col-sm-12">
-                  {RoomStore.searchConfig.amenity.teachercom ? <p>{language[LanguageStore.lang].List.Amenities.TeacherComputer}</p> : <p></p>}
-                  {RoomStore.searchConfig.amenity.studentcom ? <p>{language[LanguageStore.lang].List.Amenities.StudentComputer}</p> : <p></p>}
-                  {RoomStore.searchConfig.amenity.aircon ? <p>{language[LanguageStore.lang].List.Amenities.AirConditioner}</p> : <p></p>}
+                  {ReservationStore.searchTemp.HasTeacherComputers ? <p>{language[LanguageStore.lang].List.Amenities.TeacherComputer}</p> : <div></div>}
+                  {ReservationStore.searchTemp.HasStudentComputers ? <p>{language[LanguageStore.lang].List.Amenities.StudentComputer}</p> : <div></div>}
+                  {ReservationStore.searchTemp.HasAirConditioner ? <p>{language[LanguageStore.lang].List.Amenities.AirConditioner}</p> : <div></div>}
                 </div>
                 <div className="col-md-6 col-sm-12">
-                  {RoomStore.searchConfig.amenity.projector ? <p>{language[LanguageStore.lang].List.Amenities.Projector}</p> : <p></p>}
-                  {RoomStore.searchConfig.amenity.whiteboard ? <p>{language[LanguageStore.lang].List.Amenities.WhiteBoard}</p> : <p></p>}
-                  {RoomStore.searchConfig.amenity.visualizer ? <p>{language[LanguageStore.lang].List.Amenities.Visualizer}</p> : <p></p>}
+                  {ReservationStore.searchTemp.HasProjector ? <p>{language[LanguageStore.lang].List.Amenities.Projector}</p> : <div></div>}
+                  {ReservationStore.searchTemp.HasWhiteboard ? <p>{language[LanguageStore.lang].List.Amenities.WhiteBoard}</p> : <div></div>}
+                  {ReservationStore.searchTemp.HasVisualizer ? <p>{language[LanguageStore.lang].List.Amenities.Visualizer}</p> : <div></div>}
                 </div>
               </div>
 
-            </div>*/}
+            </div>
           </div>
-
-          {RoomStore.roomDatas.map(roomv => {
+          
+          {ReservationStore.reservedDatas.map(roomv => {
             return <RoomInformationCard room={roomv} />
           })}
+          
         </div>
       </div>
 

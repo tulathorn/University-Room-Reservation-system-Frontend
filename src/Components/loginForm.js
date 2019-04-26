@@ -3,9 +3,7 @@ import '../Styles/bootstrap/bootstrap.min.css'
 import Swal from 'sweetalert2'
 import LanguageStore from '../stores/LanguageStore'
 import language from '../languages.json'
-
 import { withRouter } from 'react-router-dom'
-
 import axios from '../Utils/axiosConfig'
 
 const helpLink = {

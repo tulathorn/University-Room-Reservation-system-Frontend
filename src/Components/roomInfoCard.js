@@ -28,7 +28,7 @@ class RoomInfoCard extends React.Component {
 
           <div className="row">
               <p><b>{language[LanguageStore.lang].roomInfoCard.BookedTime} : </b></p>
-              <p>{language[LanguageStore.lang].roomInfoCard.From} {localStorage.getItem('ScheduleFromHr')}:{localStorage.getItem('ScheduleFromMin')} {language[LanguageStore.lang].roomInfoCard.To} {localStorage.getItem('ScheduleToHr')}:{localStorage.getItem('ScheduleToMin')}</p>
+              <p>{language[LanguageStore.lang].roomInfoCard.From} {localStorage.getItem('ScheduleFrom')} {language[LanguageStore.lang].roomInfoCard.To} {localStorage.getItem('ScheduleTo')}</p>
           </div>
 
           <div className="row">

@@ -3,9 +3,6 @@ import '../Styles/bootstrap/bootstrap.min.css'
 import LanguageStore from '../stores/LanguageStore'
 import language from '../languages.json'
 
-
-
-
 const NavItem = props => {
   const pageURI = window.location.pathname + window.location.search
   const liClassName = props.path === pageURI ? 'nav-item active' : 'nav-item'

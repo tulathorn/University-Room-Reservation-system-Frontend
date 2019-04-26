@@ -3,10 +3,8 @@ import '../Styles/bootstrap/bootstrap.min.css'
 import Swal from 'sweetalert2'
 import LanguageStore from '../stores/LanguageStore'
 import language from '../languages.json'
-
 import RoomStore from '../stores/RoomStore'
 import { observer } from 'mobx-react'
-
 import AuthenticationGate from '../Components/AuthenticationGate'
 
 

@@ -9,8 +9,7 @@ import ReservationStore from '../stores/ReservationStore'
 @observer
 class PreHistoryView extends Component {
   componentDidMount() {
-    ReservationStore.setConfig()
-    //Function setConfig มันใช้ได้นะ กับjson ชั้นแรกอะ แต่พอมันเข้าไปลึกๆแล้วมันไม่ยอมให้หา
+    ReservationStore.setConfig('UserID',localStorage.getItem('UserID'))
     ReservationStore.GetReservation()
   }
 

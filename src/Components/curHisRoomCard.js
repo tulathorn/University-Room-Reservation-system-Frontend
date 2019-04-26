@@ -3,6 +3,7 @@ import '../Styles/bootstrap/bootstrap.min.css'
 import Swal from 'sweetalert2'
 import LanguageStore from '../stores/LanguageStore'
 import language from '../languages.json'
+import ReservationStore from '../stores/ReservationStore';
 
 const jumbotronStyle = {
   width: 'auto',
@@ -11,6 +12,21 @@ const jumbotronStyle = {
 }
 
 class CurHistoryRoomCard extends React.Component {
+  componentDidMount() {
+    ReservationStore.cleanConfig()
+    ReservationStore.GetReservation()
+  }
+  sendPin = () =>{
+    this.pinClick()
+  }
+
+  cancelBooking = () => {
+    ReservationStore.setConfig('BookingID',this.props.data.BookingID)
+    
+    this.cancelClick()
+  }
+
+
   cancelClick = () =>{
     Swal.fire({
       title: 'Are you sure?',
@@ -22,6 +38,7 @@ class CurHistoryRoomCard extends React.Component {
       cancelButtonColor: '#dc3545',
       confirmButtonText: 'Yes, cancel it!'
     }).then((result) => {
+      ReservationStore.DeleteReservation()
       if (result.value) {
         Swal.fire({
           position: 'center',
@@ -69,9 +86,9 @@ class CurHistoryRoomCard extends React.Component {
             </div>
 					</div>
 					<div className="col-md-3 col-sm-12">
-            <button onClick={() => this.pinClick()} type="button" className="btn btn-outline-light btn-lg btn-block">{language[LanguageStore.lang].curHisRoomCard.RequestPinViaEmail}</button>
-            <button onClick={() => this.pinClick()} type="button" className="btn btn-outline-light btn-lg btn-block">{language[LanguageStore.lang].curHisRoomCard.RequestPinViaPhone}</button>
-            <button onClick={() => this.cancelClick()} type="button" className="btn btn-danger btn-lg btn-block">{language[LanguageStore.lang].curHisRoomCard.CancelTheBooking}</button>
+            <button onClick={() => this.sendPin()} type="button" className="btn btn-outline-light btn-lg btn-block">{language[LanguageStore.lang].curHisRoomCard.RequestPinViaEmail}</button>
+            <button onClick={() => this.sendPin()} type="button" className="btn btn-outline-light btn-lg btn-block">{language[LanguageStore.lang].curHisRoomCard.RequestPinViaPhone}</button>
+            <button onClick={() => this.cancelBooking()} type="button" className="btn btn-danger btn-lg btn-block">{language[LanguageStore.lang].curHisRoomCard.CancelTheBooking}</button>
 					</div>
 				</div>
       </div>

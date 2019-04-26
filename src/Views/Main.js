@@ -1,14 +1,10 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 import { observer } from 'mobx-react'
-import Swal from 'sweetalert2'
-
 import LanguageStore from '../stores/LanguageStore'
 import language from '../languages.json'
-
 import Navbar from '../Components/Navbar'
 import AuthenticationGate from '../Components/AuthenticationGate'
-
 import ReservationForm from '../Components/ReservationForm'
 
 const Title = styled.h1`
@@ -16,22 +12,7 @@ const Title = styled.h1`
 `
 @observer
 class MainView extends Component {
-  searchClick = () => {
-    Swal.fire({
-      position: 'center',
-      type: 'error',
-      title: 'Oops...',
-      text: 'There are no matching rooms',
-      showConfirmButton: false,
-      timer: 1500
-    })
-  }
-  constructor(props) {
-    super(props)
-    this.state = {
-      SearchData: []
-    }
-  }
+  
   render() {
     return (
       <AuthenticationGate>

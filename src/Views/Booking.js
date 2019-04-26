@@ -9,7 +9,7 @@ import { observer } from 'mobx-react'
 class BookingView extends Component {
   componentDidMount() {
     RoomStore.resetFilterForm()
-    RoomStore.setConfig('RoomName', localStorage.getItem('RoomName'))
+    RoomStore.setConfig('RoomID', localStorage.getItem('RoomID'))
     RoomStore.fetchData()
   }
     

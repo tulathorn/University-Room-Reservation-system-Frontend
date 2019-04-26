@@ -1,18 +1,16 @@
 import React, { Component } from 'react'
 import AdNavbar from '../Components/ad_Navbar'
 import BookingTable from '../Components/bookingTable'
-
 import LanguageStore from '../stores/LanguageStore'
 import language from '../languages.json'
 import { observer } from 'mobx-react'
-import RoomStore from '../stores/RoomStore'
 import ReservationStore from '../stores/ReservationStore'
 
 @observer
 class AdBookingTimatableView extends Component {
   componentDidMount() {
     ReservationStore.cleanConfig()
-    ReservationStore.setConfigRoom()
+    ReservationStore.setConfig('RoomID',localStorage.getItem('RoomID'))
     ReservationStore.GetReservation()
   }
   render() {

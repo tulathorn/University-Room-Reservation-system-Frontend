@@ -1,11 +1,7 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
-import Swal from 'sweetalert2'
 import AdNavbar from '../Components/ad_Navbar'
-
-import ReservationForm from '../Components/ReservationForm'
-import { Consumer as RoomConsumer } from '../Components/RoomDataProvider'
-
+import ReservationFormAd from '../Components/ReservationFormAd'
 import LanguageStore from '../stores/LanguageStore'
 import language from '../languages.json'
 
@@ -14,22 +10,7 @@ const Title = styled.h1`
 `
 
 class AdSearchNorView extends Component {
-  searchClick = () =>{
-    Swal.fire({
-      position: 'center',
-      type: 'error',
-      title: 'Oops...',
-      text: 'There are no matching rooms',
-      showConfirmButton: false,
-      timer: 1500
-    })
-  }
-  constructor(props){
-    super(props)
-    this.state = {
-      SearchData: []
-    }
-  }
+  
   render() {
     return (
       <div>
@@ -50,14 +31,9 @@ class AdSearchNorView extends Component {
           </center>
           <br />
 
-          <RoomConsumer>{state => <ReservationForm {...state} />}</RoomConsumer>
+          <ReservationFormAd/>
 
-          <center>
-            <button type="button" className="btn btn-outline-info" onClick={() => this.searchClick()}  >
-              {language[LanguageStore.lang].adSearchNormal.Search}
-            </button><br/>
-          {/*<a href="/ad_list">Go to list page(Temporary)</a>*/}
-          </center>
+          
         </div>
       </div>
     )
