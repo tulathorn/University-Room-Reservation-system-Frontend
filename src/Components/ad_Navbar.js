@@ -98,16 +98,14 @@ class AdNavbar extends React.Component {
             <NavItem path="/ad_support" name={language[LanguageStore.lang].adNavbar.Support} />
 
             <NavDropdown name={language[LanguageStore.lang].adNavbar.Languages}>
-              <a className="dropdown-item" href="/">
-                {language[LanguageStore.lang].adNavbar.Thai}
-              </a>
-              <a className="dropdown-item" href="/">
+              <div className="dropdown-item" onClick={() => LanguageStore.setLang(0)}>
+                {' '}
                 {language[LanguageStore.lang].adNavbar.English}
-              </a>
-              {/* <div className="dropdown-divider" />
-              <a className="dropdown-item" href="/">
-                Something else here
-              </a> */}
+              </div>
+              <div className="dropdown-item" onClick={() => LanguageStore.setLang(1)}>
+                {' '}
+                {language[LanguageStore.lang].adNavbar.Thai}
+              </div>
             </NavDropdown>
           </ul>
 

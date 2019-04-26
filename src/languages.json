@@ -425,6 +425,9 @@
       },
       "supPreviewCard": {
         "": ""
+      },
+      "Additional":{
+        "Username": "User"
       }
     },
     {
@@ -853,6 +856,9 @@
       },
       "supPreviewCard": {
         "": ""
+      },
+      "Additional":{
+        "Username": "ผู้ใช้งาน"
       }
     }
   ]

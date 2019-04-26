@@ -44,6 +44,9 @@ class AdCurHistoryRoomCard extends React.Component {
           <div className="col-md-5  col-sm-12">
             <h4>{this.props.data.RoomInformation.RoomName}</h4>
             <div className="row">
+              <p><b>{language[LanguageStore.lang].Additional.Username}</b>{this.props.data.UserInfo.UsernameID}</p>
+            </div>
+            <div className="row">
               <p><b>{language[LanguageStore.lang].adCurHisCard.Purpose} : </b></p>
               <p>{this.props.data.Purpose}</p>
             </div>

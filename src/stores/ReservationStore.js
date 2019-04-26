@@ -16,8 +16,12 @@ class ReservationStore {
 
     @action
     setConfig = () => {
-        //this.config = {'UserInfo' : {'UsernameID' : localStorage.getItem('username')}}
-        //อยากให้มัน หาด้วย username ที่เราได้มาจากตอนที่ user login อะ แต่ไม่รู้ทำไมมันไม่ยอม
+        this.config = {'UserID' : localStorage.getItem('UserID')}
+    }
+
+    @action
+    cleanConfig = () => {
+        this.config = {}
     }
     
 }

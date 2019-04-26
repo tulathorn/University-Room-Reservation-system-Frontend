@@ -80,7 +80,9 @@ class RoomStore {
 
   @action
   deleteData = async () => {
+    console.log('Going to delete')
     await axios.delete('./rooms', this.searchConfig).then(resp => resp.data)
+    console.log('Deleted')
   }
 
 

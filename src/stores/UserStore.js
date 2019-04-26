@@ -3,12 +3,16 @@ import axios from '../Utils/axiosConfig'
 
 class UserStore {
   @observable
+  userFilter = {}
+
+  @observable
   userData = []
 
   @action
-  fetchDate = async () => {
-    this.userData = await axios.get('./users').then(resp => resp.data)
+  fetchData = async () => {
+    this.userData = await axios.get('./users', this.userFilter).then(resp => resp.data)
   }
+
 }
 
 export default new UserStore()

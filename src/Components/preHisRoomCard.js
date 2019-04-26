@@ -27,7 +27,7 @@ class PreHistoryRoomCard extends React.Component {
 					<div className="col-md-4 col-sm-12">
 						<center><img src={require("../Pictures/testclassroom.jpg")} height="150" alt=""/></center>
 					</div>
-          <div className="col-md-5 col-sm-12">
+          <div className="col-md-8 col-sm-12">
             <div className="row">
               <p>
                 <b>{this.props.data.RoomInformation.RoomName}</b>
@@ -47,19 +47,7 @@ class PreHistoryRoomCard extends React.Component {
 							<p>{language[LanguageStore.lang].preHisRoomCard.From} {this.props.data.StartTime} {language[LanguageStore.lang].preHisRoomCard.To} {this.props.data.EndTime}</p>
             </div>
 					</div>
-					<div className="col-md-3 col-sm-12">
-            {/* //Alert for each status of booking
-            <div class="alert alert-danger" role="alert" >
-              {language[LanguageStore.lang].preHisRoomCard.NotCompleted}
-            </div>
-            <div class="alert alert-warning" role="alert">
-              {language[LanguageStore.lang].preHisRoomCard.Cancel}
-            </div>
-            
-            <div class="alert alert-info" role="alert">
-            {language[LanguageStore.lang].preHisRoomCard.Completed}
-            </div>*/}
-					</div>
+					
 				</div>
       </div>
     )

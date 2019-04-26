@@ -17,11 +17,12 @@ class AdPreHistoryRoomCard extends React.Component {
 					<div className="col-md-4 col-sm-12">
 						<center><img src={require("../Pictures/testclassroom.jpg")} height="150" alt=""/></center>
 					</div>
-          <div className="col-md-5 col-sm-12">
+          <div className="col-md-8 col-sm-12">
             <div className="row">
-              <p>
-                <b>{this.props.data.RoomInformation.RoomName}</b>
-              </p>
+              <p><b>{this.props.data.RoomInformation.RoomName}</b></p>
+            </div>
+            <div className="row">
+              <p><b>{language[LanguageStore.lang].Additional.Username}</b>{this.props.data.UserInfo.UsernameID}</p>
             </div>
             <div className="row">
               <p><b>{language[LanguageStore.lang].adPreHisCard.Purpose}: </b></p>
@@ -36,19 +37,7 @@ class AdPreHistoryRoomCard extends React.Component {
 							<p>{language[LanguageStore.lang].adPreHisCard.From} {this.props.data.StartTime} {language[LanguageStore.lang].adPreHisCard.To} {this.props.data.EndTime}</p>
             </div>
 					</div>
-					<div className="col-md-3 col-sm-12">
-            {/* //Alert for each status of booking
-            <div class="alert alert-danger" role="alert" >
-              {language[LanguageStore.lang].adPreHisCard.NotCompleted}
-            </div>
-            <div class="alert alert-warning" role="alert">
-              {language[LanguageStore.lang].adPreHisCard.Cancel}
-            </div>
-            
-            <div class="alert alert-info" role="alert">
-              {language[LanguageStore.lang].adPreHisCard.Completed}
-            </div>*/}
-					</div>
+					
 				</div>
       </div>
     )
