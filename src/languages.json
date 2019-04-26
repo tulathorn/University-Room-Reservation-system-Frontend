@@ -10,7 +10,7 @@
         "": ""
       },
       "adBookingTimetable": {
-        "BookingTimetable": "Booking Timetable"
+        "BookingTimetable": "Booking Timetable for"
       },
       "adCurHistory": {
         "PreviousBooking": "Previous Booking",
@@ -216,7 +216,7 @@
         "TimeFrom": "Time(From)",
         "TimeTo": "Time(To)",
         "Day": "Day",
-        "๊UserInfo": "User Informations",
+        "UserInfo": "User Informations",
         "Purpose": "Purpose"
       },
       "contactCard": {
@@ -441,7 +441,7 @@
         "": ""
       },
       "adBookingTimetable": {
-        "BookingTimetable": "ตารางการใช้งานห้องเรียน"
+        "BookingTimetable": "ตารางการใช้งานห้อง "
       },
       "adCurHistory": {
         "PreviousBooking": "การจองก่อนหน้า",

@@ -6,35 +6,22 @@ import language from '../languages.json'
 class BookingTable extends React.Component {
   render() {
     return (
-      <table class="table table-hover table-bordered">
-        <thead class="text-center">
-          <tr class="table-info">
-            <th scope="col">{language[LanguageStore.lang].bookingTable.DateFrom}</th>
-            <th scope="col">{language[LanguageStore.lang].bookingTable.DateTo}</th>
-            <th scope="col">{language[LanguageStore.lang].bookingTable.TimeFrom}</th>
-            <th scope="col">{language[LanguageStore.lang].bookingTable.TimeTo}</th>
-            <th scope="col">{language[LanguageStore.lang].bookingTable.Day}</th>
-            <th scope="col">{language[LanguageStore.lang].bookingTable.UserInfo}</th>
-            <th scope="col">{language[LanguageStore.lang].bookingTable.Purpose}</th>
-          </tr>
-        </thead>
-        <tbody>
+      
           <tr>
-            <td class="text-center">12/02/2019</td>
+            {console.log('inside')}
+            <td class="text-center">{this.props.data.Date}</td>
             <td class="text-center">-</td>
-            <td class="text-center">8:30</td>
-            <td class="text-center">17:30</td>
-            <td class="text-center">Monday</td>
+            <td class="text-center">{this.props.data.StartTime}</td>
+            <td class="text-center">{this.props.data.EndTime}</td>
+            <td class="text-center">{this.props.data.Day}</td>
             <td>
-              Arnan Hirunratanakorn<br/>
-              58070503438<br/>
-              honhon013@hotmail.com<br/>
-              0948761543
+              {this.props.data.UserInfo.UsernameID}<br/>
+              {this.props.data.UserInfo.FirstName}{' '}{this.props.data.UserInfo.LastName}<br/>
+              {this.props.data.UserInfo.EmailAddress}<br/>
             </td>
-            <td>CPE111</td>
+            <td class="text-center">{this.props.data.Purpose}</td>
           </tr>
-        </tbody>
-      </table>
+        
     )
   }
 }

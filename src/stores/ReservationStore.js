@@ -12,6 +12,7 @@ class ReservationStore {
     @action
     GetReservation = async () => {
         this.reservedDatas = await axios.get('./reservations', this.config).then(resp => resp.data)
+
     }
 
     @action
@@ -22,6 +23,11 @@ class ReservationStore {
     @action
     cleanConfig = () => {
         this.config = {}
+    }
+
+    @action
+    setConfigRoom = () => {
+        this.config = {'RoomID' : localStorage.getItem('RoomID')}
     }
     
 }

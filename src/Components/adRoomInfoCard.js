@@ -29,6 +29,12 @@ class AdRoomInfoCard extends React.Component {
     window.location = "/ad_edit_room";
   }
 
+  ViewTime = () => {
+    localStorage.setItem('RoomID',this.props.room.RoomID)
+    localStorage.setItem('RoomName',this.props.room.RoomName)
+    window.location = "/ad_timetable";
+  }
+
   deleteClick = () =>{
     Swal.fire({
       title: 'Are you sure?',
@@ -108,7 +114,7 @@ class AdRoomInfoCard extends React.Component {
                 </div>
               </div>
               <div className="row">
-                <a href="/ad_timetable" className="btn btn-success" target="_blank">{language[LanguageStore.lang].adRoomInfo.BookingTimeTable}</a>
+                <button onClick={() => this.ViewTime()} type="button" className="btn btn-success">{language[LanguageStore.lang].adRoomInfo.BookingTimeTable}</button>
               </div>
             </div>
           </div>
@@ -120,8 +126,7 @@ class AdRoomInfoCard extends React.Component {
             <button onClick={() => this.deleteClick()} type="button" className="btn btn-outline-danger">{language[LanguageStore.lang].adRoomInfo.Delete}</button>
           </div>
           <div className="col-md-1 col-sm-6">
-          <button onClick={() => this.EditClick()} type="button" className="btn btn-outline-info">{language[LanguageStore.lang].adRoomInfo.Edit}</button>
-            
+            <button onClick={() => this.EditClick()} type="button" className="btn btn-outline-info">{language[LanguageStore.lang].adRoomInfo.Edit}</button>
           </div>
           <div className="col-md-5 col-sm-0">
           </div>
