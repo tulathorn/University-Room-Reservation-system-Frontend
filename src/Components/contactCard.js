@@ -5,6 +5,9 @@ import LanguageStore from '../stores/LanguageStore'
 import language from '../languages.json'
 import ContactStore from '../stores/ContactStore';
 
+const languageLink = {
+  color: 'black'
+}
 
 
 class ContactCard extends React.Component {
@@ -65,6 +68,10 @@ class ContactCard extends React.Component {
               <div className="col-md-2 col-sm-1">
               </div>
             </div>
+            <center>
+              <button onClick={() => LanguageStore.setLang(0)} type="button" className="btn btn-link" style={languageLink}>{language[LanguageStore.lang].Contact.English}</button>
+              <button onClick={() => LanguageStore.setLang(1)} type="button" className="btn btn-link" style={languageLink}>{language[LanguageStore.lang].Contact.Thai}</button>
+          </center>
           </div>
         </div>
     )

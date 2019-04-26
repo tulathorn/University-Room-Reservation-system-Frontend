@@ -30,11 +30,7 @@ class ContactView extends Component {
             <div className="col-md-2 col-sm-0">
             </div>
           </div>
-          <center>
-            <button type="button" className="btn btn-link" style={languageLink}>{language[LanguageStore.lang].Contact.English}</button>
-            <button type="button" className="btn btn-link" style={languageLink}>{language[LanguageStore.lang].Contact.Thai}</button>
-            <br/><br/><br/>
-          </center>
+          <br/><br/><br/>
         </div>
       </div>
     )
