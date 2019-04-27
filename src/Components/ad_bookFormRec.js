@@ -53,7 +53,7 @@ class AdBookingFormRec extends React.Component {
         focusConfirm: true,
         showConfirmButton: true,
         preConfirm: () => {
-          window.location = "/ad_search_nor";
+          window.location = "/ad_search_rec";
           }
         })
       }

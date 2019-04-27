@@ -18,13 +18,16 @@ const jumbotronStyle1 = {
 }
 
 class AdRoomInfoCard extends React.Component {
+  
   DeleteRoom = () =>{
+    console.log('wqdqdwqdwqd')
     RoomStore.resetFilterForm()
-    RoomStore.setConfig('RoomID',this.props.room.RoomID)
+    RoomStore.setConfig('RoomID',''+this.props.room.RoomID)
     console.log(RoomStore.searchConfig)
-    RoomStore.deleteData()
+    this.deleteClick()
     //window.location = "/ad_all_list";
   }
+  
   EditClick = () =>{
     localStorage.setItem('RoomID',this.props.room.RoomID)
     window.location = "/ad_edit_room";
@@ -48,13 +51,15 @@ class AdRoomInfoCard extends React.Component {
       confirmButtonText: 'Yes, delete it!',
     }).then((result) => {
       if (result.value) {
-        this.DeleteRoom()
+        RoomStore.deleteData()
         Swal.fire({
           position: 'center',
           type: 'success',
-          title: 'Your room has been deleted',
-          showConfirmButton: false,
-          timer: 1500
+          title: 'Room ' + this.props.room.RoomName + ' has been deleted',
+          showConfirmButton: true,
+          preConfirm: () => {
+            window.location = "/ad_all_list";
+            }
         })
       }
     })
@@ -124,7 +129,7 @@ class AdRoomInfoCard extends React.Component {
           <div className="col-md-5 col-sm-0">
           </div>
           <div className="col-md-1 col-sm-6">
-            <button onClick={() => this.deleteClick()} type="button" className="btn btn-outline-danger">{language[LanguageStore.lang].adRoomInfo.Delete}</button>
+            <button onClick={(e) => this.DeleteRoom(e)} type="button" className="btn btn-outline-danger">{language[LanguageStore.lang].adRoomInfo.Delete}</button>
           </div>
           <div className="col-md-1 col-sm-6">
             <button onClick={() => this.EditClick()} type="button" className="btn btn-outline-info">{language[LanguageStore.lang].adRoomInfo.Edit}</button>
