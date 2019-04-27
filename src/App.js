@@ -17,6 +17,7 @@ import AdSearchNorView from './Views/ad_Search_Normal'
 import AdSearchRecView from './Views/ad_Search_Recurring'
 import AdAddRoomView from './Views/ad_AddRoom'
 import AdBookingView from './Views/ad_Booking'
+import AdRecBookingView from './Views/ad_BookingRec'
 import AdBookingTimatableView from './Views/ad_BookingTimetable'
 import AdCurHistoryView from './Views/ad_CurHistory'
 import AdPreHistoryView from './Views/ad_PreHistory'
@@ -56,6 +57,7 @@ class App extends Component {
           <Route path="/ad_support" component={AdSupportView} />{' '}
           <Route path="/ad_reply" component={AdReplyView} />{' '}
           <Route path="/ad_booking" component={AdBookingView} />{' '}
+          <Route path="/ad_booking_rec" component={AdRecBookingView} />{' '}
           <Route path="/ad_timetable" component={AdBookingTimatableView} />{' '}
           
         </Switch>

@@ -27,6 +27,7 @@ const jumbotronStyle = {
   backgroundSize: 'absolute'
 }
 
+@observer
 class ReservationFormAd extends React.Component {
   setForm = name => event => {
     this.props.setField(name, event.target.value)
@@ -91,7 +92,7 @@ class ReservationFormAd extends React.Component {
   }
 
 
-  @observer
+  
   render() {
     return (
       <div className="jumbotron" style={jumbotronStyle}>
@@ -264,10 +265,6 @@ class ReservationFormAd extends React.Component {
                 </div>
               </div>
             </div>
-
-
-
-
 
           <center><button type="submit" value="Submit" className="btn btn-info">
           {language[LanguageStore.lang].Main.Search}</button> </center>

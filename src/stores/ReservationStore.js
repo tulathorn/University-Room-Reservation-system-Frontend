@@ -74,12 +74,10 @@ class ReservationStore {
     ConvertUsernameToID = async () => {
         this.tempArray = await axios.get('./users', this.searchTemp).then(resp => resp.data)
         this.setBookingConfig('UserID',this.tempArray[0].UserID) 
-        console.log(this.bookingConfig)
     }
 
     @action
     addReservation = async () => {
-        console.log(this.bookingConfig)
         this.reservedDatas = await axios.post('./reservations', this.bookingConfig).then(resp => resp.data)
         console.log('จองห้องสำเร็จแล้ว!')
         //this.cleanBookingConfig()

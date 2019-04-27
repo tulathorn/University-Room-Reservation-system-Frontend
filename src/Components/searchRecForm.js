@@ -1,9 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
-import RoomStore from '../stores/RoomStore'
+import { observer } from 'mobx-react'
+import { withRouter } from 'react-router-dom'
 import LanguageStore from '../stores/LanguageStore'
 import language from '../languages.json'
-
+import ReservationStore from '../stores/ReservationStore';
 
 const NormalText = styled.p`
   color: white;
@@ -14,7 +15,9 @@ const Heading = styled.h2`
 const SubHeading = styled.h4`
   color: white;
 `
-
+const textColor = {
+  color: 'white'
+}
 
 const jumbotronImage = require('../Pictures/bg.png')
 
@@ -25,22 +28,68 @@ const jumbotronStyle = {
   backgroundSize: 'absolute'
 }
 
+@observer
 class SearchRecForm extends React.Component {
   setForm = name => event => {
     this.props.setField(name, event.target.value)
   }
 
   componentDidMount() {
+    ReservationStore.cleanSearchConfig()
+    ReservationStore.cleanSearch()
+  }
+
+  constructor(props) {
+    super(props);
+    this.state = { 
+      HasTeacherComputers: false,
+      HasStudentComputers: false,
+      HasProjector: false,
+      HasAirConditioner: false,
+      HasWhiteboard: false,
+      HasVisualizer: false};
+  }
+
+  toggleCheck = (field) => {
+    this.setState(state => ({ [field]: !state[field] }));
+  };
+  
+  reformDatas= () => {
+    ReservationStore.setSearch('HasTeacherComputers', this.state.HasTeacherComputers)
+    ReservationStore.setSearch('HasStudentComputers', this.state.HasStudentComputers)
+    ReservationStore.setSearch('HasProjector', this.state.HasProjector)
+    ReservationStore.setSearch('HasAirConditioner', this.state.HasAirConditioner)
+    ReservationStore.setSearch('HasWhiteboard', this.state.HasWhiteboard)
+    ReservationStore.setSearch('HasVisualizer', this.state.HasVisualizer)
+    localStorage.setItem('ScheduleDate',ReservationStore.searchTemp.StartDate)
+    localStorage.setItem('ScheduleDateTo',ReservationStore.searchTemp.EndDate)
+    localStorage.setItem('ScheduleDay',ReservationStore.searchTemp.Day)
+    localStorage.setItem('ScheduleFrom',ReservationStore.searchTemp.fromhr + ':' + ReservationStore.searchTemp.frommin)
+    localStorage.setItem('ScheduleTo',ReservationStore.searchTemp.tohr + ':' + ReservationStore.searchTemp.tomin)
+    // ReservationStore.setSearchConfigTime('StartDate',ReservationStore.searchTemp.StartDate)
+    // ReservationStore.setSearchConfigTime('EndDate',ReservationStore.searchTemp.EndDate)
+    // ReservationStore.setSearchConfigTime('Day',ReservationStore.searchTemp.Day)
+    // ReservationStore.setSearchConfigTime('StartTime',localStorage.getItem('ScheduleFrom'))
+    // ReservationStore.setSearchConfigTime('EndTime',localStorage.getItem('ScheduleTo'))
+    ReservationStore.searchTemp.Building ? ReservationStore.setSearchConfigRoom('Building',ReservationStore.searchTemp.Building) : console.log()
+    ReservationStore.searchTemp.PeopleCapacity ? ReservationStore.setSearchConfigRoom('PeopleCapacity',ReservationStore.searchTemp.PeopleCapacity) : console.log()
+    this.state.HasTeacherComputers ? ReservationStore.setSearchConfigEquip('HasTeacherComputers',1) : console.log()
+    this.state.HasStudentComputers ? ReservationStore.setSearchConfigEquip('HasStudentComputers',1) : console.log()
+    this.state.HasProjector ? ReservationStore.setSearchConfigEquip('HasProjector',1) : console.log()
+    this.state.HasAirConditioner ? ReservationStore.setSearchConfigEquip('HasAirConditioner',1) : console.log()
+    this.state.HasWhiteboard ? ReservationStore.setSearchConfigEquip('HasWhiteboard',1) : console.log()
+    this.state.HasVisualizer ? ReservationStore.setSearchConfigEquip('HasVisualizer',1) : console.log()
+    
   }
 
   onSubmit = e => {
     e.preventDefault()
-    //this.reformDatas()
-    //RoomStore.fetchData()
+    this.reformDatas()
+    ReservationStore.GetAvailableRoom() //May need to change because it recurring
     this.search()
   }
   search = async () => {
-    this.props.history.push('/search')
+    this.props.history.push('/ad_list_rec')
   }
 
   render() {
@@ -55,8 +104,8 @@ class SearchRecForm extends React.Component {
               <div className="col-md-6 col-sm-12">
                 <NormalText>{language[LanguageStore.lang].searchRecForm.Building}</NormalText>
                 <select name="building" type="text" className="custom-select" id="building" placeholder="Room ID"
-                  value={RoomStore.searchConfig.Building} onChange={e => RoomStore.setConfig('Building', e.target.value)}>
-                  <option value="" disabled defaultValue>Choose...</option>
+                  value={ReservationStore.searchTemp.Building} onChange={e => ReservationStore.setSearch('Building', e.target.value)}>
+                  <option value="" disabled selected>Choose...</option>
                   <option value="Witsawa Watthana">Witsawa Watthana</option>
                   <option value="CB1">CB1</option>
                   <option value="CB2">CB2</option>
@@ -68,8 +117,8 @@ class SearchRecForm extends React.Component {
               <div className="col-md-6 col-sm-12">
                 <NormalText>{language[LanguageStore.lang].searchRecForm.Size}</NormalText>
                 <select name="capacity" type="number" className="custom-select" id="capacity"
-                  value={RoomStore.searchConfig.PeopleCapacity} onChange={e => RoomStore.setConfig('PeopleCapacity', e.target.value)}>
-                  <option value="" disabled defaultValue>Choose...</option>
+                  value={ReservationStore.searchTemp.PeopleCapacity} onChange={e => ReservationStore.setSearch('PeopleCapacity', e.target.value)}>
+                  <option value="" disabled selected>Choose...</option>
                   <option value="10">10</option>
                   <option value="20">20</option>
                   <option value="30">30</option>
@@ -93,15 +142,15 @@ class SearchRecForm extends React.Component {
                 <NormalText>{language[LanguageStore.lang].searchRecForm.From}</NormalText>
               </div>
               <div className="col-md-3 col-sm-12">
-                <input name="datefrom" type="date" className="form-control" id="datefrom"
-                value={RoomStore.schedule.Date} onChange={e => RoomStore.setSchedule('Date', e.target.value)}/>
+                <input name="startdate" type="date" className="form-control" id="startdate"
+                value={ReservationStore.searchTemp.StartDate} onChange={e => ReservationStore.setSearch('StartDate', e.target.value)}/>
               </div>
               <div className="col-md-3 col-sm-12">
                 <NormalText>{language[LanguageStore.lang].searchRecForm.To}</NormalText>
               </div>
               <div className="col-md-3 col-sm-12">
-                <input name="dateto" type="date" className="form-control" id="dateto"
-                value={RoomStore.schedule.DateTo} onChange={e => RoomStore.setSchedule('DateTo', e.target.value)}/>
+                <input name="enddate" type="date" className="form-control" id="enddate"
+                value={ReservationStore.searchTemp.EndDate} onChange={e => ReservationStore.setSearch('EndDate', e.target.value)}/>
               </div>
             </div>
 
@@ -113,8 +162,8 @@ class SearchRecForm extends React.Component {
               </div>
               <div className="col-md-2 col-sm-12">
                 <select name="fromhr" type="number" className="custom-select" id="fromhr"
-                  value={RoomStore.schedule.fromhr} onChange={e => RoomStore.setSchedule('fromhr', e.target.value)}>
-                  <option value="" disabled defaultValue>Choose...</option>
+                value={ReservationStore.searchTemp.fromhr} onChange={e => ReservationStore.setSearch('fromhr', e.target.value)}>
+                  <option value="" disabled selected>Choose...</option>
                   <option value="00">00</option>
                   <option value="01">01</option>
                   <option value="02">02</option>
@@ -146,8 +195,8 @@ class SearchRecForm extends React.Component {
               </div>
               <div className="col-md-2 col-sm-12">
                 <select name="frommin" type="number" className="custom-select" id="frommin"
-                  value={RoomStore.schedule.frommin} onChange={e => RoomStore.setSchedule('frommin', e.target.value)}>
-                  <option value="" disabled defaultValue>Choose...</option>
+                  value={ReservationStore.searchTemp.frommin} onChange={e => ReservationStore.setSearch('frommin', e.target.value)}>
+                  <option value="" disabled selected>Choose...</option>
                   <option value="00">00</option>
                   <option value="30">30</option>
                 </select>
@@ -157,8 +206,8 @@ class SearchRecForm extends React.Component {
               </div>
               <div className="col-md-2 col-sm-12">
                 <select name="tohr" type="number" className="custom-select" id="tohr"
-                  value={RoomStore.schedule.tohr} onChange={e => RoomStore.setSchedule('tohr', e.target.value)}>
-                  <option value="" disabled defaultValue>Choose...</option>
+                  value={ReservationStore.searchTemp.tohr} onChange={e => ReservationStore.setSearch('tohr', e.target.value)}>
+                  <option value="" disabled selected>Choose...</option>
                   <option value="00">00</option>
                   <option value="01">01</option>
                   <option value="02">02</option>
@@ -190,8 +239,8 @@ class SearchRecForm extends React.Component {
               </div>
               <div className="col-md-2 col-sm-12">
                 <select name="tomin" type="number" className="custom-select" id="tomin"
-                  value={RoomStore.schedule.tomin} onChange={e => RoomStore.setSchedule('tomin', e.target.value)}>
-                  <option value="" disabled defaultValue>Choose...</option>
+                  value={ReservationStore.searchTemp.tomin} onChange={e => ReservationStore.setSearch('tomin', e.target.value)}>
+                  <option value="" disabled selected>Choose...</option>
                   <option value="00">00</option>
                   <option value="30">30</option>
                 </select>
@@ -203,8 +252,8 @@ class SearchRecForm extends React.Component {
               </div>
               <div className="col-md-3 col-sm-12">
                 <select name="capacity" type="number" className="custom-select" id="capacity"
-                  value={RoomStore.schedule.Day} onChange={e => RoomStore.setSchedule('Day', e.target.value)}>
-                  <option defaultValue>Choose...</option>
+                  value={ReservationStore.searchTemp.Day} onChange={e => ReservationStore.setSearch('Day', e.target.value)}>
+                  <option selected>Choose...</option>
                   <option value="7">Sunday</option>
                   <option value="1">Monday</option>
                   <option value="2">Tuesday</option>
@@ -217,12 +266,39 @@ class SearchRecForm extends React.Component {
             </div>
             <hr className="my-4" color="white"/>
             <SubHeading>{language[LanguageStore.lang].searchRecForm.Amenity} :</SubHeading>
-            {language[LanguageStore.lang].searchRecForm.Amenities.TeacherComputer}
-            {language[LanguageStore.lang].searchRecForm.Amenities.StudentComputer}
-            {language[LanguageStore.lang].searchRecForm.Amenities.AirConditioner}
-            {language[LanguageStore.lang].searchRecForm.Amenities.Projector} 
-            {language[LanguageStore.lang].searchRecForm.Amenities.WhiteBoard}
-            {language[LanguageStore.lang].searchRecForm.Amenities.Visualizer}
+            <div class="form-check">
+              <div className="row">
+                <div className="col-md-6 col-sm-12">
+                  <input name="teachercom" type="checkbox" className="form-check-input" id="teachercom"
+                  value={this.state.HasTeacherComputers} onClick={() => this.toggleCheck('HasTeacherComputers')} />
+                  <label className="form-check-label" for="teachercom" style={textColor}>{language[LanguageStore.lang].searchRecForm.Amenities.TeacherComputer}</label><br/>
+                  <input name="studentcom" type="checkbox" className="form-check-input" id="studentcom"
+                  value={this.state.HasStudentComputers} onClick={() => this.toggleCheck('HasStudentComputers')} />
+                  <label className="form-check-label" for="studentcom" style={textColor}>{language[LanguageStore.lang].searchRecForm.Amenities.StudentComputer}</label><br/>
+                  <input name="aircon" type="checkbox" className="form-check-input" id="aircon"
+                  value={this.state.HasAirConditioner} onClick={() => this.toggleCheck('HasAirConditioner')} />
+                  <label className="form-check-label" for="aircon" style={textColor}>{language[LanguageStore.lang].searchRecForm.Amenities.AirConditioner}</label><br/>
+                </div>
+                <div className="col-md-6 col-sm-12">
+                  <input name="projector" type="checkbox" className="form-check-input" id="projector"
+                  value={this.state.HasProjector} onClick={() => this.toggleCheck('HasProjector')} />
+                  <label className="form-check-label" for="projector" style={textColor}>{language[LanguageStore.lang].searchRecForm.Amenities.Projector}</label><br/>
+                  <input name="whiteboard" type="checkbox" className="form-check-input" id="whiteboard"
+                  value={this.state.HasWhiteboard} onClick={() => this.toggleCheck('HasWhiteboard')} />
+                  <label className="form-check-label" for="whiteboard" style={textColor}>{language[LanguageStore.lang].searchRecForm.Amenities.WhiteBoard}</label><br/>
+                  <input name="visualizer" type="checkbox" className="form-check-input" id="visualizer"
+                  value={this.state.HasVisualizer} onClick={() => this.toggleCheck('HasVisualizer')} />
+                  <label className="form-check-label" for="visualizer" style={textColor}>{language[LanguageStore.lang].searchRecForm.Amenities.Visualizer}</label><br/>
+                </div>
+              </div>
+            </div>
+            
+            
+            <center>
+              <button type="submit" value="Submit" className="btn btn-info">
+                {language[LanguageStore.lang].adSearchRecurring.Search}
+              </button>
+            </center>
           </form>
         </div>
       
@@ -231,4 +307,4 @@ class SearchRecForm extends React.Component {
   }
 }
 
-export default SearchRecForm
+export default withRouter(SearchRecForm)

@@ -4,7 +4,6 @@ import RoomInformationCardAd from '../Components/RoomInformationCardAd'
 import LanguageStore from '../stores/LanguageStore'
 import language from '../languages.json'
 import { observer } from 'mobx-react'
-import RoomStore from '../stores/RoomStore'
 import ReservationStore from '../stores/ReservationStore';
 
 const jumbotronStyle = {
@@ -12,10 +11,10 @@ const jumbotronStyle = {
   height: 'auto',
   backgroundColor: 'white'
 }
+
 @observer
 class AdListView extends Component {
   componentDidMount() {
-    RoomStore.fetchData()
     ReservationStore.GetAvailableRoom()
   }
 

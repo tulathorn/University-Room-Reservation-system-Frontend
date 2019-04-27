@@ -428,7 +428,8 @@
       },
       "Additional":{
         "Username": "User",
-        "Title": "Title"
+        "Title": "Title",
+        "Term": "Semester"
       }
     },
     {
@@ -860,7 +861,8 @@
       },
       "Additional":{
         "Username": "ผู้ใช้งาน",
-        "Title": "หัวข้อ"
+        "Title": "หัวข้อ",
+        "Term": "เทอม"
       }
     }
   ]

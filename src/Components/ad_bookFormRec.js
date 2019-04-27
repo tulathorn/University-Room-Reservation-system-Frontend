@@ -11,17 +11,19 @@ const jumbotronStyle = {
   backgroundColor: '#203C50'
 }
 
-class AdBookingForm extends React.Component {
+class AdBookingFormRec extends React.Component {
   componentDidMount() {
     ReservationStore.cleanBookingConfig()
   }
   reformDatas= () => {
     ReservationStore.ConvertUsernameToID()
-    ReservationStore.setBookingConfig('Date',localStorage.getItem('ScheduleDate'))
+    ReservationStore.setBookingConfig('StartDate',localStorage.getItem('ScheduleDate'))
+    ReservationStore.setBookingConfig('EndDate',localStorage.getItem('ScheduleDateTo'))
+    ReservationStore.setBookingConfig('Day',localStorage.getItem('ScheduleDay'))
     ReservationStore.setBookingConfig('StartTime',localStorage.getItem('ScheduleFrom'))
     ReservationStore.setBookingConfig('EndTime',localStorage.getItem('ScheduleTo'))
     ReservationStore.setBookingConfig('RoomID',localStorage.getItem('RoomID'))
-    
+    // Need to add feature to store section
   }
 
   onSubmit = e => {
@@ -41,7 +43,8 @@ class AdBookingForm extends React.Component {
       cancelButtonColor: '#dc3545',
       confirmButtonText: 'Yes, Book the room!'
     }).then((result) => {
-      ReservationStore.addReservation()
+      console.log(ReservationStore.bookingConfig)
+      //ReservationStore.addReservation()
       if (result.value) {
         Swal.fire({
         position: 'center',
@@ -71,7 +74,17 @@ class AdBookingForm extends React.Component {
                 {language[LanguageStore.lang].adBookingForm.Purpose}
                 <textarea name="purpose" type="text" className="form-control" id="purpose" rows="5" placeholder="Identify your purpose for booking this room..."
                 value={ReservationStore.bookingConfig.Purpose} onChange={e => ReservationStore.setBookingConfig('Purpose', e.target.value)}/>
+                {language[LanguageStore.lang].Additional.Term}
+                <select name="term" type="text" className="custom-select" id="term"
+                  value={ReservationStore.bookingConfig.Term} onChange={e => ReservationStore.setBookingConfig('Term', e.target.value)}>
+                  <option value="" disabled selected>Choose...</option>
+                  <option value="1/2562">1/2562</option>
+                  <option value="2/2562">2/2562</option>
+                  <option value="1/2563">1/2563</option>
+                  <option value="2/2563">2/2563</option>
+                </select>
             </div>
+            
               {language[LanguageStore.lang].adBookingForm.EmailAddress}<br/>
               {language[LanguageStore.lang].adBookingForm.Phone}<br/>
               {language[LanguageStore.lang].adBookingForm.Year}<br/>
@@ -90,4 +103,4 @@ class AdBookingForm extends React.Component {
   }
 }
 
-export default AdBookingForm
+export default AdBookingFormRec

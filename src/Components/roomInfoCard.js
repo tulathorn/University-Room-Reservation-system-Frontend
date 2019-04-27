@@ -21,15 +21,7 @@ class RoomInfoCard extends React.Component {
           </center>
           <br/>
 
-          <div className="row">
-              <p><b>{language[LanguageStore.lang].roomInfoCard.BookedDate} : </b>
-              {localStorage.getItem('ScheduleDate')}</p>
-          </div>
-
-          <div className="row">
-              <p><b>{language[LanguageStore.lang].roomInfoCard.BookedTime} : </b></p>
-              <p>{language[LanguageStore.lang].roomInfoCard.From} {localStorage.getItem('ScheduleFrom')} {language[LanguageStore.lang].roomInfoCard.To} {localStorage.getItem('ScheduleTo')}</p>
-          </div>
+          
 
           <div className="row">
             <div className="col-md-5 col-sm-12">
@@ -58,6 +50,15 @@ class RoomInfoCard extends React.Component {
               {this.props.room.Equipment.HasWhiteboard ? <p>{language[LanguageStore.lang].roomInfoCard.Amenities.WhiteBoard}</p> : <p></p>}
               {this.props.room.Equipment.HasVisualizer ? <p>{language[LanguageStore.lang].roomInfoCard.Amenities.Visualizer}</p> : <p></p>}  
             </div>
+          </div>
+          <div className="row">
+              <p><b>{language[LanguageStore.lang].roomInfoCard.BookedDate} : </b>
+              {localStorage.getItem('ScheduleDate')}</p>
+          </div>
+
+          <div className="row">
+              <p><b>{language[LanguageStore.lang].roomInfoCard.BookedTime} : </b></p>
+              <p>{language[LanguageStore.lang].roomInfoCard.From} {localStorage.getItem('ScheduleFrom')} {language[LanguageStore.lang].roomInfoCard.To} {localStorage.getItem('ScheduleTo')}</p>
           </div>
         </div>
     )
