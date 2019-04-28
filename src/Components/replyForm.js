@@ -16,8 +16,11 @@ class ReplyForm extends React.Component {
       position: 'center',
       type: 'success',
       title: 'Your message has been sent',
-      showConfirmButton: false,
-      timer: 1500
+      text: 'Back to support page!',
+      showConfirmButton: true,
+      preConfirm: () => {
+        window.location = "/ad_support";
+        }
     })
   }
   render() {

@@ -50,7 +50,12 @@ class RoomStore {
   addRoom = async () => {
     this.roomDatas = await axios.post('./rooms', this.roomInfo).then(resp => resp.data)
     console.log('เพิ่มห้องสำเร็จแล้ว!')
-    this.resetAddForm()
+  }
+
+  @action
+  updateRoom = async () => {
+    this.roomDatas = await axios.put('./rooms', this.roomInfo).then(resp => resp.data)
+    console.log('แก้ไขห้องสำเร็จแล้ว!')
   }
 
 
@@ -68,13 +73,12 @@ class RoomStore {
   @action
   copyValue = (value) => {
     this.roomInfo = value
-    console.log(this.roomInfo)
+    //console.log(this.roomInfo)
   }
 
   @action
   setValue = (field, value) => {
     this.roomInfo[field] = value
-    console.log(this.roomInfo[field])
   }
   @action
   setEquipment = (field, value) => {

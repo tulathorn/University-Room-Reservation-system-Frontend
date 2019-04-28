@@ -17,9 +17,7 @@ class ContactStore {
     @action
     addContact = async () => {
       this.contact = await axios.post('./contact', this.message).then(resp => resp.data)
-      console.log(this.contact)
-      console.log('yes!')
-      this.resetContactForm()
+      console.log('ส่งข้อมูลสำเร็จ')
     }
 
     @action

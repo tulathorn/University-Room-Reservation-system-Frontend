@@ -36,6 +36,7 @@ class BookingForm extends React.Component {
       position: 'center',
       type: 'success',
       title: 'Booking completed',
+      text: 'Back to search page!',
       focusConfirm: true,
       showConfirmButton: true,
       preConfirm: () => {
@@ -47,8 +48,8 @@ class BookingForm extends React.Component {
     Swal.fire({
       title: 'User Information',
       html:
-        '<input id="swal-input1" className="swal2-input" placeholder="Email Address">' +
-        '<input id="swal-input2" className="swal2-input" placeholder="Phone Number">',
+        '<input id="swal-input1" class="swal2-input" placeholder="Email Address">' +
+        '<input id="swal-input2" class="swal2-input" placeholder="Phone Number">',
       focusConfirm: false,
       confirmButtonColor: '#17a2b8',
       preConfirm: () => {

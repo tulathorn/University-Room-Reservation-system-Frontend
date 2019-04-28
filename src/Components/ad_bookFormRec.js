@@ -42,13 +42,14 @@ class AdBookingFormRec extends React.Component {
       cancelButtonColor: '#dc3545',
       confirmButtonText: 'Yes, Book the room!'
     }).then((result) => {
-      console.log(ReservationStore.bookingConfig)
-      //ReservationStore.addReservation()
       if (result.value) {
+        console.log(ReservationStore.bookingConfig)
+        //ReservationStore.addReservation()
         Swal.fire({
         position: 'center',
         type: 'success',
         title: 'Booking completed',
+        text: "Redirect to search page!",
         focusConfirm: true,
         showConfirmButton: true,
         preConfirm: () => {

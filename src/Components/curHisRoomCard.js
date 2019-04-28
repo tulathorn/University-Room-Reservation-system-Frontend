@@ -21,7 +21,6 @@ class CurHistoryRoomCard extends React.Component {
 
   cancelBooking = () => {
     ReservationStore.setConfig('BookingID',this.props.data.BookingID)
-    
     this.cancelClick()
   }
 
@@ -37,14 +36,16 @@ class CurHistoryRoomCard extends React.Component {
       cancelButtonColor: '#dc3545',
       confirmButtonText: 'Yes, cancel it!'
     }).then((result) => {
-      ReservationStore.DeleteReservation()
       if (result.value) {
+        ReservationStore.DeleteReservation()
         Swal.fire({
           position: 'center',
           type: 'success',
           title: 'Your booking has been canceled',
-          showConfirmButton: false,
-          timer: 1500
+          showConfirmButton: true,
+          preConfirm: () => {
+            window.location.reload();
+            }
         })
       }
     })

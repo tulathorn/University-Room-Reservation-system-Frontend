@@ -68,6 +68,7 @@ class AddForm extends React.Component {
     e.preventDefault()
     this.reformDatas()
     RoomStore.addRoom()
+    this.addClick()
   }
 
 	addClick = () =>{
@@ -75,10 +76,19 @@ class AddForm extends React.Component {
       position: 'center',
       type: 'success',
       title: 'This room has been added',
-      showConfirmButton: false,
-      timer: 2000
+      text: "The page will be reload!",
+      showConfirmButton: true,
+      preConfirm: () => {
+        window.location.reload();
+        }
     })
   }
+
+
+  
+
+
+
   @observer
   render() {
     return (
@@ -285,7 +295,7 @@ class AddForm extends React.Component {
               </div>
             </div>
               <br/><center>
-              <button onClick={() => this.addClick()} type="submit" value="Submit" className="btn btn-info">
+              <button type="submit" value="Submit" className="btn btn-info">
                 {language[localStorage.getItem('language')].addForm.Submit}
               </button> </center>
             </form>

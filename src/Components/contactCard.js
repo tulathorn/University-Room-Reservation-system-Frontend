@@ -25,8 +25,10 @@ class ContactCard extends React.Component {
       position: 'center',
       type: 'success',
       title: 'Your message has been sent',
-      showConfirmButton: false,
-      timer: 2000
+      showConfirmButton: true,
+      preConfirm: () => {
+        window.location.reload();
+        }
     })
   }
   render() {

@@ -54,6 +54,7 @@ class AdRoomInfoCard extends React.Component {
           position: 'center',
           type: 'success',
           title: 'Room ' + this.props.room.RoomName + ' has been deleted',
+          text: "Redirect to all list page!",
           showConfirmButton: true,
           preConfirm: () => {
             window.location = "/ad_all_list";
