@@ -1,7 +1,6 @@
 import React from 'react'
 import '../Styles/bootstrap/bootstrap.min.css'
 import Swal from 'sweetalert2'
-import LanguageStore from '../stores/LanguageStore'
 import language from '../languages.json'
 import RoomStore from '../stores/RoomStore'
 
@@ -90,16 +89,16 @@ class EditForm extends React.Component {
           <form action="#" onSubmit={e => this.onSubmit(e)}>
             <div className="row">
               <div className="col-md-6 col-sm-12">
-              {language[LanguageStore.lang].editForm.RoomID}
-                <input name="roomid" type="text" className="form-control" id="roomid" placeholder="Room ID"
+              {language[localStorage.getItem('language')].editForm.RoomID}
+                <input name="roomid" type="text" className="form-control" id="roomid" placeholder={language[localStorage.getItem('language')].editForm.RoomID}
                 defaultValue={this.props.room.RoomName} value={RoomStore.roomInfo.RoomName} onChange={e => RoomStore.setValue('RoomName', e.target.value)}/>
-              {language[LanguageStore.lang].editForm.RoomPhoto}
+              {language[localStorage.getItem('language')].editForm.RoomPhoto}
                 <input name="photo" type="file" className="form-control-file" id="photo"
                 value={RoomStore.roomInfo.Picture} onChange={e => RoomStore.setValue('Picture', e.target.value)}/>
-              {language[LanguageStore.lang].editForm.PeopleCapacity}
+              {language[localStorage.getItem('language')].editForm.PeopleCapacity}
                 <select name="capacity" type="number" className="custom-select" id="capacity"
                 defaultValue={this.props.room.PeopleCapacity} value={RoomStore.roomInfo.PeopleCapacity} onChange={e => RoomStore.setValue('PeopleCapacity', e.target.value)}>
-                <option>Choose...</option>
+                <option>{language[localStorage.getItem('language')].Additional.Choose}</option>
                 <option value="10">10</option>
                 <option value="20">20</option>
                 <option value="30">30</option>
@@ -114,64 +113,64 @@ class EditForm extends React.Component {
                 <option value="150">150</option>
                 <option value="200">200</option>
                 </select>
-              {language[LanguageStore.lang].editForm.Building}
+              {language[localStorage.getItem('language')].editForm.Building}
                 <select name="building" type="text" className="custom-select" id="building"
                 defaultValue={this.props.room.Building} value={RoomStore.roomInfo.Building} onChange={e => RoomStore.setValue('Building', e.target.value)}>
-                <option>Choose...</option>
-                <option value="Witsawa Watthana">Witsawa Watthana</option>
-                <option value="CB1">CB1</option>
-                <option value="CB2">CB2</option>
-                <option value="CB3">CB3</option>
-                <option value="CB4">CB4</option>
-                <option value="CB5">CB5</option>
+                <option>{language[localStorage.getItem('language')].Additional.Choose}</option>
+                <option value="Witsawa Watthana">{language[localStorage.getItem('language')].Additional.WitsawaWatthana}</option>
+                <option value="CB1">{language[localStorage.getItem('language')].Additional.CB1}</option>
+                <option value="CB2">{language[localStorage.getItem('language')].Additional.CB2}</option>
+                <option value="CB3">{language[localStorage.getItem('language')].Additional.CB3}</option>
+                <option value="CB4">{language[localStorage.getItem('language')].Additional.CB4}</option>
+                <option value="CB5">{language[localStorage.getItem('language')].Additional.CB5}</option>
                 </select>
-              {language[LanguageStore.lang].editForm.Floor}
-                <input name="floor" type="number" className="form-control" id="floor" placeholder="Floor"
+              {language[localStorage.getItem('language')].editForm.Floor}
+                <input name="floor" type="number" className="form-control" id="floor" placeholder={language[localStorage.getItem('language')].editForm.Floor}
                 defaultValue={this.props.room.Floor} value={RoomStore.roomInfo.Floor} onChange={e => RoomStore.setValue('Floor', e.target.value)}/>
-              {language[LanguageStore.lang].editForm.RoomNumber}
-                <input name="number" type="number" className="form-control" id="number" placeholder="Room Number"
+              {language[localStorage.getItem('language')].editForm.RoomNumber}
+                <input name="number" type="number" className="form-control" id="number" placeholder={language[localStorage.getItem('language')].editForm.RoomNumber}
                 defaultValue={this.props.room.RoomNumber} value={RoomStore.roomInfo.RoomNumber} onChange={e => RoomStore.setValue('RoomNumber', e.target.value)}/>
               </div>
               <div className="col-md-6 col-sm-12">
-              {language[LanguageStore.lang].editForm.OperatingDay}
+              {language[localStorage.getItem('language')].editForm.OperatingDay}
                 <div className="form-check">
                   <div className="row">
                     <div className="col-md-6 col-sm-12">
                       <input name="monday" type="checkbox" className="form-check-input" id="monday"
                       value={this.state.Monday} onClick={() => this.toggleCheck('Monday')} defaultChecked/>
-                      <label className="form-check-label" for="monday">{language[LanguageStore.lang].addForm.Day.Monday}</label><br/>
+                      <label className="form-check-label" for="monday">{language[localStorage.getItem('language')].addForm.Day.Monday}</label><br/>
                       <input name="tuesday" type="checkbox" className="form-check-input" id="tuesday"
                       alue={this.state.Tuesday} onClick={() => this.toggleCheck('Tuesday')} defaultChecked/>
-                      <label className="form-check-label" for="tuesday">{language[LanguageStore.lang].addForm.Day.Tuesday}</label><br/>
+                      <label className="form-check-label" for="tuesday">{language[localStorage.getItem('language')].addForm.Day.Tuesday}</label><br/>
                       <input name="wednesday" type="checkbox" className="form-check-input" id="wednesday"
                       value={this.state.Wednesday} onClick={() => this.toggleCheck('Wednesday')} defaultChecked/>
-                      <label className="form-check-label" for="wednesday">{language[LanguageStore.lang].addForm.Day.Wednesday}</label><br/>
+                      <label className="form-check-label" for="wednesday">{language[localStorage.getItem('language')].addForm.Day.Wednesday}</label><br/>
                       <input name="thursday" type="checkbox" className="form-check-input" id="thursday"
                       value={this.state.Thursday} onClick={() => this.toggleCheck('Thursday')} defaultChecked/>
-                      <label className="form-check-label" for="thursday">{language[LanguageStore.lang].addForm.Day.Thursday}</label><br/>
+                      <label className="form-check-label" for="thursday">{language[localStorage.getItem('language')].addForm.Day.Thursday}</label><br/>
                     </div>
                     <div className="col-md-6 col-sm-12">
                       <input name="friday" type="checkbox" className="form-check-input" id="friday"
                       value={this.state.Friday} onClick={() => this.toggleCheck('Friday')} defaultChecked/>
-                      <label className="form-check-label" for="friday">{language[LanguageStore.lang].addForm.Day.Friday}</label><br/>
+                      <label className="form-check-label" for="friday">{language[localStorage.getItem('language')].addForm.Day.Friday}</label><br/>
                       <input name="saturday" type="checkbox" className="form-check-input" id="saturday"
                       value={this.state.Saturday} onClick={() => this.toggleCheck('Saturday')} defaultChecked/>
-                      <label className="form-check-label" for="saturday">{language[LanguageStore.lang].addForm.Day.Saturday}</label><br/>
+                      <label className="form-check-label" for="saturday">{language[localStorage.getItem('language')].addForm.Day.Saturday}</label><br/>
                       <input name="sunday" type="checkbox" className="form-check-input" id="sunday"
                       value={this.state.Sunday} onClick={() => this.toggleCheck('Sunday')} defaultChecked/>
-                      <label className="form-check-label" for="sunday">{language[LanguageStore.lang].addForm.Day.Sunday}</label><br/>
+                      <label className="form-check-label" for="sunday">{language[localStorage.getItem('language')].addForm.Day.Sunday}</label><br/>
                     </div>
                   </div>
                 </div>
-              {language[LanguageStore.lang].editForm.OperatingTime}
+              {language[localStorage.getItem('language')].editForm.OperatingTime}
                 <div className="row">
                   <div className="col-md-3 col-sm-12">
-                  {language[LanguageStore.lang].editForm.From}
+                  {language[localStorage.getItem('language')].editForm.From}
                   </div>
                   <div className="col-md-4 col-sm-12">
                     <select name="fromhr" type="number" className="custom-select" id="fromhr"
                     value={this.state.fromhr} onChange={e => this.handleChange('fromhr',e.target.value)}>
-                    <option>Choose...</option>
+                    <option>{language[localStorage.getItem('language')].Additional.Choose}</option>
                     <option value="00">00</option>
                     <option value="01">01</option>
                     <option value="02">02</option>
@@ -204,7 +203,7 @@ class EditForm extends React.Component {
                   <div className="col-md-4 col-sm-12">
                     <select name="frommin" type="number" className="custom-select" id="frommin"
                     value={this.state.frommin} onChange={e => this.handleChange('frommin',e.target.value)}>
-                    <option>Choose...</option>
+                    <option>{language[localStorage.getItem('language')].Additional.Choose}</option>
                     <option value="00">00</option>
                     <option value="30">30</option>
                     </select>
@@ -212,12 +211,12 @@ class EditForm extends React.Component {
                 </div>
                 <div className="row">
                   <div className="col-md-3 col-sm-12">
-                    {language[LanguageStore.lang].editForm.To}
+                    {language[localStorage.getItem('language')].editForm.To}
                   </div>
                   <div className="col-md-4 col-sm-12">
                     <select name="tohr" type="number" className="custom-select" id="tohr"
                     value={this.state.tohr} onChange={e => this.handleChange('tohr',e.target.value)}>
-                    <option>Choose...</option>
+                    <option>{language[localStorage.getItem('language')].Additional.Choose}</option>
                     <option value="00">00</option>
                     <option value="01">01</option>
                     <option value="02">02</option>
@@ -250,36 +249,36 @@ class EditForm extends React.Component {
                   <div className="col-md-4 col-sm-12">
                     <select name="tomin" type="number" className="custom-select" id="tomin"
                     value={this.state.tomin} onChange={e => this.handleChange('tomin',e.target.value)}>
-                    <option>Choose...</option>
+                    <option>{language[localStorage.getItem('language')].Additional.Choose}</option>
                     <option value="00">00</option>
                     <option value="30">30</option>
                     </select>
                   </div>
                 </div>
-              {language[LanguageStore.lang].editForm.Amenity}
+              {language[localStorage.getItem('language')].editForm.Amenity}
                 <div className="form-check">
                   <div className="row">
                     <div className="col-md-6 col-sm-12">
                       <input name="teachercom" type="checkbox" className="form-check-input" id="teachercom"
                       value={this.state.HasTeacherComputers} onClick={() => this.toggleCheck('HasTeacherComputers')} defaultChecked/>
-                      <label className="form-check-label" for="teachercom">{language[LanguageStore.lang].addForm.Amenities.TeacherComputer}</label><br/>
+                      <label className="form-check-label" for="teachercom">{language[localStorage.getItem('language')].addForm.Amenities.TeacherComputer}</label><br/>
                       <input name="studentcom" type="checkbox" className="form-check-input" id="studentcom"
                       value={this.state.HasStudentComputers} onClick={() => this.toggleCheck('HasStudentComputers')} defaultChecked/>
-                      <label className="form-check-label" for="studentcom">{language[LanguageStore.lang].addForm.Amenities.StudentComputer}</label><br/>
+                      <label className="form-check-label" for="studentcom">{language[localStorage.getItem('language')].addForm.Amenities.StudentComputer}</label><br/>
                       <input name="aircon" type="checkbox" className="form-check-input" id="aircon"
                       value={this.state.HasAirConditioner} onClick={() => this.toggleCheck('HasAirConditioner')} defaultChecked/>
-                      <label className="form-check-label" for="aircon">{language[LanguageStore.lang].addForm.Amenities.AirConditioner}</label><br/>
+                      <label className="form-check-label" for="aircon">{language[localStorage.getItem('language')].addForm.Amenities.AirConditioner}</label><br/>
                     </div>
                     <div className="col-md-6 col-sm-12">
                       <input name="projector" type="checkbox" className="form-check-input" id="projector"
                       value={this.state.HasProjector} onClick={() => this.toggleCheck('HasProjector')} defaultChecked/>
-                      <label className="form-check-label" for="projector">{language[LanguageStore.lang].addForm.Amenities.Projector}</label><br/>
+                      <label className="form-check-label" for="projector">{language[localStorage.getItem('language')].addForm.Amenities.Projector}</label><br/>
                       <input name="whiteboard" type="checkbox" className="form-check-input" id="whiteboard"
                       value={this.state.HasWhiteboard} onClick={() => this.toggleCheck('HasWhiteboard')} defaultChecked/>
-                      <label className="form-check-label" for="whiteboard">{language[LanguageStore.lang].addForm.Amenities.WhiteBoard}</label><br/>
+                      <label className="form-check-label" for="whiteboard">{language[localStorage.getItem('language')].addForm.Amenities.WhiteBoard}</label><br/>
                       <input name="visualizer" type="checkbox" className="form-check-input" id="visualizer"
                       value={this.state.HasVisualizer} onClick={() => this.toggleCheck('HasVisualizer')} defaultChecked/>
-                      <label className="form-check-label" for="visualizer">{language[LanguageStore.lang].addForm.Amenities.Visualizer}</label><br/>
+                      <label className="form-check-label" for="visualizer">{language[localStorage.getItem('language')].addForm.Amenities.Visualizer}</label><br/>
                     </div>
                   </div>
                 </div>
@@ -287,7 +286,7 @@ class EditForm extends React.Component {
             </div>
               <br/><center>
               <button onClick={() => this.addClick()} type="submit" value="Submit" className="btn btn-info">
-                {language[LanguageStore.lang].editForm.Submit}
+                {language[localStorage.getItem('language')].editForm.Submit}
               </button> </center>
             </form>
           </div>

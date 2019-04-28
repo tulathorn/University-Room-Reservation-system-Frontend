@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import AdNavbar from '../Components/ad_Navbar'
 import BookingTable from '../Components/bookingTable'
-import LanguageStore from '../stores/LanguageStore'
 import language from '../languages.json'
 import { observer } from 'mobx-react'
 import ReservationStore from '../stores/ReservationStore'
@@ -19,19 +18,19 @@ class AdBookingTimatableView extends Component {
         <AdNavbar />
         <div className="container">
           <div className="row">
-            <h2>{language[LanguageStore.lang].adBookingTimetable.BookingTimetable} {localStorage.getItem('RoomName')}</h2>
+            <h2>{language[localStorage.getItem('language')].adBookingTimetable.BookingTimetable} {localStorage.getItem('RoomName')}</h2>
           </div>
           <br/>
-          <table class="table table-hover table-bordered">
-            <thead class="text-center">
-              <tr class="table-info">
-                <th scope="col">{language[LanguageStore.lang].bookingTable.DateFrom}</th>
-                <th scope="col">{language[LanguageStore.lang].bookingTable.DateTo}</th>
-                <th scope="col">{language[LanguageStore.lang].bookingTable.TimeFrom}</th>
-                <th scope="col">{language[LanguageStore.lang].bookingTable.TimeTo}</th>
-                <th scope="col">{language[LanguageStore.lang].bookingTable.Day}</th>
-                <th scope="col">{language[LanguageStore.lang].bookingTable.UserInfo}</th>
-                <th scope="col">{language[LanguageStore.lang].bookingTable.Purpose}</th>
+          <table className="table table-hover table-bordered">
+            <thead className="text-center">
+              <tr className="table-info">
+                <th scope="col">{language[localStorage.getItem('language')].bookingTable.DateFrom}</th>
+                <th scope="col">{language[localStorage.getItem('language')].bookingTable.DateTo}</th>
+                <th scope="col">{language[localStorage.getItem('language')].bookingTable.TimeFrom}</th>
+                <th scope="col">{language[localStorage.getItem('language')].bookingTable.TimeTo}</th>
+                <th scope="col">{language[localStorage.getItem('language')].bookingTable.Day}</th>
+                <th scope="col">{language[localStorage.getItem('language')].bookingTable.UserInfo}</th>
+                <th scope="col">{language[localStorage.getItem('language')].bookingTable.Purpose}</th>
               </tr>
             </thead>
             <tbody>

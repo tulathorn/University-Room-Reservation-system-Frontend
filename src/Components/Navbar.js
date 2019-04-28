@@ -1,6 +1,5 @@
 import React from 'react'
 import { observer } from 'mobx-react'
-import LanguageStore from '../stores/LanguageStore'
 import { NavLink } from 'react-router-dom'
 import '../Styles/bootstrap/bootstrap.min.css'
 import language from '../languages.json'
@@ -63,6 +62,16 @@ class NavDropdown extends React.Component {
 
 @observer
 class Navbar extends React.Component {
+  langEN = () => {
+    localStorage.setItem('language',0)
+    window.location.reload()
+  }
+
+  langTH = () => {
+    localStorage.setItem('language',1)
+    window.location.reload()
+  }
+
   render() {
     return (
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -83,24 +92,24 @@ class Navbar extends React.Component {
 
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav mr-auto">
-            <NavItem path="/" name={language[LanguageStore.lang].Navbar.FindRoom} />
-            <NavDropdown name={language[LanguageStore.lang].Navbar.History}>
+            <NavItem path="/" name={language[localStorage.getItem('language')].Navbar.FindRoom} />
+            <NavDropdown name={language[localStorage.getItem('language')].Navbar.History}>
               <NavLink to="/curhistory" className="dropdown-item">
-                {language[LanguageStore.lang].Navbar.CurrentHistory}
+                {language[localStorage.getItem('language')].Navbar.CurrentHistory}
               </NavLink>
               <NavLink to="/prehistory" className="dropdown-item">
-                {language[LanguageStore.lang].Navbar.PreviousHistory}
+                {language[localStorage.getItem('language')].Navbar.PreviousHistory}
               </NavLink>
             </NavDropdown>
-            <NavItem path="/contact" name={language[LanguageStore.lang].Navbar.Help} />
-            <NavDropdown name={language[LanguageStore.lang].Navbar.Languages}>
-              <div className="dropdown-item" onClick={() => LanguageStore.setLang(0)}>
+            <NavItem path="/contact" name={language[localStorage.getItem('language')].Navbar.Help} />
+            <NavDropdown name={language[localStorage.getItem('language')].Navbar.Languages}>
+              <div className="dropdown-item" onClick={() => this.langEN()}>
                 {' '}
-                {language[LanguageStore.lang].Navbar.English}
+                {language[localStorage.getItem('language')].Navbar.English}
               </div>
-              <div className="dropdown-item" onClick={() => LanguageStore.setLang(1)}>
+              <div className="dropdown-item" onClick={() => this.langTH()}>
                 {' '}
-                {language[LanguageStore.lang].Navbar.Thai}
+                {language[localStorage.getItem('language')].Navbar.Thai}
               </div>
             </NavDropdown>
           </ul>
@@ -109,18 +118,12 @@ class Navbar extends React.Component {
             <ul className="navbar-nav mr-auto">
               <NavItem name={localStorage.getItem('username')} disabled="true" />
             </ul>
-            {/* <input
-              className="form-control mr-sm-2"
-              type="search"
-              placeholder="Search"
-              aria-label="Search"
-            /> */}
             <NavLink
               to="/login"
-              class="btn btn-sm btn-outline-info"
+              className="btn btn-sm btn-outline-info"
               onClick={() => localStorage.removeItem('token')}
             >
-              {language[LanguageStore.lang].Navbar.Logout}
+              {language[localStorage.getItem('language')].Navbar.Logout}
             </NavLink>
           </form>
         </div>

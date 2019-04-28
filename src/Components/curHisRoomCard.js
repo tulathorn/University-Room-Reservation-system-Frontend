@@ -1,7 +1,6 @@
 import React from 'react'
 import '../Styles/bootstrap/bootstrap.min.css'
 import Swal from 'sweetalert2'
-import LanguageStore from '../stores/LanguageStore'
 import language from '../languages.json'
 import ReservationStore from '../stores/ReservationStore';
 
@@ -73,22 +72,22 @@ class CurHistoryRoomCard extends React.Component {
               </p>
             </div>
             <div className="row">
-              <p><b>{language[LanguageStore.lang].curHisRoomCard.Purpose}: </b></p>
+              <p><b>{language[localStorage.getItem('language')].curHisRoomCard.Purpose}: </b></p>
               <p>{this.props.data.Purpose}</p>
             </div>
             <div className="row">
-              <p><b>{language[LanguageStore.lang].curHisRoomCard.Date} : </b></p>
+              <p><b>{language[localStorage.getItem('language')].curHisRoomCard.Date} : </b></p>
 							<p>{this.props.data.Date}</p>
             </div>
             <div className="row">
-              <p><b>{language[LanguageStore.lang].curHisRoomCard.Schedule} : </b></p>
-							<p>{language[LanguageStore.lang].curHisRoomCard.From} {this.props.data.StartTime} {language[LanguageStore.lang].curHisRoomCard.To} {this.props.data.EndTime}</p>
+              <p><b>{language[localStorage.getItem('language')].curHisRoomCard.Schedule} : </b></p>
+							<p>{language[localStorage.getItem('language')].curHisRoomCard.From} {this.props.data.StartTime} {language[localStorage.getItem('language')].curHisRoomCard.To} {this.props.data.EndTime}</p>
             </div>
 					</div>
 					<div className="col-md-3 col-sm-12">
-            <button onClick={() => this.sendPin()} type="button" className="btn btn-outline-light btn-lg btn-block">{language[LanguageStore.lang].curHisRoomCard.RequestPinViaEmail}</button>
-            <button onClick={() => this.sendPin()} type="button" className="btn btn-outline-light btn-lg btn-block">{language[LanguageStore.lang].curHisRoomCard.RequestPinViaPhone}</button>
-            <button onClick={() => this.cancelBooking()} type="button" className="btn btn-danger btn-lg btn-block">{language[LanguageStore.lang].curHisRoomCard.CancelTheBooking}</button>
+            <button onClick={() => this.sendPin()} type="button" className="btn btn-outline-light btn-lg btn-block">{language[localStorage.getItem('language')].curHisRoomCard.RequestPinViaEmail}</button>
+            <button onClick={() => this.sendPin()} type="button" className="btn btn-outline-light btn-lg btn-block">{language[localStorage.getItem('language')].curHisRoomCard.RequestPinViaPhone}</button>
+            <button onClick={() => this.cancelBooking()} type="button" className="btn btn-danger btn-lg btn-block">{language[localStorage.getItem('language')].curHisRoomCard.CancelTheBooking}</button>
 					</div>
 				</div>
       </div>

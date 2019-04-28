@@ -1,6 +1,5 @@
 import React from 'react'
 import '../Styles/bootstrap/bootstrap.min.css'
-import LanguageStore from '../stores/LanguageStore'
 import language from '../languages.json'
 
 const NavItem = props => {
@@ -57,6 +56,16 @@ class NavDropdown extends React.Component {
 }
 
 class AdNavbar extends React.Component {
+  langEN = () => {
+    localStorage.setItem('language',0)
+    window.location.reload()
+  }
+
+  langTH = () => {
+    localStorage.setItem('language',1)
+    window.location.reload()
+  }
+  
   render() {
     return (
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -77,31 +86,31 @@ class AdNavbar extends React.Component {
 
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav mr-auto">
-            <NavDropdown name={language[LanguageStore.lang].adNavbar.SearchRoom}>
+            <NavDropdown name={language[localStorage.getItem('language')].adNavbar.SearchRoom}>
               <a className="dropdown-item" href="/ad_search_nor">
-                {language[LanguageStore.lang].adNavbar.NormalSearch}
+                {language[localStorage.getItem('language')].adNavbar.NormalSearch}
               </a>
               <a className="dropdown-item" href="/ad_search_rec">
-                {language[LanguageStore.lang].adNavbar.RecurringSearch}
+                {language[localStorage.getItem('language')].adNavbar.RecurringSearch}
               </a>
               <div className="dropdown-divider" />
               <a className="dropdown-item" href="/ad_all_list">
-                {language[LanguageStore.lang].adNavbar.RoomSearch}
+                {language[localStorage.getItem('language')].adNavbar.RoomSearch}
               </a>
             </NavDropdown>
             <NavItem path="/ad_search" name="" />
-            <NavItem path="/ad_curhistory" name={language[LanguageStore.lang].adNavbar.History} />
-            <NavItem path="/ad_add_room" name={language[LanguageStore.lang].adNavbar.AddRoom} />
-            <NavItem path="/ad_support" name={language[LanguageStore.lang].adNavbar.Support} />
+            <NavItem path="/ad_curhistory" name={language[localStorage.getItem('language')].adNavbar.History} />
+            <NavItem path="/ad_add_room" name={language[localStorage.getItem('language')].adNavbar.AddRoom} />
+            <NavItem path="/ad_support" name={language[localStorage.getItem('language')].adNavbar.Support} />
 
-            <NavDropdown name={language[LanguageStore.lang].adNavbar.Languages}>
-              <div className="dropdown-item" onClick={() => LanguageStore.setLang(0)}>
+            <NavDropdown name={language[localStorage.getItem('language')].adNavbar.Languages}>
+              <div className="dropdown-item" onClick={() => this.langEN()}>
                 {' '}
-                {language[LanguageStore.lang].adNavbar.English}
+                {language[localStorage.getItem('language')].adNavbar.English}
               </div>
-              <div className="dropdown-item" onClick={() => LanguageStore.setLang(1)}>
+              <div className="dropdown-item" onClick={() => this.langTH()}>
                 {' '}
-                {language[LanguageStore.lang].adNavbar.Thai}
+                {language[localStorage.getItem('language')].adNavbar.Thai}
               </div>
             </NavDropdown>
           </ul>
@@ -116,7 +125,7 @@ class AdNavbar extends React.Component {
               placeholder="Search"
               aria-label="Search"
             /> */}
-            <a href="/ad_login" className="btn btn-sm btn-outline-info">{language[LanguageStore.lang].adNavbar.Logout}</a>
+            <a href="/ad_login" className="btn btn-sm btn-outline-info">{language[localStorage.getItem('language')].adNavbar.Logout}</a>
 
           </form>
         </div>

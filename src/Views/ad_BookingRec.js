@@ -3,8 +3,7 @@ import AdNavbar from '../Components/ad_Navbar'
 import AdBookingFormRec from '../Components/ad_bookFormRec'
 import RoomInfoCard from '../Components/roomInfoCard'
 import RoomStore from '../stores/RoomStore'
-import { observer } from 'mobx-react';
-import LanguageStore from '../stores/LanguageStore'
+import { observer } from 'mobx-react'
 import language from '../languages.json'
 
 @observer
@@ -26,7 +25,7 @@ class AdRecBookingView extends Component {
               {RoomStore.roomDatas.map(roomv => {
                 return <RoomInfoCard room={roomv} />
               })}  
-              {<p><b>{language[LanguageStore.lang].searchRecForm.Day} : </b>{localStorage.getItem('ScheduleDay')}</p>}
+              {<p><b>{language[localStorage.getItem('language')].searchRecForm.Day} : </b>{localStorage.getItem('ScheduleDay')}</p>}
             </div>
             <div className="col-md-6 col-sm-12">
               <AdBookingFormRec/>

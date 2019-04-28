@@ -1,13 +1,7 @@
 [
     {
-      "adAddRoom": {
-        "": ""
-      },
       "adAllList": {
         "Title": "Welcome to University Room Reservation System"
-      },
-      "adBooking": {
-        "": ""
       },
       "adBookingTimetable": {
         "BookingTimetable": "Booking Timetable for"
@@ -16,12 +10,6 @@
         "PreviousBooking": "Previous Booking",
         "CurrentBooking": "Current Booking"
       },
-      "adEditRoom": {
-        "": ""
-      },
-      "adList": {
-        "": ""
-      },
       "adLogin": {
         "English": "English",
         "Thai": "ภาษาไทย"
@@ -29,9 +17,6 @@
       "adPreHistory": {
         "PreviousBooking": "Previous Booking",
         "CurrentBooking": "Current Booking"
-      },
-      "adRecList": {
-        "": ""
       },
       "adReply": {
         "Title": "Title",
@@ -73,9 +58,6 @@
       },
       "adSupport": {
         "Support": "Support"
-      },
-      "Booking": {
-        "": ""
       },
       "Contact": {
         "English": "English",
@@ -197,9 +179,6 @@
         "NotCompleted": "Not Completed",
         "Cancel": "Canceled",
         "Completed": "Completed"
-      },
-      "allListCard": {
-        "": ""
       },
       "bookingForm": {
         "Firstname": "Firstname",
@@ -423,24 +402,26 @@
       "supportCard": {
         "Reply": "Reply"
       },
-      "supPreviewCard": {
-        "": ""
-      },
       "Additional":{
         "Username": "User",
         "Title": "Title",
-        "Term": "Semester"
+        "Term": "Semester",
+        "EnterUsername" : "Enter Username",
+        "Choose" : "Choose...",
+        "WitsawaWatthana" : "วิศวะวัฒนะ",
+        "CB1" : "CB1",
+        "CB2" : "CB2",
+        "CB3" : "CB3",
+        "CB4" : "CB4",
+        "CB5" : "CB5",
+        "PurposeBody" : "Identify your purpose for booking this room...",
+        "TitleBody" : "Place your title here",
+        "DetailBody" : "Insert details, question, problem..."
       }
     },
     {
-      "adAddRoom": {
-        "": ""
-      },
       "adAllList": {
         "Title": "ยินดีต้องรับเข้าสู่ระบบจองห้องเรียนออนไลน์"
-      },
-      "adBooking": {
-        "": ""
       },
       "adBookingTimetable": {
         "BookingTimetable": "ตารางการใช้งานห้อง "
@@ -449,12 +430,6 @@
         "PreviousBooking": "การจองก่อนหน้า",
         "CurrentBooking": "การจองในปัจจุบัน"
       },
-      "adEditRoom": {
-        "": ""
-      },
-      "adList": {
-        "": ""
-      },
       "adLogin": {
         "English": "English",
         "Thai": "ภาษาไทย"
@@ -462,9 +437,6 @@
       "adPreHistory": {
         "PreviousBooking": "การจองก่อนหน้า",
         "CurrentBooking": "การจองในปัจจุบัน"
-      },
-      "adRecList": {
-        "": ""
       },
       "adReply": {
         "Title": "หัวข้อ",
@@ -483,7 +455,7 @@
         "Information": "ข้อมูล",
         "PeopleCapacity": "ความจุ",
         "People": "คน",
-        "Building": "ตึก",
+        "Building": "อาคาร",
         "Floor": "ชั้น",
         "RoomName": "ชื่อห้อง",
         "OperatingDay": "วันเปิดให้บริการ",
@@ -507,9 +479,6 @@
       "adSupport": {
         "Support": "ช่วยเหลือ"
       },
-      "Booking": {
-        "": ""
-      },
       "Contact": {
         "English": "English",
         "Thai": "ภาษาไทย"
@@ -521,7 +490,7 @@
       "List": {
         "Result": "ผลลัพธ์",
         "SearchFor": "ค้นหา",
-        "Building": "ตึก",
+        "Building": "อาคาร",
         "Size": "ความจุ",
         "People": "คน",
         "Date": "วันที่",
@@ -594,7 +563,7 @@
         "RoomID": "ชื่อห้อง",
         "RoomPhoto": "รูปภาพ",
         "PeopleCapacity": "ความจุ",
-        "Building": "ตึก",
+        "Building": "อาคาร",
         "Floor": "ชั้น",
         "RoomNumber": "ห้องที่",
         "OperatingDay": "วันเปิดให้บริการ",
@@ -630,9 +599,6 @@
         "NotCompleted": "ไม่เข้าใช้งาน",
         "Cancel": "ยกเลิกแล้ว",
         "Completed": "เข้าใช้งาน"
-      },
-      "allListCard": {
-        "": ""
       },
       "bookingForm": {
         "Firstname": "ชื่อ",
@@ -674,7 +640,7 @@
         "RoomID": "ชื่อห้อง",
         "RoomPhoto": "รูปภาพ",
         "PeopleCapacity": "ความจุ",
-        "Building": "ตึก",
+        "Building": "อาคาร",
         "Floor": "ชั้น",
         "RoomNumber": "ห้องที่",
         "OperatingDay": "วันเปิดให้บริการ",
@@ -734,7 +700,7 @@
       },
       "recPreviewCard": {
         "SearchFor": "ค้นหา",
-        "Building": "ตึก",
+        "Building": "อาคาร",
         "Size": "ความจุ",
         "Peoples": "คน",
         "Date": "วันที่",
@@ -762,7 +728,7 @@
         "FindRoom": "ค้นหาห้อง",
         "Info": "ข้อมูล",
         "Date": "วันที่",
-        "Building": "ตึก",
+        "Building": "อาคาร",
         "Size": "ขนาด",
         "Time": "เวลา",
         "From": "จาก",
@@ -785,7 +751,7 @@
         "Information": "ข้อมูล",
         "Informations": {
           "PeopleCapacity": "ความจุ",
-          "Building": "ตึก",
+          "Building": "อาคาร",
           "Floor": "ชั้น",
           "RoomNumber": "ห้องที่"
         },
@@ -800,7 +766,7 @@
         }
       },
       "roomInformationCard": {
-        "Building": "ตึก",
+        "Building": "อาคาร",
         "Floor": "ชั้น",
         "Size": "ความจุ",
         "Peoples": "คน",
@@ -816,7 +782,7 @@
       },
       "searchPreviewCard": {
         "SearchFor": "ค้นหา",
-        "Building": "ตึก",
+        "Building": "อาคาร",
         "Size": "ความจุ",
         "Peoples": "คน",
         "Date": "วันที่",
@@ -836,7 +802,7 @@
       "searchRecForm": {
         "FindRoom": "ค้นหาห้อง",
         "Info": "ข้อมูล",
-        "Building": "ตึก",
+        "Building": "อาคาร",
         "Size": "ความจุ",
         "Date": "วันที่",
         "Time": "เวลา",
@@ -856,13 +822,21 @@
       "supportCard": {
         "Reply": "ตอบกลับ"
       },
-      "supPreviewCard": {
-        "": ""
-      },
       "Additional":{
         "Username": "ผู้ใช้งาน",
         "Title": "หัวข้อ",
-        "Term": "เทอม"
+        "Term": "เทอม",
+        "EnterUsername" : "ชื่อผู้ใช้งาน",
+        "Choose" : "เลือก...",
+        "WitsawaWatthana" : "วิศวะวัฒนะ",
+        "CB1" : "อาคารเรียนรวม 1",
+        "CB2" : "อาคารเรียนรวม 2",
+        "CB3" : "อาคารเรียนรวม 3",
+        "CB4" : "อาคารเรียนรวม 4",
+        "CB5" : "อาคารเรียนรวม 5",
+        "PurposeBody" : "รายละเอียดการจอง",
+        "TitleBody" : "กรุณาใส่หัวข้อ",
+        "DetailBody" : "กรุณาใส่รายละเอียด"
       }
     }
   ]

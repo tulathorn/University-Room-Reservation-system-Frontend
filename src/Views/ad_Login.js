@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import '../Styles/bootstrap/bootstrap.min.css'
 import AdLoginCard from '../Components/ad_loginForm'
-import LanguageStore from '../stores/LanguageStore'
 import language from '../languages.json'
 
  const bgImage = require('../Pictures/bg.png');
@@ -21,6 +20,16 @@ const languageLink = {
 }
 
 class AdLoginView extends Component {
+  langEN = () => {
+    localStorage.setItem('language',0)
+    window.location.reload()
+  }
+
+  langTH = () => {
+    localStorage.setItem('language',1)
+    window.location.reload()
+  }
+
   render() {
     return(
       <div style={bgStyle} >
@@ -40,8 +49,8 @@ class AdLoginView extends Component {
             </div>
           </div>
           <center>
-            <button type="button" className="btn btn-link" style={languageLink}>{language[LanguageStore.lang].adLogin.English}</button>
-            <button type="button" className="btn btn-link" style={languageLink}>{language[LanguageStore.lang].adLogin.Thai}</button>
+            <button type="button" onClick={() => this.langEN()} className="btn btn-link" style={languageLink}>{language[localStorage.getItem('language')].adLogin.English}</button>
+            <button type="button" onClick={() => this.langTH()} className="btn btn-link" style={languageLink}>{language[localStorage.getItem('language')].adLogin.Thai}</button>
             <br/>
           </center>
           <br/><br/><br/><br/><br/><br/><br/><br/>

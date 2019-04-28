@@ -1,6 +1,5 @@
 import React from 'react'
 import '../Styles/bootstrap/bootstrap.min.css'
-import LanguageStore from '../stores/LanguageStore'
 import language from '../languages.json'
 
 
@@ -34,11 +33,11 @@ class SupCard extends React.Component {
             {this.props.data.Detail}
           </p>
           <div className="row">
-            <div className="col-12 col-md-11">
+            <div className="col-md-9 col-sm-12">
             </div>
-            <div className="col-6 col-md-1">
+            <div className="col-md-3 col-sm-12">
               <button onClick={(e) => this.replyClick(e)} type="button" className="btn btn-outline-info">
-                {language[LanguageStore.lang].supportCard.Reply}
+                {language[localStorage.getItem('language')].supportCard.Reply}
               </button>
             </div>
             </div>

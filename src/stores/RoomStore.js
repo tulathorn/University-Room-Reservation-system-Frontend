@@ -26,28 +26,6 @@ class RoomStore {
 
   @observable //Use to add Room 
   roomInfo = {}
-  
-
-  
-
-///////////////////////////////////
-
-  @observable
-  objecta = {}
-
-  @action
-  setRoomName = (field, value) => {
-    this.objecta[field] = value
-    console.log([field] + ' = ' + this.objecta[field])
-    this.fetchsomeData()
-  }
-  
-  @action
-  fetchsomeData = async () => {
-    this.roomDatas = await axios.get('./rooms', this.objecta).then(resp => resp.data)
-  }
-////////////////////////////////////
-
 
 
   @action
@@ -117,6 +95,12 @@ class RoomStore {
   @action
   setConfig = (field, value) => {
     this.searchConfig[field] = value
+  }
+
+  @action
+  setConfigThenFetch = (field, value) => {
+    this.searchConfig[field] = value
+    this.fetchData()
   }
 
   @action

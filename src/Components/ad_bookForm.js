@@ -1,7 +1,6 @@
 import React from 'react'
 import '../Styles/bootstrap/bootstrap.min.css'
 import Swal from 'sweetalert2'
-import LanguageStore from '../stores/LanguageStore'
 import language from '../languages.json'
 import ReservationStore from '../stores/ReservationStore';
 
@@ -62,24 +61,24 @@ class AdBookingForm extends React.Component {
   			<div className="jumbotron text-white" style={jumbotronStyle}>
           <form action="#" onSubmit={e => this.onSubmit(e)}>
             <div className="row">
-                {language[LanguageStore.lang].adBookingForm.ID}
-                <input name="username" type="text" className="form-control" id="username" placeholder="UserName ID"
+                {language[localStorage.getItem('language')].adBookingForm.ID}
+                <input name="username" type="text" className="form-control" id="username" placeholder={language[localStorage.getItem('language')].adBookingForm.ID}
                 value={ReservationStore.searchTemp.UsernameID} onChange={e => ReservationStore.setSearch('UsernameID', e.target.value)}/>
-                {language[LanguageStore.lang].Additional.Title}
-                <input name="title" type="text" className="form-control" id="title" placeholder="Title"
+                {language[localStorage.getItem('language')].Additional.Title}
+                <input name="title" type="text" className="form-control" id="title" placeholder={language[localStorage.getItem('language')].Additional.Title}
                 value={ReservationStore.bookingConfig.Title} onChange={e => ReservationStore.setBookingConfig('Title', e.target.value)}/>
-                {language[LanguageStore.lang].adBookingForm.Purpose}
-                <textarea name="purpose" type="text" className="form-control" id="purpose" rows="5" placeholder="Identify your purpose for booking this room..."
+                {language[localStorage.getItem('language')].adBookingForm.Purpose}
+                <textarea name="purpose" type="text" className="form-control" id="purpose" rows="5" placeholder={language[localStorage.getItem('language')].Additional.PurposeBody}
                 value={ReservationStore.bookingConfig.Purpose} onChange={e => ReservationStore.setBookingConfig('Purpose', e.target.value)}/>
             </div>
-              {language[LanguageStore.lang].adBookingForm.EmailAddress}<br/>
-              {language[LanguageStore.lang].adBookingForm.Phone}<br/>
-              {language[LanguageStore.lang].adBookingForm.Year}<br/>
-              {language[LanguageStore.lang].adBookingForm.Section}<br/>
-              {language[LanguageStore.lang].adBookingForm.Program}<br/>
+              {language[localStorage.getItem('language')].adBookingForm.EmailAddress}<br/>
+              {language[localStorage.getItem('language')].adBookingForm.Phone}<br/>
+              {language[localStorage.getItem('language')].adBookingForm.Year}<br/>
+              {language[localStorage.getItem('language')].adBookingForm.Section}<br/>
+              {language[localStorage.getItem('language')].adBookingForm.Program}<br/>
                    
               <button type="submit" value="Submit" className="btn btn-info">
-                {language[LanguageStore.lang].adBookingForm.Book}
+                {language[localStorage.getItem('language')].adBookingForm.Book}
               </button>
             
           </form>

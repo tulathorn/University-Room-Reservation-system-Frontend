@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 import { observer } from 'mobx-react'
-import LanguageStore from '../stores/LanguageStore'
 import language from '../languages.json'
 import Navbar from '../Components/Navbar'
 import AuthenticationGate from '../Components/AuthenticationGate'
@@ -20,7 +19,7 @@ class MainView extends Component {
         <div className="container">
           <br />
           <center>
-            <Title>{language[LanguageStore.lang].Main.Title}</Title>
+            <Title>{language[localStorage.getItem('language')].Main.Title}</Title>
           </center>
           <br />
 

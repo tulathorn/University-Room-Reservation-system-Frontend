@@ -1,6 +1,5 @@
 import React from 'react'
 import '../Styles/bootstrap/bootstrap.min.css'
-import LanguageStore from '../stores/LanguageStore'
 import language from '../languages.json'
 import RoomStore from '../stores/RoomStore'
 
@@ -35,16 +34,16 @@ class PreHistoryRoomCard extends React.Component {
               </p>
             </div>
             <div className="row">
-              <p><b>{language[LanguageStore.lang].preHisRoomCard.Purpose}: </b></p>
+              <p><b>{language[localStorage.getItem('language')].preHisRoomCard.Purpose}: </b></p>
               <p>{this.props.data.Purpose}</p>
             </div>
             <div className="row">
-              <p><b>{language[LanguageStore.lang].preHisRoomCard.Date} : </b></p>
+              <p><b>{language[localStorage.getItem('language')].preHisRoomCard.Date} : </b></p>
 							<p>{this.props.data.Date}</p>
             </div>
             <div className="row">
-              <p><b>{language[LanguageStore.lang].preHisRoomCard.Schedule} : </b></p>
-							<p>{language[LanguageStore.lang].preHisRoomCard.From} {this.props.data.StartTime} {language[LanguageStore.lang].preHisRoomCard.To} {this.props.data.EndTime}</p>
+              <p><b>{language[localStorage.getItem('language')].preHisRoomCard.Schedule} : </b></p>
+							<p>{language[localStorage.getItem('language')].preHisRoomCard.From} {this.props.data.StartTime} {language[localStorage.getItem('language')].preHisRoomCard.To} {this.props.data.EndTime}</p>
             </div>
 					</div>
 					

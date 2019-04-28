@@ -4,7 +4,6 @@ import styled from 'styled-components'
 import ContactStore from '../stores/ContactStore'
 import SupCard from '../Components/supportCard'
 import { observer } from 'mobx-react'
-import LanguageStore from '../stores/LanguageStore'
 import language from '../languages.json'
 
 const Title = styled.h1`
@@ -22,7 +21,7 @@ class AdSupportView extends Component {
       <div>
         <AdNavbar />
         <div className="container">
-          <br/><Title>{language[LanguageStore.lang].adSupport.Support}</Title><br/>
+          <br/><Title>{language[localStorage.getItem('language')].adSupport.Support}</Title><br/>
           
           {ContactStore.contact.map(comment => {
             return <SupCard data={comment} />

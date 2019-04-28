@@ -4,7 +4,6 @@ import AllListCard from '../Components/allListCard'
 import styled from 'styled-components'
 import { observer } from 'mobx-react'
 import RoomStore from '../stores/RoomStore'
-import LanguageStore from '../stores/LanguageStore'
 import language from '../languages.json'
 
 const Title = styled.h1`
@@ -16,7 +15,8 @@ const Title = styled.h1`
 @observer
 class AdAllListView extends Component {
   componentDidMount() {
-    RoomStore.fetchsomeData()
+    RoomStore.resetFilterForm()
+    RoomStore.fetchData()
   }
 
   render() {
@@ -26,18 +26,16 @@ class AdAllListView extends Component {
         <div className="container">
           <br/>
           <center>
-            <Title>{language[LanguageStore.lang].adAllList.Title}</Title>
+            <Title>{language[localStorage.getItem('language')].adAllList.Title}</Title>
           </center>
           <br/>
 
-          <input name="roomname" type="text" className="form-control" id="roomname" placeholder="Room ID"
-          value={RoomStore.objecta.RoomName} onChange={e => RoomStore.setRoomName('RoomName', e.target.value)}/>
+          <input name="roomname" type="text" className="form-control" id="roomname" placeholder={language[localStorage.getItem('language')].addForm.RoomID}
+          value={RoomStore.searchConfig.RoomName} onChange={e => RoomStore.setConfigThenFetch('RoomName', e.target.value)}/>
           
           {RoomStore.roomDatas.map(roomv => {
-            //console.log(roomv)
             return <AllListCard room={roomv} />
           })}
-          {/*<AllListCard/>*/}
 
       </div>
     </div>

@@ -3,7 +3,6 @@ import AdNavbar from '../Components/ad_Navbar'
 import SupPreview from '../Components/supPreviewCard'
 import ReplyForm from '../Components/replyForm'
 import styled from 'styled-components'
-import LanguageStore from '../stores/LanguageStore'
 import language from '../languages.json'
 import ContactStore from '../stores/ContactStore'
 import { observer } from 'mobx-react'
@@ -30,7 +29,7 @@ class AdReplyView extends Component {
             return <SupPreview data={comment} />
           })}
           
-          <br/><Title>{language[LanguageStore.lang].adReply.Reply}</Title>
+          <br/><Title>{language[localStorage.getItem('language')].adReply.Reply}</Title>
           <ReplyForm/>
         </div>
       </div>

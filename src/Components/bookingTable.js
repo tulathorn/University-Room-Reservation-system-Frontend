@@ -6,18 +6,17 @@ class BookingTable extends React.Component {
     return (
       
           <tr>
-            {console.log('inside')}
-            <td class="text-center">{this.props.data.Date}</td>
-            <td class="text-center">-</td>
-            <td class="text-center">{this.props.data.StartTime}</td>
-            <td class="text-center">{this.props.data.EndTime}</td>
-            <td class="text-center">{this.props.data.Day}</td>
+            <td className="text-center">{this.props.data.Date}</td>
+            <td className="text-center">-</td>
+            <td className="text-center">{this.props.data.StartTime}</td>
+            <td className="text-center">{this.props.data.EndTime}</td>
+            <td className="text-center">{this.props.data.Day}</td>
             <td>
               {this.props.data.UserInfo.UsernameID}<br/>
               {this.props.data.UserInfo.FirstName}{' '}{this.props.data.UserInfo.LastName}<br/>
               {this.props.data.UserInfo.EmailAddress}<br/>
             </td>
-            <td class="text-center">{this.props.data.Purpose}</td>
+            <td className="text-center">{this.props.data.Purpose}</td>
           </tr>
         
     )

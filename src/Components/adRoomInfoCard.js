@@ -1,6 +1,5 @@
 import React from 'react'
 import '../Styles/bootstrap/bootstrap.min.css'
-import LanguageStore from '../stores/LanguageStore'
 import language from '../languages.json'
 import Swal from 'sweetalert2'
 import RoomStore from '../stores/RoomStore'
@@ -19,8 +18,7 @@ const jumbotronStyle1 = {
 
 class AdRoomInfoCard extends React.Component {
   
-  DeleteRoom = () =>{
-    console.log('wqdqdwqdwqd')
+  DeleteRoom = () => {
     RoomStore.resetFilterForm()
     RoomStore.setConfig('RoomID',''+this.props.room.RoomID)
     console.log(RoomStore.searchConfig)
@@ -77,18 +75,18 @@ class AdRoomInfoCard extends React.Component {
               <center><img src={require("../Pictures/testclassroom.jpg")} width="300px" alt=""/></center>
               <br/>
               <div className="row">
-                <p><b>{language[LanguageStore.lang].adRoomInfo.Amenity} : </b></p>
+                <p><b>{language[localStorage.getItem('language')].adRoomInfo.Amenity} : </b></p>
               </div>
               <div className="row">
                 <div className="col-md-1 col-sm-0">
                 </div>
                 <div className="col-md-11 col-sm-12">
-                  {this.props.room.Equipment.HasTeacherComputers ? <p>{language[LanguageStore.lang].adRoomInfo.Amenities.TeacherComputer}</p> : <p></p>}
-                  {this.props.room.Equipment.HasStudentComputers ? <p>{language[LanguageStore.lang].adRoomInfo.Amenities.StudentComputer}</p> : <p></p>}
-                  {this.props.room.Equipment.HasAirConditioner ? <p>{language[LanguageStore.lang].adRoomInfo.Amenities.AirConditioner}</p> : <p></p>}
-                  {this.props.room.Equipment.HasProjector ? <p>{language[LanguageStore.lang].adRoomInfo.Amenities.Projector}</p> : <p></p>}
-                  {this.props.room.Equipment.HasWhiteboard ? <p>{language[LanguageStore.lang].adRoomInfo.Amenities.WhiteBoard}</p> : <p></p>}
-                  {this.props.room.Equipment.HasVisualizer ? <p>{language[LanguageStore.lang].adRoomInfo.Amenities.Visualizer}</p> : <p></p>}  
+                  {this.props.room.Equipment.HasTeacherComputers ? <p>{language[localStorage.getItem('language')].adRoomInfo.Amenities.TeacherComputer}</p> : <p></p>}
+                  {this.props.room.Equipment.HasStudentComputers ? <p>{language[localStorage.getItem('language')].adRoomInfo.Amenities.StudentComputer}</p> : <p></p>}
+                  {this.props.room.Equipment.HasAirConditioner ? <p>{language[localStorage.getItem('language')].adRoomInfo.Amenities.AirConditioner}</p> : <p></p>}
+                  {this.props.room.Equipment.HasProjector ? <p>{language[localStorage.getItem('language')].adRoomInfo.Amenities.Projector}</p> : <p></p>}
+                  {this.props.room.Equipment.HasWhiteboard ? <p>{language[localStorage.getItem('language')].adRoomInfo.Amenities.WhiteBoard}</p> : <p></p>}
+                  {this.props.room.Equipment.HasVisualizer ? <p>{language[localStorage.getItem('language')].adRoomInfo.Amenities.Visualizer}</p> : <p></p>}  
                 </div>
               </div>
             </div>
@@ -96,17 +94,17 @@ class AdRoomInfoCard extends React.Component {
           <div className="col-md-6 col-sm-12">
             <div className="jumbotron text-white" style={jumbotronStyle}>
               <div className="row">
-                  <p><b>{language[LanguageStore.lang].adRoomInfo.Information} : </b></p>
+                  <p><b>{language[localStorage.getItem('language')].adRoomInfo.Information} : </b></p>
               </div>
               <div className="row">
                 <div className="col-md-1 col-sm-0">
                 </div>
                 <div className="col-md-11 col-sm-12">
-                  <p>{language[LanguageStore.lang].adRoomInfo.PeopleCapacity} : {this.props.room.PeopleCapacity} {language[LanguageStore.lang].adRoomInfo.People}</p>
-                  <p>{language[LanguageStore.lang].adRoomInfo.Building} : {this.props.room.Building}</p>
-                  <p>{language[LanguageStore.lang].adRoomInfo.Floor} : {this.props.room.Floor}</p>
-                  <p>{language[LanguageStore.lang].adRoomInfo.RoomName} : {this.props.room.RoomName}</p>
-                  <p>{language[LanguageStore.lang].adRoomInfo.OperatingDay} : {/*this.props.room.ClosingDay*/}
+                  <p>{language[localStorage.getItem('language')].adRoomInfo.PeopleCapacity} : {this.props.room.PeopleCapacity} {language[localStorage.getItem('language')].adRoomInfo.People}</p>
+                  <p>{language[localStorage.getItem('language')].adRoomInfo.Building} : {this.props.room.Building}</p>
+                  <p>{language[localStorage.getItem('language')].adRoomInfo.Floor} : {this.props.room.Floor}</p>
+                  <p>{language[localStorage.getItem('language')].adRoomInfo.RoomName} : {this.props.room.RoomName}</p>
+                  <p>{language[localStorage.getItem('language')].adRoomInfo.OperatingDay} : {/*this.props.room.ClosingDay*/}
                     
                     {this.props.room.ClosingDay[0].localeCompare('1') ? 1 : 0}
                     {this.props.room.ClosingDay[1].localeCompare('1') ? 1 : 0}
@@ -116,11 +114,11 @@ class AdRoomInfoCard extends React.Component {
                     {this.props.room.ClosingDay[5].localeCompare('1') ? 1 : 0}
                     {this.props.room.ClosingDay[6].localeCompare('1') ? 1 : 0}
                     </p>
-                  <p>{language[LanguageStore.lang].adRoomInfo.OperatingTime} : {this.props.room.OpenTime} - {this.props.room.CloseTime}</p>
+                  <p>{language[localStorage.getItem('language')].adRoomInfo.OperatingTime} : {this.props.room.OpenTime} - {this.props.room.CloseTime}</p>
                 </div>
               </div>
               <div className="row">
-                <button onClick={() => this.ViewTime()} type="button" className="btn btn-success">{language[LanguageStore.lang].adRoomInfo.BookingTimeTable}</button>
+                <button onClick={() => this.ViewTime()} type="button" className="btn btn-success">{language[localStorage.getItem('language')].adRoomInfo.BookingTimeTable}</button>
               </div>
             </div>
           </div>
@@ -129,10 +127,10 @@ class AdRoomInfoCard extends React.Component {
           <div className="col-md-5 col-sm-0">
           </div>
           <div className="col-md-1 col-sm-6">
-            <button onClick={(e) => this.DeleteRoom(e)} type="button" className="btn btn-outline-danger">{language[LanguageStore.lang].adRoomInfo.Delete}</button>
+            <button onClick={(e) => this.DeleteRoom(e)} type="button" className="btn btn-outline-danger">{language[localStorage.getItem('language')].adRoomInfo.Delete}</button>
           </div>
           <div className="col-md-1 col-sm-6">
-            <button onClick={() => this.EditClick()} type="button" className="btn btn-outline-info">{language[LanguageStore.lang].adRoomInfo.Edit}</button>
+            <button onClick={() => this.EditClick()} type="button" className="btn btn-outline-info">{language[localStorage.getItem('language')].adRoomInfo.Edit}</button>
           </div>
           <div className="col-md-5 col-sm-0">
           </div>

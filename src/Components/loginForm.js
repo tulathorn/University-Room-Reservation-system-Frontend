@@ -1,7 +1,6 @@
 import React from 'react'
 import '../Styles/bootstrap/bootstrap.min.css'
 import Swal from 'sweetalert2'
-import LanguageStore from '../stores/LanguageStore'
 import language from '../languages.json'
 import { withRouter } from 'react-router-dom'
 import axios from '../Utils/axiosConfig'
@@ -82,24 +81,24 @@ class LoginCard extends React.Component {
         <div className="row">
           <div className="col-md-8 col-sm-8" />
           <div className="col-md-4 col-sm-4">
-            <a href="/ad_login" class="text-secondary">
-              {language[LanguageStore.lang].loginForm.Admin}
+            <a href="/ad_login" className="text-secondary">
+              {language[localStorage.getItem('language')].loginForm.Admin}
             </a>
           </div>
         </div>
         <br />
 
         <h3 align="left" style={helpLink}>
-          {language[LanguageStore.lang].loginForm.Title1}
+          {language[localStorage.getItem('language')].loginForm.Title1}
           <br />
-          {language[LanguageStore.lang].loginForm.Title2}
+          {language[localStorage.getItem('language')].loginForm.Title2}
         </h3>
         <br />
 
         <form onSubmit={e => this.login(e)}>
           <div className="form-group">
             <label for="exampleInputEmail1" style={helpLink}>
-              {language[LanguageStore.lang].loginForm.Username}
+              {language[localStorage.getItem('language')].loginForm.Username}
             </label>
             <input
               type="text"
@@ -107,27 +106,27 @@ class LoginCard extends React.Component {
               className="form-control"
               id="exampleInputEmail1"
               aria-describedby="emailHelp"
-              placeholder="Enter username"
+              placeholder={language[localStorage.getItem('language')].Additional.EnterUsername}
             />
             <small id="emailHelp" className="form-text text-muted">
-              {language[LanguageStore.lang].loginForm.UsernameDef}
+              {language[localStorage.getItem('language')].loginForm.UsernameDef}
             </small>
           </div>
 
           <div className="form-group">
             <label for="exampleInputPassword1" style={helpLink}>
-              {language[LanguageStore.lang].loginForm.Password}
+              {language[localStorage.getItem('language')].loginForm.Password}
             </label>
             <input
               type="password"
               ref={this.inputPassword}
               className="form-control"
               id="exampleInputPassword1"
-              placeholder="Password"
+              placeholder={language[localStorage.getItem('language')].loginForm.Password}
             />
           </div>
           <button type="submit" className="btn btn-outline-info">
-            {language[LanguageStore.lang].loginForm.Login}
+            {language[localStorage.getItem('language')].loginForm.Login}
           </button>
         </form>
 
@@ -135,14 +134,13 @@ class LoginCard extends React.Component {
 
         <div className="row">
           <div className="col-md-2">
-            {/*<a href="/" className="btn btn-outline-info">Login</a>*/}
-            {/* <button onClick={() => this.loginClick()} type="button" className="btn btn-outline-info">{language[LanguageStore.lang].loginForm.Login}</button> */}
+            
           </div>
 
           <div className="col-md-8" />
           <div className="col-md-2">
-            <a href="/contact" class="text-info">
-              {language[LanguageStore.lang].loginForm.Help}
+            <a href="/contact" className="text-info">
+              {language[localStorage.getItem('language')].loginForm.Help}
             </a>
           </div>
         </div>

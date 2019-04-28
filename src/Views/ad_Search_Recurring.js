@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import AdNavbar from '../Components/ad_Navbar'
 import SearchRecForm from '../Components/searchRecForm'
 import styled from 'styled-components'
-import LanguageStore from '../stores/LanguageStore'
 import language from '../languages.json'
 
 
@@ -20,17 +19,16 @@ class AdSearchRecView extends Component {
           <br/>
           <div className="row">
             <div className="col-6">
-              <a href="/ad_search_nor" className="btn btn-outline-info btn-lg btn-block">{language[LanguageStore.lang].adSearchRecurring.NormalBooking}</a>
+              <a href="/ad_search_nor" className="btn btn-outline-info btn-lg btn-block">{language[localStorage.getItem('language')].adSearchRecurring.NormalBooking}</a>
             </div>
             <div className="col-6">
-              <button type="button" className="btn btn-info btn-lg btn-block" disabled>{language[LanguageStore.lang].adSearchRecurring.RecurringBooking}</button>
+              <button type="button" className="btn btn-info btn-lg btn-block" disabled>{language[localStorage.getItem('language')].adSearchRecurring.RecurringBooking}</button>
             </div>
           </div>
           <br/>
           <center>
-            <Title>{language[LanguageStore.lang].adSearchRecurring.Title}</Title>
+            <Title>{language[localStorage.getItem('language')].adSearchRecurring.Title}</Title>
           </center>
-          <br/>
           <br/>
           <SearchRecForm/>
          

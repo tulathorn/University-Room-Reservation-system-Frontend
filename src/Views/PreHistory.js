@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import Navbar from '../Components/Navbar'
 import PreHistoryRoomCard from '../Components/preHisRoomCard'
-import LanguageStore from '../stores/LanguageStore'
 import language from '../languages.json'
 import { observer } from 'mobx-react'
 import ReservationStore from '../stores/ReservationStore'
@@ -21,10 +20,10 @@ class PreHistoryView extends Component {
           <br/>
           <div className="row">
             <div className="col-md-6 col-sm-12">
-              <button type="button" className="btn btn-info btn-lg btn-block" disabled>aaaaa{language[LanguageStore.lang].PreHistory.PreviousHistory}</button>
+              <button type="button" className="btn btn-info btn-lg btn-block" disabled>{language[localStorage.getItem('language')].PreHistory.PreviousHistory}</button>
             </div>
             <div className="col-md-6 col-sm-12">
-              <a href="/curhistory" className="btn btn-outline-info btn-lg btn-block">{language[LanguageStore.lang].PreHistory.CurrentHistory}</a>
+              <a href="/curhistory" className="btn btn-outline-info btn-lg btn-block">{language[localStorage.getItem('language')].PreHistory.CurrentHistory}</a>
             </div>
           </div>
           <br/>

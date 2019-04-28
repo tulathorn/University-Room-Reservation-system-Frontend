@@ -1,6 +1,5 @@
 import React from 'react'
 import '../Styles/bootstrap/bootstrap.min.css'
-import LanguageStore from '../stores/LanguageStore'
 import language from '../languages.json'
 
 const jumbotronStyle = {
@@ -22,19 +21,19 @@ class AdPreHistoryRoomCard extends React.Component {
               <p><b>{this.props.data.RoomInformation.RoomName}</b></p>
             </div>
             <div className="row">
-              <p><b>{language[LanguageStore.lang].Additional.Username}</b>{this.props.data.UserInfo.UsernameID}</p>
+              <p><b>{language[localStorage.getItem('language')].Additional.Username}</b>{this.props.data.UserInfo.UsernameID}</p>
             </div>
             <div className="row">
-              <p><b>{language[LanguageStore.lang].adPreHisCard.Purpose}: </b></p>
+              <p><b>{language[localStorage.getItem('language')].adPreHisCard.Purpose}: </b></p>
               <p>{this.props.data.Purpose}</p>
             </div>
             <div className="row">
-              <p><b>{language[LanguageStore.lang].adPreHisCard.Date} : </b></p>
+              <p><b>{language[localStorage.getItem('language')].adPreHisCard.Date} : </b></p>
 							<p>{this.props.data.Date}</p>
             </div>
             <div className="row">
-              <p><b>{language[LanguageStore.lang].adPreHisCard.Schedule} : </b></p>
-							<p>{language[LanguageStore.lang].adPreHisCard.From} {this.props.data.StartTime} {language[LanguageStore.lang].adPreHisCard.To} {this.props.data.EndTime}</p>
+              <p><b>{language[localStorage.getItem('language')].adPreHisCard.Schedule} : </b></p>
+							<p>{language[localStorage.getItem('language')].adPreHisCard.From} {this.props.data.StartTime} {language[localStorage.getItem('language')].adPreHisCard.To} {this.props.data.EndTime}</p>
             </div>
 					</div>
 					

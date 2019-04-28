@@ -2,7 +2,6 @@ import React from 'react'
 import styled from 'styled-components'
 import { observer } from 'mobx-react'
 import { withRouter } from 'react-router-dom'
-import LanguageStore from '../stores/LanguageStore'
 import language from '../languages.json'
 import ReservationStore from '../stores/ReservationStore';
 
@@ -97,28 +96,28 @@ class SearchRecForm extends React.Component {
 
         <div className="jumbotron" style={jumbotronStyle}>
           <form action="#" onSubmit={e => this.onSubmit(e)}>
-            <Heading>{language[LanguageStore.lang].searchRecForm.FindRoom}</Heading>
+            <Heading>{language[localStorage.getItem('language')].searchRecForm.FindRoom}</Heading>
             <hr className="my-4" color="white"/>
-            <SubHeading>{language[LanguageStore.lang].searchRecForm.Info} :</SubHeading>
+            <SubHeading>{language[localStorage.getItem('language')].searchRecForm.Info} :</SubHeading>
             <div className="row">
               <div className="col-md-6 col-sm-12">
-                <NormalText>{language[LanguageStore.lang].searchRecForm.Building}</NormalText>
-                <select name="building" type="text" className="custom-select" id="building" placeholder="Room ID"
+                <NormalText>{language[localStorage.getItem('language')].searchRecForm.Building}</NormalText>
+                <select name="building" type="text" className="custom-select" id="building"
                   value={ReservationStore.searchTemp.Building} onChange={e => ReservationStore.setSearch('Building', e.target.value)}>
-                  <option value="" disabled selected>Choose...</option>
-                  <option value="Witsawa Watthana">Witsawa Watthana</option>
-                  <option value="CB1">CB1</option>
-                  <option value="CB2">CB2</option>
-                  <option value="CB3">CB3</option>
-                  <option value="CB4">CB4</option>
-                  <option value="CB5">CB5</option>
+                  <option value="" disabled selected>{language[localStorage.getItem('language')].Additional.Choose}</option>
+                  <option value="Witsawa Watthana">{language[localStorage.getItem('language')].Additional.WitsawaWatthana}</option>
+                  <option value="CB1">{language[localStorage.getItem('language')].Additional.CB1}</option>
+                  <option value="CB2">{language[localStorage.getItem('language')].Additional.CB2}</option>
+                  <option value="CB3">{language[localStorage.getItem('language')].Additional.CB3}</option>
+                  <option value="CB4">{language[localStorage.getItem('language')].Additional.CB4}</option>
+                  <option value="CB5">{language[localStorage.getItem('language')].Additional.CB5}</option>
                 </select>
               </div>
               <div className="col-md-6 col-sm-12">
-                <NormalText>{language[LanguageStore.lang].searchRecForm.Size}</NormalText>
+                <NormalText>{language[localStorage.getItem('language')].searchRecForm.Size}</NormalText>
                 <select name="capacity" type="number" className="custom-select" id="capacity"
                   value={ReservationStore.searchTemp.PeopleCapacity} onChange={e => ReservationStore.setSearch('PeopleCapacity', e.target.value)}>
-                  <option value="" disabled selected>Choose...</option>
+                  <option value="" disabled selected>{language[localStorage.getItem('language')].Additional.Choose}</option>
                   <option value="10">10</option>
                   <option value="20">20</option>
                   <option value="30">30</option>
@@ -136,17 +135,17 @@ class SearchRecForm extends React.Component {
               </div>
             </div>
             <hr className="my-4" color="white"/>
-            <SubHeading>{language[LanguageStore.lang].searchRecForm.Date} :</SubHeading>
+            <SubHeading>{language[localStorage.getItem('language')].searchRecForm.Date} :</SubHeading>
             <div className="row">
               <div className="col-md-3 col-sm-12">
-                <NormalText>{language[LanguageStore.lang].searchRecForm.From}</NormalText>
+                <NormalText>{language[localStorage.getItem('language')].searchRecForm.From}</NormalText>
               </div>
               <div className="col-md-3 col-sm-12">
                 <input name="startdate" type="date" className="form-control" id="startdate"
                 value={ReservationStore.searchTemp.StartDate} onChange={e => ReservationStore.setSearch('StartDate', e.target.value)}/>
               </div>
               <div className="col-md-3 col-sm-12">
-                <NormalText>{language[LanguageStore.lang].searchRecForm.To}</NormalText>
+                <NormalText>{language[localStorage.getItem('language')].searchRecForm.To}</NormalText>
               </div>
               <div className="col-md-3 col-sm-12">
                 <input name="enddate" type="date" className="form-control" id="enddate"
@@ -155,15 +154,15 @@ class SearchRecForm extends React.Component {
             </div>
 
             <hr className="my-4" color="white"/>
-            <SubHeading>{language[LanguageStore.lang].searchRecForm.Time} :</SubHeading>
+            <SubHeading>{language[localStorage.getItem('language')].searchRecForm.Time} :</SubHeading>
             <div className="row">
               <div className="col-md-1 col-sm-12">
-                <NormalText>{language[LanguageStore.lang].searchRecForm.From}</NormalText>
+                <NormalText>{language[localStorage.getItem('language')].searchRecForm.From}</NormalText>
               </div>
               <div className="col-md-2 col-sm-12">
                 <select name="fromhr" type="number" className="custom-select" id="fromhr"
                 value={ReservationStore.searchTemp.fromhr} onChange={e => ReservationStore.setSearch('fromhr', e.target.value)}>
-                  <option value="" disabled selected>Choose...</option>
+                  <option value="" disabled selected>{language[localStorage.getItem('language')].Additional.Choose}</option>
                   <option value="00">00</option>
                   <option value="01">01</option>
                   <option value="02">02</option>
@@ -196,18 +195,18 @@ class SearchRecForm extends React.Component {
               <div className="col-md-2 col-sm-12">
                 <select name="frommin" type="number" className="custom-select" id="frommin"
                   value={ReservationStore.searchTemp.frommin} onChange={e => ReservationStore.setSearch('frommin', e.target.value)}>
-                  <option value="" disabled selected>Choose...</option>
+                  <option value="" disabled selected>{language[localStorage.getItem('language')].Additional.Choose}</option>
                   <option value="00">00</option>
                   <option value="30">30</option>
                 </select>
               </div>
               <div className="col-md-1 col-sm-12">
-                <NormalText>{language[LanguageStore.lang].searchRecForm.To}</NormalText>
+                <NormalText>{language[localStorage.getItem('language')].searchRecForm.To}</NormalText>
               </div>
               <div className="col-md-2 col-sm-12">
                 <select name="tohr" type="number" className="custom-select" id="tohr"
                   value={ReservationStore.searchTemp.tohr} onChange={e => ReservationStore.setSearch('tohr', e.target.value)}>
-                  <option value="" disabled selected>Choose...</option>
+                  <option value="" disabled selected>{language[localStorage.getItem('language')].Additional.Choose}</option>
                   <option value="00">00</option>
                   <option value="01">01</option>
                   <option value="02">02</option>
@@ -240,7 +239,7 @@ class SearchRecForm extends React.Component {
               <div className="col-md-2 col-sm-12">
                 <select name="tomin" type="number" className="custom-select" id="tomin"
                   value={ReservationStore.searchTemp.tomin} onChange={e => ReservationStore.setSearch('tomin', e.target.value)}>
-                  <option value="" disabled selected>Choose...</option>
+                  <option value="" disabled selected>{language[localStorage.getItem('language')].Additional.Choose}</option>
                   <option value="00">00</option>
                   <option value="30">30</option>
                 </select>
@@ -248,47 +247,47 @@ class SearchRecForm extends React.Component {
             </div>
             <div className="row">
               <div className="col-md-3 col-sm-12">
-                <NormalText>{language[LanguageStore.lang].searchRecForm.Day}</NormalText>
+                <NormalText>{language[localStorage.getItem('language')].searchRecForm.Day}</NormalText>
               </div>
               <div className="col-md-3 col-sm-12">
                 <select name="capacity" type="number" className="custom-select" id="capacity"
                   value={ReservationStore.searchTemp.Day} onChange={e => ReservationStore.setSearch('Day', e.target.value)}>
-                  <option selected>Choose...</option>
-                  <option value="7">Sunday</option>
-                  <option value="1">Monday</option>
-                  <option value="2">Tuesday</option>
-                  <option value="3">Wednesday</option>
-                  <option value="4">Thursday</option>
-                  <option value="5">Friday</option>
-                  <option value="6">Saturday</option>
+                  <option selected>{language[localStorage.getItem('language')].Additional.Choose}</option>
+                  <option value="7">{language[localStorage.getItem('language')].addForm.Day.Sunday}</option>
+                  <option value="1">{language[localStorage.getItem('language')].addForm.Day.Monday}</option>
+                  <option value="2">{language[localStorage.getItem('language')].addForm.Day.Tuesday}</option>
+                  <option value="3">{language[localStorage.getItem('language')].addForm.Day.Wednesday}</option>
+                  <option value="4">{language[localStorage.getItem('language')].addForm.Day.Thursday}</option>
+                  <option value="5">{language[localStorage.getItem('language')].addForm.Day.Friday}</option>
+                  <option value="6">{language[localStorage.getItem('language')].addForm.Day.Saturday}</option>
                 </select>
               </div>
             </div>
             <hr className="my-4" color="white"/>
-            <SubHeading>{language[LanguageStore.lang].searchRecForm.Amenity} :</SubHeading>
+            <SubHeading>{language[localStorage.getItem('language')].searchRecForm.Amenity} :</SubHeading>
             <div class="form-check">
               <div className="row">
                 <div className="col-md-6 col-sm-12">
                   <input name="teachercom" type="checkbox" className="form-check-input" id="teachercom"
                   value={this.state.HasTeacherComputers} onClick={() => this.toggleCheck('HasTeacherComputers')} />
-                  <label className="form-check-label" for="teachercom" style={textColor}>{language[LanguageStore.lang].searchRecForm.Amenities.TeacherComputer}</label><br/>
+                  <label className="form-check-label" for="teachercom" style={textColor}>{language[localStorage.getItem('language')].searchRecForm.Amenities.TeacherComputer}</label><br/>
                   <input name="studentcom" type="checkbox" className="form-check-input" id="studentcom"
                   value={this.state.HasStudentComputers} onClick={() => this.toggleCheck('HasStudentComputers')} />
-                  <label className="form-check-label" for="studentcom" style={textColor}>{language[LanguageStore.lang].searchRecForm.Amenities.StudentComputer}</label><br/>
+                  <label className="form-check-label" for="studentcom" style={textColor}>{language[localStorage.getItem('language')].searchRecForm.Amenities.StudentComputer}</label><br/>
                   <input name="aircon" type="checkbox" className="form-check-input" id="aircon"
                   value={this.state.HasAirConditioner} onClick={() => this.toggleCheck('HasAirConditioner')} />
-                  <label className="form-check-label" for="aircon" style={textColor}>{language[LanguageStore.lang].searchRecForm.Amenities.AirConditioner}</label><br/>
+                  <label className="form-check-label" for="aircon" style={textColor}>{language[localStorage.getItem('language')].searchRecForm.Amenities.AirConditioner}</label><br/>
                 </div>
                 <div className="col-md-6 col-sm-12">
                   <input name="projector" type="checkbox" className="form-check-input" id="projector"
                   value={this.state.HasProjector} onClick={() => this.toggleCheck('HasProjector')} />
-                  <label className="form-check-label" for="projector" style={textColor}>{language[LanguageStore.lang].searchRecForm.Amenities.Projector}</label><br/>
+                  <label className="form-check-label" for="projector" style={textColor}>{language[localStorage.getItem('language')].searchRecForm.Amenities.Projector}</label><br/>
                   <input name="whiteboard" type="checkbox" className="form-check-input" id="whiteboard"
                   value={this.state.HasWhiteboard} onClick={() => this.toggleCheck('HasWhiteboard')} />
-                  <label className="form-check-label" for="whiteboard" style={textColor}>{language[LanguageStore.lang].searchRecForm.Amenities.WhiteBoard}</label><br/>
+                  <label className="form-check-label" for="whiteboard" style={textColor}>{language[localStorage.getItem('language')].searchRecForm.Amenities.WhiteBoard}</label><br/>
                   <input name="visualizer" type="checkbox" className="form-check-input" id="visualizer"
                   value={this.state.HasVisualizer} onClick={() => this.toggleCheck('HasVisualizer')} />
-                  <label className="form-check-label" for="visualizer" style={textColor}>{language[LanguageStore.lang].searchRecForm.Amenities.Visualizer}</label><br/>
+                  <label className="form-check-label" for="visualizer" style={textColor}>{language[localStorage.getItem('language')].searchRecForm.Amenities.Visualizer}</label><br/>
                 </div>
               </div>
             </div>
@@ -296,7 +295,7 @@ class SearchRecForm extends React.Component {
             
             <center>
               <button type="submit" value="Submit" className="btn btn-info">
-                {language[LanguageStore.lang].adSearchRecurring.Search}
+                {language[localStorage.getItem('language')].adSearchRecurring.Search}
               </button>
             </center>
           </form>
