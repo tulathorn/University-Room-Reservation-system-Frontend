@@ -9,6 +9,12 @@ class ContactCard extends React.Component {
     ContactStore.resetContactForm()
   }
   
+  logoutClick = () => {
+    localStorage.clear()
+    localStorage.setItem('language',0)
+    window.location = "/login"
+  }
+
   onSubmit = e => {
     e.preventDefault()
     ContactStore.addContact()
@@ -27,7 +33,7 @@ class ContactCard extends React.Component {
     return (
         <div className="card">
           <div className="card-body">
-            <a href="/Login" className="btn btn-outline-info">{language[localStorage.getItem('language')].contactCard.Back}</a>
+            <a onClick={e => this.logoutClick(e)} className="btn btn-outline-info">{language[localStorage.getItem('language')].contactCard.Back}</a>
             <div className="row">
               <div className="col-md-12 col-sm-12" style={{ textAlign: 'center' }}>
                 <img src={require("../Pictures/logo.png")} width="150" height="150" alt=""/>

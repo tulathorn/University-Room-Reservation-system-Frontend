@@ -62,6 +62,12 @@ class NavDropdown extends React.Component {
 
 @observer
 class Navbar extends React.Component {
+  logoutClick = () => {
+    localStorage.clear()
+    localStorage.setItem('language',0)
+    window.location = "/login"
+  }
+
   langEN = () => {
     localStorage.setItem('language',0)
     window.location.reload()
@@ -119,9 +125,8 @@ class Navbar extends React.Component {
               <NavItem name={localStorage.getItem('username')} disabled="true" />
             </ul>
             <NavLink
-              to="/login"
               className="btn btn-sm btn-outline-info"
-              onClick={() => localStorage.removeItem('token')}
+              onClick={() => this.logoutClick()}
             >
               {language[localStorage.getItem('language')].Navbar.Logout}
             </NavLink>

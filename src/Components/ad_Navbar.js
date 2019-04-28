@@ -2,6 +2,8 @@ import React from 'react'
 import '../Styles/bootstrap/bootstrap.min.css'
 import language from '../languages.json'
 
+import { NavLink } from 'react-router-dom'
+
 const NavItem = props => {
   const pageURI = window.location.pathname + window.location.search
   const liClassName = props.path === pageURI ? 'nav-item active' : 'nav-item'
@@ -56,6 +58,12 @@ class NavDropdown extends React.Component {
 }
 
 class AdNavbar extends React.Component {
+  logoutClick = () => {
+    localStorage.clear()
+    localStorage.setItem('language',0)
+    window.location = "/ad_login"
+  }
+
   langEN = () => {
     localStorage.setItem('language',0)
     window.location.reload()
@@ -114,20 +122,19 @@ class AdNavbar extends React.Component {
               </div>
             </NavDropdown>
           </ul>
-
           <form className="form-inline my-2 my-lg-0">
-            {/*<ul className="navbar-nav mr-auto">
-              <NavItem name="580705034XX" disabled="true" />
+            <ul className="navbar-nav mr-auto">
+              <NavItem name={localStorage.getItem('username')} disabled="true" />
             </ul>
-            <input
-              className="form-control mr-sm-2"
-              type="search"
-              placeholder="Search"
-              aria-label="Search"
-            /> */}
-            <a href="/ad_login" className="btn btn-sm btn-outline-info">{language[localStorage.getItem('language')].adNavbar.Logout}</a>
-
+            <NavLink
+              className="btn btn-sm btn-outline-info"
+              onClick={() => this.logoutClick()}
+            >
+              {language[localStorage.getItem('language')].Navbar.Logout}
+            </NavLink>
           </form>
+
+          
         </div>
       </nav>
     )
