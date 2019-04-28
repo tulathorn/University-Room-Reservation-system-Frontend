@@ -4,6 +4,7 @@ import CurHistoryRoomCard from '../Components/curHisRoomCard'
 import language from '../languages.json'
 import { observer } from 'mobx-react'
 import ReservationStore from '../stores/ReservationStore'
+import AuthenticationGate from '../Components/AuthenticationGate'
 
 @observer
 class CurHistoryView extends Component {
@@ -14,6 +15,7 @@ class CurHistoryView extends Component {
 
   render() {
     return (
+      <AuthenticationGate>
       <div>
         <Navbar />
         <div className="container">
@@ -33,6 +35,7 @@ class CurHistoryView extends Component {
           })}
         </div>
       </div>
+      </AuthenticationGate>
     )
   }
 }

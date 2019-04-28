@@ -77,9 +77,9 @@ class AdNavbar extends React.Component {
   render() {
     return (
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
-        <a className="navbar-brand" href="/ad_all_list">
-          <img src={require("../Pictures/logo.png")} width="40" height="40" alt=""/>
-        </a>
+        <NavLink className="navbar-brand" to="/ad_all_list">
+          <img src={require('../Pictures/logo.png')} width="40" height="40" alt="" />
+        </NavLink>
         <button
           className="navbar-toggler"
           type="button"
@@ -95,22 +95,20 @@ class AdNavbar extends React.Component {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav mr-auto">
             <NavDropdown name={language[localStorage.getItem('language')].adNavbar.SearchRoom}>
-              <a className="dropdown-item" href="/ad_search_nor">
+              <NavLink to="/ad_search_nor" className="dropdown-item">
                 {language[localStorage.getItem('language')].adNavbar.NormalSearch}
-              </a>
-              <a className="dropdown-item" href="/ad_search_rec">
+              </NavLink>
+              <NavLink to="/ad_search_rec" className="dropdown-item">
                 {language[localStorage.getItem('language')].adNavbar.RecurringSearch}
-              </a>
-              <div className="dropdown-divider" />
-              <a className="dropdown-item" href="/ad_all_list">
+              </NavLink><div className="dropdown-divider" />
+              <NavLink to="/ad_all_list" className="dropdown-item">
                 {language[localStorage.getItem('language')].adNavbar.RoomSearch}
-              </a>
+              </NavLink>
             </NavDropdown>
             <NavItem path="/ad_search" name="" />
             <NavItem path="/ad_curhistory" name={language[localStorage.getItem('language')].adNavbar.History} />
             <NavItem path="/ad_add_room" name={language[localStorage.getItem('language')].adNavbar.AddRoom} />
             <NavItem path="/ad_support" name={language[localStorage.getItem('language')].adNavbar.Support} />
-
             <NavDropdown name={language[localStorage.getItem('language')].adNavbar.Languages}>
               <div className="dropdown-item" onClick={() => this.langEN()}>
                 {' '}

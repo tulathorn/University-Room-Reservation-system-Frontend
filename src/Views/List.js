@@ -5,6 +5,7 @@ import language from '../languages.json'
 import Navbar from '../Components/Navbar'
 import { observer } from 'mobx-react'
 import RoomInformationCard from '../Components/RoomInformationCard'
+import AuthenticationGate from '../Components/AuthenticationGate'
 
 @observer
 class ListView extends Component {
@@ -15,7 +16,9 @@ class ListView extends Component {
 
   render() {
     return (
+      <AuthenticationGate>
       <div>
+        
         <Navbar />
         <div className="container">
 
@@ -66,6 +69,7 @@ class ListView extends Component {
           
         </div>
       </div>
+      </AuthenticationGate>
 
     )
   }

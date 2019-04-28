@@ -33,7 +33,7 @@ class ContactCard extends React.Component {
     return (
         <div className="card">
           <div className="card-body">
-            <a onClick={e => this.logoutClick(e)} className="btn btn-outline-info">{language[localStorage.getItem('language')].contactCard.Back}</a>
+            <button onClick={e => this.logoutClick(e)} className="btn btn-outline-info">{language[localStorage.getItem('language')].contactCard.Back}</button>
             <div className="row">
               <div className="col-md-12 col-sm-12" style={{ textAlign: 'center' }}>
                 <img src={require("../Pictures/logo.png")} width="150" height="150" alt=""/>

@@ -4,6 +4,7 @@ import PreHistoryRoomCard from '../Components/preHisRoomCard'
 import language from '../languages.json'
 import { observer } from 'mobx-react'
 import ReservationStore from '../stores/ReservationStore'
+import AuthenticationGate from '../Components/AuthenticationGate'
 
 @observer
 class PreHistoryView extends Component {
@@ -14,6 +15,7 @@ class PreHistoryView extends Component {
 
   render() {
     return (
+      <AuthenticationGate>
       <div>
         <Navbar />
         <div className="container">
@@ -35,6 +37,7 @@ class PreHistoryView extends Component {
 
         </div>
       </div>
+      </AuthenticationGate>
     )
   }
 }
