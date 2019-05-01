@@ -5,6 +5,7 @@ import language from '../languages.json'
 import Navbar from '../Components/Navbar'
 import AuthenticationGate from '../Components/AuthenticationGate'
 import ReservationForm from '../Components/ReservationForm'
+//import moment from 'moment'
 
 const Title = styled.h1`
   color: #1f384b;

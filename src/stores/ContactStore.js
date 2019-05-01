@@ -10,14 +10,15 @@ class ContactStore {
     contact = []
 
     @observable
-    replyMsg = {
-        "EmailAddress" : "honhon015@gmail.com",
-        "Title" : "Testing XX",
-        "Detail" : "Detail XXX"}
+    replyMsg = {}
 
     @action
     setContact = (field, value) => {
         this.message[field] = value
+    }
+    @action
+    setReply = (field, value) => {
+        this.replyMsg[field] = value
     }
 
     @action
@@ -29,17 +30,29 @@ class ContactStore {
     @action
     replyMail = async () => {
       await axios.post('./contact/reply', this.replyMsg).then(resp => resp.data)
-      console.log('ส่งข้อมูลสำเร็จ')
+      console.log('ส่งอีเมลสำเร็จ')
+    }
+
+    @action
+    deleteContact = async () => {
+      await axios.delete('./contact/', this.message).then(resp => resp.data)
+      console.log('ลบข้อมูลแล้ว')
     }
 
     @action
     GetContact = async () => {
         this.contact = await axios.get('./contact', this.message).then(resp => resp.data)
+        localStorage.setItem('contactemail',this.contact[0].EmailAddress)
     }
 
     @action
     resetContactForm = () => {
         this.message = {}
+    }
+
+    @action
+    resetReplyMsg = () => {
+        this.replyMsg = {}
     }
 }
 

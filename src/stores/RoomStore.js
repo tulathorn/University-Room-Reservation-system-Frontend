@@ -66,11 +66,13 @@ class RoomStore {
   @action
   copyValue = (value) => {
     this.roomInfo = value
+    console.log(this.roomInfo)
   }
 
   @action
   setValue = (field, value) => {
     this.roomInfo[field] = value
+    console.log(this.roomInfo[field])
   }
   @action
   setEquipment = (field, value) => {
@@ -91,6 +93,10 @@ class RoomStore {
   setConfig = (field, value) => {
     this.searchConfig[field] = value
   }
+  @action
+  flipConfig = (field) => {
+    this.searchConfig[field] = !this.searchConfig[field]
+  }
 
   @action
   setConfigThenFetch = (field, value) => {
@@ -103,18 +109,18 @@ class RoomStore {
     this.searchConfig.Equipment[field] = value
   }
   
-  @action
-  resetSchedule = () => {
-    this.schedule = {
-      Date: '',
-      DateTo: '',
-      Day: '',
-      fromhr: '',
-      frommin: '',
-      tohr: '',
-      tomin: '',
-    }
-  }
+  // @action
+  // resetSchedule = () => {
+  //   this.schedule = {
+  //     Date: '',
+  //     DateTo: '',
+  //     Day: '',
+  //     fromhr: '',
+  //     frommin: '',
+  //     tohr: '',
+  //     tomin: '',
+  //   }
+  // }
 
   @action
   resetFilterForm = () => {
@@ -124,23 +130,7 @@ class RoomStore {
   @action
   resetAddForm = () => {
     this.roomInfo = {
-      RoomName: '',
-      Picture: '',
-      PeopleCapacity: '',
-      Building: '',
-      Floor: '',
-      RoomNumber: '',
-      ClosingDay: '',
-      OpenTime: '',
-      CloseTime: '',
-      Equipment: {
-        HasTeacherComputers: false,
-        HasStudentComputers: false,
-        HasProjector: false,
-        HasAirConditioner: false,
-        HasWhiteboard: false,
-        HasVisualizer: false
-      }
+      Equipment: {}
     }
   }
 

@@ -25,18 +25,8 @@ class AdBookingForm extends React.Component {
 
   onSubmit = e => {
     e.preventDefault()
-    this.reformDatas() 
-    ReservationStore.searchTemp.UsernameID && ReservationStore.bookingConfig.Title && ReservationStore.bookingConfig.Purpose ? this.bookClick() : this.warned() 
-  }
-
-  noUserWarned = () =>{
-    Swal.fire({
-      position: 'center',
-      type: 'warning',
-      title: 'User did not exist!',
-      focusConfirm: true,
-      showConfirmButton: true,
-    })
+    this.reformDatas()
+    ReservationStore.searchTemp.UsernameID && ReservationStore.bookingConfig.Purpose ? this.bookClick() : this.warned() 
   }
 
   warned = () =>{
@@ -51,7 +41,6 @@ class AdBookingForm extends React.Component {
   }
 
   bookClick = () =>{
-    
     Swal.fire({
       title: 'Are you sure?',
       text: "You want to book this room for "+ReservationStore.searchTemp.UsernameID,
@@ -62,20 +51,34 @@ class AdBookingForm extends React.Component {
       cancelButtonColor: '#dc3545',
       confirmButtonText: 'Yes, Book the room!'
     }).then((result) => {
-      if (result.value) {
-        ReservationStore.addReservation()
-        Swal.fire({
-        position: 'center',
-        type: 'success',
-        title: 'Booking completed',
-        text: "Redirect to search page!",
-        focusConfirm: true,
-        showConfirmButton: true,
-        preConfirm: () => {
-          window.location = "/ad_search_nor";
-          }
-        })
+      if(result.value){
+        if (ReservationStore.bookingConfig.UserID !== 0) {
+          console.log(ReservationStore.bookingConfig)
+          ReservationStore.addReservation()
+          Swal.fire({
+          position: 'center',
+          type: 'success',
+          title: 'Booking completed',
+          text: "Redirect to search page!",
+          focusConfirm: true,
+          showConfirmButton: true,
+          preConfirm: () => {
+            window.location = "/ad_search_nor";
+            }
+          })
+        }
+        else{
+          Swal.fire({
+            position: 'center',
+            type: 'error',
+            title: 'User ' + ReservationStore.searchTemp.UsernameID + ' not found.',
+            text: "Please check username!",
+            focusConfirm: true,
+            showConfirmButton: true,
+            })
+        }
       }
+      
     })
   }
   
@@ -87,18 +90,10 @@ class AdBookingForm extends React.Component {
                 {language[localStorage.getItem('language')].adBookingForm.ID}
                 <input name="username" type="text" className="form-control" id="username" placeholder={language[localStorage.getItem('language')].adBookingForm.ID}
                 value={ReservationStore.searchTemp.UsernameID} onChange={e => ReservationStore.setSearch('UsernameID', e.target.value)}/>
-                {language[localStorage.getItem('language')].Additional.Title}
-                <input name="title" type="text" className="form-control" id="title" placeholder={language[localStorage.getItem('language')].Additional.Title}
-                value={ReservationStore.bookingConfig.Title} onChange={e => ReservationStore.setBookingConfig('Title', e.target.value)}/>
                 {language[localStorage.getItem('language')].adBookingForm.Purpose}
                 <textarea name="purpose" type="text" className="form-control" id="purpose" rows="5" placeholder={language[localStorage.getItem('language')].Additional.PurposeBody}
                 value={ReservationStore.bookingConfig.Purpose} onChange={e => ReservationStore.setBookingConfig('Purpose', e.target.value)}/>
             </div>
-              {language[localStorage.getItem('language')].adBookingForm.EmailAddress}<br/>
-              {language[localStorage.getItem('language')].adBookingForm.Phone}<br/>
-              {language[localStorage.getItem('language')].adBookingForm.Year}<br/>
-              {language[localStorage.getItem('language')].adBookingForm.Section}<br/>
-              {language[localStorage.getItem('language')].adBookingForm.Program}<br/>
                    
               <button type="submit" value="Submit" className="btn btn-info">
                 {language[localStorage.getItem('language')].adBookingForm.Book}

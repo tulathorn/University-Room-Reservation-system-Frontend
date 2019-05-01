@@ -24,9 +24,6 @@ class AdPreHistoryRoomCard extends React.Component {
               <p><b>{language[localStorage.getItem('language')].Additional.Username}</b> : {this.props.data.UserInfo.UsernameID}</p>
             </div>
             <div className="row">
-              <p><b>{language[localStorage.getItem('language')].adReply.Title}</b> : {this.props.data.Title}</p>
-            </div>
-            <div className="row">
               <p><b>{language[localStorage.getItem('language')].adPreHisCard.Purpose}</b> : {this.props.data.Purpose}</p>
             </div>
             <div className="row">

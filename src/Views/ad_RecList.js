@@ -13,7 +13,7 @@ const jumbotronStyle = {
 
 @observer
 class AdRecListView extends Component {
-  componentDidMount() {
+  componentWillMount() {
     ReservationStore.GetAvailableRoom()
   }
   

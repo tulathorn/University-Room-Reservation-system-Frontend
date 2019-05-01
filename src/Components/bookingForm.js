@@ -26,7 +26,7 @@ class BookingForm extends React.Component {
     e.preventDefault()
     this.reformDatas()
     console.log(ReservationStore.bookingConfig)
-    ReservationStore.bookingConfig.Title && ReservationStore.bookingConfig.Purpose ? this.bookClick() : this.warned() 
+    ReservationStore.bookingConfig.Purpose ? this.bookClick() : this.warned() 
   }
 
   warned = () =>{
@@ -77,16 +77,13 @@ class BookingForm extends React.Component {
           <form action="#" onSubmit={e => this.onSubmit(e)}>
             {language[localStorage.getItem('language')].bookingForm.Firstname}
               <input name="firstname" type="text" className="form-control" id="firstname" placeholder="Firstname"
-              value={localStorage.getItem('token')} readonly disabled/>
+              value={localStorage.getItem('firstname')} readonly disabled/>
             {language[localStorage.getItem('language')].bookingForm.Surname}
               <input name="surname" type="text" className="form-control" id="surname" placeholder="Surname"
-              value={localStorage.getItem('token')} readonly disabled/>
+              value={localStorage.getItem('lastname')} readonly disabled/>
             {language[localStorage.getItem('language')].bookingForm.Email}
               <input name="email" type="text" className="form-control" id="email" placeholder="Email Address"
-              value={localStorage.getItem('token')} readonly disabled/>
-            {language[localStorage.getItem('language')].Additional.Title}
-              <input name="title" type="text" className="form-control" id="title" placeholder={language[localStorage.getItem('language')].Additional.TitleBody}
-              value={ReservationStore.bookingConfig.Title} onChange={e => ReservationStore.setBookingConfig('Title', e.target.value)}/>
+              value={localStorage.getItem('email')} readonly disabled/>
             {language[localStorage.getItem('language')].bookingForm.Purpose}
               <textarea name="purpose" type="text" className="form-control" id="purpose" rows="5" placeholder={language[localStorage.getItem('language')].Additional.PurposeBody}
               value={ReservationStore.bookingConfig.Purpose} onChange={e => ReservationStore.setBookingConfig('Purpose', e.target.value)}/>

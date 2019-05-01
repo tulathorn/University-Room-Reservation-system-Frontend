@@ -25,9 +25,6 @@ class PreHistoryRoomCard extends React.Component {
               <h4>{this.props.data.RoomInformation.RoomName}</h4>
             </div>
             <div className="row">
-              <p><b>{language[localStorage.getItem('language')].adReply.Title}</b> : {this.props.data.Title}</p>
-            </div>
-            <div className="row">
               <p><b>{language[localStorage.getItem('language')].preHisRoomCard.Purpose}</b> : {this.props.data.Purpose}</p>
             </div>
             <div className="row">

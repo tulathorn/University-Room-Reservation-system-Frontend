@@ -11,7 +11,7 @@ const Title = styled.h1`
 `
 @observer
 class AdSupportView extends Component {
-  componentDidMount() {
+  componentWillMount() {
     ContactStore.resetContactForm()
     ContactStore.GetContact()
   }

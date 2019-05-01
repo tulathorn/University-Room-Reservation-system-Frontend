@@ -45,7 +45,7 @@ class AddForm extends React.Component {
   };
 
   reformDatas= () => {
-    
+    RoomStore.setValue('ClosingDay', '')
     this.state.Monday ? RoomStore.setValue('ClosingDay', RoomStore.roomInfo.ClosingDay+'0') : RoomStore.setValue('ClosingDay', RoomStore.roomInfo.ClosingDay+'1')
     this.state.Tuesday ? RoomStore.setValue('ClosingDay', RoomStore.roomInfo.ClosingDay+'0') : RoomStore.setValue('ClosingDay', RoomStore.roomInfo.ClosingDay+'1')
     this.state.Wednesday ? RoomStore.setValue('ClosingDay', RoomStore.roomInfo.ClosingDay+'0') : RoomStore.setValue('ClosingDay', RoomStore.roomInfo.ClosingDay+'1')
@@ -53,12 +53,12 @@ class AddForm extends React.Component {
     this.state.Friday ? RoomStore.setValue('ClosingDay', RoomStore.roomInfo.ClosingDay+'0') : RoomStore.setValue('ClosingDay', RoomStore.roomInfo.ClosingDay+'1')
     this.state.Saturday ? RoomStore.setValue('ClosingDay', RoomStore.roomInfo.ClosingDay+'0') : RoomStore.setValue('ClosingDay', RoomStore.roomInfo.ClosingDay+'1')
     this.state.Sunday ? RoomStore.setValue('ClosingDay', RoomStore.roomInfo.ClosingDay+'0') : RoomStore.setValue('ClosingDay', RoomStore.roomInfo.ClosingDay+'1')
-    this.state.HasTeacherComputers ? RoomStore.setEquipment('HasTeacherComputers', 1) : RoomStore.setEquipment('HasTeacherComputers', 0)
-    this.state.HasStudentComputers ? RoomStore.setEquipment('HasStudentComputers', 1) : RoomStore.setEquipment('HasStudentComputers', 0)
-    this.state.HasProjector ? RoomStore.setEquipment('HasProjector', 1) : RoomStore.setEquipment('HasProjector', 0)
-    this.state.HasAirConditioner ? RoomStore.setEquipment('HasAirConditioner', 1) : RoomStore.setEquipment('HasAirConditioner', 0)
-    this.state.HasWhiteboard ? RoomStore.setEquipment('HasWhiteboard', 1) : RoomStore.setEquipment('HasWhiteboard', 0)
-    this.state.HasVisualizer ? RoomStore.setEquipment('HasVisualizer', 1) : RoomStore.setEquipment('HasVisualizer', 0)
+    RoomStore.setEquipment('HasTeacherComputers', this.state.HasTeacherComputers)
+    RoomStore.setEquipment('HasStudentComputers', this.state.HasStudentComputers)
+    RoomStore.setEquipment('HasProjector', this.state.HasProjector)
+    RoomStore.setEquipment('HasAirConditioner', this.state.HasAirConditioner)
+    RoomStore.setEquipment('HasWhiteboard', this.state.HasWhiteboard)
+    RoomStore.setEquipment('HasVisualizer', this.state.HasVisualizer)
     RoomStore.setValue('OpenTime', this.state.fromhr+':'+this.state.frommin)
     RoomStore.setValue('CloseTime', this.state.tohr+':'+this.state.tomin)
     console.log(RoomStore.roomInfo)
@@ -172,6 +172,7 @@ class AddForm extends React.Component {
                     </div>
                   </div>
                 </div>
+                <hr className="my-4" color="black" />
               {language[localStorage.getItem('language')].addForm.OperatingTime}
                 <div className="row">
                   <div className="col-md-3 col-sm-12">
@@ -265,6 +266,7 @@ class AddForm extends React.Component {
                     </select>
                   </div>
                 </div>
+                <hr className="my-4" color="black" />
               {language[localStorage.getItem('language')].addForm.Amenity}
                 <div className="form-check">
                   <div className="row">

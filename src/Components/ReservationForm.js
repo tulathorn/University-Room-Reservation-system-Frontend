@@ -79,7 +79,6 @@ class ReservationForm extends React.Component {
     e.preventDefault()
     this.reformDatas()
     ReservationStore.GetAvailableRoom()
-    ReservationStore.searchTemp.exist ? console.log(1) : console.log(0)
     ReservationStore.searchTemp.Date && ReservationStore.searchTemp.fromhr && ReservationStore.searchTemp.frommin && ReservationStore.searchTemp.tohr && ReservationStore.searchTemp.tomin ? this.search() : this.warned()
   }
 
@@ -246,7 +245,7 @@ class ReservationForm extends React.Component {
           <hr className="my-4" color="white" />
           <SubHeading> {language[localStorage.getItem('language')].reservationForm.Amenity}: </SubHeading>
           
-            <div class="form-check">
+            <div className="form-check">
               <div className="row">
                 <div className="col-md-6 col-sm-12">
                   <input name="teachercom" type="checkbox" className="form-check-input" id="teachercom"

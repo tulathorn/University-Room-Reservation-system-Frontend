@@ -6,82 +6,86 @@ import RoomStore from '../stores/RoomStore'
 
 class EditForm extends React.Component {
 
-  componentDidMount() {
+  componentWillMount() {
     RoomStore.resetAddForm()
     RoomStore.copyValue(this.props.room)
     RoomStore.resetFilterForm()
   }
-
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      
-      HasTeacherComputers: false,
-      HasStudentComputers: false,
-      HasProjector: false,
-      HasAirConditioner: false,
-      HasWhiteboard: false,
-      HasVisualizer: false,
-      Monday: false,
-      Tuesday: false,
-      Wednesday: false,
-      Thursday: false,
-      Friday: false,
-      Saturday: false,
-      Sunday: false};
-    this.handleChange = this.handleChange.bind(this);
-
-    }
-  handleChange(field,value) {
-    this.setState(state => ({ [field]: value }));
-  }
-
-  toggleCheck = (field) => {
-    this.setState(state => ({ [field]: !state[field] }));
-  };
   
   reformDatas= () => {
-    RoomStore.setValue('ClosingDay', '')
-    this.state.Monday ? RoomStore.setValue('ClosingDay', RoomStore.roomInfo.ClosingDay+'0') : RoomStore.setValue('ClosingDay', RoomStore.roomInfo.ClosingDay+'1')
-    this.state.Tuesday ? RoomStore.setValue('ClosingDay', RoomStore.roomInfo.ClosingDay+'0') : RoomStore.setValue('ClosingDay', RoomStore.roomInfo.ClosingDay+'1')
-    this.state.Wednesday ? RoomStore.setValue('ClosingDay', RoomStore.roomInfo.ClosingDay+'0') : RoomStore.setValue('ClosingDay', RoomStore.roomInfo.ClosingDay+'1')
-    this.state.Thursday ? RoomStore.setValue('ClosingDay', RoomStore.roomInfo.ClosingDay+'0') : RoomStore.setValue('ClosingDay', RoomStore.roomInfo.ClosingDay+'1')
-    this.state.Friday ? RoomStore.setValue('ClosingDay', RoomStore.roomInfo.ClosingDay+'0') : RoomStore.setValue('ClosingDay', RoomStore.roomInfo.ClosingDay+'1')
-    this.state.Saturday ? RoomStore.setValue('ClosingDay', RoomStore.roomInfo.ClosingDay+'0') : RoomStore.setValue('ClosingDay', RoomStore.roomInfo.ClosingDay+'1')
-    this.state.Sunday ? RoomStore.setValue('ClosingDay', RoomStore.roomInfo.ClosingDay+'0') : RoomStore.setValue('ClosingDay', RoomStore.roomInfo.ClosingDay+'1')
-    this.state.HasTeacherComputers ? RoomStore.setEquipment('HasTeacherComputers', 1) : RoomStore.setEquipment('HasTeacherComputers', 0)
-    this.state.HasStudentComputers ? RoomStore.setEquipment('HasStudentComputers', 1) : RoomStore.setEquipment('HasStudentComputers', 0)
-    this.state.HasProjector ? RoomStore.setEquipment('HasProjector', 1) : RoomStore.setEquipment('HasProjector', 0)
-    this.state.HasAirConditioner ? RoomStore.setEquipment('HasAirConditioner', 1) : RoomStore.setEquipment('HasAirConditioner', 0)
-    this.state.HasWhiteboard ? RoomStore.setEquipment('HasWhiteboard', 1) : RoomStore.setEquipment('HasWhiteboard', 0)
-    this.state.HasVisualizer ? RoomStore.setEquipment('HasVisualizer', 1) : RoomStore.setEquipment('HasVisualizer', 0)
-    RoomStore.setValue('OpenTime', RoomStore.searchConfig.fromhr+':'+RoomStore.searchConfig.frommin)
-    RoomStore.setValue('CloseTime', RoomStore.searchConfig.tohr+':'+RoomStore.searchConfig.tomin)
-    
+  RoomStore.setValue('ClosingDay', '')
+  RoomStore.searchConfig.Monday ? RoomStore.setValue('ClosingDay', RoomStore.roomInfo.ClosingDay+'0') : RoomStore.setValue('ClosingDay', RoomStore.roomInfo.ClosingDay+'1')
+  RoomStore.searchConfig.Tuesday ? RoomStore.setValue('ClosingDay', RoomStore.roomInfo.ClosingDay+'0') : RoomStore.setValue('ClosingDay', RoomStore.roomInfo.ClosingDay+'1')
+  RoomStore.searchConfig.Wednesday ? RoomStore.setValue('ClosingDay', RoomStore.roomInfo.ClosingDay+'0') : RoomStore.setValue('ClosingDay', RoomStore.roomInfo.ClosingDay+'1')
+  RoomStore.searchConfig.Thursday ? RoomStore.setValue('ClosingDay', RoomStore.roomInfo.ClosingDay+'0') : RoomStore.setValue('ClosingDay', RoomStore.roomInfo.ClosingDay+'1')
+  RoomStore.searchConfig.Friday ? RoomStore.setValue('ClosingDay', RoomStore.roomInfo.ClosingDay+'0') : RoomStore.setValue('ClosingDay', RoomStore.roomInfo.ClosingDay+'1')
+  RoomStore.searchConfig.Saturday ? RoomStore.setValue('ClosingDay', RoomStore.roomInfo.ClosingDay+'0') : RoomStore.setValue('ClosingDay', RoomStore.roomInfo.ClosingDay+'1')
+  RoomStore.searchConfig.Sunday ? RoomStore.setValue('ClosingDay', RoomStore.roomInfo.ClosingDay+'0') : RoomStore.setValue('ClosingDay', RoomStore.roomInfo.ClosingDay+'1')
+  RoomStore.searchConfig.RoomName ? RoomStore.setValue('RoomName',RoomStore.searchConfig.RoomName) : console.log()
+  RoomStore.searchConfig.Photo ? RoomStore.setValue('Photo',RoomStore.searchConfig.Photo) : console.log()
+  RoomStore.searchConfig.PeopleCapacity ? RoomStore.setValue('PeopleCapacity',RoomStore.searchConfig.PeopleCapacity) : console.log()
+  RoomStore.searchConfig.Building ? RoomStore.setValue('Building',RoomStore.searchConfig.Building) : console.log()
+  RoomStore.searchConfig.Floor ? RoomStore.setValue('Floor',RoomStore.searchConfig.Floor) : console.log()
+  RoomStore.searchConfig.RoomNumber ? RoomStore.setValue('RoomNumber',RoomStore.searchConfig.RoomNumber) : console.log()
+  RoomStore.setEquipment('HasTeacherComputers', RoomStore.searchConfig.HasTeacherComputers ? 1 : 0)
+  RoomStore.setEquipment('HasStudentComputers', RoomStore.searchConfig.HasStudentComputers ? 1 : 0)
+  RoomStore.setEquipment('HasProjector', RoomStore.searchConfig.HasProjector ? 1 : 0)
+  RoomStore.setEquipment('HasAirConditioner', RoomStore.searchConfig.HasAirConditioner ? 1 : 0)
+  RoomStore.setEquipment('HasWhiteboard', RoomStore.searchConfig.HasWhiteboard ? 1 : 0)
+  RoomStore.setEquipment('HasVisualizer', RoomStore.searchConfig.HasVisualizer ? 1 : 0)
+  RoomStore.searchConfig.fromhr ? console.log() : RoomStore.setConfig('fromhr',RoomStore.roomInfo.OpenTime.slice(0,2))
+  RoomStore.searchConfig.frommin ? console.log() : RoomStore.setConfig('frommin',RoomStore.roomInfo.OpenTime.slice(3,5))
+  RoomStore.searchConfig.tohr ? console.log() : RoomStore.setConfig('tohr',RoomStore.roomInfo.CloseTime.slice(0,2))
+  RoomStore.searchConfig.tomin ? console.log() : RoomStore.setConfig('tomin',RoomStore.roomInfo.CloseTime.slice(3,5))
+  RoomStore.setValue('OpenTime', RoomStore.searchConfig.fromhr +':'+RoomStore.searchConfig.frommin)
+  RoomStore.setValue('CloseTime', RoomStore.searchConfig.tohr +':'+RoomStore.searchConfig.tomin)
   }
 
   onSubmit = e => {
     e.preventDefault()
     this.reformDatas()
-    console.log(RoomStore.roomInfo)
-    RoomStore.updateRoom()
     this.saveClick()
   }
 
-	saveClick = () =>{
+  backClick = e => {
+    e.preventDefault()
+    window.location = "/ad_room_info";
+  }
+
+	saveClick = () =>{ 
       Swal.fire({
       position: 'center',
-      type: 'success',
-      title: 'This room has been updated',
-      text: "Redirect to room info page!",
+      type: 'question',
+      title: 'Comfirm update room ' + RoomStore.roomInfo.RoomName,
+      text: 'Make sure to check on Operating Days and Amenities',
       showConfirmButton: true,
-      preConfirm: () => {
-        window.location = "/ad_room_info";
-        }
+      showCancelButton: true,
+      confirmButtonText: 'Confirm'
+    }).then((result) => {
+      if(result.value){
+        RoomStore.updateRoom()
+        Swal.fire({
+        position: 'center',
+        type: 'success',
+        title: 'Booking completed',
+        text: "Redirect to room information page!",
+        focusConfirm: true,
+        showConfirmButton: true,
+        preConfirm: () => {
+          window.location = "/ad_room_info";
+          }
+        })
+      }
+      
     })
   }
   
+  
+
+
+
+
+
   render() {
     return (
       <div className="card">
@@ -92,15 +96,15 @@ class EditForm extends React.Component {
             <div className="row">
               <div className="col-md-6 col-sm-12">
               {language[localStorage.getItem('language')].editForm.RoomID}
-                <input name="roomid" type="text" className="form-control" id="roomid" placeholder={language[localStorage.getItem('language')].editForm.RoomID}
-                defaultValue={this.props.room.RoomName} value={RoomStore.roomInfo.RoomName} onChange={e => RoomStore.setValue('RoomName', e.target.value)}/>
+                <input name="roomid" type="text" className="form-control" id="roomid" placeholder={RoomStore.roomInfo.RoomName}
+                value={RoomStore.searchConfig.RoomName} onChange={e => RoomStore.setConfig('RoomName', e.target.value)}/>
               {language[localStorage.getItem('language')].editForm.RoomPhoto}
                 <input name="photo" type="file" className="form-control-file" id="photo"
-                value={RoomStore.roomInfo.Picture} onChange={e => RoomStore.setValue('Picture', e.target.value)}/>
+                value={RoomStore.searchConfig.Picture} onChange={e => RoomStore.setConfig('Picture', e.target.value)}/>
               {language[localStorage.getItem('language')].editForm.PeopleCapacity}
                 <select name="capacity" type="number" className="custom-select" id="capacity"
-                defaultValue={this.props.room.PeopleCapacity} value={RoomStore.roomInfo.PeopleCapacity} onChange={e => RoomStore.setValue('PeopleCapacity', e.target.value)}>
-                <option>{language[localStorage.getItem('language')].Additional.Choose}</option>
+                value={RoomStore.searchConfig.PeopleCapacity} onChange={e => RoomStore.setConfig('PeopleCapacity', e.target.value)}>
+                <option defaultValue={RoomStore.roomInfo.PeopleCapacity}>{RoomStore.roomInfo.PeopleCapacity}</option>
                 <option value="10">10</option>
                 <option value="20">20</option>
                 <option value="30">30</option>
@@ -117,8 +121,8 @@ class EditForm extends React.Component {
                 </select>
               {language[localStorage.getItem('language')].editForm.Building}
                 <select name="building" type="text" className="custom-select" id="building"
-                defaultValue={this.props.room.Building} value={RoomStore.roomInfo.Building} onChange={e => RoomStore.setValue('Building', e.target.value)}>
-                <option>{language[localStorage.getItem('language')].Additional.Choose}</option>
+                value={RoomStore.searchConfig.Building} onChange={e => RoomStore.setConfig('Building', e.target.value)}>
+                <option defaultValue={RoomStore.roomInfo.Building}>{RoomStore.roomInfo.Building}</option>
                 <option value="Witsawa Watthana">{language[localStorage.getItem('language')].Additional.WitsawaWatthana}</option>
                 <option value="CB1">{language[localStorage.getItem('language')].Additional.CB1}</option>
                 <option value="CB2">{language[localStorage.getItem('language')].Additional.CB2}</option>
@@ -127,11 +131,11 @@ class EditForm extends React.Component {
                 <option value="CB5">{language[localStorage.getItem('language')].Additional.CB5}</option>
                 </select>
               {language[localStorage.getItem('language')].editForm.Floor}
-                <input name="floor" type="number" className="form-control" id="floor" placeholder={language[localStorage.getItem('language')].editForm.Floor}
-                defaultValue={this.props.room.Floor} value={RoomStore.roomInfo.Floor} onChange={e => RoomStore.setValue('Floor', e.target.value)}/>
+                <input name="floor" type="number" className="form-control" id="floor" placeholder={RoomStore.roomInfo.Floor}
+                value={RoomStore.searchConfig.Floor} onChange={e => RoomStore.setConfig('Floor', e.target.value)}/>
               {language[localStorage.getItem('language')].editForm.RoomNumber}
-                <input name="number" type="number" className="form-control" id="number" placeholder={language[localStorage.getItem('language')].editForm.RoomNumber}
-                defaultValue={this.props.room.RoomNumber} value={RoomStore.roomInfo.RoomNumber} onChange={e => RoomStore.setValue('RoomNumber', e.target.value)}/>
+                <input name="number" type="number" className="form-control" id="number" placeholder={RoomStore.roomInfo.RoomNumber}
+                value={RoomStore.searchConfig.RoomNumber} onChange={e => RoomStore.setConfig('RoomNumber', e.target.value)}/>
               </div>
               <div className="col-md-6 col-sm-12">
               {language[localStorage.getItem('language')].editForm.OperatingDay}
@@ -139,31 +143,33 @@ class EditForm extends React.Component {
                   <div className="row">
                     <div className="col-md-6 col-sm-12">
                       <input name="monday" type="checkbox" className="form-check-input" id="monday"
-                      value={this.state.Monday} onClick={() => this.toggleCheck('Monday')}/>
+                      value={RoomStore.searchConfig.Monday} onChange={e => RoomStore.flipConfig('Monday')}/>
                       <label className="form-check-label" for="monday">{language[localStorage.getItem('language')].addForm.Day.Monday}</label><br/>
                       <input name="tuesday" type="checkbox" className="form-check-input" id="tuesday"
-                      value={this.state.Tuesday} onClick={() => this.toggleCheck('Tuesday')}/>
+                      value={RoomStore.searchConfig.Tuesday} onChange={e => RoomStore.flipConfig('Tuesday')}/>
                       <label className="form-check-label" for="tuesday">{language[localStorage.getItem('language')].addForm.Day.Tuesday}</label><br/>
                       <input name="wednesday" type="checkbox" className="form-check-input" id="wednesday"
-                      value={this.state.Wednesday} onClick={() => this.toggleCheck('Wednesday')}/>
+                      value={RoomStore.searchConfig.Wednesday} onChange={e => RoomStore.flipConfig('Wednesday')}/>
                       <label className="form-check-label" for="wednesday">{language[localStorage.getItem('language')].addForm.Day.Wednesday}</label><br/>
                       <input name="thursday" type="checkbox" className="form-check-input" id="thursday"
-                      value={this.state.Thursday} onClick={() => this.toggleCheck('Thursday')}/>
+                      value={RoomStore.searchConfig.Thursday} onChange={e => RoomStore.flipConfig('Thursday')}/>
                       <label className="form-check-label" for="thursday">{language[localStorage.getItem('language')].addForm.Day.Thursday}</label><br/>
                     </div>
                     <div className="col-md-6 col-sm-12">
                       <input name="friday" type="checkbox" className="form-check-input" id="friday"
-                      value={this.state.Friday} onClick={() => this.toggleCheck('Friday')}/>
+                      value={RoomStore.searchConfig.Friday} onChange={e => RoomStore.flipConfig('Friday')}/>
                       <label className="form-check-label" for="friday">{language[localStorage.getItem('language')].addForm.Day.Friday}</label><br/>
                       <input name="saturday" type="checkbox" className="form-check-input" id="saturday"
-                      value={this.state.Saturday} onClick={() => this.toggleCheck('Saturday')}/>
+                      value={RoomStore.searchConfig.Saturday} onChange={e => RoomStore.flipConfig('Saturday')}/>
                       <label className="form-check-label" for="saturday">{language[localStorage.getItem('language')].addForm.Day.Saturday}</label><br/>
                       <input name="sunday" type="checkbox" className="form-check-input" id="sunday"
-                      value={this.state.Sunday} onClick={() => this.toggleCheck('Sunday')}/>
+                      value={RoomStore.searchConfig.Sunday} onChange={e => RoomStore.flipConfig('Sunday')}/>
                       <label className="form-check-label" for="sunday">{language[localStorage.getItem('language')].addForm.Day.Sunday}</label><br/>
                     </div>
                   </div>
                 </div>
+                
+                <hr className="my-4" color="black" />
               {language[localStorage.getItem('language')].editForm.OperatingTime}
                 <div className="row">
                   <div className="col-md-3 col-sm-12">
@@ -172,7 +178,7 @@ class EditForm extends React.Component {
                   <div className="col-md-4 col-sm-12">
                     <select name="fromhr" type="number" className="custom-select" id="fromhr"
                     value={RoomStore.searchConfig.fromhr} onChange={e => RoomStore.setConfig('fromhr',e.target.value)}>
-                    <option >{language[localStorage.getItem('language')].Additional.Choose}</option>
+                    <option defaultValue={RoomStore.roomInfo.OpenTime.slice(0,2)}>{RoomStore.roomInfo.OpenTime.slice(0,2)}</option>
                     <option value="00">00</option>
                     <option value="01">01</option>
                     <option value="02">02</option>
@@ -205,7 +211,7 @@ class EditForm extends React.Component {
                   <div className="col-md-4 col-sm-12">
                     <select name="frommin" type="number" className="custom-select" id="frommin"
                     value={RoomStore.searchConfig.frommin} onChange={e => RoomStore.setConfig('frommin',e.target.value)}>
-                    <option>{language[localStorage.getItem('language')].Additional.Choose}</option>
+                    <option defaultValue={RoomStore.roomInfo.OpenTime.slice(3,5)}>{RoomStore.roomInfo.OpenTime.slice(3,5)}</option>
                     <option value="00">00</option>
                     <option value="30">30</option>
                     </select>
@@ -218,7 +224,7 @@ class EditForm extends React.Component {
                   <div className="col-md-4 col-sm-12">
                     <select name="tohr" type="number" className="custom-select" id="tohr"
                     value={RoomStore.searchConfig.tohr} onChange={e => RoomStore.setConfig('tohr',e.target.value)}>
-                    <option>{language[localStorage.getItem('language')].Additional.Choose}</option>
+                    <option defaultValue={RoomStore.roomInfo.CloseTime.slice(0,2)}>{RoomStore.roomInfo.CloseTime.slice(0,2)}</option>
                     <option value="00">00</option>
                     <option value="01">01</option>
                     <option value="02">02</option>
@@ -251,35 +257,36 @@ class EditForm extends React.Component {
                   <div className="col-md-4 col-sm-12">
                     <select name="tomin" type="number" className="custom-select" id="tomin"
                     value={RoomStore.searchConfig.tomin} onChange={e => RoomStore.setConfig('tomin',e.target.value)}>
-                    <option>{language[localStorage.getItem('language')].Additional.Choose}</option>
+                    <option defaultValue={RoomStore.roomInfo.CloseTime.slice(3,5)}>{RoomStore.roomInfo.CloseTime.slice(3,5)}</option>
                     <option value="00">00</option>
                     <option value="30">30</option>
                     </select>
                   </div>
                 </div>
+                <hr className="my-4" color="black" />
               {language[localStorage.getItem('language')].editForm.Amenity}
                 <div className="form-check">
                   <div className="row">
                     <div className="col-md-6 col-sm-12">
                       <input name="teachercom" type="checkbox" className="form-check-input" id="teachercom"
-                      value={this.state.HasTeacherComputers} onClick={() => this.toggleCheck('HasTeacherComputers')}/>
+                      value={RoomStore.searchConfig.HasTeacherComputers} onChange={e => RoomStore.flipConfig('HasTeacherComputers')}/>
                       <label className="form-check-label" for="teachercom">{language[localStorage.getItem('language')].addForm.Amenities.TeacherComputer}</label><br/>
                       <input name="studentcom" type="checkbox" className="form-check-input" id="studentcom"
-                      value={this.state.HasStudentComputers} onClick={() => this.toggleCheck('HasStudentComputers')}/>
+                      value={RoomStore.searchConfig.HasStudentComputers} onChange={e => RoomStore.flipConfig('HasStudentComputers')}/>
                       <label className="form-check-label" for="studentcom">{language[localStorage.getItem('language')].addForm.Amenities.StudentComputer}</label><br/>
                       <input name="aircon" type="checkbox" className="form-check-input" id="aircon"
-                      value={this.state.HasAirConditioner} onClick={() => this.toggleCheck('HasAirConditioner')}/>
+                      value={RoomStore.searchConfig.HasAirConditioner} onChange={e => RoomStore.flipConfig('HasAirConditioner')}/>
                       <label className="form-check-label" for="aircon">{language[localStorage.getItem('language')].addForm.Amenities.AirConditioner}</label><br/>
                     </div>
                     <div className="col-md-6 col-sm-12">
                       <input name="projector" type="checkbox" className="form-check-input" id="projector"
-                      value={this.state.HasProjector} onClick={() => this.toggleCheck('HasProjector')}/>
+                      value={RoomStore.searchConfig.HasProjector} onChange={e => RoomStore.flipConfig('HasProjector')}/>
                       <label className="form-check-label" for="projector">{language[localStorage.getItem('language')].addForm.Amenities.Projector}</label><br/>
                       <input name="whiteboard" type="checkbox" className="form-check-input" id="whiteboard"
-                      value={this.state.HasWhiteboard} onClick={() => this.toggleCheck('HasWhiteboard')}/>
+                      value={RoomStore.searchConfig.HasWhiteboard} onChange={e => RoomStore.flipConfig('HasWhiteboard')}/>
                       <label className="form-check-label" for="whiteboard">{language[localStorage.getItem('language')].addForm.Amenities.WhiteBoard}</label><br/>
                       <input name="visualizer" type="checkbox" className="form-check-input" id="visualizer"
-                      value={this.state.HasVisualizer} onClick={() => this.toggleCheck('HasVisualizer')}/>
+                      value={RoomStore.searchConfig.HasVisualizer} onChange={e => RoomStore.flipConfig('HasVisualizer')}/>
                       <label className="form-check-label" for="visualizer">{language[localStorage.getItem('language')].addForm.Amenities.Visualizer}</label><br/>
                     </div>
                   </div>
@@ -289,6 +296,9 @@ class EditForm extends React.Component {
               <br/><center>
               <button type="submit" value="Submit" className="btn btn-info">
                 {language[localStorage.getItem('language')].editForm.Submit}
+              </button>
+              <button onClick={e => this.backClick(e)} className="btn btn-secondary">
+                {language[localStorage.getItem('language')].contactCard.Back}
               </button> </center>
             </form>
           </div>

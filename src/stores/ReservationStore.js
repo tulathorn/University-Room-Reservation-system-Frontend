@@ -85,6 +85,13 @@ class ReservationStore {
     }
 
     @action
+    addRecurring = async () => {
+        this.reservedDatas = await axios.post('./recurring', this.bookingConfig).then(resp => resp.data)
+        console.log('จองห้องระยะยาวสำเร็จแล้ว!')
+        //this.cleanBookingConfig()
+    }
+
+    @action
     setBookingConfig = (field, value) => {
         this.bookingConfig[field] = value
     }

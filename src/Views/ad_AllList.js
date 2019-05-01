@@ -14,7 +14,7 @@ const Title = styled.h1`
 
 @observer
 class AdAllListView extends Component {
-  componentDidMount() {
+  componentWillMount() {
     RoomStore.resetFilterForm()
     RoomStore.fetchData()
   }

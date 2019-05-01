@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import RoomStore from '../stores/RoomStore'
 import ReservationStore from '../stores/ReservationStore'
 import language from '../languages.json'
 import Navbar from '../Components/Navbar'
@@ -9,8 +8,7 @@ import AuthenticationGate from '../Components/AuthenticationGate'
 
 @observer
 class ListView extends Component {
-  componentDidMount() {
-    RoomStore.fetchData()
+  componentWillMount() {
     ReservationStore.GetAvailableRoom()
   }
 

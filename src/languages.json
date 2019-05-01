@@ -299,7 +299,7 @@
         }
       },
       "replyForm": {
-        "Email": "Email Address",
+        "Email": "Reply to",
         "Title": "Title",
         "Details": "Details",
         "Reply": "Reply"
@@ -417,7 +417,8 @@
         "PurposeBody" : "Identify your purpose for booking this room...",
         "TitleBody" : "Place your title here",
         "DetailBody" : "Insert details, question, problem...",
-        "ShowPin" : "Show PIN Code"
+        "ShowPin" : "Show PIN Code",
+        "EditRoom": "Edit Room"
       }
     },
     {
@@ -720,7 +721,7 @@
         }
       },
       "replyForm": {
-        "Email": "อีเมล",
+        "Email": "อีเมลผู้รับ",
         "Title": "หัวข้อ",
         "Details": "รายละเอียด",
         "Reply": "ส่งข้อมูล"
@@ -838,7 +839,8 @@
         "PurposeBody" : "รายละเอียดการจอง",
         "TitleBody" : "กรุณาใส่หัวข้อ",
         "DetailBody" : "กรุณาใส่รายละเอียด",
-        "ShowPin" : "ดูหมายเลข PIN"
+        "ShowPin" : "ดูหมายเลข PIN",
+        "EditRoom": "แก้ไขข้อมูลห้อง"
       }
     }
   ]

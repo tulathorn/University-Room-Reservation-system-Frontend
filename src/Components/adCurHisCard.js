@@ -30,6 +30,7 @@ class AdCurHistoryRoomCard extends React.Component {
       showCancelButton: true,
       confirmButtonColor: '#17a2b8',
       cancelButtonColor: '#dc3545',
+      cancelButtonText: 'No',
       confirmButtonText: 'Yes, cancel it!'
     }).then((result) => {
       if (result.value) {
@@ -58,9 +59,6 @@ class AdCurHistoryRoomCard extends React.Component {
             <h4>{this.props.data.RoomInformation.RoomName}</h4>
             <div className="row">
               <p><b>{language[localStorage.getItem('language')].Additional.Username}</b> : {this.props.data.UserInfo.UsernameID}</p>
-            </div>
-            <div className="row">
-              <p><b>{language[localStorage.getItem('language')].adReply.Title}</b> : {this.props.data.Title}</p>
             </div>
             <div className="row">
               <p><b>{language[localStorage.getItem('language')].adCurHisCard.Purpose}</b> : {this.props.data.Purpose}</p>
