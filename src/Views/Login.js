@@ -17,7 +17,10 @@ const languageLink = {
 }
 
 class LoginView extends Component {
-  
+  componentWillMount() {
+    localStorage.setItem('language', localStorage.getItem('language') || 0 )  
+  }
+
   langEN = () => {
     localStorage.setItem('language',0)
     window.location.reload()

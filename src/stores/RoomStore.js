@@ -54,7 +54,7 @@ class RoomStore {
 
   @action
   updateRoom = async () => {
-    this.roomDatas = await axios.put('./rooms', this.roomInfo).then(resp => resp.data)
+    await axios.put('./rooms', this.roomInfo).then(resp => resp.data)
     console.log('แก้ไขห้องสำเร็จแล้ว!')
   }
 

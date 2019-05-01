@@ -11,6 +11,9 @@ const Title = styled.h1`
 `
 @observer
 class MainView extends Component {
+  componentWillMount() {
+    localStorage.setItem('language', localStorage.getItem('language') || 0 )  
+  }
   
   render() {
     return (

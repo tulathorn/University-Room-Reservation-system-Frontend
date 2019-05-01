@@ -14,7 +14,7 @@ const Hasno = styled.p`
 class AllListCard extends React.Component {
   onClick = e => {
     e.preventDefault()
-    localStorage.setItem('RoomName',this.props.room.RoomName)
+    localStorage.setItem('RoomID',this.props.room.RoomID)
     window.location = "/ad_room_info";
   }
   render() {

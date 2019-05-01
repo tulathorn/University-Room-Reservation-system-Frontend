@@ -9,7 +9,6 @@ class EditForm extends React.Component {
   componentDidMount() {
     RoomStore.resetAddForm()
     RoomStore.copyValue(this.props.room)
-    console.log(RoomStore.roomInfo)
     RoomStore.resetFilterForm()
   }
 
@@ -43,7 +42,7 @@ class EditForm extends React.Component {
   };
   
   reformDatas= () => {
-    
+    RoomStore.setValue('ClosingDay', '')
     this.state.Monday ? RoomStore.setValue('ClosingDay', RoomStore.roomInfo.ClosingDay+'0') : RoomStore.setValue('ClosingDay', RoomStore.roomInfo.ClosingDay+'1')
     this.state.Tuesday ? RoomStore.setValue('ClosingDay', RoomStore.roomInfo.ClosingDay+'0') : RoomStore.setValue('ClosingDay', RoomStore.roomInfo.ClosingDay+'1')
     this.state.Wednesday ? RoomStore.setValue('ClosingDay', RoomStore.roomInfo.ClosingDay+'0') : RoomStore.setValue('ClosingDay', RoomStore.roomInfo.ClosingDay+'1')
@@ -75,10 +74,10 @@ class EditForm extends React.Component {
       position: 'center',
       type: 'success',
       title: 'This room has been updated',
-      text: "Redirect to all list page!",
+      text: "Redirect to room info page!",
       showConfirmButton: true,
       preConfirm: () => {
-        window.location = "/ad_all_list";
+        window.location = "/ad_room_info";
         }
     })
   }
@@ -143,7 +142,7 @@ class EditForm extends React.Component {
                       value={this.state.Monday} onClick={() => this.toggleCheck('Monday')}/>
                       <label className="form-check-label" for="monday">{language[localStorage.getItem('language')].addForm.Day.Monday}</label><br/>
                       <input name="tuesday" type="checkbox" className="form-check-input" id="tuesday"
-                      alue={this.state.Tuesday} onClick={() => this.toggleCheck('Tuesday')}/>
+                      value={this.state.Tuesday} onClick={() => this.toggleCheck('Tuesday')}/>
                       <label className="form-check-label" for="tuesday">{language[localStorage.getItem('language')].addForm.Day.Tuesday}</label><br/>
                       <input name="wednesday" type="checkbox" className="form-check-input" id="wednesday"
                       value={this.state.Wednesday} onClick={() => this.toggleCheck('Wednesday')}/>
@@ -173,7 +172,7 @@ class EditForm extends React.Component {
                   <div className="col-md-4 col-sm-12">
                     <select name="fromhr" type="number" className="custom-select" id="fromhr"
                     value={RoomStore.searchConfig.fromhr} onChange={e => RoomStore.setConfig('fromhr',e.target.value)}>
-                    <option>{language[localStorage.getItem('language')].Additional.Choose}</option>
+                    <option >{language[localStorage.getItem('language')].Additional.Choose}</option>
                     <option value="00">00</option>
                     <option value="01">01</option>
                     <option value="02">02</option>

@@ -8,9 +8,8 @@ import AdRoomInfoCard from '../Components/adRoomInfoCard';
 class AdRoomInfoView extends Component {
   componentDidMount() {
     RoomStore.resetFilterForm()
-    RoomStore.setConfig('RoomName', localStorage.getItem('RoomName'))
+    RoomStore.setConfig('RoomID', localStorage.getItem('RoomID'))
     RoomStore.fetchData()
-    console.log(RoomStore.roomDatas)
   }
 
   
