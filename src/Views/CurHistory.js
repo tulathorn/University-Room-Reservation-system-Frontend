@@ -30,9 +30,7 @@ class CurHistoryView extends Component {
           </div>
           <br/>
           <br/>
-          {ReservationStore.reservedDatas.map(reserved => {
-            return <CurHistoryRoomCard data={reserved} />
-          })}
+          {ReservationStore.reservedDatas.map(reserved => {return <CurHistoryRoomCard data={reserved} />})}
         </div>
       </div>
       </AuthenticationGate>

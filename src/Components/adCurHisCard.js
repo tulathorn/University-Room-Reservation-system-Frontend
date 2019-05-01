@@ -14,7 +14,6 @@ const jumbotronStyle = {
 class AdCurHistoryRoomCard extends React.Component {
   componentDidMount() {
     ReservationStore.cleanConfig()
-    ReservationStore.GetReservation()
   }
 
   cancelBooking = () => {
@@ -58,25 +57,22 @@ class AdCurHistoryRoomCard extends React.Component {
           <div className="col-md-5  col-sm-12">
             <h4>{this.props.data.RoomInformation.RoomName}</h4>
             <div className="row">
-              <p><b>{language[localStorage.getItem('language')].Additional.Username}</b>{this.props.data.UserInfo.UsernameID}</p>
+              <p><b>{language[localStorage.getItem('language')].Additional.Username}</b> : {this.props.data.UserInfo.UsernameID}</p>
             </div>
             <div className="row">
-              <p><b>{language[localStorage.getItem('language')].adCurHisCard.Purpose} : </b></p>
-              <p>{this.props.data.Purpose}</p>
+              <p><b>{language[localStorage.getItem('language')].adReply.Title}</b> : {this.props.data.Title}</p>
             </div>
             <div className="row">
-              <p><b>{language[localStorage.getItem('language')].adCurHisCard.Date} : </b></p>
-              <p>{this.props.data.Date}</p>
+              <p><b>{language[localStorage.getItem('language')].adCurHisCard.Purpose}</b> : {this.props.data.Purpose}</p>
             </div>
             <div className="row">
-              <p><b>{language[localStorage.getItem('language')].adCurHisCard.Schedule} : </b></p>
-              <p>{language[localStorage.getItem('language')].adCurHisCard.From} {this.props.data.StartTime} {language[localStorage.getItem('language')].adCurHisCard.To} {this.props.data.EndTime}</p>
+              <p><b>{language[localStorage.getItem('language')].adCurHisCard.Date}</b> : {this.props.data.Date}</p>
+            </div>
+            <div className="row">
+              <p><b>{language[localStorage.getItem('language')].adCurHisCard.Schedule}</b> : {language[localStorage.getItem('language')].adCurHisCard.From} {this.props.data.StartTime} {language[localStorage.getItem('language')].adCurHisCard.To} {this.props.data.EndTime}</p>
             </div>
           </div>
           <div className="col-md-3 col-sm-12">
-
-
-            <br/><br/><br/><br/><br/>
             <button onClick={() => this.cancelBooking()} type="button" className="btn btn-danger btn-lg btn-block">{language[localStorage.getItem('language')].adCurHisCard.CancelTheBooking}</button>
           </div>
         </div>

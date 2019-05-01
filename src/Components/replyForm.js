@@ -2,12 +2,13 @@ import React from 'react'
 import '../Styles/bootstrap/bootstrap.min.css'
 import Swal from 'sweetalert2'
 import language from '../languages.json'
+import ContactStore from '../stores/ContactStore';
 
 class ReplyForm extends React.Component {
   
   onSubmit = e => {
     e.preventDefault()
-    //window.open('mailto:honhon015@hotmail.com?subject=Title&body=Hon01Body');
+    ContactStore.replyMail()
     this.ReplyClick()
   }
   

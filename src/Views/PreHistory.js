@@ -30,11 +30,7 @@ class PreHistoryView extends Component {
           </div>
           <br/>
           <br/>
-          {ReservationStore.reservedDatas.map(reserved => {
-            return <PreHistoryRoomCard data={reserved} />
-          })}
-          
-
+          {ReservationStore.reservedDatas.map(reserved => {return <PreHistoryRoomCard data={reserved} />})}
         </div>
       </div>
       </AuthenticationGate>

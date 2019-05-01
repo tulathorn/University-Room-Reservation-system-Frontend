@@ -26,12 +26,22 @@ class BookingForm extends React.Component {
     e.preventDefault()
     this.reformDatas()
     console.log(ReservationStore.bookingConfig)
-    ReservationStore.addReservation()
-    this.bookClick()
-    
+    ReservationStore.bookingConfig.Title && ReservationStore.bookingConfig.Purpose ? this.bookClick() : this.warned() 
+  }
+
+  warned = () =>{
+    Swal.fire({
+      position: 'center',
+      type: 'warning',
+      title: 'Missing Information!',
+      text: "Please fill in Title and Purpose",
+      focusConfirm: true,
+      showConfirmButton: true,
+    })
   }
 
   bookClick = () =>{
+      ReservationStore.addReservation()
       Swal.fire({
       position: 'center',
       type: 'success',
@@ -73,9 +83,6 @@ class BookingForm extends React.Component {
               value={localStorage.getItem('token')} readonly disabled/>
             {language[localStorage.getItem('language')].bookingForm.Email}
               <input name="email" type="text" className="form-control" id="email" placeholder="Email Address"
-              value={localStorage.getItem('token')} readonly disabled/>
-            {language[localStorage.getItem('language')].bookingForm.Phone}
-              <input name="phone" type="text" className="form-control" id="phone" placeholder="Phone Number"
               value={localStorage.getItem('token')} readonly disabled/>
             {language[localStorage.getItem('language')].Additional.Title}
               <input name="title" type="text" className="form-control" id="title" placeholder={language[localStorage.getItem('language')].Additional.TitleBody}

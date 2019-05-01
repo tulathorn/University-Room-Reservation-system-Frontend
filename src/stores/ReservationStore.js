@@ -73,7 +73,8 @@ class ReservationStore {
     @action
     ConvertUsernameToID = async () => {
         this.tempArray = await axios.get('./users', this.searchTemp).then(resp => resp.data)
-        this.setBookingConfig('UserID',this.tempArray[0].UserID) 
+        
+        this.tempArray.length ? this.setBookingConfig('UserID',this.tempArray[0].UserID) : this.setBookingConfig('UserID',0)
     }
 
     @action

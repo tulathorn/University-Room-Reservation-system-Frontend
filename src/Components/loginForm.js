@@ -1,6 +1,5 @@
 import React from 'react'
 import '../Styles/bootstrap/bootstrap.min.css'
-import Swal from 'sweetalert2'
 import language from '../languages.json'
 import { withRouter } from 'react-router-dom'
 import axios from '../Utils/axiosConfig'
@@ -22,33 +21,7 @@ class LoginCard extends React.Component {
     }
   }
 
-  loginClick = () => {
-    Swal.fire({
-      title: 'User Information',
-      html:
-        '<input id="swal-input1" class="swal2-input" placeholder="First Name">' +
-        '<input id="swal-input2" class="swal2-input" placeholder="Last Name">' +
-        '<input id="swal-input3" class="swal2-input" placeholder="Email Address">' +
-        '<input id="swal-input4" class="swal2-input" placeholder="Phone Number">',
-      focusConfirm: false,
-      showCancelButton: true,
-      confirmButtonColor: '#17a2b8',
-      confirmButtonText: 'Login',
-      cancelButtonColor: '#dc3545',
-      preConfirm: () => {
-        return [
-          document.getElementById('swal-input1').value,
-          document.getElementById('swal-input2').value,
-          document.getElementById('swal-input3').value,
-          document.getElementById('swal-input4').value
-        ]
-      }
-    }).then(result => {
-      if (result.value) {
-        // Go to main page
-      }
-    })
-  }
+  
 
   login = async e => {
     e.preventDefault()
@@ -60,9 +33,12 @@ class LoginCard extends React.Component {
         password: this.inputPassword.current.value
       })
       localStorage.setItem('token', response.data.token)
-      localStorage.setItem('username', response.data.username)
-      //localStorage.setItem('','')
-      //console.log(response)
+      // localStorage.setItem('UserID', response.data.UserID.toString())
+      // localStorage.setItem('username', response.data.UsernameID)
+      // localStorage.setItem('firstname', response.data.FirstName)
+      // localStorage.setItem('lastname', response.data.LastName)
+      // localStorage.setItem('email', response.data.EmailAddress)
+      
       console.log(this.props)
       this.props.history.push('/')
     } catch (err) {

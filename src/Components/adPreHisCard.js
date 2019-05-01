@@ -18,22 +18,22 @@ class AdPreHistoryRoomCard extends React.Component {
 					</div>
           <div className="col-md-8 col-sm-12">
             <div className="row">
-              <p><b>{this.props.data.RoomInformation.RoomName}</b></p>
+              <h4>{this.props.data.RoomInformation.RoomName}</h4>
             </div>
             <div className="row">
-              <p><b>{language[localStorage.getItem('language')].Additional.Username}</b>{this.props.data.UserInfo.UsernameID}</p>
+              <p><b>{language[localStorage.getItem('language')].Additional.Username}</b> : {this.props.data.UserInfo.UsernameID}</p>
             </div>
             <div className="row">
-              <p><b>{language[localStorage.getItem('language')].adPreHisCard.Purpose}: </b></p>
-              <p>{this.props.data.Purpose}</p>
+              <p><b>{language[localStorage.getItem('language')].adReply.Title}</b> : {this.props.data.Title}</p>
             </div>
             <div className="row">
-              <p><b>{language[localStorage.getItem('language')].adPreHisCard.Date} : </b></p>
-							<p>{this.props.data.Date}</p>
+              <p><b>{language[localStorage.getItem('language')].adPreHisCard.Purpose}</b> : {this.props.data.Purpose}</p>
             </div>
             <div className="row">
-              <p><b>{language[localStorage.getItem('language')].adPreHisCard.Schedule} : </b></p>
-							<p>{language[localStorage.getItem('language')].adPreHisCard.From} {this.props.data.StartTime} {language[localStorage.getItem('language')].adPreHisCard.To} {this.props.data.EndTime}</p>
+              <p><b>{language[localStorage.getItem('language')].adPreHisCard.Date}</b> : {this.props.data.Date}</p>
+            </div>
+            <div className="row">
+              <p><b>{language[localStorage.getItem('language')].adPreHisCard.Schedule}</b> : {language[localStorage.getItem('language')].adPreHisCard.From} {this.props.data.StartTime} {language[localStorage.getItem('language')].adPreHisCard.To} {this.props.data.EndTime}</p>
             </div>
 					</div>
 					

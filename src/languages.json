@@ -416,7 +416,8 @@
         "CB5" : "CB5",
         "PurposeBody" : "Identify your purpose for booking this room...",
         "TitleBody" : "Place your title here",
-        "DetailBody" : "Insert details, question, problem..."
+        "DetailBody" : "Insert details, question, problem...",
+        "ShowPin" : "Show PIN Code"
       }
     },
     {
@@ -836,7 +837,8 @@
         "CB5" : "อาคารเรียนรวม 5",
         "PurposeBody" : "รายละเอียดการจอง",
         "TitleBody" : "กรุณาใส่หัวข้อ",
-        "DetailBody" : "กรุณาใส่รายละเอียด"
+        "DetailBody" : "กรุณาใส่รายละเอียด",
+        "ShowPin" : "ดูหมายเลข PIN"
       }
     }
   ]

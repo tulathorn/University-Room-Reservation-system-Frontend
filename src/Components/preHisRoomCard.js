@@ -1,7 +1,6 @@
 import React from 'react'
 import '../Styles/bootstrap/bootstrap.min.css'
 import language from '../languages.json'
-import RoomStore from '../stores/RoomStore'
 
 const jumbotronStyle = {
   width: 'auto',
@@ -12,11 +11,6 @@ const jumbotronStyle = {
 
 
 class PreHistoryRoomCard extends React.Component {
-  componentDidMount() {
-    RoomStore.resetFilterForm()
-    //RoomStore.setConfig('RoomID',this.props.data.RoomID)
-    RoomStore.fetchData()
-  }
 
   render() {
     return (
@@ -28,25 +22,21 @@ class PreHistoryRoomCard extends React.Component {
 					</div>
           <div className="col-md-8 col-sm-12">
             <div className="row">
-              <p>
-                <b>{this.props.data.RoomInformation.RoomName}</b>
-                
-              </p>
+              <h4>{this.props.data.RoomInformation.RoomName}</h4>
             </div>
             <div className="row">
-              <p><b>{language[localStorage.getItem('language')].preHisRoomCard.Purpose}: </b></p>
-              <p>{this.props.data.Purpose}</p>
+              <p><b>{language[localStorage.getItem('language')].adReply.Title}</b> : {this.props.data.Title}</p>
             </div>
             <div className="row">
-              <p><b>{language[localStorage.getItem('language')].preHisRoomCard.Date} : </b></p>
-							<p>{this.props.data.Date}</p>
+              <p><b>{language[localStorage.getItem('language')].preHisRoomCard.Purpose}</b> : {this.props.data.Purpose}</p>
             </div>
             <div className="row">
-              <p><b>{language[localStorage.getItem('language')].preHisRoomCard.Schedule} : </b></p>
-							<p>{language[localStorage.getItem('language')].preHisRoomCard.From} {this.props.data.StartTime} {language[localStorage.getItem('language')].preHisRoomCard.To} {this.props.data.EndTime}</p>
+              <p><b>{language[localStorage.getItem('language')].preHisRoomCard.Date}</b> : {this.props.data.Date}</p>
+            </div>
+            <div className="row">
+              <p><b>{language[localStorage.getItem('language')].preHisRoomCard.Schedule}</b> : {language[localStorage.getItem('language')].preHisRoomCard.From} {this.props.data.StartTime} {language[localStorage.getItem('language')].preHisRoomCard.To} {this.props.data.EndTime}</p>
             </div>
 					</div>
-					
 				</div>
       </div>
     )

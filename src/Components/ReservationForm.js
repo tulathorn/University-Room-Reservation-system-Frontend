@@ -73,15 +73,13 @@ class ReservationForm extends React.Component {
     this.state.HasAirConditioner ? ReservationStore.setSearchConfigEquip('HasAirConditioner',1) : console.log()
     this.state.HasWhiteboard ? ReservationStore.setSearchConfigEquip('HasWhiteboard',1) : console.log()
     this.state.HasVisualizer ? ReservationStore.setSearchConfigEquip('HasVisualizer',1) : console.log()
-    
-    console.log(ReservationStore.searchTemp)
-    console.log(ReservationStore.searchConfig)
   }
   
   onSubmit = e => {
     e.preventDefault()
     this.reformDatas()
     ReservationStore.GetAvailableRoom()
+    ReservationStore.searchTemp.exist ? console.log(1) : console.log(0)
     ReservationStore.searchTemp.Date && ReservationStore.searchTemp.fromhr && ReservationStore.searchTemp.frommin && ReservationStore.searchTemp.tohr && ReservationStore.searchTemp.tomin ? this.search() : this.warned()
   }
 

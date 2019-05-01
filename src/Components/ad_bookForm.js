@@ -15,7 +15,7 @@ class AdBookingForm extends React.Component {
     ReservationStore.cleanBookingConfig()
   }
   reformDatas= () => {
-    ReservationStore.ConvertUsernameToID()
+    ReservationStore.searchTemp.UsernameID ? ReservationStore.ConvertUsernameToID() : this.warned()
     ReservationStore.setBookingConfig('Date',localStorage.getItem('ScheduleDate'))
     ReservationStore.setBookingConfig('StartTime',localStorage.getItem('ScheduleFrom'))
     ReservationStore.setBookingConfig('EndTime',localStorage.getItem('ScheduleTo'))
@@ -25,11 +25,33 @@ class AdBookingForm extends React.Component {
 
   onSubmit = e => {
     e.preventDefault()
-    this.reformDatas()
-    this.bookClick()
+    this.reformDatas() 
+    ReservationStore.searchTemp.UsernameID && ReservationStore.bookingConfig.Title && ReservationStore.bookingConfig.Purpose ? this.bookClick() : this.warned() 
   }
-  
+
+  noUserWarned = () =>{
+    Swal.fire({
+      position: 'center',
+      type: 'warning',
+      title: 'User did not exist!',
+      focusConfirm: true,
+      showConfirmButton: true,
+    })
+  }
+
+  warned = () =>{
+    Swal.fire({
+      position: 'center',
+      type: 'warning',
+      title: 'Missing Information!',
+      text: "Please fill in the form to book a room!",
+      focusConfirm: true,
+      showConfirmButton: true,
+    })
+  }
+
   bookClick = () =>{
+    
     Swal.fire({
       title: 'Are you sure?',
       text: "You want to book this room for "+ReservationStore.searchTemp.UsernameID,
@@ -39,6 +61,7 @@ class AdBookingForm extends React.Component {
       confirmButtonColor: '#17a2b8',
       cancelButtonColor: '#dc3545',
       confirmButtonText: 'Yes, Book the room!'
+      }
     }).then((result) => {
       if (result.value) {
         ReservationStore.addReservation()

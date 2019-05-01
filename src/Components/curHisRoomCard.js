@@ -13,7 +13,6 @@ const jumbotronStyle = {
 class CurHistoryRoomCard extends React.Component {
   componentDidMount() {
     ReservationStore.cleanConfig()
-    ReservationStore.GetReservation()
   }
   sendPin = () =>{
     this.pinClick()
@@ -51,12 +50,13 @@ class CurHistoryRoomCard extends React.Component {
     })
   }
   pinClick = () =>{
+    console.log(this.props.data)
     Swal.fire({
       position: 'center',
-      type: 'success',
-      title: 'Your PIN has been sent',
-      showConfirmButton: false,
-      timer: 1500
+      type: 'info',
+      title: 'Your PIN is ' + this.props.data.RoomUse.Pin,
+      showCloseButton: true,
+      showConfirmButton: false
     })
   }
   render() {
@@ -68,26 +68,23 @@ class CurHistoryRoomCard extends React.Component {
 					</div>
 					<div className="col-md-5  col-sm-12">
             <div className="row">
-              <p>
-                <b>{this.props.data.RoomInformation.RoomName}</b>
-              </p>
+              <h4>{this.props.data.RoomInformation.RoomName}</h4>
             </div>
             <div className="row">
-              <p><b>{language[localStorage.getItem('language')].curHisRoomCard.Purpose}: </b></p>
-              <p>{this.props.data.Purpose}</p>
+              <p><b>{language[localStorage.getItem('language')].adReply.Title}</b> : {this.props.data.Title}</p>
             </div>
             <div className="row">
-              <p><b>{language[localStorage.getItem('language')].curHisRoomCard.Date} : </b></p>
-							<p>{this.props.data.Date}</p>
+              <p><b>{language[localStorage.getItem('language')].curHisRoomCard.Purpose}</b> : {this.props.data.Purpose}</p>
             </div>
             <div className="row">
-              <p><b>{language[localStorage.getItem('language')].curHisRoomCard.Schedule} : </b></p>
-							<p>{language[localStorage.getItem('language')].curHisRoomCard.From} {this.props.data.StartTime} {language[localStorage.getItem('language')].curHisRoomCard.To} {this.props.data.EndTime}</p>
+              <p><b>{language[localStorage.getItem('language')].curHisRoomCard.Date}</b> : {this.props.data.Date}</p>
+            </div>
+            <div className="row">
+              <p><b>{language[localStorage.getItem('language')].curHisRoomCard.Schedule}</b> : {language[localStorage.getItem('language')].curHisRoomCard.From} {this.props.data.StartTime} {language[localStorage.getItem('language')].curHisRoomCard.To} {this.props.data.EndTime}</p>
             </div>
 					</div>
 					<div className="col-md-3 col-sm-12">
-            <button onClick={() => this.sendPin()} type="button" className="btn btn-outline-light btn-lg btn-block">{language[localStorage.getItem('language')].curHisRoomCard.RequestPinViaEmail}</button>
-            <button onClick={() => this.sendPin()} type="button" className="btn btn-outline-light btn-lg btn-block">{language[localStorage.getItem('language')].curHisRoomCard.RequestPinViaPhone}</button>
+            <button onClick={() => this.sendPin()} type="button" className="btn btn-outline-light btn-lg btn-block">{language[localStorage.getItem('language')].Additional.ShowPin}</button>
             <button onClick={() => this.cancelBooking()} type="button" className="btn btn-danger btn-lg btn-block">{language[localStorage.getItem('language')].curHisRoomCard.CancelTheBooking}</button>
 					</div>
 				</div>
