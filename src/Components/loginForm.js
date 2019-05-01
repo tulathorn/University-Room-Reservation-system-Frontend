@@ -33,11 +33,11 @@ class LoginCard extends React.Component {
         password: this.inputPassword.current.value
       })
       localStorage.setItem('token', response.data.token)
-      // localStorage.setItem('UserID', response.data.UserID.toString())
-      // localStorage.setItem('username', response.data.UsernameID)
-      // localStorage.setItem('firstname', response.data.FirstName)
-      // localStorage.setItem('lastname', response.data.LastName)
-      // localStorage.setItem('email', response.data.EmailAddress)
+      localStorage.setItem('UserID', response.data.UserID.toString())
+      localStorage.setItem('username', response.data.UsernameID)
+      localStorage.setItem('firstname', response.data.FirstName)
+      localStorage.setItem('lastname', response.data.LastName)
+      localStorage.setItem('email', response.data.EmailAddress)
       
       console.log(this.props)
       this.props.history.push('/')

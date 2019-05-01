@@ -61,7 +61,6 @@ class AdBookingForm extends React.Component {
       confirmButtonColor: '#17a2b8',
       cancelButtonColor: '#dc3545',
       confirmButtonText: 'Yes, Book the room!'
-      }
     }).then((result) => {
       if (result.value) {
         ReservationStore.addReservation()

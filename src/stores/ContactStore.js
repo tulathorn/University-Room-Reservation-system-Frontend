@@ -11,7 +11,7 @@ class ContactStore {
 
     @observable
     replyMsg = {
-        "EmailAddress" : "honhon015@hotmail.com",
+        "EmailAddress" : "honhon015@gmail.com",
         "Title" : "Testing XX",
         "Detail" : "Detail XXX"}
 
@@ -28,7 +28,7 @@ class ContactStore {
 
     @action
     replyMail = async () => {
-      this.contact = await axios.post('./contact/reply', this.replyMsg).then(resp => resp.data)
+      await axios.post('./contact/reply', this.replyMsg).then(resp => resp.data)
       console.log('ส่งข้อมูลสำเร็จ')
     }
 
