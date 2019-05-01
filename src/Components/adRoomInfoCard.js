@@ -20,8 +20,7 @@ class AdRoomInfoCard extends React.Component {
   
   DeleteRoom = () => {
     RoomStore.resetFilterForm()
-    RoomStore.setConfig('RoomID',''+this.props.room.RoomID)
-    console.log(RoomStore.searchConfig)
+    RoomStore.setConfig('RoomID',this.props.room.RoomID)
     this.deleteClick()
     //window.location = "/ad_all_list";
   }
@@ -128,7 +127,7 @@ class AdRoomInfoCard extends React.Component {
           <div className="col-md-5 col-sm-0">
           </div>
           <div className="col-md-1 col-sm-6">
-            <button onClick={(e) => this.DeleteRoom(e)} type="button" className="btn btn-outline-danger">{language[localStorage.getItem('language')].adRoomInfo.Delete}</button>
+            <button onClick={() => this.DeleteRoom()} type="button" className="btn btn-outline-danger">{language[localStorage.getItem('language')].adRoomInfo.Delete}</button>
           </div>
           <div className="col-md-1 col-sm-6">
             <button onClick={() => this.EditClick()} type="button" className="btn btn-outline-info">{language[localStorage.getItem('language')].adRoomInfo.Edit}</button>

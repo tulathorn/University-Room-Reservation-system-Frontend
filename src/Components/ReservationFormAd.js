@@ -4,6 +4,7 @@ import { withRouter } from 'react-router-dom'
 import language from '../languages.json'
 import { observer } from 'mobx-react'
 import ReservationStore from '../stores/ReservationStore';
+import Swal from 'sweetalert2'
 
 const Heading = styled.h2`
   color: white;
@@ -73,18 +74,25 @@ class ReservationFormAd extends React.Component {
     this.state.HasAirConditioner ? ReservationStore.setSearchConfigEquip('HasAirConditioner',1) : console.log()
     this.state.HasWhiteboard ? ReservationStore.setSearchConfigEquip('HasWhiteboard',1) : console.log()
     this.state.HasVisualizer ? ReservationStore.setSearchConfigEquip('HasVisualizer',1) : console.log()
-    
-    console.log(ReservationStore.searchTemp)
-    console.log(ReservationStore.searchConfig)
   }
   
   onSubmit = e => {
     e.preventDefault()
     this.reformDatas()
     ReservationStore.GetAvailableRoom()
-    this.search()
+    ReservationStore.searchTemp.Date && ReservationStore.searchTemp.fromhr && ReservationStore.searchTemp.frommin && ReservationStore.searchTemp.tohr && ReservationStore.searchTemp.tomin ? this.search() : this.warned()
   }
 
+  warned = () =>{
+    Swal.fire({
+      position: 'center',
+      type: 'warning',
+      title: 'Missing Information!',
+      text: "Please fill in date and time you prefer to book!",
+      focusConfirm: true,
+      showConfirmButton: true,
+    })
+  }
 
   search = async () => {
     this.props.history.push('/ad_list_nor')

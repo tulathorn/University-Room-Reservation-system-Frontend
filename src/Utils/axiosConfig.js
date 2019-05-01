@@ -43,7 +43,6 @@ export default {
       .then(handleResponse),
   delete: (path, params) =>
     createApiInstance()
-      //Not Sure if it will work
       .request({
         url: path,
         method: 'DELETE',

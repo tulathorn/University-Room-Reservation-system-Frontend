@@ -29,7 +29,7 @@ class ReservationStore {
 
     @action
     DeleteReservation = async () => {
-        this.reservedDatas = await axios.delete('./reservations', this.config).then(resp => resp.data)
+        await axios.delete('./reservations', this.config).then(resp => resp.data)
         console.log('ลบการจองสำเร็จแล้ว!')
     }
     

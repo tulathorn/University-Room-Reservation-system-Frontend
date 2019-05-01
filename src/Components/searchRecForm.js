@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { observer } from 'mobx-react'
 import { withRouter } from 'react-router-dom'
 import language from '../languages.json'
+import Swal from 'sweetalert2'
 import ReservationStore from '../stores/ReservationStore';
 
 const NormalText = styled.p`
@@ -85,8 +86,20 @@ class SearchRecForm extends React.Component {
     e.preventDefault()
     this.reformDatas()
     ReservationStore.GetAvailableRoom() //May need to change because it recurring
-    this.search()
+    ReservationStore.searchTemp.StartDate && ReservationStore.searchTemp.EndDate && ReservationStore.searchTemp.Day && ReservationStore.searchTemp.fromhr && ReservationStore.searchTemp.frommin && ReservationStore.searchTemp.tohr && ReservationStore.searchTemp.tomin ? this.search() : this.warned()
   }
+
+  warned = () =>{
+    Swal.fire({
+      position: 'center',
+      type: 'warning',
+      title: 'Missing Information!',
+      text: "Please fill in date, time and day you prefer to book!",
+      focusConfirm: true,
+      showConfirmButton: true,
+    })
+  }
+
   search = async () => {
     this.props.history.push('/ad_list_rec')
   }

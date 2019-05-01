@@ -27,7 +27,7 @@ class RoomStore {
   @observable //Use to add Room 
   roomInfo = {}
 
-
+  //////////////////////// Axios //////////////////////////////////
   @action
   fetchData = async () => {
     this.roomDatas = await axios.get('./rooms', this.searchConfig).then(resp => resp.data)
@@ -44,8 +44,6 @@ class RoomStore {
     this.roomInfo = await axios.get('./rooms', this.searchConfig).then(resp => resp.data)
   }
 
-  
-
   @action
   addRoom = async () => {
     this.roomDatas = await axios.post('./rooms', this.roomInfo).then(resp => resp.data)
@@ -58,22 +56,16 @@ class RoomStore {
     console.log('แก้ไขห้องสำเร็จแล้ว!')
   }
 
-
-  
-
   @action
   deleteData = async () => {
-    console.log('Going to delete')
     await axios.delete('./rooms', this.searchConfig).then(resp => resp.data)
-    console.log('Deleted')
+    console.log('ลบห้องสำเร็จ!')
   }
-
-
-  /////////////////////////////////////////////////////////////////////////////////////////////////////////
+  
+  //////////////////////// Set Values //////////////////////////////////
   @action
   copyValue = (value) => {
     this.roomInfo = value
-    //console.log(this.roomInfo)
   }
 
   @action
@@ -88,7 +80,6 @@ class RoomStore {
   @action
   setSchedule = (field, value) => {
     this.schedule[field] = value
-    console.log([field] + ' = ' + this.schedule[field])
   }
 
   @action
@@ -111,12 +102,6 @@ class RoomStore {
   setConfigEquipment = (field, value) => {
     this.searchConfig.Equipment[field] = value
   }
-
-  @action
-  deleteData = async () => {
-    await axios.delete('./rooms', this.roomInfo).then(resp => resp.data)
-    console.log('ลบห้องสำเร็จ!')
-  }
   
   @action
   resetSchedule = () => {
@@ -133,9 +118,7 @@ class RoomStore {
 
   @action
   resetFilterForm = () => {
-    this.searchConfig = {
-      //Equipment: {}
-    }
+    this.searchConfig = {}
   }
 
   @action
