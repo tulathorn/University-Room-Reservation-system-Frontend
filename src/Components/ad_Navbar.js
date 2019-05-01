@@ -121,9 +121,6 @@ class AdNavbar extends React.Component {
             </NavDropdown>
           </ul>
           <form className="form-inline my-2 my-lg-0">
-            <ul className="navbar-nav mr-auto">
-              <NavItem name={localStorage.getItem('username')} disabled="true" />
-            </ul>
             <NavLink
               className="btn btn-sm btn-outline-info"
               onClick={() => this.logoutClick()}

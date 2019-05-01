@@ -5,6 +5,7 @@ import language from '../languages.json'
 import { observer } from 'mobx-react'
 import Swal from 'sweetalert2'
 import ReservationStore from '../stores/ReservationStore'
+import moment from 'moment'
 
 const Heading = styled.h2`
   color: white;
@@ -75,11 +76,23 @@ class ReservationForm extends React.Component {
     this.state.HasVisualizer ? ReservationStore.setSearchConfigEquip('HasVisualizer',1) : console.log()
   }
   
+
   onSubmit = e => {
     e.preventDefault()
     this.reformDatas()
-    ReservationStore.GetAvailableRoom()
-    ReservationStore.searchTemp.Date && ReservationStore.searchTemp.fromhr && ReservationStore.searchTemp.frommin && ReservationStore.searchTemp.tohr && ReservationStore.searchTemp.tomin ? this.search() : this.warned()
+    ReservationStore.GetAvailableRoom() 
+    ReservationStore.searchTemp.Date && ReservationStore.searchTemp.fromhr && ReservationStore.searchTemp.frommin && ReservationStore.searchTemp.tohr && ReservationStore.searchTemp.tomin ? moment(moment(ReservationStore.searchTemp.Date+','+ReservationStore.searchTemp.fromhr+':'+ReservationStore.searchTemp.frommin).format('YYYY-MM-DD,HH:mm')).isAfter() ? this.search() : this.timeWarn() : this.warned()
+  }
+
+  timeWarn = () =>{
+    Swal.fire({
+      position: 'center',
+      type: 'error',
+      title: 'Can not book the room in the past!',
+      text: "Make sure the time is future!",
+      focusConfirm: true,
+      showConfirmButton: true,
+    })
   }
 
   warned = () =>{

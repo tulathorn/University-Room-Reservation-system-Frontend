@@ -4,6 +4,7 @@ import AdCurHistoryRoomCard from '../Components/adCurHisCard'
 import language from '../languages.json'
 import { observer } from 'mobx-react'
 import ReservationStore from '../stores/ReservationStore'
+import moment from 'moment'
 
 @observer
 class AdCurHistoryView extends Component {
@@ -28,8 +29,11 @@ class AdCurHistoryView extends Component {
           </div>
           <br/>
           <br/>
+          
           {ReservationStore.reservedDatas.map(reserved => {
-            return <AdCurHistoryRoomCard data={reserved} />
+            if(moment(reserved.Date.slice(0,19)+'-07:00').isAfter()){
+              return <AdCurHistoryRoomCard data={reserved} />
+            }
           })}
         </div>
       </div>

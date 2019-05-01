@@ -1,6 +1,7 @@
 import React from 'react'
 import '../Styles/bootstrap/bootstrap.min.css'
 import language from '../languages.json'
+import moment from 'moment'
 
 const jumbotronStyle = {
   width: 'auto',
@@ -27,7 +28,7 @@ class AdPreHistoryRoomCard extends React.Component {
               <p><b>{language[localStorage.getItem('language')].adPreHisCard.Purpose}</b> : {this.props.data.Purpose}</p>
             </div>
             <div className="row">
-              <p><b>{language[localStorage.getItem('language')].adPreHisCard.Date}</b> : {this.props.data.Date}</p>
+              <p><b>{language[localStorage.getItem('language')].adPreHisCard.Date}</b> : {moment(this.props.data.Date.slice(0,19)+'-07:00').format('DD/MM/YYYY')}</p>
             </div>
             <div className="row">
               <p><b>{language[localStorage.getItem('language')].adPreHisCard.Schedule}</b> : {language[localStorage.getItem('language')].adPreHisCard.From} {this.props.data.StartTime} {language[localStorage.getItem('language')].adPreHisCard.To} {this.props.data.EndTime}</p>

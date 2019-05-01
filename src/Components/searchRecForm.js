@@ -5,6 +5,7 @@ import { withRouter } from 'react-router-dom'
 import language from '../languages.json'
 import Swal from 'sweetalert2'
 import ReservationStore from '../stores/ReservationStore';
+import moment from 'moment'
 
 const NormalText = styled.p`
   color: white;
@@ -86,7 +87,32 @@ class SearchRecForm extends React.Component {
     e.preventDefault()
     this.reformDatas()
     ReservationStore.GetAvailableRoom() //May need to change because it recurring
-    ReservationStore.searchTemp.StartDate && ReservationStore.searchTemp.EndDate && ReservationStore.searchTemp.Day && ReservationStore.searchTemp.fromhr && ReservationStore.searchTemp.frommin && ReservationStore.searchTemp.tohr && ReservationStore.searchTemp.tomin ? this.search() : this.warned()
+    ReservationStore.searchTemp.StartDate && ReservationStore.searchTemp.EndDate && ReservationStore.searchTemp.Day && ReservationStore.searchTemp.fromhr && ReservationStore.searchTemp.frommin && ReservationStore.searchTemp.tohr && ReservationStore.searchTemp.tomin ? 
+      moment(moment(ReservationStore.searchTemp.StartDate).format('YYYY-MM-DD')).isBefore(ReservationStore.searchTemp.EndDate) ? moment(moment(ReservationStore.searchTemp.StartDate+','+ReservationStore.searchTemp.fromhr+':'+ReservationStore.searchTemp.frommin).format('YYYY-MM-DD,HH:mm')).isAfter() ? 
+      this.search() : this.timeWarn() : this.dateWarn() : this.warned()
+    
+    
+  }
+
+  dateWarn = () =>{
+    Swal.fire({
+      position: 'center',
+      type: 'error',
+      title: 'StartDate need to come before EndDate!',
+      focusConfirm: true,
+      showConfirmButton: true,
+    })
+  }
+
+  timeWarn = () =>{
+    Swal.fire({
+      position: 'center',
+      type: 'error',
+      title: 'Can not book the room in the past!',
+      text: "Make sure the time is future!",
+      focusConfirm: true,
+      showConfirmButton: true,
+    })
   }
 
   warned = () =>{

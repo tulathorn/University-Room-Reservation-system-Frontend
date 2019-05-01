@@ -5,6 +5,7 @@ import language from '../languages.json'
 import { observer } from 'mobx-react'
 import ReservationStore from '../stores/ReservationStore'
 import AuthenticationGate from '../Components/AuthenticationGate'
+import moment from 'moment'
 
 @observer
 class PreHistoryView extends Component {
@@ -30,7 +31,11 @@ class PreHistoryView extends Component {
           </div>
           <br/>
           <br/>
-          {ReservationStore.reservedDatas.map(reserved => {return <PreHistoryRoomCard data={reserved} />})}
+          {ReservationStore.reservedDatas.map(reserved => {
+            if(moment(reserved.Date.slice(0,19)+'-07:00').isBefore()){
+              return <PreHistoryRoomCard data={reserved} />
+            }
+            })}
         </div>
       </div>
       </AuthenticationGate>

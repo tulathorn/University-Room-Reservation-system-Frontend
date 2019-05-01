@@ -1,13 +1,14 @@
 import React from 'react'
 import '../Styles/bootstrap/bootstrap.min.css'
 import language from '../languages.json'
-
+import moment from 'moment'
 
 
 class SupCard extends React.Component {
   replyClick = e => {
     e.preventDefault()
     localStorage.setItem('ContactID',this.props.data.ContactID)
+    localStorage.setItem('contactemail',this.props.data.EmailAddress)
     window.location = "/ad_reply";
   }
   render() {
@@ -20,11 +21,10 @@ class SupCard extends React.Component {
                 {this.props.data.EmailAddress}
               </div>
               <div className="col-6" align="right">
-              {this.props.data.DateTime}
+              {moment(this.props.data.DateTime.slice(0,19)+'-07:00').format('dddd, DD/MM/YYYY, HH:mm:ss')}
               </div>
             </div>
           </h5>
-
           <div className="card-body">
           <h5 className="card-title">
           {this.props.data.Title}

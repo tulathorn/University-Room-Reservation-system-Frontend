@@ -3,7 +3,7 @@ import '../Styles/bootstrap/bootstrap.min.css'
 import Swal from 'sweetalert2'
 import language from '../languages.json'
 import ReservationStore from '../stores/ReservationStore';
-
+import moment from 'moment'
 
 const jumbotronStyle = {
   width: 'auto',
@@ -64,7 +64,7 @@ class AdCurHistoryRoomCard extends React.Component {
               <p><b>{language[localStorage.getItem('language')].adCurHisCard.Purpose}</b> : {this.props.data.Purpose}</p>
             </div>
             <div className="row">
-              <p><b>{language[localStorage.getItem('language')].adCurHisCard.Date}</b> : {this.props.data.Date}</p>
+              <p><b>{language[localStorage.getItem('language')].adCurHisCard.Date}</b> : {moment(this.props.data.Date.slice(0,19)+'-07:00').format('DD/MM/YYYY')}</p>
             </div>
             <div className="row">
               <p><b>{language[localStorage.getItem('language')].adCurHisCard.Schedule}</b> : {language[localStorage.getItem('language')].adCurHisCard.From} {this.props.data.StartTime} {language[localStorage.getItem('language')].adCurHisCard.To} {this.props.data.EndTime}</p>

@@ -3,6 +3,7 @@ import '../Styles/bootstrap/bootstrap.min.css'
 import Swal from 'sweetalert2'
 import language from '../languages.json'
 import ReservationStore from '../stores/ReservationStore';
+import moment from 'moment'
 
 const jumbotronStyle = {
   width: 'auto',
@@ -51,7 +52,6 @@ class CurHistoryRoomCard extends React.Component {
     })
   }
   pinClick = () =>{
-    console.log(this.props.data)
     Swal.fire({
       position: 'center',
       type: 'info',
@@ -60,6 +60,7 @@ class CurHistoryRoomCard extends React.Component {
       showConfirmButton: false
     })
   }
+  
   render() {
     return (
 			<div className="jumbotron text-white" style={jumbotronStyle}>
@@ -75,7 +76,7 @@ class CurHistoryRoomCard extends React.Component {
               <p><b>{language[localStorage.getItem('language')].curHisRoomCard.Purpose}</b> : {this.props.data.Purpose}</p>
             </div>
             <div className="row">
-              <p><b>{language[localStorage.getItem('language')].curHisRoomCard.Date}</b> : {this.props.data.Date}</p>
+              <p><b>{language[localStorage.getItem('language')].curHisRoomCard.Date}</b> : {moment(this.props.data.Date.slice(0,19)+'-07:00').format('DD/MM/YYYY')}</p>
             </div>
             <div className="row">
               <p><b>{language[localStorage.getItem('language')].curHisRoomCard.Schedule}</b> : {language[localStorage.getItem('language')].curHisRoomCard.From} {this.props.data.StartTime} {language[localStorage.getItem('language')].curHisRoomCard.To} {this.props.data.EndTime}</p>

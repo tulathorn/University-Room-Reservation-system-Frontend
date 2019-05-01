@@ -1,6 +1,7 @@
 import React from 'react'
 import '../Styles/bootstrap/bootstrap.min.css'
 import styled from 'styled-components'
+import moment from 'moment'
 
 const Title = styled.h1`
   color: #1F384B;
@@ -17,7 +18,7 @@ class SupPreview extends React.Component {
               {this.props.data.EmailAddress}
             </div>
             <div className="col-6" align="right">
-              {this.props.data.DateTime}
+            {moment(this.props.data.DateTime.slice(0,19)+'-07:00').format('dddd, DD/MM/YYYY, HH:mm:ss')}
             </div>
           </div>
         </h5>
