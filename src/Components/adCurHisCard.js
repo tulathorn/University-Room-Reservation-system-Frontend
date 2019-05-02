@@ -24,22 +24,23 @@ class AdCurHistoryRoomCard extends React.Component {
   cancelClick = () =>{
     Swal.fire({
       title: 'Are you sure?',
-      text: "You want to cancel this booking?",
+      text: language[localStorage.getItem('language')].Swal.CancelBook,
       type: 'warning',
       focusCancel: true,
       showCancelButton: true,
-      confirmButtonColor: '#17a2b8',
       cancelButtonColor: '#dc3545',
-      cancelButtonText: 'No',
-      confirmButtonText: 'Yes, cancel it!'
+      cancelButtonText: language[localStorage.getItem('language')].Swal.Back,
+      confirmButtonColor: '#17a2b8',
+      confirmButtonText: language[localStorage.getItem('language')].Swal.Confirm
     }).then((result) => {
       if (result.value) {
         ReservationStore.DeleteReservation()
         Swal.fire({
           position: 'center',
           type: 'success',
-          title: 'Your booking has been canceled',
+          title: language[localStorage.getItem('language')].Swal.BookCan,
           showConfirmButton: true,
+          confirmButtonText: language[localStorage.getItem('language')].Swal.OK,
           preConfirm: () => {
             window.location.reload();
             }

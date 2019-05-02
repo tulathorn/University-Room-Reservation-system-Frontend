@@ -67,17 +67,30 @@ class AddForm extends React.Component {
   onSubmit = e => {
     e.preventDefault()
     this.reformDatas()
-    RoomStore.addRoom()
-    this.addClick()
+    RoomStore.roomInfo.RoomName && RoomStore.roomInfo.PeopleCapacity && RoomStore.roomInfo.Building && this.state.fromhr && this.state.frommin && this.state.tohr && this.state.tomin ?  this.addClick() : this.warned()
+  }
+
+  warned = () =>{
+    Swal.fire({
+      position: 'center',
+      type: 'warning',
+      title: language[localStorage.getItem('language')].Swal.MissInfo,
+      text: language[localStorage.getItem('language')].Swal.FillAll,
+      focusConfirm: true,
+      showConfirmButton: true,
+      confirmButtonText: language[localStorage.getItem('language')].Swal.OK
+    })
   }
 
 	addClick = () =>{
+      RoomStore.addRoom()
       Swal.fire({
       position: 'center',
       type: 'success',
-      title: 'This room has been added',
-      text: "The page will be reload!",
+      title: language[localStorage.getItem('language')].Swal.AddCom,
+      text: language[localStorage.getItem('language')].Swal.Reload,
       showConfirmButton: true,
+      confirmButtonText: language[localStorage.getItem('language')].Swal.OK,
       preConfirm: () => {
         window.location.reload();
         }

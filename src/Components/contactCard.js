@@ -17,14 +17,28 @@ class ContactCard extends React.Component {
 
   onSubmit = e => {
     e.preventDefault()
-    ContactStore.addContact()
+    ContactStore.message.EmailAddress && ContactStore.message.Title && ContactStore.message.Detail ? this.sentClick() : this.warned()
+    
+  }
+
+  warned = () =>{
+    Swal.fire({
+      position: 'center',
+      type: 'warning',
+      title: language[localStorage.getItem('language')].Swal.MissInfo,
+      text: language[localStorage.getItem('language')].Swal.FillAll,
+      focusConfirm: true,
+      showConfirmButton: true,
+      confirmButtonText: language[localStorage.getItem('language')].Swal.OK
+    })
   }
 
   sentClick = () =>{
+      ContactStore.addContact()
       Swal.fire({
       position: 'center',
       type: 'success',
-      title: 'Your message has been sent',
+      title: language[localStorage.getItem('language')].Swal.SendCom,
       showConfirmButton: true,
       preConfirm: () => {
         window.location.reload();
@@ -61,7 +75,7 @@ class ContactCard extends React.Component {
                   value={ContactStore.message.Detail} onChange={e => ContactStore.setContact('Detail', e.target.value)}/>
 
                     <center>
-                    <button onClick={() => this.sentClick()} type="submit" value="Submit" className="btn btn-outline-info">
+                    <button type="submit" value="Submit" className="btn btn-outline-info">
                       {language[localStorage.getItem('language')].contactCard.Submit}
                     </button>
                   </center>

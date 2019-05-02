@@ -32,7 +32,7 @@ class AdAllListView extends Component {
 
           <input name="roomname" type="text" className="form-control" id="roomname" placeholder={language[localStorage.getItem('language')].addForm.RoomID}
           value={RoomStore.searchConfig.RoomName} onChange={e => RoomStore.setConfigThenFetch('RoomName', e.target.value)}/>
-          
+          <br/>
           {RoomStore.roomDatas.map(roomv => {
             return <AllListCard room={roomv} />
           })}

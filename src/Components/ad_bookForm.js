@@ -33,35 +33,38 @@ class AdBookingForm extends React.Component {
     Swal.fire({
       position: 'center',
       type: 'warning',
-      title: 'Missing Information!',
-      text: "Please fill in the form to book a room!",
+      title: language[localStorage.getItem('language')].Swal.MissInfo,
+      text: language[localStorage.getItem('language')].Swal.FillPurposeID,
       focusConfirm: true,
       showConfirmButton: true,
+      confirmButtonText: language[localStorage.getItem('language')].Swal.OK
     })
   }
 
   bookClick = () =>{
     Swal.fire({
-      title: 'Are you sure?',
-      text: "You want to book this room for "+ReservationStore.searchTemp.UsernameID,
+      title: language[localStorage.getItem('language')].Swal.Yousure,
+      text: language[localStorage.getItem('language')].Swal.BookFor + ' ' + ReservationStore.searchTemp.UsernameID,
       type: 'question',
       showCancelButton: true,
       focusConfirm: true,
       confirmButtonColor: '#17a2b8',
       cancelButtonColor: '#dc3545',
-      confirmButtonText: 'Yes, Book the room!'
+      cancelButtonText: language[localStorage.getItem('language')].Swal.Back,
+      confirmButtonText: language[localStorage.getItem('language')].Swal.Confirm
     }).then((result) => {
       if(result.value){
-        if (ReservationStore.bookingConfig.UserID !== 0) {
+        if (ReservationStore.bookingConfig.UserID) {
           console.log(ReservationStore.bookingConfig)
           ReservationStore.addReservation()
           Swal.fire({
           position: 'center',
           type: 'success',
-          title: 'Booking completed',
-          text: "Redirect to search page!",
+          title: language[localStorage.getItem('language')].Swal.BookCom,
+          text: language[localStorage.getItem('language')].Swal.BacktoSearch,
           focusConfirm: true,
           showConfirmButton: true,
+          confirmButtonText: language[localStorage.getItem('language')].Swal.OK,
           preConfirm: () => {
             window.location = "/ad_search_nor";
             }
@@ -71,10 +74,11 @@ class AdBookingForm extends React.Component {
           Swal.fire({
             position: 'center',
             type: 'error',
-            title: 'User ' + ReservationStore.searchTemp.UsernameID + ' not found.',
-            text: "Please check username!",
+            title: language[localStorage.getItem('language')].Swal.InvalidUser,
+            text: language[localStorage.getItem('language')].Swal.NoUser + ' ' + ReservationStore.searchTemp.UsernameID + ' ' + language[localStorage.getItem('language')].Swal.NoUser2,
             focusConfirm: true,
             showConfirmButton: true,
+            confirmButtonText: language[localStorage.getItem('language')].Swal.OK
             })
         }
       }

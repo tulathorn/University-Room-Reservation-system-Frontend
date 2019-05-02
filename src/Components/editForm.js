@@ -56,21 +56,22 @@ class EditForm extends React.Component {
       Swal.fire({
       position: 'center',
       type: 'question',
-      title: 'Comfirm update room ' + RoomStore.roomInfo.RoomName,
-      text: 'Make sure to check on Operating Days and Amenities',
+      title: language[localStorage.getItem('language')].Swal.RoomUpdate +' '+ RoomStore.roomInfo.RoomName,
+      text: language[localStorage.getItem('language')].Swal.CheckDayAndAmen,
       showConfirmButton: true,
       showCancelButton: true,
-      confirmButtonText: 'Confirm'
+      confirmButtonText: language[localStorage.getItem('language')].Swal.Confirm
     }).then((result) => {
       if(result.value){
         RoomStore.updateRoom()
         Swal.fire({
         position: 'center',
         type: 'success',
-        title: 'Booking completed',
-        text: "Redirect to room information page!",
+        title: language[localStorage.getItem('language')].Swal.UpdaCom,
+        text: language[localStorage.getItem('language')].Swal.BacktoRoomInfo,
         focusConfirm: true,
         showConfirmButton: true,
+        confirmButtonText: language[localStorage.getItem('language')].Swal.OK,
         preConfirm: () => {
           window.location = "/ad_room_info";
           }

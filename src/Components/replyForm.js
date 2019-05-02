@@ -21,10 +21,11 @@ class ReplyForm extends React.Component {
     Swal.fire({
       position: 'center',
       type: 'warning',
-      title: 'Missing Information!',
-      text: "Please fill in Title and Detail before submit!",
+      title: language[localStorage.getItem('language')].Swal.MissInfo,
+      text: language[localStorage.getItem('language')].Swal.FillAll,
       focusConfirm: true,
       showConfirmButton: true,
+      confirmButtonText: language[localStorage.getItem('language')].Swal.OK
     })
   }
 
@@ -32,23 +33,23 @@ class ReplyForm extends React.Component {
     Swal.fire({
       position: 'center',
       type: 'question',
-      title: 'Reply to ' + localStorage.getItem('contactemail') + '?',
-      html: 'Subject : ' + ContactStore.replyMsg.Title + "<br> Body : " + ContactStore.replyMsg.Detail,
+      title: language[localStorage.getItem('language')].Swal.Replyto + ' ' + localStorage.getItem('contactemail'),
+      html: language[localStorage.getItem('language')].Swal.Subject + ' ' + ContactStore.replyMsg.Title + '<br>' + language[localStorage.getItem('language')].Swal.Body + ' ' + ContactStore.replyMsg.Detail,
       showConfirmButton: true,
       showCancelButton: true,
       focusConfirm: true,
-      confirmButtonText: 'Confirm'
+      cancelButtonText: language[localStorage.getItem('language')].Swal.Back,
+      confirmButtonText: language[localStorage.getItem('language')].Swal.Confirm
     }).then((result) => {
       if (result.value) {
         ContactStore.replyMail()
         console.log(ContactStore.message)
-        console.log(ContactStore.replyMsg)
         //ContactStore.deleteContact()
         Swal.fire({
         position: 'center',
         type: 'success',
-        title: 'Your message has been sent',
-        html: "<b>Message is deleted!</b><br> Back to support page!",
+        title: language[localStorage.getItem('language')].Swal.SendCom,
+        html: language[localStorage.getItem('language')].Swal.DeleteMsg + '<br>' +  language[localStorage.getItem('language')].Swal.BacktoSupport,
         focusConfirm: true,
         showConfirmButton: true,
         preConfirm: () => {

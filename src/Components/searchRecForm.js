@@ -98,9 +98,10 @@ class SearchRecForm extends React.Component {
     Swal.fire({
       position: 'center',
       type: 'error',
-      title: 'StartDate need to come before EndDate!',
+      title: language[localStorage.getItem('language')].Swal.DateStartBeforeEnd,
       focusConfirm: true,
       showConfirmButton: true,
+      confirmButtonText: language[localStorage.getItem('language')].Swal.OK
     })
   }
 
@@ -108,10 +109,11 @@ class SearchRecForm extends React.Component {
     Swal.fire({
       position: 'center',
       type: 'error',
-      title: 'Can not book the room in the past!',
-      text: "Make sure the time is future!",
+      title: language[localStorage.getItem('language')].Swal.InvalidTime,
+      text: language[localStorage.getItem('language')].Swal.InvalidTimeMsg,
       focusConfirm: true,
       showConfirmButton: true,
+      confirmButtonText: language[localStorage.getItem('language')].Swal.OK
     })
   }
 
@@ -119,10 +121,11 @@ class SearchRecForm extends React.Component {
     Swal.fire({
       position: 'center',
       type: 'warning',
-      title: 'Missing Information!',
-      text: "Please fill in date, time and day you prefer to book!",
+      title: language[localStorage.getItem('language')].Swal.MissInfo,
+      text: language[localStorage.getItem('language')].Swal.FillDateTime,
       focusConfirm: true,
       showConfirmButton: true,
+      confirmButtonText: language[localStorage.getItem('language')].Swal.OK
     })
   }
 

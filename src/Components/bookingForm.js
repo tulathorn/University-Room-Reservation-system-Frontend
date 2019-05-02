@@ -33,10 +33,11 @@ class BookingForm extends React.Component {
     Swal.fire({
       position: 'center',
       type: 'warning',
-      title: 'Missing Information!',
-      text: "Please fill in Title and Purpose",
+      title: language[localStorage.getItem('language')].Swal.MissInfo,
+      text: language[localStorage.getItem('language')].Swal.FillPurpose,
       focusConfirm: true,
       showConfirmButton: true,
+      confirmButtonText: language[localStorage.getItem('language')].Swal.OK
     })
   }
 
@@ -45,27 +46,28 @@ class BookingForm extends React.Component {
       Swal.fire({
       position: 'center',
       type: 'success',
-      title: 'Booking completed',
-      text: 'Back to search page!',
+      title: language[localStorage.getItem('language')].Swal.BookCom,
+      text: language[localStorage.getItem('language')].Swal.BacktoSearch,
       focusConfirm: true,
       showConfirmButton: true,
+      confirmButtonText: language[localStorage.getItem('language')].Swal.OK,
       preConfirm: () => {
         window.location = "/";
       }
     })
   }
+
   updateClick = () =>{
     Swal.fire({
-      title: 'User Information',
+      title: language[localStorage.getItem('language')].Swal.FixUserInfo,
       html:
-        '<input id="swal-input1" class="swal2-input" placeholder="Email Address">' +
-        '<input id="swal-input2" class="swal2-input" placeholder="Phone Number">',
+        '<input id="swal-input1" class="swal2-input" placeholder="Email Address">',
       focusConfirm: false,
       confirmButtonColor: '#17a2b8',
+      confirmButtonText: language[localStorage.getItem('language')].Swal.Confirm,
       preConfirm: () => {
         return [
-          document.getElementById('swal-input1').value,
-          document.getElementById('swal-input2').value
+          document.getElementById('swal-input1').value
         ]
       }
     })

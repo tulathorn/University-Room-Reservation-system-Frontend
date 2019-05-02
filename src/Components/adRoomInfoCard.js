@@ -38,23 +38,24 @@ class AdRoomInfoCard extends React.Component {
 
   deleteClick = () =>{
     Swal.fire({
-      title: 'Are you sure?',
-      text: "You want to delete this room?",
       type: 'warning',
+      title: language[localStorage.getItem('language')].Swal.SureDelete,
       focusCancel: true,
       showCancelButton: true,
       confirmButtonColor: '#17a2b8',
       cancelButtonColor: '#dc3545',
-      confirmButtonText: 'Yes, delete it!',
+      cancelButtonText: language[localStorage.getItem('language')].Swal.Back,
+      confirmButtonText: language[localStorage.getItem('language')].Swal.Confirm,
     }).then((result) => {
       if (result.value) {
         RoomStore.deleteData()
         Swal.fire({
           position: 'center',
           type: 'success',
-          title: 'Room ' + this.props.room.RoomName + ' has been deleted',
-          text: "Redirect to all list page!",
+          title: this.props.room.RoomName + ' ' + language[localStorage.getItem('language')].Swal.DeleteCom,
+          text: language[localStorage.getItem('language')].Swal.BacktoAllList,
           showConfirmButton: true,
+          confirmButtonText: language[localStorage.getItem('language')].Swal.OK,
           preConfirm: () => {
             window.location = "/ad_all_list";
             }
