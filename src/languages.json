@@ -457,7 +457,8 @@
         "BookFor" : "Book the room for",
         "Replyto" : "Reply to",
         "Subject" : "Subject",
-        "Body" : "Body"
+        "Body" : "Body",
+        "NoRoomMatch": "No room match your condition"
       }
     },
     {
@@ -918,7 +919,8 @@
         "BookFor" : "คุณต้องการจองห้องให้กับผู้ใช้",
         "Replyto" : "ตอบกลับไปที่",
         "Subject" : "หัวข้อ",
-        "Body" : "เนื้อหา"
+        "Body" : "เนื้อหา",
+        "NoRoomMatch": "ไม่พบข้อมูลห้องที่ท่านต้องการ"
       }
     }
   ]

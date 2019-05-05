@@ -12,14 +12,9 @@ const Title = styled.h1`
 @observer
 class MainView extends Component {
   
-  //constructor(props) {
-  //  super(props);
-  //}
 
   componentWillMount() {
     localStorage.setItem('language', localStorage.getItem('language') || 0 )  
-
-    //this.props.lang=localStorage.getItem('language')
   }
   
   render() {

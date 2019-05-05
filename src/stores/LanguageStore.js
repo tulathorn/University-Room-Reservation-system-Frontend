@@ -5,8 +5,8 @@ class LanguageStore {
   lang = 0
 
   @action
-  setLang = language => {
-    this.lang = language
+  setLang = () => {
+    this.lang = localStorage.getItem('language')
   }
 }
 
