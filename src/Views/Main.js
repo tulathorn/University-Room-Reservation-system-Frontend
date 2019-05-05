@@ -5,15 +5,21 @@ import language from '../languages.json'
 import Navbar from '../Components/Navbar'
 import AuthenticationGate from '../Components/AuthenticationGate'
 import ReservationForm from '../Components/ReservationForm'
-//import moment from 'moment'
 
 const Title = styled.h1`
   color: #1f384b;
 `
 @observer
 class MainView extends Component {
+  
+  //constructor(props) {
+  //  super(props);
+  //}
+
   componentWillMount() {
     localStorage.setItem('language', localStorage.getItem('language') || 0 )  
+
+    //this.props.lang=localStorage.getItem('language')
   }
   
   render() {
