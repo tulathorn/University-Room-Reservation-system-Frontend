@@ -14,6 +14,11 @@ class UserStore {
     this.userData = await axios.get('./users', this.userFilter).then(resp => resp.data)
   }
 
+  @action
+  checkAdmin = async () => {
+    this.userData = await axios.get('./users', localStorage.getItem('UserID')).then(resp => resp.data)
+    console.log(this.userData[0])
+  }
 
   
 
