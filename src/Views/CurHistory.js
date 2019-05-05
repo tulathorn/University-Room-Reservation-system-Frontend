@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Navbar from '../Components/Navbar'
+import UserNavbar from '../Components/Navbar'
 import CurHistoryRoomCard from '../Components/curHisRoomCard'
 import language from '../languages.json'
 import { observer } from 'mobx-react'
@@ -18,7 +18,7 @@ class CurHistoryView extends Component {
     return (
       <AuthenticationGate>
       <div>
-        <Navbar />
+        <UserNavbar />
         <div className="container">
           <br/>
           <div className="row">

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import ReservationStore from '../stores/ReservationStore'
 import language from '../languages.json'
-import Navbar from '../Components/Navbar'
+import UserNavbar from '../Components/Navbar'
 import { observer } from 'mobx-react'
 import RoomInformationCard from '../Components/RoomInformationCard'
 import AuthenticationGate from '../Components/AuthenticationGate'
@@ -17,7 +17,7 @@ class ListView extends Component {
       <AuthenticationGate>
       <div>
         
-        <Navbar />
+        <UserNavbar />
         <div className="container">
 
           <div className="row">

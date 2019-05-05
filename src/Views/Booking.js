@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Navbar from '../Components/Navbar'
+import UserNavbar from '../Components/Navbar'
 import BookingForm from '../Components/bookingForm'
 import RoomInfoCard from '../Components/roomInfoCard'
 import AuthenticationGate from '../Components/AuthenticationGate'
@@ -18,7 +18,7 @@ class BookingView extends Component {
     return (
       <AuthenticationGate>
         <div>
-          <Navbar />
+          <UserNavbar />
           <div className="container">
             <p> </p>
             <div className="row">

@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 import { observer } from 'mobx-react'
 import language from '../languages.json'
-import Navbar from '../Components/Navbar'
+import UserNavbar from '../Components/Navbar'
 import AuthenticationGate from '../Components/AuthenticationGate'
 import ReservationForm from '../Components/ReservationForm'
 
@@ -20,7 +20,7 @@ class MainView extends Component {
   render() {
     return (
       <AuthenticationGate>
-        <Navbar />
+        <UserNavbar />
         <div className="container">
           <br />
           <center>
