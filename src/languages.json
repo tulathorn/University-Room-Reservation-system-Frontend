@@ -457,7 +457,8 @@
         "BookFor" : "Book the room for",
         "Replyto" : "Reply to",
         "Subject" : "Subject",
-        "Body" : "Body"
+        "Body" : "Body",
+        "NotAdmin" : "You are not an Admin"
       }
     },
     {
@@ -918,7 +919,8 @@
         "BookFor" : "คุณต้องการจองห้องให้กับผู้ใช้",
         "Replyto" : "ตอบกลับไปที่",
         "Subject" : "หัวข้อ",
-        "Body" : "เนื้อหา"
+        "Body" : "เนื้อหา",
+        "NotAdmin" : "คุณไม่ใช่ผู้ดูแลระบบ"
       }
     }
   ]
