@@ -13,6 +13,12 @@ class ReservationStore {
     searchTemp = {}
 
     @observable
+    sections = {}
+
+    @observable
+    sectionsDatas = []
+
+    @observable
     bookingConfig = {}
 
     @observable
@@ -39,7 +45,7 @@ class ReservationStore {
     }
 
     
-
+    
     
 
    
@@ -69,12 +75,24 @@ class ReservationStore {
         this.searchTemp[field] = value
     }
 
+    @action
+    setSection = (field, value) => {
+        this.sections[field] = value
+    }
+
+
     ////////////////////////////////////////////////////////////// Book a room
     @action
     ConvertUsernameToID = async () => {
         this.tempArray = await axios.get('./users', this.searchTemp).then(resp => resp.data)
         
         this.tempArray.length ? this.setBookingConfig('UserID',this.tempArray[0].UserID) : this.setBookingConfig('UserID',0)
+    }
+
+    @action
+    GetsectionID = async () => {
+        //this.sectionsDatas = await axios.get('./reservations', this.sections).then(resp => resp.data)
+        //this.setBookingConfig('Sections',this.sectionsDatas[0].ID)
     }
 
     @action
@@ -115,6 +133,10 @@ class ReservationStore {
     @action
     cleanBookingConfig = () => {
         this.bookingConfig = {}
+    }
+    @action
+    cleanSection = () => {
+        this.sections = {}
     }
 
     

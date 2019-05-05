@@ -12,9 +12,33 @@ const jumbotronStyle = {
 
 class AdBookingFormRec extends React.Component {
   componentDidMount() {
+    ReservationStore.cleanSection()
     ReservationStore.cleanBookingConfig()
   }
-  reformDatas= () => {
+
+  secComplete = (value) => {
+    if(value){
+      ReservationStore.GetsectionID()
+      this.bookClick()
+    }
+    else{
+      this.bookClick()
+    }
+  }
+
+  checkSec = () => {
+
+    ReservationStore.sections.Year || ReservationStore.sections.Sections || ReservationStore.sections.Program ? 
+        ReservationStore.sections.Year && ReservationStore.sections.Sections && ReservationStore.sections.Program ? 
+            ((ReservationStore.sections.Sections == 'A' || ReservationStore.sections.Sections == 'B') && ReservationStore.sections.Program == 0) || ((ReservationStore.sections.Sections == 'C' || ReservationStore.sections.Sections == 'D') && ReservationStore.sections.Program == 1) ? 
+                this.secComplete(1)
+            : this.warnedSec()  
+        : this.warnedSecLack() 
+    : this.secComplete(0)
+  }
+
+   reformDatas= () => {
+
     ReservationStore.searchTemp.UsernameID ? ReservationStore.ConvertUsernameToID() : this.warned()
     ReservationStore.setBookingConfig('StartDate',localStorage.getItem('ScheduleDate'))
     ReservationStore.setBookingConfig('EndDate',localStorage.getItem('ScheduleDateTo'))
@@ -23,12 +47,36 @@ class AdBookingFormRec extends React.Component {
     ReservationStore.setBookingConfig('EndTime',localStorage.getItem('ScheduleTo'))
     ReservationStore.setBookingConfig('RoomID',localStorage.getItem('RoomID'))
     // Need to add feature to store section
-  }
+   }
 
   onSubmit = e => {
     e.preventDefault()
     this.reformDatas()
-    ReservationStore.searchTemp.UsernameID && ReservationStore.bookingConfig.Purpose ? this.bookClick() : this.warned()
+    ReservationStore.searchTemp.UsernameID && ReservationStore.bookingConfig.Purpose ? this.checkSec() : this.warned()
+  }
+
+  warnedSecLack = () =>{
+    Swal.fire({
+      position: 'center',
+      type: 'warning',
+      title: language[localStorage.getItem('language')].Swal.InvalidInfo,
+      text: language[localStorage.getItem('language')].Swal.InvalidSecMiss,
+      focusConfirm: true,
+      showConfirmButton: true,
+      confirmButtonText: language[localStorage.getItem('language')].Swal.OK
+    })
+  }
+
+  warnedSec = () =>{
+    Swal.fire({
+      position: 'center',
+      type: 'error',
+      title: language[localStorage.getItem('language')].Swal.InvalidInfo,
+      text: language[localStorage.getItem('language')].Swal.InvalidSec,
+      focusConfirm: true,
+      showConfirmButton: true,
+      confirmButtonText: language[localStorage.getItem('language')].Swal.OK
+    })
   }
 
   warned = () =>{
@@ -57,20 +105,21 @@ class AdBookingFormRec extends React.Component {
     }).then((result) => {
       if(result.value){
         if (ReservationStore.bookingConfig.UserID) {
-          console.log(ReservationStore.bookingConfig)
-          ReservationStore.addRecurring()
-          Swal.fire({
-          position: 'center',
-          type: 'success',
-          title: language[localStorage.getItem('language')].Swal.BookCom,
-          text: language[localStorage.getItem('language')].Swal.BacktoSearch,
-          focusConfirm: true,
-          showConfirmButton: true,
-          confirmButtonText: language[localStorage.getItem('language')].Swal.OK,
-          preConfirm: () => {
-            window.location = "/ad_search_rec";
-            }
-          })
+            console.log(ReservationStore.bookingConfig)
+            //ReservationStore.addRecurring()
+            Swal.fire({
+            position: 'center',
+            type: 'success',
+            title: language[localStorage.getItem('language')].Swal.BookCom,
+            text: language[localStorage.getItem('language')].Swal.BacktoSearch,
+            focusConfirm: true,
+            showConfirmButton: true,
+            confirmButtonText: language[localStorage.getItem('language')].Swal.OK,
+            preConfirm: () => {
+              window.location = "/ad_search_rec";
+              }
+            })
+          
         }
         else{
           Swal.fire({
@@ -109,12 +158,36 @@ class AdBookingFormRec extends React.Component {
                   <option value="1/2019">1/2019</option>
                   <option value="2/2019">2/2019</option>
                 </select>
-            </div>
-            
-              {language[localStorage.getItem('language')].adBookingForm.Year}<br/>
-              {language[localStorage.getItem('language')].adBookingForm.Section}<br/>
-              {language[localStorage.getItem('language')].adBookingForm.Program}<br/>
-                   
+              </div>
+                <hr className="my-4" color="white" />
+              <div className="row">
+                {language[localStorage.getItem('language')].adBookingForm.Year}
+                <select name="year" type="number" className="custom-select" id="year"
+                  value={ReservationStore.sections.Year} onChange={e => ReservationStore.setSection('Year', e.target.value)}>
+                  <option value="" selected>{language[localStorage.getItem('language')].Additional.Choose}</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                </select>
+                {language[localStorage.getItem('language')].adBookingForm.Section}
+                <select name="section" type="text" className="custom-select" id="section"
+                  value={ReservationStore.sections.Sections} onChange={e => ReservationStore.setSection('Sections', e.target.value)}>
+                  <option value="" selected>{language[localStorage.getItem('language')].Additional.Choose}</option>
+                  <option value="A">A</option>
+                  <option value="B">B</option>
+                  <option value="C">C</option>
+                  <option value="D">D</option>
+                </select>
+                {language[localStorage.getItem('language')].adBookingForm.Program}
+                <select name="program" type="number" className="custom-select" id="program"
+                  value={ReservationStore.sections.Program} onChange={e => ReservationStore.setSection('Program', e.target.value)}>
+                  <option value="" selected>{language[localStorage.getItem('language')].Additional.Choose}</option>
+                  <option value="0">{language[localStorage.getItem('language')].adBookingForm.ProgramRegular}</option>
+                  <option value="1">{language[localStorage.getItem('language')].adBookingForm.ProgramInter}</option>
+                </select>
+              </div>
+                   <br/>
               <button type="submit" value="Submit" className="btn btn-info">
                 {language[localStorage.getItem('language')].adBookingForm.Book}
               </button>

@@ -109,7 +109,9 @@
         "Section": "Section",
         "Program": "Program",
         "Purpose": "Purpose",
-        "Book": "Book"
+        "Book": "Book",
+        "ProgramRegular" : "Regular",
+        "ProgramInter":"International"
       },
       "adLoginForm": {
         "User": "User",
@@ -418,7 +420,8 @@
         "TitleBody" : "Place your title here",
         "DetailBody" : "Insert details, question, problem...",
         "ShowPin" : "Show PIN Code",
-        "EditRoom": "Edit Room"
+        "EditRoom": "Edit Room",
+        "Reset" : "Reset"
       },
       "Swal":{
         "MissInfo" : "Missing Information!",
@@ -427,6 +430,9 @@
         "NoUser2" : "in the system",
         "InvalidTime" : "Invalid Time!",
         "InvalidTimeMsg" : "Date/Time can't be in the past.",
+        "InvalidInfo" : "Invalid Data",
+        "InvalidSec" : "Can not match your selected section and program!",
+        "InvalidSecMiss" : "If you want to choose section. Please make sure to fill in all informations!",
         "DateStartBeforeEnd" : "StartDate should come before EndDate.",
         "FillAll" : "Please fill in all necessary information.",
         "FillDateTime" : "Please fill in date and time.",
@@ -572,7 +578,9 @@
         "Section": "กลุ่ม",
         "Program": "หลักสูตร",
         "Purpose": "จุดประสงค์",
-        "Book": "จอง"
+        "Book": "จอง",
+        "ProgramRegular" : "ปกติ",
+        "ProgramInter":"อินเตอร์"
       },
       "adLoginForm": {
         "User": "ผู้ใช้ทั่วไป",
@@ -881,7 +889,8 @@
         "TitleBody" : "กรุณาใส่หัวข้อ",
         "DetailBody" : "กรุณาใส่รายละเอียด",
         "ShowPin" : "ดูหมายเลข PIN",
-        "EditRoom": "แก้ไขข้อมูลห้อง"
+        "EditRoom": "แก้ไขข้อมูลห้อง",
+        "Reset" : "ล้าง"
       },
       "Swal":{
         "MissInfo" : "ข้อมูลไม่เพียงพอ",
@@ -890,6 +899,9 @@
         "NoUser2" : "ในระบบ",
         "InvalidTime" : "กรอกเวลาผิดพลาด",
         "InvalidTimeMsg" : "ไม่สามารถจองห้องในอดีตได้",
+        "InvalidInfo" : "ข้อมูลผิดพลาด",
+        "InvalidSec" : "ไม่สามารถจับคู่กลุ่มกับโปรแกรมที่ท่านเลือกได้",
+        "InvalidSecMiss" : "ถ้าหากท่านต้องการเลือกกลุ่ม กรุณาเลือกข้อมูลให้ครบถ้วน",
         "DateStartBeforeEnd" : "วัน เริ่มต้นการจอง ควรมาก่อน วันสิ้นสุดการจอง",
         "FillAll" : "กรุณากรอกข้อมูลให้ครบถ้วน",
         "FillDateTime" : "กรุณาใส่วันที่และเวลาให้ครบถ้วน",
