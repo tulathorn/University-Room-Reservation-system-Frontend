@@ -16,8 +16,8 @@ class UserStore {
 
   @action
   checkAdmin = async () => {
-    this.userData = await axios.get('./users', localStorage.getItem('UserID')).then(resp => resp.data)
-    console.log(this.userData[0])
+    this.userData = await axios.get('./users', {UserID:localStorage.getItem('UserID')}).then(resp => resp.data)
+    localStorage.setItem('IsAdmin',this.userData[0].IsAdmin)
   }
 
   

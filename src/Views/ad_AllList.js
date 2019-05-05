@@ -6,6 +6,8 @@ import { observer } from 'mobx-react'
 import RoomStore from '../stores/RoomStore'
 import language from '../languages.json'
 
+import AuthenticationGate from '../Components/AuthenticationGateAdmin'
+
 const Title = styled.h1`
   color: #1f384b;
 `
@@ -19,8 +21,14 @@ class AdAllListView extends Component {
     RoomStore.fetchData()
   }
 
+  componentDidMount() {
+    //localStorage.getItem('IsAdmin') ? console.log() : window.location = '/ad_login'
+  }
+
+
   render() {
     return (
+      <AuthenticationGate>
       <div>
         <AdNavbar />
         <div className="container">
@@ -39,6 +47,7 @@ class AdAllListView extends Component {
 
       </div>
     </div>
+    </AuthenticationGate>
     )
   }
 }

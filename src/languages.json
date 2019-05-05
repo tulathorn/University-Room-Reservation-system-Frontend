@@ -458,7 +458,7 @@
         "Replyto" : "Reply to",
         "Subject" : "Subject",
         "Body" : "Body",
-        "NoRoomMatch": "No room match your condition"
+        "NotAdmin" : "You are not an Admin"
       }
     },
     {
@@ -920,7 +920,7 @@
         "Replyto" : "ตอบกลับไปที่",
         "Subject" : "หัวข้อ",
         "Body" : "เนื้อหา",
-        "NoRoomMatch": "ไม่พบข้อมูลห้องที่ท่านต้องการ"
+        "NotAdmin" : "คุณไม่ใช่ผู้ดูแลระบบ"
       }
     }
   ]
