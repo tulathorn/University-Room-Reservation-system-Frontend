@@ -4,6 +4,7 @@ import BookingTable from '../Components/bookingTable'
 import language from '../languages.json'
 import { observer } from 'mobx-react'
 import ReservationStore from '../stores/ReservationStore'
+import AuthenticationGate from '../Components/AuthenticationGateAdmin'
 
 @observer
 class AdBookingTimatableView extends Component {
@@ -14,6 +15,7 @@ class AdBookingTimatableView extends Component {
   }
   render() {
     return (
+      <AuthenticationGate>
       <div>
         <AdNavbar />
         <div className="container">
@@ -42,6 +44,7 @@ class AdBookingTimatableView extends Component {
           
         </div>
       </div>
+      </AuthenticationGate>
     )
   }
 }

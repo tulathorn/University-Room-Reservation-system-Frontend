@@ -22,6 +22,8 @@ class AdLoginCard extends React.Component {
     }
   }
 
+
+
   login = async e => {
     e.preventDefault()
     // console.log(this.inputUsername)
@@ -38,7 +40,13 @@ class AdLoginCard extends React.Component {
       localStorage.setItem('lastname', response.data.LastName)
       localStorage.setItem('email', response.data.EmailAddress)
       UserStore.checkAdmin()
-      this.props.history.push('/ad_all_list')
+      // if(parseInt(localStorage.IsAdmin)){
+      //   window.alert('Admin')
+      // }
+      // else{
+      //   window.alert('This user is not an admin')
+      // }
+      //this.props.history.push('/ad_all_list')
     } catch (err) {
       console.log({ err })
       if (err.response && err.response.status === 401) {

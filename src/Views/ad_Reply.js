@@ -7,6 +7,7 @@ import language from '../languages.json'
 import ContactStore from '../stores/ContactStore'
 import { observer } from 'mobx-react'
 
+import AuthenticationGate from '../Components/AuthenticationGateAdmin'
 const Title = styled.h1`
   color: #1F384B;
 `
@@ -20,6 +21,7 @@ class AdReplyView extends Component {
   }
   render() {
     return (
+      <AuthenticationGate>
       <div>
         <AdNavbar />
         <div className="container">
@@ -33,6 +35,7 @@ class AdReplyView extends Component {
           <ReplyForm/>
         </div>
       </div>
+      </AuthenticationGate>
     )
   }
 }

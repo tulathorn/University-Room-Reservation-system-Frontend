@@ -4,6 +4,7 @@ import AdNavbar from '../Components/ad_Navbar'
 import ReservationFormAd from '../Components/ReservationFormAd'
 import language from '../languages.json'
 
+import AuthenticationGate from '../Components/AuthenticationGateAdmin'
 const Title = styled.h1`
   color: #1f384b;
 `
@@ -12,6 +13,7 @@ class AdSearchNorView extends Component {
   
   render() {
     return (
+      <AuthenticationGate>
       <div>
         <AdNavbar />
         <div className="container">
@@ -35,6 +37,7 @@ class AdSearchNorView extends Component {
           
         </div>
       </div>
+      </AuthenticationGate>
     )
   }
 }

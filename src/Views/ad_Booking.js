@@ -3,7 +3,8 @@ import AdNavbar from '../Components/ad_Navbar'
 import AdBookingForm from '../Components/ad_bookForm'
 import RoomInfoCard from '../Components/roomInfoCard'
 import RoomStore from '../stores/RoomStore'
-import { observer } from 'mobx-react';
+import { observer } from 'mobx-react'
+import AuthenticationGate from '../Components/AuthenticationGateAdmin'
 
 @observer
 class AdBookingView extends Component {
@@ -15,6 +16,7 @@ class AdBookingView extends Component {
 
   render() {
     return (
+      <AuthenticationGate>
       <div>
         <AdNavbar />
         <div className="container">
@@ -30,6 +32,7 @@ class AdBookingView extends Component {
           </div>
         </div>
       </div>
+      </AuthenticationGate>
     )
   }
 }

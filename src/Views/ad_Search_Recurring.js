@@ -4,6 +4,7 @@ import SearchRecForm from '../Components/searchRecForm'
 import styled from 'styled-components'
 import language from '../languages.json'
 
+import AuthenticationGate from '../Components/AuthenticationGateAdmin'
 
 const Title = styled.h1`
   color: #1f384b;
@@ -13,6 +14,7 @@ class AdSearchRecView extends Component {
 
   render() {
     return (
+      <AuthenticationGate>
       <div>
         <AdNavbar />
         <div className="container">
@@ -34,6 +36,7 @@ class AdSearchRecView extends Component {
          
         </div>
       </div>
+      </AuthenticationGate>
     )
   }
 }

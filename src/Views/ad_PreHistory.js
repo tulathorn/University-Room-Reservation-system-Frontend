@@ -6,6 +6,7 @@ import { observer } from 'mobx-react'
 import ReservationStore from '../stores/ReservationStore'
 import moment from 'moment'
 
+import AuthenticationGate from '../Components/AuthenticationGateAdmin'
 @observer
 class AdPreHistoryView extends Component {
   componentDidMount() {
@@ -14,6 +15,7 @@ class AdPreHistoryView extends Component {
   }
   render() {
     return (
+      <AuthenticationGate>
       <div>
         <AdNavbar />
         <div className="container">
@@ -35,6 +37,7 @@ class AdPreHistoryView extends Component {
           })}
         </div>
       </div>
+      </AuthenticationGate>
     )
   }
 }

@@ -5,6 +5,7 @@ import language from '../languages.json'
 import { observer } from 'mobx-react'
 import ReservationStore from '../stores/ReservationStore'
 import moment from 'moment'
+import AuthenticationGate from '../Components/AuthenticationGateAdmin'
 
 @observer
 class AdCurHistoryView extends Component {
@@ -15,6 +16,7 @@ class AdCurHistoryView extends Component {
 
   render() {
     return (
+      <AuthenticationGate>
       <div>
         <AdNavbar />
         <div className="container">
@@ -37,6 +39,7 @@ class AdCurHistoryView extends Component {
           })}
         </div>
       </div>
+      </AuthenticationGate>
     )
   }
 }

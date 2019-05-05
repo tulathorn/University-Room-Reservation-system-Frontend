@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import AdNavbar from '../Components/ad_Navbar'
 import AddForm from '../Components/addForm'
+import AuthenticationGate from '../Components/AuthenticationGateAdmin'
 
 const bgImage = require('../Pictures/bg.png');
 const bgStyle = {
@@ -13,6 +14,7 @@ const bgStyle = {
 class AdAddRoomView extends Component {
   render() {
     return (
+      <AuthenticationGate>
       <div style={bgStyle}>
         <AdNavbar />
         <div className="container">
@@ -29,6 +31,7 @@ class AdAddRoomView extends Component {
           <br/>
         </div>
       </div>
+      </AuthenticationGate>
     )
   }
 }

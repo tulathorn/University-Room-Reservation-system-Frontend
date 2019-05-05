@@ -5,6 +5,7 @@ import RoomStore from '../stores/RoomStore'
 import { observer } from 'mobx-react'
 import language from '../languages.json'
 import styled from 'styled-components'
+import AuthenticationGate from '../Components/AuthenticationGateAdmin'
 
 const bgImage = require('../Pictures/bg.png');
 const bgStyle = {
@@ -26,6 +27,7 @@ class AdEditRoomView extends Component {
   }
   render() {
     return (
+      <AuthenticationGate>
       <div style={bgStyle}>
         <AdNavbar />
         <div className="container">
@@ -45,6 +47,7 @@ class AdEditRoomView extends Component {
           <br/>
         </div>
       </div>
+      </AuthenticationGate>
     )
   }
 }

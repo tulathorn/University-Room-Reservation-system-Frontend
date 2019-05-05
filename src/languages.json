@@ -458,7 +458,8 @@
         "Replyto" : "Reply to",
         "Subject" : "Subject",
         "Body" : "Body",
-        "NotAdmin" : "You are not an Admin"
+        "NotAdmin" : "You are not an Admin",
+        "LoginAsAdmin" : "Login as Admin?"
       }
     },
     {
@@ -920,7 +921,8 @@
         "Replyto" : "ตอบกลับไปที่",
         "Subject" : "หัวข้อ",
         "Body" : "เนื้อหา",
-        "NotAdmin" : "คุณไม่ใช่ผู้ดูแลระบบ"
+        "NotAdmin" : "คุณไม่ใช่ผู้ดูแลระบบ",
+        "LoginAsAdmin" : "เข้าสู่ระบบในฐานะ ผู้ดูแลระบบ"
       }
     }
   ]

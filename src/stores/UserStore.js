@@ -18,6 +18,7 @@ class UserStore {
   checkAdmin = async () => {
     this.userData = await axios.get('./users', {UserID:localStorage.getItem('UserID')}).then(resp => resp.data)
     localStorage.setItem('IsAdmin',this.userData[0].IsAdmin)
+    this.userData[0].IsAdmin ? window.location='/ad_all_list' : window.alert('This user is not an admin')
   }
 
   

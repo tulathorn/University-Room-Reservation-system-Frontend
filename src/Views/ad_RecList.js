@@ -5,6 +5,7 @@ import { observer } from 'mobx-react'
 import language from '../languages.json'
 import ReservationStore from '../stores/ReservationStore';
 
+import AuthenticationGate from '../Components/AuthenticationGateAdmin'
 const jumbotronStyle = {
   width: 'auto',
   height: 'auto',
@@ -19,6 +20,7 @@ class AdRecListView extends Component {
   
   render() {
     return (
+      <AuthenticationGate>
       <div>
         <AdNavbar />
         <div className="container">
@@ -67,6 +69,7 @@ class AdRecListView extends Component {
           
         </div>
       </div>
+      </AuthenticationGate>
     )
   }
 }

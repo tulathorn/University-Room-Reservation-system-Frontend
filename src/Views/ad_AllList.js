@@ -21,9 +21,6 @@ class AdAllListView extends Component {
     RoomStore.fetchData()
   }
 
-  componentDidMount() {
-    //localStorage.getItem('IsAdmin') ? console.log() : window.location = '/ad_login'
-  }
 
 
   render() {
