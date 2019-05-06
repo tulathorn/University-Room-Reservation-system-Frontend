@@ -67,11 +67,11 @@ class SearchRecForm extends React.Component {
     localStorage.setItem('ScheduleDay',ReservationStore.searchTemp.Day)
     localStorage.setItem('ScheduleFrom',ReservationStore.searchTemp.fromhr + ':' + ReservationStore.searchTemp.frommin)
     localStorage.setItem('ScheduleTo',ReservationStore.searchTemp.tohr + ':' + ReservationStore.searchTemp.tomin)
-    // ReservationStore.setSearchConfigTime('StartDate',ReservationStore.searchTemp.StartDate)
-    // ReservationStore.setSearchConfigTime('EndDate',ReservationStore.searchTemp.EndDate)
-    // ReservationStore.setSearchConfigTime('Day',ReservationStore.searchTemp.Day)
-    // ReservationStore.setSearchConfigTime('StartTime',localStorage.getItem('ScheduleFrom'))
-    // ReservationStore.setSearchConfigTime('EndTime',localStorage.getItem('ScheduleTo'))
+    ReservationStore.setSearchConfigTime('Date',ReservationStore.searchTemp.StartDate)
+    //ReservationStore.setSearchConfigTime('EndDate',ReservationStore.searchTemp.EndDate)
+    //ReservationStore.setSearchConfigTime('Day',ReservationStore.searchTemp.Day)
+    ReservationStore.setSearchConfigTime('StartTime',localStorage.getItem('ScheduleFrom'))
+    ReservationStore.setSearchConfigTime('EndTime',localStorage.getItem('ScheduleTo'))
     ReservationStore.searchTemp.Building ? ReservationStore.setSearchConfigRoom('Building',ReservationStore.searchTemp.Building) : console.log()
     ReservationStore.searchTemp.PeopleCapacity ? ReservationStore.setSearchConfigRoom('PeopleCapacity',ReservationStore.searchTemp.PeopleCapacity) : console.log()
     this.state.HasTeacherComputers ? ReservationStore.setSearchConfigEquip('HasTeacherComputers',1) : console.log()
@@ -86,7 +86,7 @@ class SearchRecForm extends React.Component {
   onSubmit = e => {
     e.preventDefault()
     this.reformDatas()
-    ReservationStore.GetAvailableRoom() //May need to change because it recurring
+    ReservationStore.GetAvailableRoom()
     ReservationStore.searchTemp.StartDate && ReservationStore.searchTemp.EndDate && ReservationStore.searchTemp.Day && ReservationStore.searchTemp.fromhr && ReservationStore.searchTemp.frommin && ReservationStore.searchTemp.tohr && ReservationStore.searchTemp.tomin ? 
       moment(moment(ReservationStore.searchTemp.StartDate).format('YYYY-MM-DD')).isBefore(ReservationStore.searchTemp.EndDate) ? moment(moment(ReservationStore.searchTemp.StartDate+','+ReservationStore.searchTemp.fromhr+':'+ReservationStore.searchTemp.frommin).format('YYYY-MM-DD,HH:mm')).isAfter() ? 
       this.search() : this.timeWarn() : this.dateWarn() : this.warned()
