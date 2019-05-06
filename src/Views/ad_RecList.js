@@ -15,6 +15,29 @@ const jumbotronStyle = {
 @observer
 class AdRecListView extends Component {
   componentWillMount() {
+      if(localStorage.getItem('ScheduleDay')==='1'){
+        localStorage.setItem('printDay','Monday')
+      }
+      else if(localStorage.getItem('ScheduleDay')==='2'){
+        localStorage.setItem('printDay','Tuesday')
+      }
+      else if(localStorage.getItem('ScheduleDay')==='3'){
+        localStorage.setItem('printDay','Wednesday')
+      }
+      else if(localStorage.getItem('ScheduleDay')==='4'){
+        localStorage.setItem('printDay','Thursday')
+      }
+      else if(localStorage.getItem('ScheduleDay')==='5'){
+        localStorage.setItem('printDay','Friday')
+      }
+      else if(localStorage.getItem('ScheduleDay')==='6'){
+        localStorage.setItem('printDay','Saturday')
+      }
+      else if(localStorage.getItem('ScheduleDay')==='7'){
+        localStorage.setItem('printDay','Sunday')
+      }
+      else{localStorage.setItem('printDay','-')}
+    
     ReservationStore.GetAvailableRoom()
   }
   
@@ -37,7 +60,7 @@ class AdRecListView extends Component {
                 {ReservationStore.searchTemp.PeopleCapacity ? 
                   <p><b>{language[localStorage.getItem('language')].recPreviewCard.Size}</b> : {ReservationStore.searchTemp.PeopleCapacity} {language[localStorage.getItem('language')].recPreviewCard.People}</p> : <p></p>}
                 {ReservationStore.searchTemp.Day ? 
-                  <p><b>{language[localStorage.getItem('language')].recPreviewCard.Day}</b> : {ReservationStore.searchTemp.Day}</p> : <p></p>}
+                  <p><b>{language[localStorage.getItem('language')].recPreviewCard.Day}</b> : {localStorage.getItem('printDay')}</p> : <p></p>}
                 {ReservationStore.searchTemp.StartDate ? 
                   <p><b>{language[localStorage.getItem('language')].recPreviewCard.Date}</b> : {ReservationStore.searchTemp.StartDate} <b>{language[localStorage.getItem('language')].List.To}</b> {ReservationStore.searchTemp.EndStart}</p> : <p></p>}
                 {ReservationStore.searchTemp.tohr ? 
@@ -60,7 +83,6 @@ class AdRecListView extends Component {
                   </div>
                 </div>
               </div>
-              
             </div>
           </div>
           {ReservationStore.reservedDatas.map(roomv => {

@@ -9,6 +9,7 @@ import AuthenticationGate from '../Components/AuthenticationGateAdmin'
 
 @observer
 class AdRecBookingView extends Component {
+  
   componentDidMount() {
     RoomStore.resetFilterForm()
     RoomStore.setConfig('RoomID', localStorage.getItem('RoomID'))
@@ -27,7 +28,7 @@ class AdRecBookingView extends Component {
               {RoomStore.roomDatas.map(roomv => {
                 return <RoomInfoCard room={roomv} />
               })}  
-              {<p><b>{language[localStorage.getItem('language')].searchRecForm.Day} : </b>{localStorage.getItem('ScheduleDay')}</p>}
+              {<p><b>{language[localStorage.getItem('language')].searchRecForm.Day} : </b>{localStorage.getItem('printDay')}</p>}
             </div>
             <div className="col-md-6 col-sm-12">
               <AdBookingFormRec/>

@@ -45,7 +45,9 @@ class UserNavbar extends React.Component {
           </Nav>
           <Button variant="btn btn-sm btn-outline-info" onClick={() => this.logoutClick()}>{language[localStorage.getItem('language')].Navbar.Logout}</Button>
         </Navbar.Collapse>
+        
       </Navbar>
+      
     )
   }
 }

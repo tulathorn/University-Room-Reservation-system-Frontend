@@ -35,14 +35,15 @@ class ContactStore {
 
     @action
     deleteContact = async () => {
-      await axios.delete('./contact/', this.message).then(resp => resp.data)
+      console.log(this.message)
+      await axios.delete('./contact', this.message).then(resp => resp.data)
       console.log('ลบข้อมูลแล้ว')
     }
 
     @action
     GetContact = async () => {
         this.contact = await axios.get('./contact', this.message).then(resp => resp.data)
-        localStorage.setItem('contactemail',this.contact[0].EmailAddress)
+        this.contact[0] ? localStorage.setItem('contactemail',this.contact[0].EmailAddress) : window.alert('No Contact found!') 
     }
 
     @action

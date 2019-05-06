@@ -91,8 +91,9 @@ class ReservationStore {
 
     @action
     GetsectionID = async () => {
-        //this.sectionsDatas = await axios.get('./reservations', this.sections).then(resp => resp.data)
-        //this.setBookingConfig('Sections',this.sectionsDatas[0].ID)
+        this.sectionsDatas = await axios.get('./section', this.sections).then(resp => resp.data)
+        console.log(this.sectionsDatas[0].ID)
+        this.setBookingConfig('Sections',this.sectionsDatas[0].ID)
     }
 
     @action

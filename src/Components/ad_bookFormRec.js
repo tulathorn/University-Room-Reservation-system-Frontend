@@ -46,7 +46,6 @@ class AdBookingFormRec extends React.Component {
     ReservationStore.setBookingConfig('StartTime',localStorage.getItem('ScheduleFrom'))
     ReservationStore.setBookingConfig('EndTime',localStorage.getItem('ScheduleTo'))
     ReservationStore.setBookingConfig('RoomID',localStorage.getItem('RoomID'))
-    // Need to add feature to store section
    }
 
   onSubmit = e => {
@@ -106,7 +105,7 @@ class AdBookingFormRec extends React.Component {
       if(result.value){
         if (ReservationStore.bookingConfig.UserID) {
             console.log(ReservationStore.bookingConfig)
-            //ReservationStore.addRecurring()
+            ReservationStore.addRecurring()
             Swal.fire({
             position: 'center',
             type: 'success',

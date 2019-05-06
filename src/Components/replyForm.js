@@ -43,8 +43,7 @@ class ReplyForm extends React.Component {
     }).then((result) => {
       if (result.value) {
         ContactStore.replyMail()
-        console.log(ContactStore.message)
-        //ContactStore.deleteContact()
+        ContactStore.deleteContact()
         Swal.fire({
         position: 'center',
         type: 'success',

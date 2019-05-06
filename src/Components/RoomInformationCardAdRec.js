@@ -23,7 +23,6 @@ class ListCardAdRec extends React.Component {
   }
   render() {
     return (
-
       <form action="#" onClick={e => this.onClick(e)} >
       <div className="jumbotron text-white" style={jumbotronStyle}>
         <div className="row">
