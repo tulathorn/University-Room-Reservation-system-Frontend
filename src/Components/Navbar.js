@@ -1,17 +1,14 @@
 import React from 'react'
 import { withRouter } from 'react-router-dom'
-import { createBrowserHistory } from 'history'
 import { Navbar, Nav, NavDropdown, Button } from 'react-bootstrap/'
 import '../Styles/bootstrap/bootstrap.min.css'
 import language from '../languages.json'
-
-const history = createBrowserHistory()
+import history from '../Utils/history'
 
 class UserNavbar extends React.Component {
   logoutClick = props => {
     localStorage.clear()
     localStorage.setItem('language', 0)
-    // Listen for changes to the current location.
     // window.location = '/login'
     history.replace('/login')
     // window.location.reload()

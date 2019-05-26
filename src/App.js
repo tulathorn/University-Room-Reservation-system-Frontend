@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { BrowserRouter, Route, Switch } from 'react-router-dom'
+import { BrowserRouter, Router, Route, Switch } from 'react-router-dom'
 
 import history from './Utils/history'
 
@@ -34,7 +34,7 @@ import AdAllListView from './Views/ad_AllList'
 class App extends Component {
   render() {
     return (
-      <BrowserRouter history={history}>
+      <Router history={history}>
         <Switch>
           <Route exact path="/" component={MainView} />
           <Route path="/login" component={LoginView} />
@@ -60,7 +60,7 @@ class App extends Component {
           <Route path="/ad_booking_rec" component={AdRecBookingView} />
           <Route path="/ad_timetable" component={AdBookingTimatableView} />
         </Switch>
-      </BrowserRouter>
+      </Router>
     )
   }
 }
