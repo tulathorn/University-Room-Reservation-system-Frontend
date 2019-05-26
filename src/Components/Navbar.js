@@ -12,14 +12,9 @@ class UserNavbar extends React.Component {
     localStorage.clear()
     localStorage.setItem('language', 0)
     // Listen for changes to the current location.
-    const unlisten = history.listen((location, action) => {
-      // location is an object like window.location
-      console.log(action, location.pathname, location.state)
-    })
     // window.location = '/login'
-    history.push('/login')
-    window.location.reload()
-    unlisten()
+    history.replace('/login')
+    // window.location.reload()
   }
 
   langEN = () => {
