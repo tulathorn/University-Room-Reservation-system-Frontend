@@ -1,4 +1,5 @@
 import React from 'react'
+import { withRouter } from 'react-router-dom'
 import { createBrowserHistory } from 'history'
 import { Navbar, Nav, NavDropdown, Button } from 'react-bootstrap/'
 import '../Styles/bootstrap/bootstrap.min.css'
@@ -10,9 +11,15 @@ class UserNavbar extends React.Component {
   logoutClick = props => {
     localStorage.clear()
     localStorage.setItem('language', 0)
+    // Listen for changes to the current location.
+    const unlisten = history.listen((location, action) => {
+      // location is an object like window.location
+      console.log(action, location.pathname, location.state)
+    })
     // window.location = '/login'
     history.push('/login')
     window.location.reload()
+    unlisten()
   }
 
   langEN = () => {
@@ -85,4 +92,4 @@ class UserNavbar extends React.Component {
   }
 }
 
-export default UserNavbar
+export default withRouter(UserNavbar)
