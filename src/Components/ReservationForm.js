@@ -28,6 +28,7 @@ const jumbotronStyle = {
   backgroundSize: 'absolute'
 }
 
+@observer
 class ReservationForm extends React.Component {
   setForm = name => event => {
     this.props.setField(name, event.target.value)
@@ -39,52 +40,94 @@ class ReservationForm extends React.Component {
   }
 
   constructor(props) {
-    super(props);
-    this.state = { 
+    super(props)
+    this.state = {
       HasTeacherComputers: false,
       HasStudentComputers: false,
       HasProjector: false,
       HasAirConditioner: false,
       HasWhiteboard: false,
-      HasVisualizer: false};
+      HasVisualizer: false
+    }
   }
 
-  toggleCheck = (field) => {
-    this.setState(state => ({ [field]: !state[field] }));
-  };
+  toggleCheck = field => {
+    this.setState(state => ({ [field]: !state[field] }))
+  }
 
-  reformDatas= () => {
+  reformDatas = () => {
     ReservationStore.setSearch('HasTeacherComputers', this.state.HasTeacherComputers)
     ReservationStore.setSearch('HasStudentComputers', this.state.HasStudentComputers)
     ReservationStore.setSearch('HasProjector', this.state.HasProjector)
     ReservationStore.setSearch('HasAirConditioner', this.state.HasAirConditioner)
     ReservationStore.setSearch('HasWhiteboard', this.state.HasWhiteboard)
     ReservationStore.setSearch('HasVisualizer', this.state.HasVisualizer)
-    localStorage.setItem('ScheduleDate',ReservationStore.searchTemp.Date)
-    localStorage.setItem('ScheduleFrom',ReservationStore.searchTemp.fromhr + ':' + ReservationStore.searchTemp.frommin)
-    localStorage.setItem('ScheduleTo',ReservationStore.searchTemp.tohr + ':' + ReservationStore.searchTemp.tomin)
-    ReservationStore.setSearchConfigTime('Date',ReservationStore.searchTemp.Date)
-    ReservationStore.setSearchConfigTime('StartTime',localStorage.getItem('ScheduleFrom'))
-    ReservationStore.setSearchConfigTime('EndTime',localStorage.getItem('ScheduleTo'))
-    ReservationStore.searchTemp.Building ? ReservationStore.setSearchConfigRoom('Building',ReservationStore.searchTemp.Building) : console.log()
-    ReservationStore.searchTemp.PeopleCapacity ? ReservationStore.setSearchConfigRoom('PeopleCapacity',ReservationStore.searchTemp.PeopleCapacity) : console.log()
-    this.state.HasTeacherComputers ? ReservationStore.setSearchConfigEquip('HasTeacherComputers',1) : console.log()
-    this.state.HasStudentComputers ? ReservationStore.setSearchConfigEquip('HasStudentComputers',1) : console.log()
-    this.state.HasProjector ? ReservationStore.setSearchConfigEquip('HasProjector',1) : console.log()
-    this.state.HasAirConditioner ? ReservationStore.setSearchConfigEquip('HasAirConditioner',1) : console.log()
-    this.state.HasWhiteboard ? ReservationStore.setSearchConfigEquip('HasWhiteboard',1) : console.log()
-    this.state.HasVisualizer ? ReservationStore.setSearchConfigEquip('HasVisualizer',1) : console.log()
+    localStorage.setItem('ScheduleDate', ReservationStore.searchTemp.Date)
+    localStorage.setItem(
+      'ScheduleFrom',
+      ReservationStore.searchTemp.fromhr + ':' + ReservationStore.searchTemp.frommin
+    )
+    localStorage.setItem(
+      'ScheduleTo',
+      ReservationStore.searchTemp.tohr + ':' + ReservationStore.searchTemp.tomin
+    )
+    ReservationStore.setSearchConfigTime('Date', ReservationStore.searchTemp.Date)
+    ReservationStore.setSearchConfigTime('StartTime', localStorage.getItem('ScheduleFrom'))
+    ReservationStore.setSearchConfigTime('EndTime', localStorage.getItem('ScheduleTo'))
+    ReservationStore.searchTemp.Building
+      ? ReservationStore.setSearchConfigRoom('Building', ReservationStore.searchTemp.Building)
+      : console.log()
+    ReservationStore.searchTemp.PeopleCapacity
+      ? ReservationStore.setSearchConfigRoom(
+          'PeopleCapacity',
+          ReservationStore.searchTemp.PeopleCapacity
+        )
+      : console.log()
+    this.state.HasTeacherComputers
+      ? ReservationStore.setSearchConfigEquip('HasTeacherComputers', 1)
+      : console.log()
+    this.state.HasStudentComputers
+      ? ReservationStore.setSearchConfigEquip('HasStudentComputers', 1)
+      : console.log()
+    this.state.HasProjector
+      ? ReservationStore.setSearchConfigEquip('HasProjector', 1)
+      : console.log()
+    this.state.HasAirConditioner
+      ? ReservationStore.setSearchConfigEquip('HasAirConditioner', 1)
+      : console.log()
+    this.state.HasWhiteboard
+      ? ReservationStore.setSearchConfigEquip('HasWhiteboard', 1)
+      : console.log()
+    this.state.HasVisualizer
+      ? ReservationStore.setSearchConfigEquip('HasVisualizer', 1)
+      : console.log()
   }
-  
 
   onSubmit = e => {
     e.preventDefault()
     this.reformDatas()
-    ReservationStore.GetAvailableRoom() 
-    ReservationStore.searchTemp.Date && ReservationStore.searchTemp.fromhr && ReservationStore.searchTemp.frommin && ReservationStore.searchTemp.tohr && ReservationStore.searchTemp.tomin ? moment(moment(ReservationStore.searchTemp.Date+','+ReservationStore.searchTemp.fromhr+':'+ReservationStore.searchTemp.frommin).format('YYYY-MM-DD,HH:mm')).isAfter() ? this.search() : this.timeWarn() : this.warned()
+    console.log('Search config: ', ReservationStore.searchConfig)
+    ReservationStore.GetAvailableRoom()
+    ReservationStore.searchTemp.Date &&
+    ReservationStore.searchTemp.fromhr &&
+    ReservationStore.searchTemp.frommin &&
+    ReservationStore.searchTemp.tohr &&
+    ReservationStore.searchTemp.tomin
+      ? moment(
+          moment(
+            ReservationStore.searchTemp.Date +
+              ',' +
+              ReservationStore.searchTemp.fromhr +
+              ':' +
+              ReservationStore.searchTemp.frommin
+          ).format('YYYY-MM-DD,HH:mm')
+        ).isAfter()
+        ? this.search()
+        : this.timeWarn()
+      : this.warned()
   }
 
-  timeWarn = () =>{
+  timeWarn = () => {
     Swal.fire({
       position: 'center',
       type: 'error',
@@ -96,7 +139,7 @@ class ReservationForm extends React.Component {
     })
   }
 
-  warned = () =>{
+  warned = () => {
     Swal.fire({
       position: 'center',
       type: 'warning',
@@ -112,40 +155,80 @@ class ReservationForm extends React.Component {
     this.props.history.push('/search')
   }
 
-
-  @observer
   render() {
     return (
       <div className="jumbotron" style={jumbotronStyle}>
-        
         <Heading> {language[localStorage.getItem('language')].reservationForm.FindRoom} </Heading>
         <hr className="my-4" color="white" />
-        <SubHeading> {language[localStorage.getItem('language')].reservationForm.Info}: </SubHeading>
+        <SubHeading>
+          {' '}
+          {language[localStorage.getItem('language')].reservationForm.Info}:{' '}
+        </SubHeading>
         <form action="#" onSubmit={e => this.onSubmit(e)}>
           <div className="row">
             <div className="col-md-4 col-sm-12">
-              <NormalText>{language[localStorage.getItem('language')].reservationForm.Date}</NormalText>
-              <input name="date" type="date" className="form-control" id="date"
-              value={ReservationStore.searchTemp.Date} onChange={e => ReservationStore.setSearch('Date', e.target.value)} />
+              <NormalText>
+                {language[localStorage.getItem('language')].reservationForm.Date}
+              </NormalText>
+              <input
+                name="date"
+                type="date"
+                className="form-control"
+                id="date"
+                value={ReservationStore.searchTemp.Date}
+                onChange={e => ReservationStore.setSearch('Date', e.target.value)}
+              />
             </div>
             <div className="col-md-4 col-sm-12">
-              <NormalText>{language[localStorage.getItem('language')].reservationForm.Building}</NormalText>
-              <select name="building" type="text" className="custom-select" id="building"
-                value={ReservationStore.searchTemp.Building} onChange={e => ReservationStore.setSearch('Building', e.target.value)}>
-                <option value="" disabled selected>{language[localStorage.getItem('language')].Additional.Choose}</option>
-                <option value="Witsawa Watthana">{language[localStorage.getItem('language')].Additional.WitsawaWatthana}</option>
-                <option value="CB1">{language[localStorage.getItem('language')].Additional.CB1}</option>
-                <option value="CB2">{language[localStorage.getItem('language')].Additional.CB2}</option>
-                <option value="CB3">{language[localStorage.getItem('language')].Additional.CB3}</option>
-                <option value="CB4">{language[localStorage.getItem('language')].Additional.CB4}</option>
-                <option value="CB5">{language[localStorage.getItem('language')].Additional.CB5}</option>
+              <NormalText>
+                {language[localStorage.getItem('language')].reservationForm.Building}
+              </NormalText>
+              <select
+                name="building"
+                type="text"
+                className="custom-select"
+                id="building"
+                value={ReservationStore.searchTemp.Building}
+                onChange={e => ReservationStore.setSearch('Building', e.target.value)}
+              >
+                <option value="" disabled selected>
+                  {language[localStorage.getItem('language')].Additional.Choose}
+                </option>
+                <option value="Witsawa Watthana">
+                  {language[localStorage.getItem('language')].Additional.WitsawaWatthana}
+                </option>
+                <option value="CB1">
+                  {language[localStorage.getItem('language')].Additional.CB1}
+                </option>
+                <option value="CB2">
+                  {language[localStorage.getItem('language')].Additional.CB2}
+                </option>
+                <option value="CB3">
+                  {language[localStorage.getItem('language')].Additional.CB3}
+                </option>
+                <option value="CB4">
+                  {language[localStorage.getItem('language')].Additional.CB4}
+                </option>
+                <option value="CB5">
+                  {language[localStorage.getItem('language')].Additional.CB5}
+                </option>
               </select>
             </div>
             <div className="col-md-4 col-sm-12">
-              <NormalText>{language[localStorage.getItem('language')].reservationForm.Size}</NormalText>
-              <select name="capacity" type="number" className="custom-select" id="capacity"
-                value={ReservationStore.searchTemp.PeopleCapacity} onChange={e => ReservationStore.setSearch('PeopleCapacity', e.target.value)}>
-                <option value="" disabled selected>{language[localStorage.getItem('language')].Additional.Choose}</option>
+              <NormalText>
+                {language[localStorage.getItem('language')].reservationForm.Size}
+              </NormalText>
+              <select
+                name="capacity"
+                type="number"
+                className="custom-select"
+                id="capacity"
+                value={ReservationStore.searchTemp.PeopleCapacity}
+                onChange={e => ReservationStore.setSearch('PeopleCapacity', e.target.value)}
+              >
+                <option value="" disabled selected>
+                  {language[localStorage.getItem('language')].Additional.Choose}
+                </option>
                 <option value="10">10</option>
                 <option value="20">20</option>
                 <option value="30">30</option>
@@ -159,20 +242,33 @@ class ReservationForm extends React.Component {
                 <option value="120">120</option>
                 <option value="150">150</option>
                 <option value="200">200</option>
-                </select>
+              </select>
             </div>
           </div>
           <hr className="my-4" color="white" />
-          <SubHeading> {language[localStorage.getItem('language')].reservationForm.Time}: </SubHeading>
-          
+          <SubHeading>
+            {' '}
+            {language[localStorage.getItem('language')].reservationForm.Time}:{' '}
+          </SubHeading>
+
           <div className="row">
             <div className="col-md-2 col-sm-12">
-            <NormalText>{language[localStorage.getItem('language')].reservationForm.From}</NormalText>
+              <NormalText>
+                {language[localStorage.getItem('language')].reservationForm.From}
+              </NormalText>
             </div>
             <div className="col-md-3 col-sm-12">
-              <select name="fromhr" type="number" className="custom-select" id="fromhr"
-              value={ReservationStore.searchTemp.fromhr} onChange={e => ReservationStore.setSearch('fromhr', e.target.value)}>
-                <option value="" disabled selected>{language[localStorage.getItem('language')].Additional.Choose}</option>
+              <select
+                name="fromhr"
+                type="number"
+                className="custom-select"
+                id="fromhr"
+                value={ReservationStore.searchTemp.fromhr}
+                onChange={e => ReservationStore.setSearch('fromhr', e.target.value)}
+              >
+                <option value="" disabled selected>
+                  {language[localStorage.getItem('language')].Additional.Choose}
+                </option>
                 <option value="00">00</option>
                 <option value="01">01</option>
                 <option value="02">02</option>
@@ -200,12 +296,22 @@ class ReservationForm extends React.Component {
               </select>
             </div>
             <div className="col-md-1 col-sm-12">
-            <center><NormalText> : </NormalText></center>
+              <center>
+                <NormalText> : </NormalText>
+              </center>
             </div>
             <div className="col-md-3 col-sm-12">
-              <select name="frommin" type="number" className="custom-select" id="frommin"
-              value={ReservationStore.searchTemp.frommin} onChange={e => ReservationStore.setSearch('frommin', e.target.value)}>
-                <option value="" disabled selected>{language[localStorage.getItem('language')].Additional.Choose}</option>
+              <select
+                name="frommin"
+                type="number"
+                className="custom-select"
+                id="frommin"
+                value={ReservationStore.searchTemp.frommin}
+                onChange={e => ReservationStore.setSearch('frommin', e.target.value)}
+              >
+                <option value="" disabled selected>
+                  {language[localStorage.getItem('language')].Additional.Choose}
+                </option>
                 <option value="00">00</option>
                 <option value="30">30</option>
               </select>
@@ -213,12 +319,22 @@ class ReservationForm extends React.Component {
           </div>
           <div className="row">
             <div className="col-md-2 col-sm-12">
-            <NormalText>{language[localStorage.getItem('language')].reservationForm.To}</NormalText>
+              <NormalText>
+                {language[localStorage.getItem('language')].reservationForm.To}
+              </NormalText>
             </div>
             <div className="col-md-3 col-sm-12">
-              <select name="tohr" type="number" className="custom-select" id="tohr"
-              value={ReservationStore.searchTemp.tohr} onChange={e => ReservationStore.setSearch('tohr', e.target.value)}>
-                <option value="" disabled selected>{language[localStorage.getItem('language')].Additional.Choose}</option>
+              <select
+                name="tohr"
+                type="number"
+                className="custom-select"
+                id="tohr"
+                value={ReservationStore.searchTemp.tohr}
+                onChange={e => ReservationStore.setSearch('tohr', e.target.value)}
+              >
+                <option value="" disabled selected>
+                  {language[localStorage.getItem('language')].Additional.Choose}
+                </option>
                 <option value="00">00</option>
                 <option value="01">01</option>
                 <option value="02">02</option>
@@ -246,56 +362,130 @@ class ReservationForm extends React.Component {
               </select>
             </div>
             <div className="col-md-1 col-sm-12">
-            <center><NormalText> : </NormalText></center>
+              <center>
+                <NormalText> : </NormalText>
+              </center>
             </div>
             <div className="col-md-3 col-sm-12">
-              <select name="tomin" type="number" className="custom-select" id="tomin"
-              value={ReservationStore.searchTemp.tomin} onChange={e => ReservationStore.setSearch('tomin', e.target.value)}>
-                <option value="" disabled selected>{language[localStorage.getItem('language')].Additional.Choose}</option>
+              <select
+                name="tomin"
+                type="number"
+                className="custom-select"
+                id="tomin"
+                value={ReservationStore.searchTemp.tomin}
+                onChange={e => ReservationStore.setSearch('tomin', e.target.value)}
+              >
+                <option value="" disabled selected>
+                  {language[localStorage.getItem('language')].Additional.Choose}
+                </option>
                 <option value="00">00</option>
                 <option value="30">30</option>
               </select>
             </div>
           </div>
           <hr className="my-4" color="white" />
-          <SubHeading> {language[localStorage.getItem('language')].reservationForm.Amenity}: </SubHeading>
-          
-            <div className="form-check">
-              <div className="row">
-                <div className="col-md-6 col-sm-12">
-                  <input name="teachercom" type="checkbox" className="form-check-input" id="teachercom"
-                  value={this.state.HasTeacherComputers} onClick={() => this.toggleCheck('HasTeacherComputers')} />
-                  <label className="form-check-label" for="teachercom" style={textColor}>{language[localStorage.getItem('language')].reservationForm.Amenities.TeacherComputer}</label><br/>
-                  <input name="studentcom" type="checkbox" className="form-check-input" id="studentcom"
-                  value={this.state.HasStudentComputers} onClick={() => this.toggleCheck('HasStudentComputers')} />
-                  <label className="form-check-label" for="studentcom" style={textColor}>{language[localStorage.getItem('language')].reservationForm.Amenities.StudentComputer}</label><br/>
-                  <input name="aircon" type="checkbox" className="form-check-input" id="aircon"
-                  value={this.state.HasAirConditioner} onClick={() => this.toggleCheck('HasAirConditioner')} />
-                  <label className="form-check-label" for="aircon" style={textColor}>{language[localStorage.getItem('language')].reservationForm.Amenities.AirConditioner}</label><br/>
-                </div>
-                <div className="col-md-6 col-sm-12">
-                  <input name="projector" type="checkbox" className="form-check-input" id="projector"
-                  value={this.state.HasProjector} onClick={() => this.toggleCheck('HasProjector')} />
-                  <label className="form-check-label" for="projector" style={textColor}>{language[localStorage.getItem('language')].reservationForm.Amenities.Projector}</label><br/>
-                  <input name="whiteboard" type="checkbox" className="form-check-input" id="whiteboard"
-                  value={this.state.HasWhiteboard} onClick={() => this.toggleCheck('HasWhiteboard')} />
-                  <label className="form-check-label" for="whiteboard" style={textColor}>{language[localStorage.getItem('language')].reservationForm.Amenities.WhiteBoard}</label><br/>
-                  <input name="visualizer" type="checkbox" className="form-check-input" id="visualizer"
-                  value={this.state.HasVisualizer} onClick={() => this.toggleCheck('HasVisualizer')} />
-                  <label className="form-check-label" for="visualizer" style={textColor}>{language[localStorage.getItem('language')].reservationForm.Amenities.Visualizer}</label><br/>
-                </div>
+          <SubHeading>
+            {' '}
+            {language[localStorage.getItem('language')].reservationForm.Amenity}:{' '}
+          </SubHeading>
+
+          <div className="form-check">
+            <div className="row">
+              <div className="col-md-6 col-sm-12">
+                <input
+                  name="teachercom"
+                  type="checkbox"
+                  className="form-check-input"
+                  id="teachercom"
+                  value={this.state.HasTeacherComputers}
+                  onClick={() => this.toggleCheck('HasTeacherComputers')}
+                />
+                <label className="form-check-label" for="teachercom" style={textColor}>
+                  {
+                    language[localStorage.getItem('language')].reservationForm.Amenities
+                      .TeacherComputer
+                  }
+                </label>
+                <br />
+                <input
+                  name="studentcom"
+                  type="checkbox"
+                  className="form-check-input"
+                  id="studentcom"
+                  value={this.state.HasStudentComputers}
+                  onClick={() => this.toggleCheck('HasStudentComputers')}
+                />
+                <label className="form-check-label" for="studentcom" style={textColor}>
+                  {
+                    language[localStorage.getItem('language')].reservationForm.Amenities
+                      .StudentComputer
+                  }
+                </label>
+                <br />
+                <input
+                  name="aircon"
+                  type="checkbox"
+                  className="form-check-input"
+                  id="aircon"
+                  value={this.state.HasAirConditioner}
+                  onClick={() => this.toggleCheck('HasAirConditioner')}
+                />
+                <label className="form-check-label" for="aircon" style={textColor}>
+                  {
+                    language[localStorage.getItem('language')].reservationForm.Amenities
+                      .AirConditioner
+                  }
+                </label>
+                <br />
+              </div>
+              <div className="col-md-6 col-sm-12">
+                <input
+                  name="projector"
+                  type="checkbox"
+                  className="form-check-input"
+                  id="projector"
+                  value={this.state.HasProjector}
+                  onClick={() => this.toggleCheck('HasProjector')}
+                />
+                <label className="form-check-label" for="projector" style={textColor}>
+                  {language[localStorage.getItem('language')].reservationForm.Amenities.Projector}
+                </label>
+                <br />
+                <input
+                  name="whiteboard"
+                  type="checkbox"
+                  className="form-check-input"
+                  id="whiteboard"
+                  value={this.state.HasWhiteboard}
+                  onClick={() => this.toggleCheck('HasWhiteboard')}
+                />
+                <label className="form-check-label" for="whiteboard" style={textColor}>
+                  {language[localStorage.getItem('language')].reservationForm.Amenities.WhiteBoard}
+                </label>
+                <br />
+                <input
+                  name="visualizer"
+                  type="checkbox"
+                  className="form-check-input"
+                  id="visualizer"
+                  value={this.state.HasVisualizer}
+                  onClick={() => this.toggleCheck('HasVisualizer')}
+                />
+                <label className="form-check-label" for="visualizer" style={textColor}>
+                  {language[localStorage.getItem('language')].reservationForm.Amenities.Visualizer}
+                </label>
+                <br />
               </div>
             </div>
+          </div>
 
-
-
-
-
-          <center><button type="submit" value="Submit" className="btn btn-info">
-          {language[localStorage.getItem('language')].Main.Search}</button> </center>
+          <center>
+            <button type="submit" value="Submit" className="btn btn-info">
+              {language[localStorage.getItem('language')].Main.Search}
+            </button>{' '}
+          </center>
         </form>
       </div>
-      
     )
   }
 }
