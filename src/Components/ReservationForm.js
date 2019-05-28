@@ -6,6 +6,9 @@ import { observer } from 'mobx-react'
 import Swal from 'sweetalert2'
 import ReservationStore from '../stores/ReservationStore'
 import moment from 'moment'
+import DayPicker from 'react-day-picker'
+import DayPickerInput from 'react-day-picker/DayPickerInput'
+import 'react-day-picker/lib/style.css'
 
 const Heading = styled.h2`
   color: white;
@@ -28,20 +31,17 @@ const jumbotronStyle = {
   backgroundSize: 'absolute'
 }
 
+const modifiersStyles = {
+  DayPickerInput: {}
+}
+
 @observer
 class ReservationForm extends React.Component {
-  setForm = name => event => {
-    this.props.setField(name, event.target.value)
-  }
-
-  componentDidMount() {
-    ReservationStore.cleanSearchConfig()
-    ReservationStore.cleanSearch()
-  }
-
   constructor(props) {
     super(props)
+    this.handleDayClick = this.handleDayClick.bind(this)
     this.state = {
+      selectedDay: undefined,
       HasTeacherComputers: false,
       HasStudentComputers: false,
       HasProjector: false,
@@ -51,6 +51,20 @@ class ReservationForm extends React.Component {
     }
   }
 
+  handleDayClick(day) {
+    this.setState({ selectedDay: day })
+    console.log(moment(day).format('YYYY-MM-DD'))
+    ReservationStore.setSearch('Date', moment(day).format('YYYY-MM-DD'))
+  }
+
+  setForm = name => event => {
+    this.props.setField(name, event.target.value)
+  }
+
+  componentDidMount() {
+    ReservationStore.cleanSearchConfig()
+    ReservationStore.cleanSearch()
+  }
   toggleCheck = field => {
     this.setState(state => ({ [field]: !state[field] }))
   }
@@ -170,14 +184,23 @@ class ReservationForm extends React.Component {
               <NormalText>
                 {language[localStorage.getItem('language')].reservationForm.Date}
               </NormalText>
-              <input
+              {/* <input
                 name="date"
                 type="date"
                 className="form-control"
                 id="date"
                 value={ReservationStore.searchTemp.Date}
                 onChange={e => ReservationStore.setSearch('Date', e.target.value)}
+              /> */}
+              <DayPickerInput
+                inputProps={{ className: 'form-control' }}
+                style={{ width: '100%' }}
+                onDayChange={day => {
+                  console.log(moment(day).format('YYYY-MM-DD'))
+                  ReservationStore.setSearch('Date', moment(day).format('YYYY-MM-DD'))
+                }}
               />
+              {/* <DayPicker onDayClick={this.handleDayClick} selectedDays={this.state.selectedDay} /> */}
             </div>
             <div className="col-md-4 col-sm-12">
               <NormalText>
