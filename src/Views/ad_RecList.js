@@ -62,7 +62,7 @@ class AdRecListView extends Component {
                 {ReservationStore.searchTemp.Day ? 
                   <p><b>{language[localStorage.getItem('language')].recPreviewCard.Day}</b> : {localStorage.getItem('printDay')}</p> : <p></p>}
                 {ReservationStore.searchTemp.StartDate ? 
-                  <p><b>{language[localStorage.getItem('language')].recPreviewCard.Date}</b> : {ReservationStore.searchTemp.StartDate} <b>{language[localStorage.getItem('language')].List.To}</b> {ReservationStore.searchTemp.EndStart}</p> : <p></p>}
+                  <p><b>{language[localStorage.getItem('language')].recPreviewCard.Date}</b> : {ReservationStore.searchTemp.StartDate} <b>{language[localStorage.getItem('language')].List.To}</b> {ReservationStore.searchTemp.EndDate}</p> : <p></p>}
                 {ReservationStore.searchTemp.tohr ? 
                   <p><b>{language[localStorage.getItem('language')].recPreviewCard.From}</b> : {localStorage.getItem('ScheduleFrom')} <b>{language[localStorage.getItem('language')].List.To}</b> {localStorage.getItem('ScheduleTo')}</p> : <p></p>}
                 

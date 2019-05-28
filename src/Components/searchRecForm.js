@@ -6,6 +6,8 @@ import language from '../languages.json'
 import Swal from 'sweetalert2'
 import ReservationStore from '../stores/ReservationStore';
 import moment from 'moment'
+import DayPickerInput from 'react-day-picker/DayPickerInput'
+import 'react-day-picker/lib/style.css'
 
 const NormalText = styled.p`
   color: white;
@@ -87,11 +89,33 @@ class SearchRecForm extends React.Component {
     e.preventDefault()
     this.reformDatas()
     ReservationStore.GetAvailableRoom()
-    ReservationStore.searchTemp.StartDate && ReservationStore.searchTemp.EndDate && ReservationStore.searchTemp.Day && ReservationStore.searchTemp.fromhr && ReservationStore.searchTemp.frommin && ReservationStore.searchTemp.tohr && ReservationStore.searchTemp.tomin ? 
-      moment(moment(ReservationStore.searchTemp.StartDate).format('YYYY-MM-DD')).isBefore(ReservationStore.searchTemp.EndDate) ? moment(moment(ReservationStore.searchTemp.StartDate+','+ReservationStore.searchTemp.fromhr+':'+ReservationStore.searchTemp.frommin).format('YYYY-MM-DD,HH:mm')).isAfter() ? 
-      this.search() : this.timeWarn() : this.dateWarn() : this.warned()
-    
-    
+    if (
+      ReservationStore.searchTemp.StartDate && 
+      ReservationStore.searchTemp.EndDate &&
+      ReservationStore.searchTemp.Day &&
+      ReservationStore.searchTemp.fromhr &&
+      ReservationStore.searchTemp.frommin &&
+      ReservationStore.searchTemp.tohr &&
+      ReservationStore.searchTemp.tomin
+    ) {
+      if(moment(moment(ReservationStore.searchTemp.StartDate).format('YYYY-MM-DD')).isBefore(ReservationStore.searchTemp.EndDate))
+        {
+          if(moment(moment(ReservationStore.searchTemp.StartDate).format('YYYY-MM-DD')).isAfter())
+          {
+          let tempStart = parseInt(ReservationStore.searchTemp.fromhr)
+          let tempEnd = parseInt(ReservationStore.searchTemp.tohr)
+            if (tempEnd >= tempStart) {
+            this.search()
+            } else {
+              this.timeWarn()
+              }
+          }
+          else{this.timeWarn()}
+        }
+      else
+      {this.dateWarn()}
+    }
+    else{this.warned()}
   }
 
   dateWarn = () =>{
@@ -183,15 +207,27 @@ class SearchRecForm extends React.Component {
                 <NormalText>{language[localStorage.getItem('language')].searchRecForm.From}</NormalText>
               </div>
               <div className="col-md-3 col-sm-12">
-                <input name="startdate" type="date" className="form-control" id="startdate"
-                value={ReservationStore.searchTemp.StartDate} onChange={e => ReservationStore.setSearch('StartDate', e.target.value)}/>
+                <DayPickerInput
+                  inputProps={{ className: 'form-control' }}
+                  style={{ width: '100%' }}
+                  onDayChange={day => {
+                    console.log(moment(day).format('YYYY-MM-DD'))
+                    ReservationStore.setSearch('StartDate', moment(day).format('YYYY-MM-DD'))
+                  }}
+                />
               </div>
               <div className="col-md-3 col-sm-12">
                 <NormalText>{language[localStorage.getItem('language')].searchRecForm.To}</NormalText>
               </div>
               <div className="col-md-3 col-sm-12">
-                <input name="enddate" type="date" className="form-control" id="enddate"
-                value={ReservationStore.searchTemp.EndDate} onChange={e => ReservationStore.setSearch('EndDate', e.target.value)}/>
+                <DayPickerInput
+                  inputProps={{ className: 'form-control' }}
+                  style={{ width: '100%' }}
+                  onDayChange={day => {
+                    console.log(moment(day).format('YYYY-MM-DD'))
+                    ReservationStore.setSearch('EndDate', moment(day).format('YYYY-MM-DD'))
+                  }}
+                />
               </div>
             </div>
 

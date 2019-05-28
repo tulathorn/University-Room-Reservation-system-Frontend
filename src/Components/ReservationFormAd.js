@@ -6,6 +6,8 @@ import { observer } from 'mobx-react'
 import ReservationStore from '../stores/ReservationStore';
 import Swal from 'sweetalert2'
 import moment from 'moment'
+import DayPickerInput from 'react-day-picker/DayPickerInput'
+import 'react-day-picker/lib/style.css'
 
 const Heading = styled.h2`
   color: white;
@@ -81,8 +83,28 @@ class ReservationFormAd extends React.Component {
     e.preventDefault()
     this.reformDatas()
     ReservationStore.GetAvailableRoom()
-    ReservationStore.searchTemp.Date && ReservationStore.searchTemp.fromhr && ReservationStore.searchTemp.frommin && ReservationStore.searchTemp.tohr && ReservationStore.searchTemp.tomin ? moment(moment(ReservationStore.searchTemp.Date+','+ReservationStore.searchTemp.fromhr+':'+ReservationStore.searchTemp.frommin).format('YYYY-MM-DD,HH:mm')).isAfter() ? this.search() : this.timeWarn() : this.warned()
-  }
+    if (
+      ReservationStore.searchTemp.Date &&
+      ReservationStore.searchTemp.fromhr &&
+      ReservationStore.searchTemp.frommin &&
+      ReservationStore.searchTemp.tohr &&
+      ReservationStore.searchTemp.tomin
+    ) {
+      if (moment(moment(ReservationStore.searchTemp.Date).format('YYYY-MM-DD')).isAfter()) {
+        let tempStart = parseInt(ReservationStore.searchTemp.fromhr)
+        let tempEnd = parseInt(ReservationStore.searchTemp.tohr)
+        if (tempEnd >= tempStart) {
+          this.search()
+        } else {
+          this.timeWarn()
+        }
+      } else {
+        this.timeWarn()
+      }
+    } else {
+      this.warned()
+    }
+    }
 
   timeWarn = () =>{
     Swal.fire({
@@ -125,8 +147,14 @@ class ReservationFormAd extends React.Component {
           <div className="row">
             <div className="col-md-4 col-sm-12">
               <NormalText>{language[localStorage.getItem('language')].reservationForm.Date}</NormalText>
-              <input name="date" type="date" className="form-control" id="date"
-              value={ReservationStore.searchTemp.Date} onChange={e => ReservationStore.setSearch('Date', e.target.value)} />
+              <DayPickerInput
+                inputProps={{ className: 'form-control' }}
+                style={{ width: '100%' }}
+                onDayChange={day => {
+                  console.log(moment(day).format('YYYY-MM-DD'))
+                  ReservationStore.setSearch('Date', moment(day).format('YYYY-MM-DD'))
+                }}
+              />
             </div>
             <div className="col-md-4 col-sm-12">
               <NormalText>{language[localStorage.getItem('language')].reservationForm.Building}</NormalText>
