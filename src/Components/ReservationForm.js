@@ -6,7 +6,6 @@ import { observer } from 'mobx-react'
 import Swal from 'sweetalert2'
 import ReservationStore from '../stores/ReservationStore'
 import moment from 'moment'
-import DayPicker from 'react-day-picker'
 import DayPickerInput from 'react-day-picker/DayPickerInput'
 import 'react-day-picker/lib/style.css'
 
@@ -29,10 +28,6 @@ const jumbotronStyle = {
   height: 'auto',
   backgroundImage: `url(${jumbotronImage})`,
   backgroundSize: 'absolute'
-}
-
-const modifiersStyles = {
-  DayPickerInput: {}
 }
 
 @observer
@@ -119,26 +114,31 @@ class ReservationForm extends React.Component {
 
   onSubmit = e => {
     e.preventDefault()
+    console.log(e.target)
     this.reformDatas()
     console.log('Search config: ', ReservationStore.searchConfig)
-    ReservationStore.GetAvailableRoom()
-    ReservationStore.searchTemp.Date &&
-    ReservationStore.searchTemp.fromhr &&
-    ReservationStore.searchTemp.frommin &&
-    ReservationStore.searchTemp.tohr &&
-    ReservationStore.searchTemp.tomin
-      ? moment(
-          moment(
-            ReservationStore.searchTemp.Date +
-              ',' +
-              ReservationStore.searchTemp.fromhr +
-              ':' +
-              ReservationStore.searchTemp.frommin
-          ).format('YYYY-MM-DD,HH:mm')
-        ).isAfter()
-        ? this.search()
-        : this.timeWarn()
-      : this.warned()
+    console.log('Before Sumbit', ReservationStore.searchTemp)
+    if (
+      ReservationStore.searchTemp.Date &&
+      ReservationStore.searchTemp.fromhr &&
+      ReservationStore.searchTemp.frommin &&
+      ReservationStore.searchTemp.tohr &&
+      ReservationStore.searchTemp.tomin
+    ) {
+      if (moment(moment(ReservationStore.searchTemp.Date).format('YYYY-MM-DD')).isAfter()) {
+        let tempStart = parseInt(ReservationStore.searchTemp.fromhr)
+        let tempEnd = parseInt(ReservationStore.searchTemp.tohr)
+        if (tempEnd >= tempStart) {
+          this.search()
+        } else {
+          this.timeWarn()
+        }
+      } else {
+        this.timeWarn()
+      }
+    } else {
+      this.warned()
+    }
   }
 
   timeWarn = () => {
@@ -184,14 +184,6 @@ class ReservationForm extends React.Component {
               <NormalText>
                 {language[localStorage.getItem('language')].reservationForm.Date}
               </NormalText>
-              {/* <input
-                name="date"
-                type="date"
-                className="form-control"
-                id="date"
-                value={ReservationStore.searchTemp.Date}
-                onChange={e => ReservationStore.setSearch('Date', e.target.value)}
-              /> */}
               <DayPickerInput
                 inputProps={{ className: 'form-control' }}
                 style={{ width: '100%' }}
@@ -200,7 +192,6 @@ class ReservationForm extends React.Component {
                   ReservationStore.setSearch('Date', moment(day).format('YYYY-MM-DD'))
                 }}
               />
-              {/* <DayPicker onDayClick={this.handleDayClick} selectedDays={this.state.selectedDay} /> */}
             </div>
             <div className="col-md-4 col-sm-12">
               <NormalText>
